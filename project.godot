@@ -8,6 +8,64 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://characters/character/Character.gd"
+}, {
+"base": "State",
+"class": "CharacterState",
+"language": "GDScript",
+"path": "res://characters/character/states/base/CharacterState.gd"
+}, {
+"base": "StateMachine",
+"class": "CharacterStateMachine",
+"language": "GDScript",
+"path": "res://characters/character/CharacterStateMachine.gd"
+}, {
+"base": "Node",
+"class": "InputController",
+"language": "GDScript",
+"path": "res://characters/character/input/InputController.gd"
+}, {
+"base": "Node2D",
+"class": "Interaction",
+"language": "GDScript",
+"path": "res://utility/interaction/Interaction.gd"
+}, {
+"base": "Character",
+"class": "Player",
+"language": "GDScript",
+"path": "res://characters/player/Player.gd"
+}, {
+"base": "InputController",
+"class": "PlayerInputController",
+"language": "GDScript",
+"path": "res://characters/character/input/PlayerInputController.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://utility/state_machine/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://utility/state_machine/StateMachine.gd"
+} ]
+_global_script_class_icons={
+"Character": "",
+"CharacterState": "",
+"CharacterStateMachine": "",
+"InputController": "",
+"Interaction": "",
+"Player": "",
+"PlayerInputController": "",
+"State": "",
+"StateMachine": ""
+}
+
 [application]
 
 config/name="PerlaKnight"
