@@ -94,7 +94,8 @@ func import(source_file, save_path, options, platform_v, r_gen_files):
 	packed_scene.pack(map)
 	
 	var ret = ResourceSaver.save("%s.%s" % [save_path, get_save_extension()], packed_scene)
-	emit_signal("import_finished", source_file)
+	if options.Reload_Inheriting_Scene:
+		emit_signal("import_finished", source_file)
 	return ret
 
 #create layers in level
