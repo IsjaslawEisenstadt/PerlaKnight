@@ -23,7 +23,7 @@ export var move_damping: float = 0.5
 
 var current_move_speed: float
 var current_move_damping: float
-var current_move_direction: float
+var current_move_direction: int
 
 func _ready() -> void:
 	current_move_speed = move_speed
