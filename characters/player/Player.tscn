@@ -9,18 +9,15 @@
 [ext_resource path="res://characters/character/states/jump/FallState.gd" type="Script" id=9]
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=10]
 
-[sub_resource type="CapsuleShape2D" id=9]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 9.0
 height = 15.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "dash"
-
 [sub_resource type="Animation" id=2]
-resource_name = "death"
 
 [sub_resource type="Animation" id=3]
-resource_name = "idle"
+
+[sub_resource type="Animation" id=4]
 length = 1.2
 loop = true
 step = 0.05
@@ -37,8 +34,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "jump_fall"
+[sub_resource type="Animation" id=5]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -53,11 +49,10 @@ tracks/0/keys = {
 "values": [ 45 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=6]
 resource_name = "jump_land"
 
-[sub_resource type="Animation" id=5]
-resource_name = "jump_mid"
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -72,8 +67,7 @@ tracks/0/keys = {
 "values": [ 44 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "jump_start"
+[sub_resource type="Animation" id=8]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -88,8 +82,7 @@ tracks/0/keys = {
 "values": [ 41, 43 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "run"
+[sub_resource type="Animation" id=9]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -105,8 +98,7 @@ tracks/0/keys = {
 "values": [ 6, 13 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "slide"
+[sub_resource type="Animation" id=10]
 
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
@@ -119,22 +111,22 @@ vframes = 17
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, -16.5 )
-shape = SubResource( 9 )
+shape = SubResource( 1 )
 
 [node name="InteractionRay" parent="." index="2"]
 visible = false
 position = Vector2( 0, -16 )
 
 [node name="AnimationPlayer" parent="." index="3"]
-anims/dash = SubResource( 1 )
-anims/death = SubResource( 2 )
-anims/idle = SubResource( 3 )
-anims/jump_fall = SubResource( 4 )
-anims/jump_land = SubResource( 10 )
-anims/jump_mid = SubResource( 5 )
-anims/jump_start = SubResource( 6 )
-anims/run = SubResource( 7 )
-anims/slide = SubResource( 8 )
+anims/dash = SubResource( 2 )
+anims/death = SubResource( 3 )
+anims/idle = SubResource( 4 )
+anims/jump_fall = SubResource( 5 )
+anims/jump_land = SubResource( 6 )
+anims/jump_mid = SubResource( 7 )
+anims/jump_start = SubResource( 8 )
+anims/run = SubResource( 9 )
+anims/slide = SubResource( 10 )
 
 [node name="InputController" parent="." index="4"]
 script = ExtResource( 2 )
@@ -174,5 +166,4 @@ move_damping = 0.8
 turn_state_path = NodePath("")
 
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
-visible = false
 current = true
