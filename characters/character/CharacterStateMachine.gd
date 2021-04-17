@@ -15,4 +15,5 @@ func _push_state(next_state: State, params = null) -> bool:
 	return false
 
 func start() -> void:
-	_push_state(StartState)
+	var start_success = _push_state(StartState)
+	assert(start_success)

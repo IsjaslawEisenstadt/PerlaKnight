@@ -22,3 +22,11 @@ func _is_action_just_activated(_name: String) -> bool:
 
 func _is_action_just_deactivated(_name: String) -> bool:
 	return false
+
+func _is_moving() -> bool:
+	return _get_move_direction() != 0
+
+func _get_move_direction() -> int:
+	var left: bool = _is_action_active("move_left")
+	var right: bool = _is_action_active("move_right")
+	return int(right) - int(left)
