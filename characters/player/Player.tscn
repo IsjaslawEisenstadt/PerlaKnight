@@ -1,15 +1,178 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/character/input/PlayerInputController.gd" type="Script" id=2]
+[ext_resource path="res://characters/character/states/IdleState.gd" type="Script" id=3]
+[ext_resource path="res://characters/player/textures/PLACERHOLDER_player_sheet.png" type="Texture" id=4]
+[ext_resource path="res://characters/character/states/move/MoveState.gd" type="Script" id=5]
+[ext_resource path="res://characters/character/states/jump/JumpState.gd" type="Script" id=8]
+[ext_resource path="res://characters/character/states/jump/FallState.gd" type="Script" id=9]
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=10]
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 9.0
+height = 15.0
+
+[sub_resource type="Animation" id=1]
+resource_name = "dash"
+
+[sub_resource type="Animation" id=2]
+resource_name = "death"
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 1.2
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.45, 0.65, 0.85, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "jump_fall"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 45 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "jump_land"
+
+[sub_resource type="Animation" id=5]
+resource_name = "jump_mid"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 44 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "jump_start"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 41, 43 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "run"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 6, 13 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "slide"
 
 [node name="Player" instance=ExtResource( 1 )]
+script = ExtResource( 10 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 4 )
+offset = Vector2( 7.5, -21 )
+hframes = 6
+vframes = 17
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -16.5 )
+shape = SubResource( 9 )
+
+[node name="InteractionRay" parent="." index="2"]
+visible = false
+position = Vector2( 0, -16 )
+
+[node name="AnimationPlayer" parent="." index="3"]
+anims/dash = SubResource( 1 )
+anims/death = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/jump_fall = SubResource( 4 )
+anims/jump_land = SubResource( 10 )
+anims/jump_mid = SubResource( 5 )
+anims/jump_start = SubResource( 6 )
+anims/run = SubResource( 7 )
+anims/slide = SubResource( 8 )
 
 [node name="InputController" parent="." index="4"]
 script = ExtResource( 2 )
 
-[node name="StateMachine" parent="." index="5"]
-start_state_path = NodePath("")
+[node name="IdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource( 3 )
+animation_name = "idle"
+move_speed = 0.0
+move_damping = 0.8
+
+[node name="Jump" type="Node" parent="StateMachine" index="1"]
+
+[node name="JumpState" type="Node" parent="StateMachine/Jump" index="0"]
+script = ExtResource( 8 )
+animation_name = "jump_start"
+move_speed = 100.0
+move_damping = 0.8
+min_jump_height = 15.0
+use_mid_jump_animation = true
+mid_jump_animation = "jump_mid"
+
+[node name="FallState" type="Node" parent="StateMachine/Jump" index="1"]
+script = ExtResource( 9 )
+animation_name = "jump_fall"
+move_speed = 100.0
+move_damping = 0.8
+fast_land_state_path = NodePath("")
+slow_land_state_path = NodePath("")
+
+[node name="Move" type="Node" parent="StateMachine" index="2"]
+
+[node name="MoveState" type="Node" parent="StateMachine/Move" index="0"]
+script = ExtResource( 5 )
+animation_name = "run"
+move_speed = 100.0
+move_damping = 0.8
+turn_state_path = NodePath("")
 
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
+visible = false
 current = true
