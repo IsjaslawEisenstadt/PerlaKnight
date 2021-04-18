@@ -1,10 +1,6 @@
 extends PhysicsState
 class_name LandState
 
-"""
-The character is landing on its feet.
-"""
-
 # dictates how much velocity (%) will be lost upon landing.
 export(float, 0.0, 1.0) var slowdown: float = 1.0
 

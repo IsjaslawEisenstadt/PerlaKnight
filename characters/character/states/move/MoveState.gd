@@ -1,10 +1,6 @@
 extends PhysicsState
 class_name MoveState
 
-"""
-regular walk state with optional _running
-"""
-
 onready var IdleState := get_node_or_null(idle_state_path) as CharacterState
 onready var TurnState := get_node_or_null(turn_state_path) as CharacterState
 onready var JumpState := get_node_or_null(jump_state_path) as CharacterState
