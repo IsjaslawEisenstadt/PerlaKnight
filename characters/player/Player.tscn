@@ -117,6 +117,7 @@ tracks/0/keys = {
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
 dash_acquired = true
+double_jump_acquired = true
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 4 )

@@ -9,8 +9,12 @@ onready var StateMachine := $StateMachine
 onready var InteractionRay := get_node_or_null("InteractionRay") as RayCast2D
 
 export var dash_acquired: bool = false
+export var double_jump_acquired: bool = false
+
 var velocity := Vector2.ZERO
 var look_direction: int = 1 setget set_look_direction
+
+var can_double_jump: bool = double_jump_acquired
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
@@ -28,6 +32,9 @@ func _process(delta: float):
 			assert(interaction is Interaction)
 			if interaction._can_interact(self):
 				interaction._interact(self)
+	
+	if double_jump_acquired && !can_double_jump && is_on_floor():
+		can_double_jump = true
 
 	StateMachine._state_machine_process(delta)
 

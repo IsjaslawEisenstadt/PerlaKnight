@@ -43,8 +43,13 @@ func _state_process(delta: float) -> void:
 	_fall_time += delta
 	
 	if _was_moving && host.InputController._is_action_just_activated("jump") && _fall_time < coyote_jump_time:
-			if state_machine._pop_push(JumpState):
-				return
+		if state_machine._pop_push(JumpState):
+			return
+	
+	if host.can_double_jump && host.InputController._is_action_just_activated("jump"):
+		if state_machine._pop_push(JumpState):
+			host.can_double_jump = false
+			return
 
 func _state_physics_process(delta: float) -> void:
 	._state_physics_process(delta)

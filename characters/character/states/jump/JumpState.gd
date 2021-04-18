@@ -39,6 +39,11 @@ func _state_process(delta: float) -> void:
 	if host.InputController._is_action_just_activated("dash"):
 		if state_machine._pop_push(DashState):
 			return
+	
+	if host.can_double_jump && host.InputController._is_action_just_activated("jump"):
+		if state_machine._pop_push(self):
+			host.can_double_jump = false
+			return
 
 func _state_physics_process(delta: float) -> void:
 	._state_physics_process(delta)
