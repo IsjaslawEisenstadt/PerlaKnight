@@ -8,6 +8,7 @@ onready var InputController := $InputController
 onready var StateMachine := $StateMachine
 onready var InteractionRay := get_node_or_null("InteractionRay") as RayCast2D
 
+export var dash_acquired: bool = false
 var velocity := Vector2.ZERO
 var look_direction: int = 1 setget set_look_direction
 

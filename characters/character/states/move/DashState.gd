@@ -17,7 +17,7 @@ func _process(_delta: float) -> void:
 		on_cooldown = false
 
 func _can_enter() -> bool:
-	return !on_cooldown
+	return host.dash_acquired && !on_cooldown
 
 func _state_enter(previous_state: State, _params = null) -> void:
 	._state_enter(previous_state)
