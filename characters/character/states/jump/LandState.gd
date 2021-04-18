@@ -21,5 +21,5 @@ func _state_physics_process(delta: float) -> void:
 	move(delta)
 	host.velocity = host.move_and_slide_with_snap(host.velocity, SNAP_DISTANCE, FLOOR_DIRECTION, true, MAX_SLIDES, MAX_FLOOR_ANGLE)
 
-func _animation_finished(_finished_animation_name: String) -> void:
+func _on_animation_finished(_finished_animation_name: String) -> void:
 	state_machine._pop_state()

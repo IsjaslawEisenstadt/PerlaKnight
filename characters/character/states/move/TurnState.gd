@@ -34,5 +34,5 @@ func _state_exit(next_state: State) -> void:
 	host.velocity.x = 0.0
 	host.look_direction *= -1
 
-func _animation_finished(_finished_animation_name: String) -> void:
+func _on_animation_finished(_finished_animation_name: String) -> void:
 	state_machine._pop_state()

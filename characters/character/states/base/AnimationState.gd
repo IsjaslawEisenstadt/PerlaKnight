@@ -24,5 +24,5 @@ func set_current_animation_name(anim_name: String) -> void:
 	current_animation_name = anim_name
 	host.play_animation(current_animation_name, current_animation_speed)
 
-func _animation_finished(_finished_animation_name: String) -> void:
+func _on_animation_finished(_finished_animation_name: String) -> void:
 	pass

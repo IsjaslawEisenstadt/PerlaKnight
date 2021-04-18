@@ -12,6 +12,8 @@ var velocity := Vector2.ZERO
 var look_direction: int = 1 setget set_look_direction
 
 func _ready() -> void:
+	# warning-ignore:return_value_discarded
+	AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
 	InputController._start(self)
 	StateMachine.start()
 
@@ -40,3 +42,8 @@ func set_look_direction(new_look_direction: int) -> void:
 	Sprite.flip_h = look_direction == -1
 	Sprite.offset.x = abs(Sprite.offset.x) * look_direction
 	assert(look_direction == 1 || look_direction == -1)
+
+func on_animation_finished(animation_name: String) -> void:
+	var current_state = StateMachine.get_current_state()
+	if current_state:
+		current_state.call("_on_animation_finished", animation_name)

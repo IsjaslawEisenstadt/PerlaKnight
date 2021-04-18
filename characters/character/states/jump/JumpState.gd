@@ -55,6 +55,6 @@ func _state_physics_process(delta: float) -> void:
 		if state_machine._pop_push(FallState):
 			return
 
-func _animation_finished(finished_animation_name: String) -> void:
+func _on_animation_finished(finished_animation_name: String) -> void:
 	if use_mid_jump_animation && finished_animation_name == animation_name:
 		host.play_animation(mid_jump_animation, mid_jump_animation_speed)
