@@ -25,13 +25,11 @@ var current_move_speed: float
 var current_move_damping: float
 var current_move_direction: int
 
-func _ready() -> void:
-	current_move_speed = move_speed
-	current_move_damping = move_damping
-
 func _state_enter(previous_state: State, _params = null) -> void:
 	._state_enter(previous_state)
 
+	current_move_speed = move_speed
+	current_move_damping = move_damping
 	current_move_direction = host.InputController._get_move_direction()
 
 func move(delta: float):

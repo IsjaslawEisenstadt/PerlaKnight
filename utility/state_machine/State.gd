@@ -21,5 +21,8 @@ func _state_physics_process(_delta: float) -> void:
 func _state_exit(_next_state: State) -> void:
 	pass
 
+func _can_enter() -> bool:
+	return true
+
 func is_active() -> bool:
 	return state_machine && state_machine.get_current_state() == self

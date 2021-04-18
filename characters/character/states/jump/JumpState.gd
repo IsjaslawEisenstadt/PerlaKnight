@@ -7,11 +7,13 @@ As soon as the y velocity is greater or equal to 0 it will transition to the fal
 """
 
 onready var FallState := get_node_or_null(fall_state_path) as CharacterState
+onready var DashState := get_node_or_null(dash_state_path) as CharacterState
 
 export var max_jump_height: float = 100.0
 export var min_jump_height: float = 20.0
 
 export var fall_state_path: NodePath = "../FallState"
+export var dash_state_path: NodePath = "../../Move/DashState"
 
 export var use_mid_jump_animation: bool = false
 export var mid_jump_animation: String = ""
@@ -30,6 +32,13 @@ func _state_enter(previous_state: State, _params = null) -> void:
 	_time_to_apex = _initial_velocity_y / GRAVITY
 	_time = 0
 	host.velocity.y = -_initial_velocity_y
+
+func _state_process(delta: float) -> void:
+	._state_process(delta)
+	
+	if host.InputController._is_action_just_activated("dash"):
+		if state_machine._pop_push(DashState):
+			return
 
 func _state_physics_process(delta: float) -> void:
 	._state_physics_process(delta)

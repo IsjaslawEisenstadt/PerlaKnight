@@ -14,7 +14,7 @@ var state_stack: Array = []
 # this function is useful for overrides because you can alter the variables of the next state
 # before calling ._push_state(next_state) without worrying about stack management
 func _push_state(next_state: State, params = null) -> bool:
-	if !next_state:
+	if !next_state || !next_state._can_enter():
 		return false
 	next_state.state_machine = self
 	var current_state: Node

@@ -5,11 +5,13 @@ onready var IdleState := get_node_or_null(idle_state_path) as CharacterState
 onready var TurnState := get_node_or_null(turn_state_path) as CharacterState
 onready var JumpState := get_node_or_null(jump_state_path) as CharacterState
 onready var FallState := get_node_or_null(fall_state_path) as CharacterState
+onready var DashState := get_node_or_null(dash_state_path) as CharacterState
 
 export var idle_state_path: NodePath = "../../IdleState"
 export var turn_state_path: NodePath = "../TurnState"
 export var jump_state_path: NodePath = "../../Jump/JumpState"
 export var fall_state_path: NodePath = "../../Jump/FallState"
+export var dash_state_path: NodePath = "../DashState"
 
 export var without_turn_state: bool = true
 
@@ -18,6 +20,10 @@ func _state_enter(previous_state: State, _params = null) -> void:
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)
+
+	if host.InputController._is_action_just_activated("dash"):
+		if state_machine._push_state(DashState):
+			return
 
 	current_move_direction = host.InputController._get_move_direction()
 	if current_move_direction != 0.0 && current_move_direction != host.look_direction:

@@ -8,10 +8,12 @@ This state will occur when the character is not on the floor and y velocity is p
 onready var JumpState := get_node_or_null(jump_state_path) as CharacterState
 onready var FastLandState := get_node_or_null(fast_land_state_path) as CharacterState
 onready var SlowLandState := get_node_or_null(slow_land_state_path) as CharacterState
+onready var DashState := get_node_or_null(dash_state_path) as CharacterState
 
 export var jump_state_path: NodePath = "../JumpState"
 export var fast_land_state_path: NodePath = "../FastLandState"
 export var slow_land_state_path: NodePath = "../SlowLandState"
+export var dash_state_path: NodePath = "../../Move/DashState"
 
 export var slow_landing_fall_time: float = 0.5
 export var without_landing: bool = true
@@ -33,6 +35,10 @@ func _state_enter(previous_state: State, _params = null) -> void:
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)
+	
+	if host.InputController._is_action_just_activated("dash"):
+		if state_machine._pop_push(DashState):
+			return
 	
 	_fall_time += delta
 	
