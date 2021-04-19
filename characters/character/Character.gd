@@ -46,10 +46,12 @@ func play_animation(animation_name: String, speed: float = 1.0) -> void:
 		AnimationPlayer.play(animation_name, -1, speed)
 
 func set_look_direction(new_look_direction: int) -> void:
-	look_direction = new_look_direction
-	Sprite.flip_h = look_direction == -1
-	Sprite.offset.x = abs(Sprite.offset.x) * look_direction
 	assert(look_direction == 1 || look_direction == -1)
+	
+	look_direction = new_look_direction
+	for child in get_children():
+		if child is Node2D:
+			child.scale.x = sign(look_direction)
 
 func on_animation_finished(animation_name: String) -> void:
 	var current_state = StateMachine.get_current_state()
