@@ -28,6 +28,11 @@ var jump_time: float
 
 var input_delay_timer: Timer
 
+# gotta skip a frame before allowing double jump
+# it will trigger on the same frame as entering a regular jump sometimes otherwise
+# especially on lower frame rates
+var double_jump_frame_skipped: bool = false
+
 func _ready() -> void:
 	input_delay_timer = Timer.new()
 	input_delay_timer.one_shot = true
@@ -35,6 +40,8 @@ func _ready() -> void:
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
+	
+	double_jump_frame_skipped = false
 	
 	if "input_delay" in params:
 		input_delay_timer.start(params.input_delay)
@@ -52,8 +59,9 @@ func _state_process(delta: float) -> void:
 	if host.InputController._is_action_just_activated("dash"):
 		if state_machine._pop_push(DashState):
 			return
-	
-	if input_delay_timer.is_stopped() && host.can_double_jump && host.InputController._is_action_just_activated("jump"):
+	if !double_jump_frame_skipped:
+		double_jump_frame_skipped = true
+	elif input_delay_timer.is_stopped() && host.can_double_jump && host.InputController._is_action_just_activated("jump"):
 		if state_machine._pop_push(self):
 			host.can_double_jump = false
 			return
