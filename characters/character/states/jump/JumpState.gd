@@ -21,33 +21,31 @@ export var use_mid_jump_animation: bool = false
 export var mid_jump_animation: String = ""
 export var mid_jump_animation_speed: float = 1.0
 
-export var double_jump_delay: float = 0.1
-
 var accelerating: bool
 var initial_velocity_y: float
 var time_to_apex: float
 var jump_time: float
 
 var input_delay_timer: Timer
-var double_jump_delay_timer: Timer
+
+# gotta skip a frame before allowing double jump
+# it will trigger on the same frame as entering a regular jump sometimes otherwise
+# especially on lower frame rates
+var double_jump_frame_skipped: bool = false
 
 func _ready() -> void:
 	input_delay_timer = Timer.new()
 	input_delay_timer.one_shot = true
 	add_child(input_delay_timer)
-	
-	double_jump_delay_timer = Timer.new()
-	double_jump_delay_timer.one_shot = true
-	add_child(double_jump_delay_timer)
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	
+	double_jump_frame_skipped = false
+	
 	if "input_delay" in params:
 		input_delay_timer.start(params.input_delay)
 		current_move_direction = -host.look_direction
-	
-	double_jump_delay_timer.start(double_jump_delay)
 	
 	accelerating = true
 	initial_velocity_y = sqrt(2 * GRAVITY * (max_jump_height if accelerating else min_jump_height))
@@ -61,9 +59,9 @@ func _state_process(delta: float) -> void:
 	if host.InputController._is_action_just_activated("dash"):
 		if state_machine._pop_push(DashState):
 			return
-	
-	if input_delay_timer.is_stopped() && double_jump_delay_timer.is_stopped() && \
-	   host.can_double_jump && host.InputController._is_action_just_activated("jump"): \
+	if !double_jump_frame_skipped:
+		double_jump_frame_skipped = true
+	elif input_delay_timer.is_stopped() && host.can_double_jump && host.InputController._is_action_just_activated("jump"):
 		if state_machine._pop_push(self):
 			host.can_double_jump = false
 			return
