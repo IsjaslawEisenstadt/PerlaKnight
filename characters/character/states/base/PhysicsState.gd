@@ -17,6 +17,9 @@ const FLOOR_DIRECTION := Vector2.UP
 const MAX_SLIDES: int = 4
 # the maximum distance to the ground for snapping
 const SNAP_DISTANCE := Vector2(0, 5)
+# can't fall faster than this
+# TODO: implement this via friction/damping instead
+const TERMINAL_VELOCITY: float = 550.0
 
 export var move_speed: float = 10.0
 export var move_damping: float = 0.5
@@ -38,7 +41,7 @@ func move(delta: float):
 
 # adds gravity to the host velocity
 # can optionally gravitate towards the floor angle instead of straight down
-func fall(delta: float, gravitate_towards_floor: bool = false):
+func fall(delta: float, gravitate_towards_floor: bool = false, friction: float = 0.0):
 	var gravity = Vector2(0, GRAVITY * delta)
 
 	# while not realistic, it feels better if the character always moves
@@ -53,4 +56,5 @@ func fall(delta: float, gravitate_towards_floor: bool = false):
 				gravity = gravity.rotated(collision.normal.angle() - FLOOR_DIRECTION.angle())
 				break
 
-	host.velocity += gravity
+	host.velocity += gravity * (1.0 - friction)
+	host.velocity.y = min(host.velocity.y, TERMINAL_VELOCITY * (1.0 - friction))
