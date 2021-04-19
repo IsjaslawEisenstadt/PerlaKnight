@@ -12,9 +12,9 @@ export var friction: float = 0.85
 export var input_delay: float = 0.1
 
 func _can_enter() -> bool:
-	return  host.wall_climb_acquired && \
-			host.WallClimbAssistantTop != null && !host.WallClimbAssistantTop.get_overlapping_bodies().empty() \
-			&& host.WallClimbAssistantBottom != null && !host.WallClimbAssistantBottom.get_overlapping_bodies().empty() \
+	return  host.wall_climb_acquired && !host.InputController._is_action_active("let_go") && \
+			host.WallClimbAssistantTop != null && !host.WallClimbAssistantTop.get_overlapping_bodies().empty() && \
+			host.WallClimbAssistantBottom != null && !host.WallClimbAssistantBottom.get_overlapping_bodies().empty() \
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
@@ -36,6 +36,11 @@ func _state_process(delta: float) -> void:
 		if state_machine._pop_push(DashState):
 			host.look_direction *= -1
 			return
+	
+	if host.InputController._is_action_just_activated("let_go"):
+		host.look_direction *= -1
+		state_machine._pop_state()
+		return
 
 func _state_physics_process(delta: float) -> void:
 	._state_physics_process(delta)

@@ -11,7 +11,7 @@ onready var DashState := get_node_or_null(dash_state_path) as CharacterState
 onready var WallJumpState := get_node_or_null(wall_jump_state_path) as CharacterState
 
 export var jump_state_path: NodePath = "../JumpState"
-export var land_state_path: NodePath = "../FastLandState"
+export var land_state_path: NodePath = "../LandState"
 export var dash_state_path: NodePath = "../../Move/DashState"
 export var wall_jump_state_path: NodePath = "../WallJumpState"
 
@@ -26,7 +26,6 @@ export var coyote_jump_time: float = 0.07
 # coyote jump is only allowed when falling after moving
 var was_moving: bool = false
 var coyote_jump_timer: Timer
-
 
 func _ready() -> void:
 	coyote_jump_timer = Timer.new()
