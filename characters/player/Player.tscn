@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/character/input/PlayerInputController.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://characters/player/textures/PLACERHOLDER_player_sheet.png" type="Texture" id=4]
 [ext_resource path="res://characters/character/states/move/MoveState.gd" type="Script" id=5]
 [ext_resource path="res://characters/character/states/move/DashState.gd" type="Script" id=6]
+[ext_resource path="res://characters/character/states/jump/WallJumpState.gd" type="Script" id=7]
 [ext_resource path="res://characters/character/states/jump/JumpState.gd" type="Script" id=8]
 [ext_resource path="res://characters/character/states/jump/FallState.gd" type="Script" id=9]
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=10]
@@ -97,6 +98,46 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
+resource_name = "reset_pose"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 7.5, -21 ) ]
+}
+
+[sub_resource type="Animation" id=9]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -112,18 +153,51 @@ tracks/0/keys = {
 "values": [ 6, 13 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
+
+[sub_resource type="Animation" id=11]
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 60, 62 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 12, -20 ) ]
+}
+
+[sub_resource type="RayShape2D" id=12]
+length = 10.0
 
 [node name="Player" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
 dash_acquired = true
 double_jump_acquired = true
+wall_climb_acquired = true
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 4 )
-offset = Vector2( 7.5, -21 )
+offset = Vector2( 12, -20 )
 hframes = 6
 vframes = 17
+frame = 60
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, -16.5 )
@@ -140,8 +214,10 @@ anims/death = SubResource( 4 )
 anims/fall = SubResource( 5 )
 anims/idle = SubResource( 6 )
 anims/jump = SubResource( 7 )
-anims/run = SubResource( 8 )
-anims/slide = SubResource( 9 )
+anims/reset_pose = SubResource( 8 )
+anims/run = SubResource( 9 )
+anims/slide = SubResource( 10 )
+anims/wall_slide = SubResource( 11 )
 
 [node name="InputController" parent="." index="4"]
 script = ExtResource( 2 )
@@ -169,6 +245,10 @@ animation_name = "fall"
 move_speed = 90.0
 move_damping = 0.8
 
+[node name="WallJumpState" type="Node" parent="StateMachine/Jump" index="2"]
+script = ExtResource( 7 )
+animation_name = "wall_slide"
+
 [node name="Move" type="Node" parent="StateMachine" index="2"]
 
 [node name="MoveState" type="Node" parent="StateMachine/Move" index="0"]
@@ -186,3 +266,19 @@ ground_dash_end_damping = 0.9
 
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
 current = true
+
+[node name="WallClimbAssistantTop" type="Area2D" parent="." index="7"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallClimbAssistantTop" index="0"]
+position = Vector2( 0, -33 )
+rotation = 4.71239
+shape = SubResource( 12 )
+
+[node name="WallClimbAssistantBottom" type="Area2D" parent="." index="8"]
+collision_layer = 0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallClimbAssistantBottom" index="0"]
+position = Vector2( 0, -5 )
+rotation = 4.71239
+shape = SubResource( 12 )

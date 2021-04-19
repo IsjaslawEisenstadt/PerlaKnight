@@ -7,13 +7,18 @@ onready var AnimationPlayer := $AnimationPlayer
 onready var InputController := $InputController
 onready var StateMachine := $StateMachine
 onready var InteractionRay := get_node_or_null("InteractionRay") as RayCast2D
+onready var WallClimbAssistantTop := get_node_or_null("WallClimbAssistantTop") as Area2D
+onready var WallClimbAssistantBottom := get_node_or_null("WallClimbAssistantBottom") as Area2D
 
 export var dash_acquired: bool = false
 export var double_jump_acquired: bool = false
+export var wall_climb_acquired: bool = false
 
 var velocity := Vector2.ZERO
 var look_direction: int = 1 setget set_look_direction
 
+# wallclimb dash resets require this flag, DashState updates it
+var can_dash: bool = dash_acquired
 var can_double_jump: bool = double_jump_acquired
 
 func _ready() -> void:
@@ -24,7 +29,7 @@ func _ready() -> void:
 
 func _process(delta: float):
 	InputController._input_process(delta)
-
+	
 	if (InputController._is_action_just_activated("interact") 
 		&& StateMachine.get_current_state()._can_interact() 
 		&& InteractionRay.is_colliding()):
@@ -43,7 +48,13 @@ func _physics_process(delta: float):
 
 func play_animation(animation_name: String, speed: float = 1.0) -> void:
 	if AnimationPlayer.current_animation != animation_name && AnimationPlayer.has_animation(animation_name):
+		# a convention to reset certain tracks before playing a new animation
+		if AnimationPlayer.has_animation("reset_pose"):
+			AnimationPlayer.play("reset_pose")
+			# makes sure the values are set
+			AnimationPlayer.advance(0)
 		AnimationPlayer.play(animation_name, -1, speed)
+		AnimationPlayer.advance(0)
 
 func set_look_direction(new_look_direction: int) -> void:
 	assert(look_direction == 1 || look_direction == -1)

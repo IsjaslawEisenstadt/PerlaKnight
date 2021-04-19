@@ -10,20 +10,18 @@ export var ground_dash_end_damping: float = 0.5
 
 var travel_finished: bool = false
 
-var on_cooldown: bool = false
-
 func _process(_delta: float) -> void:
-	if on_cooldown && !is_active() && host.is_on_floor():
-		on_cooldown = false
+	if !host.can_dash && !is_active() && host.is_on_floor():
+		host.can_dash = true
 
 func _can_enter() -> bool:
-	return host.dash_acquired && !on_cooldown
+	return host.dash_acquired && host.can_dash
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	
 	travel_finished = false
-	on_cooldown = true
+	host.can_dash = false
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)

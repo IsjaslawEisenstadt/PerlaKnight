@@ -6,14 +6,14 @@ This state will occur when the character is not on the floor and y velocity is p
 """
 
 onready var JumpState := get_node_or_null(jump_state_path) as CharacterState
-onready var FastLandState := get_node_or_null(fast_land_state_path) as CharacterState
-onready var SlowLandState := get_node_or_null(slow_land_state_path) as CharacterState
+onready var LandState := get_node_or_null(land_state_path) as CharacterState
 onready var DashState := get_node_or_null(dash_state_path) as CharacterState
+onready var WallJumpState := get_node_or_null(wall_jump_state_path) as CharacterState
 
 export var jump_state_path: NodePath = "../JumpState"
-export var fast_land_state_path: NodePath = "../FastLandState"
-export var slow_land_state_path: NodePath = "../SlowLandState"
+export var land_state_path: NodePath = "../FastLandState"
 export var dash_state_path: NodePath = "../../Move/DashState"
+export var wall_jump_state_path: NodePath = "../WallJumpState"
 
 export var slow_landing_fall_time: float = 0.5
 export var without_landing: bool = true
@@ -24,15 +24,20 @@ export var without_landing: bool = true
 export var coyote_jump_time: float = 0.07
 
 # coyote jump is only allowed when falling after moving
-var _was_moving: bool = false
+var was_moving: bool = false
+var coyote_jump_timer: Timer
 
-var _fall_time: float = 0.0
+
+func _ready() -> void:
+	coyote_jump_timer = Timer.new()
+	coyote_jump_timer.one_shot = true
+	add_child(coyote_jump_timer)
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
-
-	_fall_time = 0.0
-	_was_moving = previous_state is MoveState
+	
+	coyote_jump_timer.start(coyote_jump_time)
+	was_moving = previous_state is MoveState
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)
@@ -41,9 +46,7 @@ func _state_process(delta: float) -> void:
 		if state_machine._pop_push(DashState):
 			return
 	
-	_fall_time += delta
-	
-	if _was_moving && host.InputController._is_action_just_activated("jump") && _fall_time < coyote_jump_time:
+	if was_moving && !coyote_jump_timer.is_stopped() && host.InputController._is_action_just_activated("jump"):
 		if state_machine._pop_push(JumpState):
 			return
 	
@@ -68,9 +71,12 @@ func _state_physics_process(delta: float) -> void:
 		if without_landing:
 			state_machine._pop_state()
 			return
-		else:
-			if _fall_time >= slow_landing_fall_time:
-				if state_machine._pop_push(SlowLandState):
-					return
-			if state_machine._pop_push(FastLandState):
-				return
+		if state_machine._pop_push(LandState):
+			return
+	
+	if host.is_on_wall():
+		if state_machine._pop_push(WallJumpState):
+			return
+
+func _state_exit(_next_state: State) -> void:
+	coyote_jump_timer.stop()
