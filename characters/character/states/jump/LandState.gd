@@ -4,8 +4,8 @@ class_name LandState
 # dictates how much velocity (%) will be lost upon landing.
 export(float, 0.0, 1.0) var slowdown: float = 1.0
 
-func _state_enter(previous_state: State, _params = null) -> void:
-	._state_enter(previous_state)
+func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
+	._state_enter(previous_state, params)
 	host.velocity.x *= 1 - slowdown
 	assert(host.AnimationPlayer.current_animation == animation_name)
 

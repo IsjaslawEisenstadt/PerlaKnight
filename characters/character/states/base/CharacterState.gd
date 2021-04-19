@@ -5,11 +5,13 @@ class_name CharacterState
 base state for the CharacterStateMachine, provides the host to all character states
 """
 
-#warning-ignore:unused_class_variable
-var host: Character setget _set_host
+# host isn't optional and has to be a character
+onready var host := get_node(host_path) as Character
 
-func _set_host(value: Character) -> void:
-	host = value
+export var host_path: NodePath = "../../.."
+
+func _ready() -> void:
+	assert(host)
 
 func _can_interact() -> bool:
 	return true

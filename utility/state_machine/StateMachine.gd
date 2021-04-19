@@ -13,7 +13,7 @@ var state_stack: Array = []
 # pushes a given state onto the state stack, works with an empty stack as well
 # this function is useful for overrides because you can alter the variables of the next state
 # before calling ._push_state(next_state) without worrying about stack management
-func _push_state(next_state: State, params = null) -> bool:
+func _push_state(next_state: State, params: Dictionary = {}) -> bool:
 	if !next_state || !next_state._can_enter():
 		return false
 	next_state.state_machine = self
@@ -26,7 +26,7 @@ func _push_state(next_state: State, params = null) -> bool:
 	return true
 
 # function to remove the uppermost state on the stack
-func _pop_state(params = null) -> void:
+func _pop_state(params: Dictionary = {}) -> void:
 	assert(!state_stack.empty())
 
 	var current_state: Node = state_stack.front()
@@ -38,7 +38,7 @@ func _pop_state(params = null) -> void:
 # a convenience function pop the current state and push the given state afterwards
 # it's useful to allow a sequence of states that return to the last state before this sequence
 # (see JumpState.gd/FallState.gd for usage examples)
-func _pop_push(next_state: State, params = null) -> bool:
+func _pop_push(next_state: State, params: Dictionary = {}) -> bool:
 	assert(!state_stack.empty())
 
 	var current_state: State = state_stack.front()
@@ -49,11 +49,11 @@ func _pop_push(next_state: State, params = null) -> bool:
 
 # these two functions have to be called from somewhere,
 # usually from the state machines owner or the state machine itself
-func _state_machine_process(delta: float):
+func _state_machine_process(delta: float) -> void:
 	if !state_stack.empty():
 		state_stack.front()._state_process(delta)
 
-func _state_machine_physics_process(delta: float):
+func _state_machine_physics_process(delta: float) -> void:
 	if !state_stack.empty():
 		state_stack.front()._state_physics_process(delta)
 

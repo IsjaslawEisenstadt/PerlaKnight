@@ -11,8 +11,8 @@ export var animation_speed: float = 1.0
 var current_animation_name: String = "" setget set_current_animation_name
 var current_animation_speed: float = 1.0
 
-func _state_enter(previous_state: State, _params = null) -> void:
-	._state_enter(previous_state)
+func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
+	._state_enter(previous_state, params)
 
 	current_animation_speed = animation_speed
 	self.current_animation_name = animation_name

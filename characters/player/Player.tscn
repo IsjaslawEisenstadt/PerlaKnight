@@ -148,6 +148,7 @@ script = ExtResource( 2 )
 
 [node name="IdleState" type="Node" parent="StateMachine" index="0"]
 script = ExtResource( 3 )
+host_path = NodePath("../..")
 animation_name = "idle"
 move_speed = 0.0
 move_damping = 0.8

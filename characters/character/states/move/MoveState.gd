@@ -15,8 +15,8 @@ export var dash_state_path: NodePath = "../DashState"
 
 export var without_turn_state: bool = true
 
-func _state_enter(previous_state: State, _params = null) -> void:
-	._state_enter(previous_state)
+func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
+	._state_enter(previous_state, params)
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)

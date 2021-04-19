@@ -23,12 +23,13 @@ export var without_landing: bool = true
 # this is the timeframe during which a coyote jump is allowed after the fall starts
 export var coyote_jump_time: float = 0.07
 
-var _fall_time: float = 0.0
 # coyote jump is only allowed when falling after moving
 var _was_moving: bool = false
 
-func _state_enter(previous_state: State, _params = null) -> void:
-	._state_enter(previous_state)
+var _fall_time: float = 0.0
+
+func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
+	._state_enter(previous_state, params)
 
 	_fall_time = 0.0
 	_was_moving = previous_state is MoveState

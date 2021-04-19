@@ -25,8 +25,8 @@ var current_move_speed: float
 var current_move_damping: float
 var current_move_direction: int
 
-func _state_enter(previous_state: State, _params = null) -> void:
-	._state_enter(previous_state)
+func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
+	._state_enter(previous_state, params)
 
 	current_move_speed = move_speed
 	current_move_damping = move_damping

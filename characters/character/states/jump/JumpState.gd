@@ -24,10 +24,11 @@ var _initial_velocity_y: float
 var _time_to_apex: float
 var _time: float
 
-func _state_enter(previous_state: State, _params = null) -> void:
-	._state_enter(previous_state)
 
-	_accelerating = host.InputController._is_action_active("jump")
+func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
+	._state_enter(previous_state, params)
+	
+	_accelerating = true
 	_initial_velocity_y = sqrt(2 * GRAVITY * (max_jump_height if _accelerating else min_jump_height))
 	_time_to_apex = _initial_velocity_y / GRAVITY
 	_time = 0
@@ -65,7 +66,6 @@ func _state_physics_process(delta: float) -> void:
 	host.velocity = host.move_and_slide(host.velocity, FLOOR_DIRECTION)
 
 	if host.velocity.y >= 0.0:
-		# pop this state and push the next one
 		if state_machine._pop_push(FallState):
 			return
 

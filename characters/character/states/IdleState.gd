@@ -15,8 +15,8 @@ export var jump_state_path: NodePath = "../Jump/JumpState"
 export var fall_state_path: NodePath = "../Jump/FallState"
 export var dash_state_path: NodePath = "../Move/DashState"
 
-func _state_enter(previous_state: State, _params = null) -> void:
-	._state_enter(previous_state)
+func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
+	._state_enter(previous_state, params)
 	
 	host.velocity.x = 0.0
 

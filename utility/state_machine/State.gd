@@ -9,7 +9,7 @@ when the state is pushed onto the state stack
 
 var state_machine
 
-func _state_enter(_previous_state: State, _params = null) -> void:
+func _state_enter(_previous_state: State, _params: Dictionary = {}) -> void:
 	pass
 
 func _state_process(_delta: float) -> void:

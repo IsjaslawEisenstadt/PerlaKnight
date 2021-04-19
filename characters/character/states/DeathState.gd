@@ -14,7 +14,7 @@ var collision_mask: int = 0
 
 export var loot_table: Resource
 
-func _state_enter(previous_state: State, params = null) -> void:
+func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	host.collision_layer = collision_layer
 	host.collision_mask = collision_mask
