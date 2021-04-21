@@ -2,8 +2,11 @@ extends PhysicsState
 class_name DashState
 
 onready var FallState := get_node_or_null(fall_state_path) as CharacterState
+onready var WallJumpState := get_node_or_null(wall_jump_state_path) as CharacterState
 
 export var fall_state_path: NodePath = "../../Jump/FallState"
+export var wall_jump_state_path: NodePath = "../../Jump/WallJumpState"
+
 export var ground_dash_end_animation: String = "dash_end"
 export var ground_dash_end_animation_speed: float = 1.0
 export var ground_dash_end_damping: float = 0.5
@@ -38,6 +41,10 @@ func _state_physics_process(delta: float) -> void:
 	#fall(delta, true)
 	move(delta)
 	host.velocity = host.move_and_slide_with_snap(host.velocity, SNAP_DISTANCE, FLOOR_DIRECTION, true, MAX_SLIDES, MAX_FLOOR_ANGLE)
+	
+	if host.is_on_wall():
+		if state_machine._pop_push(WallJumpState):
+			return
 
 func _on_animation_finished(finished_animation_name: String) -> void:
 	if finished_animation_name == animation_name:
