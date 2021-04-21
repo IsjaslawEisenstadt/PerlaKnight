@@ -1,0 +1,76 @@
+on:
+  release:
+    types: [created, edited]
+
+jobs:
+  release_windows:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download windows
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          file: PerlaKnight-windows.zip
+        env:
+          GITHUB_TOKEN: "${{ secrets.EXPORT_GITHUB_TOKEN }}"
+      - name: release windows
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
+          CHANNEL: windows
+          ITCH_GAME: PerlaKnight
+          ITCH_USER: programmersdigest
+          PACKAGE: PerlaKnight-windows.zip
+
+  release_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download linux
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          file: PerlaKnight-linux.zip
+        env:
+          GITHUB_TOKEN: "${{ secrets.EXPORT_GITHUB_TOKEN }}"
+      - name: release linux
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
+          CHANNEL: linux
+          ITCH_GAME: PerlaKnight
+          ITCH_USER: programmersdigest
+          PACKAGE: PerlaKnight-linux.zip
+
+  release_mac:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download mac
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          file: PerlaKnight-mac.zip
+        env:
+          GITHUB_TOKEN: "${{ secrets.EXPORT_GITHUB_TOKEN }}"
+      - name: release mac
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
+          CHANNEL: mac
+          ITCH_GAME: PerlaKnight
+          ITCH_USER: programmersdigest
+          PACKAGE: PerlaKnight-mac.zip
+
+  release_html:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download html
+        uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          file: PerlaKnight-html.zip
+        env:
+          GITHUB_TOKEN: "${{ secrets.EXPORT_GITHUB_TOKEN }}"
+      - name: release html
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
+          CHANNEL: html
+          ITCH_GAME: PerlaKnight
+          ITCH_USER: programmersdigest
+          PACKAGE: PerlaKnight-html.zip
