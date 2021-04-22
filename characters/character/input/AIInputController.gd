@@ -9,7 +9,7 @@ and the CharacterController retrieves those with the virtual InputController fun
 
 enum action_states {ACTIVE, INACTIVE, ACTIVATED, DEACTIVATED}
 
-export var start_ai: NodePath = "WaitAI"
+export var start_ai: NodePath = "IdleAI"
 
 var action_map: Dictionary = {}
 var state_machine: AIStateMachine
