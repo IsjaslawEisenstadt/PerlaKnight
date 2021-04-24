@@ -47,12 +47,12 @@ _global_script_classes=[ {
 "base": "State",
 "class": "GameState",
 "language": "GDScript",
-"path": "res://ui/GameState.gd"
+"path": "res://levels/core/GameState.gd"
 }, {
 "base": "StateMachine",
 "class": "GameStateMachine",
 "language": "GDScript",
-"path": "res://ui/GameStateMachine.gd"
+"path": "res://levels/core/GameStateMachine.gd"
 }, {
 "base": "PhysicsState",
 "class": "IdleState",
@@ -102,7 +102,7 @@ _global_script_classes=[ {
 "base": "GameState",
 "class": "PlayState",
 "language": "GDScript",
-"path": "res://ui/PlayState.gd"
+"path": "res://levels/core/PlayState.gd"
 }, {
 "base": "Character",
 "class": "Player",
@@ -171,7 +171,7 @@ _global_script_class_icons={
 [application]
 
 config/name="PerlaKnight"
-run/main_scene="res://ui/GameStateMachine.tscn"
+run/main_scene="res://levels/core/GameStateMachine.tscn"
 config/icon="res://utility/icons/icon.png"
 
 [debug]

@@ -1,18 +1,18 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=1]
-[ext_resource path="res://ui/menus/LoadingScreen.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ui/menus/MainMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/core/PlayState.gd" type="Script" id=1]
+[ext_resource path="res://levels/core/GameStateMachine.gd" type="Script" id=2]
+[ext_resource path="res://ui/menus/LoadingScreen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/transition/Transition.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ui/PlayState.gd" type="Script" id=5]
+[ext_resource path="res://ui/menus/MainMenu.tscn" type="PackedScene" id=5]
 
 [node name="GameStateMachine" type="Node"]
 pause_mode = 2
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="PlayState" type="Node2D" parent="."]
 pause_mode = 1
-script = ExtResource( 5 )
+script = ExtResource( 1 )
 new_game_scene_path = "res://levels/test_level/TestLevel.tscn"
 
 [node name="WorldSpaceUI" type="Control" parent="."]
@@ -25,13 +25,13 @@ __meta__ = {
 
 [node name="ScreenSpaceUI" type="CanvasLayer" parent="."]
 
-[node name="MainMenu" parent="ScreenSpaceUI" instance=ExtResource( 3 )]
+[node name="MainMenu" parent="ScreenSpaceUI" instance=ExtResource( 5 )]
 pause_mode = 2
 visible = false
 pause_game = true
 play_state_path = NodePath("../../PlayState")
 
-[node name="LoadingScreen" parent="ScreenSpaceUI" instance=ExtResource( 2 )]
+[node name="LoadingScreen" parent="ScreenSpaceUI" instance=ExtResource( 3 )]
 pause_mode = 2
 visible = false
 pause_game = true
