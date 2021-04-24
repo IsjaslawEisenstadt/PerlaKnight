@@ -1,17 +1,16 @@
-extends Menu
+extends GameState
+class_name MainMenu
 
-"""
-The start/main menu script that connects the buttons with its corresponding menus.
-"""
+onready var PlayState := get_node(play_state_path) as GameState
+onready var Transition := get_node(transition_path) as Transition
 
-onready var LoadingScreen := get_node_or_null(loading_screen_path) as Menu
-
-export var loading_screen_path: NodePath = "../LoadingScreen"
-
-export(String, FILE, "*.tscn,*.scn,*.ldtk") var new_game_scene_path: String
+export var play_state_path: NodePath = "../PlayState"
+export var transition_path: NodePath = "../Transition"
 
 func _on_NewGameButton_pressed() -> void:
-	state_machine._pop_push(LoadingScreen, { "scene_path": new_game_scene_path })
+	Transition.start("fade_out")
+	yield(Transition, "transition_finished")
+	state_machine._pop_push(PlayState)
 
 func _on_ExitButton_pressed() -> void:
 	get_tree().quit()

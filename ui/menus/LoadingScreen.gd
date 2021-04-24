@@ -1,4 +1,4 @@
-extends Menu
+extends GameState
 class_name LoadingScreen
 
 signal load_finished(resource)
@@ -11,16 +11,12 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 
 	assert("scene_path" in params)
-	var scene_path = params["scene_path"]
-
-	loader = ResourceLoader.load_interactive(scene_path)
+	loader = ResourceLoader.load_interactive(params["scene_path"])
 	assert(loader)
 	var scene: Node = yield(self, "load_finished").instance()
 	loader = null
 	
-	assert(scene is GameState)
-	state_machine.add_child(scene)
-	state_machine._pop_push(scene)
+	state_machine._pop_state({ "scene": scene })
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)

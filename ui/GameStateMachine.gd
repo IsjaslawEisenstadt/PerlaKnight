@@ -1,7 +1,7 @@
 extends StateMachine
 class_name GameStateMachine
 
-export var start_state_path: NodePath = "MainMenu"
+export var start_state_path: NodePath = "ScreenSpaceUI/MainMenu"
 
 func _ready() -> void:
 	var start_state := get_node(start_state_path) as GameState
