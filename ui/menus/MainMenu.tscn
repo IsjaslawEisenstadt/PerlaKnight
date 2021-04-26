@@ -55,7 +55,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 20
@@ -66,30 +66,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBox" type="VBoxContainer" parent="Margin"]
 margin_left = 20.0
 margin_top = 40.0
 margin_right = 460.0
 margin_bottom = 245.0
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+[node name="TitleContainer" type="CenterContainer" parent="Margin/VBox"]
 margin_right = 440.0
 margin_bottom = 44.0
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/CenterContainer"]
+[node name="Title" type="Label" parent="Margin/VBox/TitleContainer"]
 margin_left = 85.0
 margin_right = 355.0
 margin_bottom = 44.0
 custom_fonts/font = ExtResource( 2 )
 text = "Perla Knight"
 
-[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ButtonCenter" type="CenterContainer" parent="Margin/VBox"]
 margin_top = 48.0
 margin_right = 440.0
 margin_bottom = 205.0
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CenterContainer2"]
+[node name="ButtonVBox" type="VBoxContainer" parent="Margin/VBox/ButtonCenter"]
 margin_left = 168.0
 margin_top = 35.0
 margin_right = 271.0
@@ -97,7 +97,7 @@ margin_bottom = 121.0
 mouse_filter = 0
 custom_constants/separation = 22
 
-[node name="NewGameButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="NewGameButton" type="Button" parent="Margin/VBox/ButtonCenter/ButtonVBox"]
 margin_right = 103.0
 margin_bottom = 32.0
 focus_neighbour_top = NodePath("../ExitButton")
@@ -111,7 +111,7 @@ custom_styles/normal = SubResource( 5 )
 custom_fonts/font = ExtResource( 3 )
 text = "New Game"
 
-[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="Margin/VBox/ButtonCenter/ButtonVBox"]
 margin_top = 54.0
 margin_right = 103.0
 margin_bottom = 86.0
@@ -125,5 +125,5 @@ custom_styles/normal = SubResource( 5 )
 custom_fonts/font = ExtResource( 3 )
 text = "Exit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer2/VBoxContainer/NewGameButton" to="." method="_on_NewGameButton_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/CenterContainer2/VBoxContainer/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="." method="_on_ExitButton_pressed"]
