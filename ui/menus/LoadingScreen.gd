@@ -10,13 +10,15 @@ var loader: ResourceInteractiveLoader
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 
-	assert("scene_path" in params)
-	loader = ResourceLoader.load_interactive(params["scene_path"])
-	assert(loader)
-	var scene: Node = yield(self, "load_finished").instance()
-	loader = null
+	assert("scenes" in params && params.scenes is Dictionary)
 	
-	state_machine._pop_state({ "scene": scene })
+	for scene_path in params.scenes:
+		loader = ResourceLoader.load_interactive(scene_path)
+		assert(loader)
+		params.scenes[scene_path] = yield(self, "load_finished").instance()
+	
+	loader = null
+	state_machine._pop_state(params)
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)
