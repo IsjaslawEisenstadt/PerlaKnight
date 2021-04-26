@@ -12,7 +12,6 @@
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=10]
 [ext_resource path="res://characters/character/ai/base/IdleAI.gd" type="Script" id=11]
 [ext_resource path="res://characters/character/ai/base/RoamAI.gd" type="Script" id=12]
-[ext_resource path="res://characters/character/ai/base/SearchAI.gd" type="Script" id=13]
 [ext_resource path="res://characters/character/ai/base/FollowAI.gd" type="Script" id=14]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -196,6 +195,9 @@ length = 46.6239
 [sub_resource type="RayShape2D" id=14]
 length = 29.922
 
+[sub_resource type="CircleShape2D" id=15]
+radius = 170.0
+
 [node name="ExampleEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
 dash_acquired = true
@@ -232,21 +234,16 @@ anims/wall_slide = SubResource( 11 )
 [node name="InputController" parent="." index="4"]
 script = ExtResource( 2 )
 
-[node name="SearchAI" type="Node" parent="InputController" index="0"]
-script = ExtResource( 13 )
-
-[node name="RoamAI" type="Node" parent="InputController/SearchAI" index="0"]
-script = ExtResource( 12 )
-roaming_max_time = 2
-
-[node name="IdleAI" type="Node" parent="InputController/SearchAI" index="1"]
+[node name="IdleAI" type="Node" parent="InputController" index="0"]
 script = ExtResource( 11 )
 idling_max_time = 2
 
 [node name="FollowAI" type="Node" parent="InputController" index="1"]
 script = ExtResource( 14 )
-edge_collider_path = NodePath("../../EdgeCollider")
-wall_collider_path = NodePath("../../WallCollider")
+
+[node name="RoamAI" type="Node" parent="InputController" index="2"]
+script = ExtResource( 12 )
+roaming_max_time = 2
 
 [node name="IdleState" type="Node" parent="StateMachine" index="0"]
 script = ExtResource( 3 )
@@ -309,6 +306,7 @@ rotation = 4.71239
 shape = SubResource( 12 )
 
 [node name="EdgeCollider" type="Area2D" parent="." index="8"]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EdgeCollider" index="0"]
 position = Vector2( 0, -32.8949 )
@@ -316,8 +314,17 @@ rotation = -0.785398
 shape = SubResource( 13 )
 
 [node name="WallCollider" type="Area2D" parent="." index="9"]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollider" index="0"]
 position = Vector2( 0, -18.133 )
 rotation = -1.5708
 shape = SubResource( 14 )
+
+[node name="Perception" type="Area2D" parent="." index="10"]
+position = Vector2( 0, -17 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Perception" index="0"]
+shape = SubResource( 15 )

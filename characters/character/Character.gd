@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Character
 
+signal character_turned(new_look_direction)
+
 onready var Sprite := $Sprite
 onready var CollisionShape := $CollisionShape2D
 onready var AnimationPlayer := $AnimationPlayer
@@ -59,10 +61,12 @@ func play_animation(animation_name: String, speed: float = 1.0) -> void:
 func set_look_direction(new_look_direction: int) -> void:
 	assert(look_direction == 1 || look_direction == -1)
 	
-	look_direction = new_look_direction
-	for child in get_children():
-		if child is Node2D:
-			child.scale.x = sign(look_direction)
+	if look_direction != new_look_direction:
+		look_direction = new_look_direction
+		for child in get_children():
+			if child is Node2D:
+				child.scale.x = sign(look_direction)
+		emit_signal("character_turned")
 
 func on_animation_finished(animation_name: String) -> void:
 	var current_state = StateMachine.get_current_state()

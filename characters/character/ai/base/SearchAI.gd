@@ -1,30 +1,17 @@
 extends AI
 class_name SearchAI
 
-"""
-base state for the AIStateMachine
-every AI script has access to the host and input_controller
-"""
+onready var FollowAI := get_node_or_null(follow_state_path) as AI
 
-var follow_state_path: NodePath = "../../FollowAI"
-onready var FollowAI:= get_node_or_null(follow_state_path) as AI 
+export var follow_state_path: NodePath = "../FollowAI"
+export var search_distance: int = 70
 
-export var player_path: NodePath = "/root/TestLevel/Level1/Characters/Player"
-onready var player: Character = get_node(player_path) as Character
-
-export var search_distance = 70
-var distance_to_player = 0
+var distance_to_player: int = 0
 	
-func _state_process(_delta: float) -> void:
-	_searchForPlayer()
+func _ready() -> void:
+	Perception.connect("body_entered", self, "on_body_perceived")
 
-func _searchForPlayer():
-	distance_to_player = host.position.distance_to(player.position)
-
-	if distance_to_player <= search_distance and not _is_standing_on_edge():
-		if state_machine._pop_push(FollowAI, {'player':player, 'search_distance':search_distance}):
+func on_body_perceived(body) -> void:
+	if body is Player && state_machine:
+		if state_machine._pop_push(FollowAI, { 'player': body }):
 			return
-			
-func is_active() -> bool:
-	return state_machine and state_machine.get_current_state() == self
-
