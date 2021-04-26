@@ -1,10 +1,12 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="ScreenSpaceUI" type="Control"]
-pause_mode = 1
+[ext_resource path="res://ui/WorldSpaceUI.gd" type="Script" id=1]
+
+[node name="WorldSpaceUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

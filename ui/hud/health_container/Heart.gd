@@ -1,5 +1,6 @@
 tool
 extends Control
+class_name Heart
 
 export var is_filled: bool = true setget set_filled
 

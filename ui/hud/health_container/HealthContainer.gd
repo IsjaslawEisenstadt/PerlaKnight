@@ -8,7 +8,7 @@ func set_max_health(max_health: int) -> void:
 	var health_difference: int = max_health - root.get_child_count()
 	if health_difference > 0:
 		for heart in root.get_children():
-			heart.set_filled = true
+			heart.is_filled = true
 		for _i in range(health_difference):
 			var new_heart = HeartScene.instance()
 			new_heart.is_filled = true

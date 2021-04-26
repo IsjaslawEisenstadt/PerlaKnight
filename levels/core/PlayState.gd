@@ -12,13 +12,14 @@ export var transition_path: NodePath = "../ScreenSpaceUI/Transition"
 
 export(String, FILE, "*.tscn,*.scn,*.ldtk") var new_game_scene_path: String
 
-export(String, FILE, "*.tscn,*.scn") var runtime_screen_space_ui: String
-export(String, FILE, "*.tscn,*.scn") var runtime_world_space_ui: String
+export(String, FILE, "*.tscn,*.scn") var runtime_screen_space_ui_path: String
+export(String, FILE, "*.tscn,*.scn") var runtime_world_space_ui_path: String
 
 export var runtime_screen_space_ui_parent: NodePath = "../ScreenSpaceUI/RuntimeUI"
 export var runtime_world_space_ui_parent: NodePath = "../RuntimeUI"
 
-var runtime_ui_loaded: bool = false
+var runtime_screen_space_ui: ScreenSpaceUI
+var runtime_world_space_ui: WorldSpaceUI
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	if "scenes" in params:
@@ -28,15 +29,19 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 		
 		assert(params.scenes is Dictionary)
 		
-		if !runtime_ui_loaded:
-			runtime_ui_loaded = true
-			RuntimeScreenSpaceUIParent.add_child(params.scenes[runtime_screen_space_ui])
-			RuntimeWorldSpaceUIParent.add_child(params.scenes[runtime_world_space_ui])
-			params.scenes.erase(runtime_screen_space_ui)
-			params.scenes.erase(runtime_world_space_ui)
+		if !runtime_screen_space_ui || !runtime_world_space_ui:
+			runtime_screen_space_ui = params.scenes[runtime_screen_space_ui_path]
+			runtime_world_space_ui = params.scenes[runtime_world_space_ui_path]
+			RuntimeScreenSpaceUIParent.add_child(runtime_screen_space_ui)
+			RuntimeWorldSpaceUIParent.add_child(runtime_world_space_ui)
+			params.scenes.erase(runtime_screen_space_ui_path)
+			params.scenes.erase(runtime_world_space_ui_path)
 		
 		for scene_path in params.scenes:
+			var scene: Node = params.scenes[scene_path]
 			add_child(params.scenes[scene_path])
+			if scene is Level:
+				scene.set_ui(runtime_screen_space_ui, runtime_world_space_ui)
 		
 		# params are consumed at this point, we don't pass it along anymore
 		._state_enter(previous_state, {})
@@ -46,8 +51,8 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 		Transition.visible = false
 	else:
 		var scenes := {}
-		if !runtime_ui_loaded:
-			scenes[runtime_screen_space_ui] = null
-			scenes[runtime_world_space_ui] = null
+		if !runtime_screen_space_ui || !runtime_world_space_ui:
+			scenes[runtime_screen_space_ui_path] = null
+			scenes[runtime_world_space_ui_path] = null
 		scenes[new_game_scene_path] = null
 		state_machine._push_state(LoadingScreen, { "scenes": scenes })

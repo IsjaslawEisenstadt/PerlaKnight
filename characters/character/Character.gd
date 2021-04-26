@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Character
 
+signal health_changed(current_health)
+
 onready var Sprite := $Sprite
 onready var CollisionShape := $CollisionShape2D
 onready var AnimationPlayer := $AnimationPlayer
@@ -9,6 +11,9 @@ onready var StateMachine := $StateMachine
 onready var InteractionRay := get_node_or_null("InteractionRay") as RayCast2D
 onready var WallClimbAssistantTop := get_node_or_null("WallClimbAssistantTop") as Area2D
 onready var WallClimbAssistantBottom := get_node_or_null("WallClimbAssistantBottom") as Area2D
+
+export var max_health: int = 5
+export var current_health: int = max_health setget set_current_health
 
 export var dash_acquired: bool = false
 export var double_jump_acquired: bool = false
@@ -68,3 +73,7 @@ func on_animation_finished(animation_name: String) -> void:
 	var current_state = StateMachine.get_current_state()
 	if current_state:
 		current_state.call("_on_animation_finished", animation_name)
+
+func set_current_health(new_health: int) -> void:
+	current_health = new_health
+	emit_signal("health_changed", current_health)
