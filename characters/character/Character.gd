@@ -6,7 +6,6 @@ onready var CollisionShape := $CollisionShape2D
 onready var AnimationPlayer := $AnimationPlayer
 onready var InputController := $InputController
 onready var StateMachine := $StateMachine
-
 onready var InteractionRay := get_node_or_null("InteractionRay") as RayCast2D
 onready var WallClimbAssistantTop := get_node_or_null("WallClimbAssistantTop") as Area2D
 onready var WallClimbAssistantBottom := get_node_or_null("WallClimbAssistantBottom") as Area2D

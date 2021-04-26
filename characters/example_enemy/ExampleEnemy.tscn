@@ -1,7 +1,7 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://characters/character/input/PlayerInputController.gd" type="Script" id=2]
+[ext_resource path="res://characters/character/input/AIInputController.gd" type="Script" id=2]
 [ext_resource path="res://characters/character/states/IdleState.gd" type="Script" id=3]
 [ext_resource path="res://characters/player/textures/PLACERHOLDER_player_sheet.png" type="Texture" id=4]
 [ext_resource path="res://characters/character/states/move/MoveState.gd" type="Script" id=5]
@@ -10,6 +10,10 @@
 [ext_resource path="res://characters/character/states/jump/JumpState.gd" type="Script" id=8]
 [ext_resource path="res://characters/character/states/jump/FallState.gd" type="Script" id=9]
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=10]
+[ext_resource path="res://characters/character/ai/base/IdleAI.gd" type="Script" id=11]
+[ext_resource path="res://characters/character/ai/base/RoamAI.gd" type="Script" id=12]
+[ext_resource path="res://characters/character/ai/base/SearchAI.gd" type="Script" id=13]
+[ext_resource path="res://characters/character/ai/base/FollowAI.gd" type="Script" id=14]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.0
@@ -186,7 +190,13 @@ tracks/1/keys = {
 [sub_resource type="RayShape2D" id=12]
 length = 10.0
 
-[node name="Player" instance=ExtResource( 1 )]
+[sub_resource type="RayShape2D" id=13]
+length = 46.6239
+
+[sub_resource type="RayShape2D" id=14]
+length = 29.922
+
+[node name="ExampleEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
 dash_acquired = true
 double_jump_acquired = true
@@ -222,6 +232,22 @@ anims/wall_slide = SubResource( 11 )
 [node name="InputController" parent="." index="4"]
 script = ExtResource( 2 )
 
+[node name="SearchAI" type="Node" parent="InputController" index="0"]
+script = ExtResource( 13 )
+
+[node name="RoamAI" type="Node" parent="InputController/SearchAI" index="0"]
+script = ExtResource( 12 )
+roaming_max_time = 2
+
+[node name="IdleAI" type="Node" parent="InputController/SearchAI" index="1"]
+script = ExtResource( 11 )
+idling_max_time = 2
+
+[node name="FollowAI" type="Node" parent="InputController" index="1"]
+script = ExtResource( 14 )
+edge_collider_path = NodePath("../../EdgeCollider")
+wall_collider_path = NodePath("../../WallCollider")
+
 [node name="IdleState" type="Node" parent="StateMachine" index="0"]
 script = ExtResource( 3 )
 host_path = NodePath("../..")
@@ -244,6 +270,7 @@ script = ExtResource( 9 )
 animation_name = "fall"
 move_speed = 90.0
 move_damping = 0.8
+land_state_path = NodePath("../../../../Player/StateMachine/Jump/LandState")
 
 [node name="WallJumpState" type="Node" parent="StateMachine/Jump" index="2"]
 script = ExtResource( 7 )
@@ -256,6 +283,7 @@ script = ExtResource( 5 )
 animation_name = "run"
 move_speed = 90.0
 move_damping = 0.8
+turn_state_path = NodePath("../../../../Player/StateMachine/Move/TurnState")
 
 [node name="DashState" type="Node" parent="StateMachine/Move" index="1"]
 script = ExtResource( 6 )
@@ -264,10 +292,7 @@ move_speed = 90.0
 move_damping = 0.2
 ground_dash_end_damping = 0.9
 
-[node name="Camera2D" type="Camera2D" parent="." index="6"]
-current = true
-
-[node name="WallClimbAssistantTop" type="Area2D" parent="." index="7"]
+[node name="WallClimbAssistantTop" type="Area2D" parent="." index="6"]
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallClimbAssistantTop" index="0"]
@@ -275,10 +300,24 @@ position = Vector2( 0, -33 )
 rotation = 4.71239
 shape = SubResource( 12 )
 
-[node name="WallClimbAssistantBottom" type="Area2D" parent="." index="8"]
+[node name="WallClimbAssistantBottom" type="Area2D" parent="." index="7"]
 collision_layer = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WallClimbAssistantBottom" index="0"]
 position = Vector2( 0, -5 )
 rotation = 4.71239
 shape = SubResource( 12 )
+
+[node name="EdgeCollider" type="Area2D" parent="." index="8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EdgeCollider" index="0"]
+position = Vector2( 0, -32.8949 )
+rotation = -0.785398
+shape = SubResource( 13 )
+
+[node name="WallCollider" type="Area2D" parent="." index="9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallCollider" index="0"]
+position = Vector2( 0, -18.133 )
+rotation = -1.5708
+shape = SubResource( 14 )
