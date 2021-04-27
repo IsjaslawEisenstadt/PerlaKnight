@@ -2,17 +2,8 @@ tool
 extends AnimationState
 class_name DeathState
 
-"""
-A state that is entered on death of the character, with an optional LootTable export.
-To easily export the collision layer/mask we override the _get_property_list() function.
-The script must be in tool mode work properly.
-"""
-
-# the on death collision layer/mask for the host
-var collision_layer: int = 8
+var collision_layer: int = 0
 var collision_mask: int = 0
-
-export var loot_table: Resource
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)

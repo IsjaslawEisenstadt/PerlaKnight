@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/character/input/PlayerInputController.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://characters/character/states/jump/JumpState.gd" type="Script" id=8]
 [ext_resource path="res://characters/character/states/jump/FallState.gd" type="Script" id=9]
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=10]
+[ext_resource path="res://characters/character/states/DeathState.gd" type="Script" id=11]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.0
@@ -47,6 +48,19 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 26, 36 ]
+}
 
 [sub_resource type="Animation" id=5]
 length = 0.3
@@ -194,12 +208,12 @@ wall_climb_acquired = true
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 4 )
-offset = Vector2( 12, -20 )
+offset = Vector2( 7.5, -21 )
 hframes = 6
 vframes = 17
-frame = 60
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 position = Vector2( 0, -16.5 )
 shape = SubResource( 1 )
 
@@ -264,10 +278,18 @@ move_speed = 90.0
 move_damping = 0.2
 ground_dash_end_damping = 0.9
 
+[node name="DeathState" type="Node" parent="StateMachine" index="3"]
+script = ExtResource( 11 )
+host_path = NodePath("../..")
+animation_name = "death"
+collision_layer = 0
+collision_mask = 0
+
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
 current = true
 
 [node name="WallClimbAssistantTop" type="Area2D" parent="." index="7"]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallClimbAssistantTop" index="0"]
@@ -276,6 +298,7 @@ rotation = 4.71239
 shape = SubResource( 12 )
 
 [node name="WallClimbAssistantBottom" type="Area2D" parent="." index="8"]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WallClimbAssistantBottom" index="0"]

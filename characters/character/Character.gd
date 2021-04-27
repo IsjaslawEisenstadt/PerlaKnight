@@ -79,4 +79,6 @@ func on_animation_finished(animation_name: String) -> void:
 
 func set_current_health(new_health: int) -> void:
 	current_health = new_health
+	if current_health <= 0:
+		StateMachine.die()
 	emit_signal("health_changed", current_health)
