@@ -44,3 +44,4 @@ func _state_process(delta: float) -> void:
 func _state_exit(_next_state: State) -> void:
 	input_controller.deactivate_actions()
 	roaming_timer.stop()
+	host.disconnect("character_turned", self, "set")

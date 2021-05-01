@@ -1,4 +1,4 @@
-extends PhysicsState
+extends AttackState
 class_name FallState
 
 """
@@ -77,5 +77,6 @@ func _state_physics_process(delta: float) -> void:
 		if state_machine._pop_push(WallJumpState):
 			return
 
-func _state_exit(_next_state: State) -> void:
+func _state_exit(next_state: State) -> void:
+	._state_exit(next_state)
 	coyote_jump_timer.stop()

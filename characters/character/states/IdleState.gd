@@ -1,4 +1,4 @@
-extends PhysicsState
+extends AttackState
 class_name IdleState
 
 """

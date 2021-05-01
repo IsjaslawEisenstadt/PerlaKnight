@@ -1,4 +1,4 @@
-extends PhysicsState
+extends AttackState
 class_name JumpState
 
 """
@@ -94,9 +94,11 @@ func _state_physics_process(delta: float) -> void:
 		if state_machine._pop_push(WallJumpState):
 			return
 
-func _state_exit(_next_state: State) -> void:
+func _state_exit(next_state: State) -> void:
+	._state_exit(next_state)
 	input_delay_timer.stop()
 
 func _on_animation_finished(finished_animation_name: String) -> void:
+	._on_animation_finished(finished_animation_name)
 	if use_mid_jump_animation && finished_animation_name == animation_name:
 		host.play_animation(mid_jump_animation, mid_jump_animation_speed)

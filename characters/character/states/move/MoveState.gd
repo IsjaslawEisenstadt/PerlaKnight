@@ -1,4 +1,4 @@
-extends PhysicsState
+extends AttackState
 class_name MoveState
 
 onready var IdleState := get_node_or_null(idle_state_path) as CharacterState
