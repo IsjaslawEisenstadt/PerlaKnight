@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://levels/core/GameStateMachine.gd"
 }, {
+"base": "Area2D",
+"class": "Hazard",
+"language": "GDScript",
+"path": "res://environment/hazards/base/Hazard.gd"
+}, {
 "base": "Control",
 "class": "Heart",
 "language": "GDScript",
@@ -214,6 +219,7 @@ _global_script_class_icons={
 "FollowAI": "",
 "GameState": "",
 "GameStateMachine": "",
+"Hazard": "",
 "Heart": "",
 "IdleAI": "",
 "IdleState": "",
