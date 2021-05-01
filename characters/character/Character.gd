@@ -82,10 +82,5 @@ func set_current_health(new_health: int) -> void:
 	
 	current_health = new_health
 	if current_health <= 0:
-		die()
+		StateMachine.call_deferred("die")
 	emit_signal("health_changed", current_health)
-
-func die() -> void:
-	StateMachine.call_deferred("die")
-	set_process(false)
-	set_physics_process(false)
