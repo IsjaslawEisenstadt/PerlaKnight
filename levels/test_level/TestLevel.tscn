@@ -1,7 +1,53 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/test_level/TestLevel.ldtk" type="PackedScene" id=1]
 [ext_resource path="res://levels/core/Level.gd" type="Script" id=2]
+[ext_resource path="res://levels/test_level/textures/background/Mountain2.png" type="Texture" id=3]
+[ext_resource path="res://levels/test_level/textures/background/BackgroundMountains.png" type="Texture" id=5]
+[ext_resource path="res://levels/test_level/textures/background/Clouds.png" type="Texture" id=6]
+[ext_resource path="res://levels/test_level/textures/background/Background.png" type="Texture" id=7]
+[ext_resource path="res://levels/test_level/textures/background/Castle.png" type="Texture" id=8]
+[ext_resource path="res://levels/test_level/textures/background/Mountain1.png" type="Texture" id=9]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="1"]
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1080, 0 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer5" index="0"]
+texture = ExtResource( 7 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+motion_scale = Vector2( 0.05, 0 )
+motion_mirroring = Vector2( 1080, 0 )
+
+[node name="BackgroundMountains" type="Sprite" parent="ParallaxBackground/ParallaxLayer4" index="0"]
+texture = ExtResource( 5 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+motion_scale = Vector2( 0.1, 0 )
+motion_mirroring = Vector2( 1080, 0 )
+
+[node name="Clouds" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="0"]
+texture = ExtResource( 6 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
+motion_scale = Vector2( 0.15, 0 )
+motion_mirroring = Vector2( 1080, 0 )
+
+[node name="Mountains2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
+motion_scale = Vector2( 0.2, 0 )
+motion_mirroring = Vector2( 1080, 0 )
+
+[node name="Castle" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+texture = ExtResource( 8 )
+
+[node name="Mountains1" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
+texture = ExtResource( 9 )
