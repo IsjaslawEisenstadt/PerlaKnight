@@ -48,7 +48,7 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 		
 		Transition.start("fade_in")
 		yield(Transition, "transition_finished")
-		Transition.visible = false
+	
 	else:
 		var scenes := {}
 		if !runtime_screen_space_ui || !runtime_world_space_ui:

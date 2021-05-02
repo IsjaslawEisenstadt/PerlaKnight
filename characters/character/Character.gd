@@ -3,6 +3,8 @@ class_name Character
 
 signal health_changed(current_health)
 signal character_turned(new_look_direction)
+signal transition_to_checkpoint
+signal finish_transition_to_checkpoint
 
 onready var Sprite := $Sprite
 onready var CollisionShape := $CollisionShape2D
@@ -12,6 +14,9 @@ onready var StateMachine := $StateMachine
 onready var InteractionRay := get_node_or_null("InteractionRay") as RayCast2D
 onready var WallClimbAssistantTop := get_node_or_null("WallClimbAssistantTop") as Area2D
 onready var WallClimbAssistantBottom := get_node_or_null("WallClimbAssistantBottom") as Area2D
+onready var last_checkpoint := get_node_or_null(default_checkpoint_path) as Checkpoint
+
+export var default_checkpoint_path: NodePath
 
 export var max_health: int = 5
 
@@ -29,12 +34,17 @@ var can_double_jump: bool = double_jump_acquired
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
+	last_checkpoint.last_position = position
+	
 	AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
 	InputController._start(self)
 	StateMachine.start()
 
 func _process(delta: float):
 	InputController._input_process(delta)
+	
+	if InputController._is_action_just_activated("reset"):
+		reset_to_last_checkpoint()
 	
 	if (InputController._is_action_just_activated("interact") 
 		&& StateMachine.get_current_state()._can_interact() 
@@ -84,3 +94,10 @@ func set_current_health(new_health: int) -> void:
 	if current_health <= 0:
 		StateMachine.call_deferred("die")
 	emit_signal("health_changed", current_health)
+	
+func reset_to_last_checkpoint():
+	emit_signal("transition_to_checkpoint")
+	
+func finish_transition_to_checkpoint():
+	position = last_checkpoint.last_position
+	emit_signal("finish_transition_to_checkpoint")
