@@ -7,11 +7,13 @@
 [node name="TestLevel" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="Checkpoints" type="Node" parent="Level1" index="2"]
+
+[node name="Checkpoint" parent="Level1/Checkpoints" index="0" instance=ExtResource( 3 )]
+position = Vector2( 570, 146 )
+
+[node name="Default_Checkpoint" parent="Level1/Checkpoints" index="1" instance=ExtResource( 3 )]
+position = Vector2( 157.486, 145.373 )
+
 [node name="Player" parent="Level1/Characters" index="0"]
-default_checkpoint_path = NodePath("../../Default_Checkpoint")
-
-[node name="Default_Checkpoint" parent="Level1" index="3" instance=ExtResource( 3 )]
-position = Vector2( 155.986, 143.373 )
-
-[node name="Checkpoint" parent="." index="1" instance=ExtResource( 3 )]
-position = Vector2( 569, 143.5 )
+default_checkpoint_path = NodePath("../../Checkpoints/Default_Checkpoint")

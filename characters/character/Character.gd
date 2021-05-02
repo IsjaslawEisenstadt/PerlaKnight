@@ -35,6 +35,7 @@ var can_double_jump: bool = double_jump_acquired
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	last_checkpoint.last_position = position
+	last_checkpoint.activate()
 	
 	AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
 	InputController._start(self)
@@ -95,6 +96,10 @@ func set_current_health(new_health: int) -> void:
 		StateMachine.call_deferred("die")
 	emit_signal("health_changed", current_health)
 	
+func set_checkpoint(checkpoint):
+	last_checkpoint.deactivate()
+	last_checkpoint = checkpoint
+
 func reset_to_last_checkpoint():
 	emit_signal("transition_to_checkpoint")
 	
