@@ -52,7 +52,7 @@ _global_script_classes=[ {
 "base": "Interaction",
 "class": "Checkpoint",
 "language": "GDScript",
-"path": "res://utility/interaction/checkpoint/Checkpoint.gd"
+"path": "res://environment/checkpoint/Checkpoint.gd"
 }, {
 "base": "PhysicsState",
 "class": "DashState",

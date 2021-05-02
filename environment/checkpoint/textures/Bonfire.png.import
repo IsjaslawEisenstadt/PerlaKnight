@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Bonfire.png-66900fe033d53dcea2ffbb5edd9cf85b.stex"
+path="res://.import/Bonfire.png-efcbfe41fbb65968b9ff99730d1967a8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://utility/interaction/checkpoint/textures/Bonfire.png"
-dest_files=[ "res://.import/Bonfire.png-66900fe033d53dcea2ffbb5edd9cf85b.stex" ]
+source_file="res://environment/checkpoint/textures/Bonfire.png"
+dest_files=[ "res://.import/Bonfire.png-efcbfe41fbb65968b9ff99730d1967a8.stex" ]
 
 [params]
 

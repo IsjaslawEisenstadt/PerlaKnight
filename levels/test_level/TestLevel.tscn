@@ -2,7 +2,7 @@
 
 [ext_resource path="res://levels/test_level/TestLevel.ldtk" type="PackedScene" id=1]
 [ext_resource path="res://levels/core/Level.gd" type="Script" id=2]
-[ext_resource path="res://utility/interaction/checkpoint/Checkpoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=3]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -10,10 +10,7 @@ script = ExtResource( 2 )
 [node name="Checkpoints" type="Node" parent="Level1" index="2"]
 
 [node name="Checkpoint" parent="Level1/Checkpoints" index="0" instance=ExtResource( 3 )]
-position = Vector2( 570, 146 )
+position = Vector2( 192, 120 )
 
-[node name="Default_Checkpoint" parent="Level1/Checkpoints" index="1" instance=ExtResource( 3 )]
-position = Vector2( 157.486, 145.373 )
-
-[node name="Player" parent="Level1/Characters" index="0"]
-default_checkpoint_path = NodePath("../../Checkpoints/Default_Checkpoint")
+[node name="Checkpoint2" parent="Level1/Checkpoints" index="1" instance=ExtResource( 3 )]
+position = Vector2( 368, 56 )
