@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 72,
+	"nextUid": 82,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 128,
 	"worldGridHeight": 128,
@@ -354,6 +354,25 @@
 			"tilesetDefUid": null,
 			"tilePivotX": 0,
 			"tilePivotY": 0
+		},
+		{
+			"__type": "Entities",
+			"identifier": "Checkpoints",
+			"type": "Entities",
+			"uid": 78,
+			"gridSize": 2,
+			"displayOpacity": 1,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"requiredTags": [],
+			"excludedTags": [],
+			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
+			"autoTilesetDefUid": null,
+			"autoRuleGroups": [],
+			"autoSourceLayerDefUid": null,
+			"tilesetDefUid": null,
+			"tilePivotX": 0,
+			"tilePivotY": 0
 		}
 	], "entities": [
 		{
@@ -404,6 +423,150 @@
 					"textLanguageMode": null
 				}
 			]
+		},
+		{
+			"identifier": "Checkpoint",
+			"uid": 72,
+			"tags": [],
+			"width": 84,
+			"height": 68,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#FFAD00",
+			"renderMode": "Rectangle",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 73,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/checkpoint/Checkpoint.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "default",
+					"__type": "Bool",
+					"uid": 74,
+					"type": "F_Bool",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_Bool",
+						"params": [ false ]
+					},
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "Default_Checkpoint",
+			"uid": 79,
+			"tags": [],
+			"width": 84,
+			"height": 68,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#9F6C00",
+			"renderMode": "Rectangle",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "FitInside",
+			"maxCount": 1,
+			"limitScope": "PerLevel",
+			"limitBehavior": "PreventAdding",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 80,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/checkpoint/Checkpoint.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "default",
+					"__type": "Bool",
+					"uid": 81,
+					"type": "F_Bool",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_Bool",
+						"params": [ true ]
+					},
+					"textLanguageMode": null
+				}
+			]
 		}
 	], "tilesets": [
 		{
@@ -421,10 +584,7 @@
 			"enumTags": [],
 			"customData": [],
 			"savedSelections": [],
-			"cachedPixelData": {
-				"opaqueTiles": "0100000001000000000011100000000000000000000000000000000000000000",
-				"averageColors": "f123f122f1230000f112e122f1120000f122f000f1220000f1220000f1220000e123e122e1220000f112f122f11200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
-			}
+			"cachedPixelData": null
 		},
 		{
 			"__cWid": 16,
@@ -14745,6 +14905,69 @@
 							"defUid": 23,
 							"px": [3974,2111],
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+						}
+					]
+				},
+				{
+					"__identifier": "Checkpoints",
+					"__type": "Entities",
+					"__cWid": 4672,
+					"__cHei": 2432,
+					"__gridSize": 2,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 0,
+					"layerDefUid": 78,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 8026424,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": [
+						{
+							"__identifier": "Checkpoint",
+							"__grid": [2055,1055],
+							"__pivot": [0.5,1],
+							"__tile": null,
+							"width": 84,
+							"height": 68,
+							"defUid": 72,
+							"px": [4111,2112],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] },
+								{
+									"__identifier": "default",
+									"__value": false,
+									"__type": "Bool",
+									"defUid": 74,
+									"realEditorValues": [{
+										"id": "V_Bool",
+										"params": [ false ]
+									}]
+								}
+							]
+						},
+						{
+							"__identifier": "Default_Checkpoint",
+							"__grid": [1947,1055],
+							"__pivot": [0.5,1],
+							"__tile": null,
+							"width": 84,
+							"height": 68,
+							"defUid": 79,
+							"px": [3895,2112],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 80, "realEditorValues": [] },
+								{ "__identifier": "default", "__value": true, "__type": "Bool", "defUid": 81, "realEditorValues": [] }
+							]
 						}
 					]
 				}

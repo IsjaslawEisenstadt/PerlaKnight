@@ -3,9 +3,18 @@ class_name Player
 
 signal transition_to_checkpoint
 
+onready var Checkpoints := get_node_or_null("../../Checkpoints")
+
 var closest_interaction: Interaction
 
 var current_checkpoint: Checkpoint setget set_current_checkpoint
+
+func _ready():
+	for checkpoint in Checkpoints.get_children():
+		if checkpoint.default:
+			set_current_checkpoint(checkpoint)
+		
+	assert(current_checkpoint)
 
 func _process(_delta: float) -> void:
 	if InputController._is_action_just_activated("reset"):
@@ -24,6 +33,9 @@ func set_current_checkpoint(new_checkpoint: Checkpoint) -> void:
 	if new_checkpoint != current_checkpoint:
 		if current_checkpoint:
 			current_checkpoint.deactivate()
+			
+		new_checkpoint.last_position = position
+		
 		current_checkpoint = new_checkpoint
 		current_checkpoint.activate()
 

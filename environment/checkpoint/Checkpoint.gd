@@ -3,11 +3,12 @@ class_name Checkpoint
 
 onready var AnimationPlayer := $AnimationPlayer
 
+export var default: bool
+
 var last_position: Vector2
 
 func _interact(character) -> void:
-	character.current_checkpoint = self
-	last_position = character.position
+	character.set_current_checkpoint(self)
 
 func _can_interact(character) -> bool:
 	return "current_checkpoint" in character && character.current_checkpoint != self
