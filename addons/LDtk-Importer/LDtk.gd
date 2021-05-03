@@ -65,6 +65,12 @@ func new_entity(entity_data, level, options):
 						is_custom_entity = true
 			elif options.Import_Metadata:
 				metadata.append({'name': field.__identifier, 'value': field.__value})
+		
+		if new_entity:
+			for field in entity_data.fieldInstances:
+				if field.__identifier != 'NodeType':
+					new_entity.set(field.__identifier, field.__value)
+		
 	else:
 		printerr("Could not load entity data: ", entity_data)
 		return
