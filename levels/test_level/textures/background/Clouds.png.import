@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tile_Set_Grey_Bricks.png-d3a2b1708a13cea1f875257369875459.stex"
+path="res://.import/Clouds.png-b5043696cf73564eaaad0f99a03a96a3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/test_level/textures/Tile_Set_Grey_Bricks.png"
-dest_files=[ "res://.import/Tile_Set_Grey_Bricks.png-d3a2b1708a13cea1f875257369875459.stex" ]
+source_file="res://levels/test_level/textures/background/Clouds.png"
+dest_files=[ "res://.import/Clouds.png-b5043696cf73564eaaad0f99a03a96a3.stex" ]
 
 [params]
 
