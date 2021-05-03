@@ -36,8 +36,8 @@ visible = false
 position = Vector2( 0, 12 )
 shape = SubResource( 1 )
 
-[node name="SymbolPosition" parent="." index="2"]
-position = Vector2( 0, 24 )
+[node name="IconPosition" parent="." index="2"]
+position = Vector2( 0, 23 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 playback_speed = 1.75

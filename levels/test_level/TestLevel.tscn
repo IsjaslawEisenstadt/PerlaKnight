@@ -7,7 +7,7 @@
 [node name="TestLevel" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Checkpoints" type="Node" parent="Level1" index="2"]
+[node name="Checkpoints" type="Node2D" parent="Level1" index="2"]
 
 [node name="Checkpoint" parent="Level1/Checkpoints" index="0" instance=ExtResource( 3 )]
 position = Vector2( 192, 120 )

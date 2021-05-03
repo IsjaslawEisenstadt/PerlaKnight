@@ -207,7 +207,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "WorldSpaceUI",
 "language": "GDScript",
-"path": "res://ui/WorldSpaceUI.gd"
+"path": "res://ui/world_space/WorldSpaceUI.gd"
 } ]
 _global_script_class_icons={
 "AI": "",
