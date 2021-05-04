@@ -305,6 +305,10 @@ __meta__ = {
 anims/fade_in = SubResource( 7 )
 anims/fade_out = SubResource( 8 )
 
+[connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_connected"]
+[connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
+[connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_disconnected"]
+[connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/MainMenu" method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/MainMenu" method="_on_ExitButton_pressed"]
 [connection signal="animation_finished" from="UI/Transition/AnimationPlayer" to="UI/Transition" method="_on_AnimationPlayer_animation_finished"]
