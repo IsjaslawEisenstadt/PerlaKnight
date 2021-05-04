@@ -77,12 +77,12 @@ _global_script_classes=[ {
 "base": "State",
 "class": "GameState",
 "language": "GDScript",
-"path": "res://levels/core/GameState.gd"
+"path": "res://ui/game_states/base/GameState.gd"
 }, {
 "base": "StateMachine",
 "class": "GameStateMachine",
 "language": "GDScript",
-"path": "res://levels/core/GameStateMachine.gd"
+"path": "res://ui/GameStateMachine.gd"
 }, {
 "base": "Area2D",
 "class": "Hazard",
@@ -127,17 +127,17 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Level",
 "language": "GDScript",
-"path": "res://levels/core/Level.gd"
+"path": "res://levels/base/Level.gd"
 }, {
 "base": "GameState",
 "class": "LoadingScreen",
 "language": "GDScript",
-"path": "res://ui/menus/LoadingScreen.gd"
+"path": "res://ui/game_states/LoadingScreen.gd"
 }, {
 "base": "GameState",
 "class": "MainMenu",
 "language": "GDScript",
-"path": "res://ui/menus/MainMenu.gd"
+"path": "res://ui/game_states/MainMenu.gd"
 }, {
 "base": "AttackState",
 "class": "MoveState",
@@ -152,7 +152,12 @@ _global_script_classes=[ {
 "base": "GameState",
 "class": "PlayState",
 "language": "GDScript",
-"path": "res://levels/core/PlayState.gd"
+"path": "res://ui/game_states/PlayState.gd"
+}, {
+"base": "Control",
+"class": "PlayUI",
+"language": "GDScript",
+"path": "res://ui/game_states/PlayUI.gd"
 }, {
 "base": "Character",
 "class": "Player",
@@ -168,11 +173,6 @@ _global_script_classes=[ {
 "class": "RoamAI",
 "language": "GDScript",
 "path": "res://characters/character/ai/general/RoamAI.gd"
-}, {
-"base": "Control",
-"class": "ScreenSpaceUI",
-"language": "GDScript",
-"path": "res://ui/ScreenSpaceUI.gd"
 }, {
 "base": "AI",
 "class": "SearchAI",
@@ -203,11 +203,6 @@ _global_script_classes=[ {
 "class": "WallJumpState",
 "language": "GDScript",
 "path": "res://characters/character/states/jump/WallJumpState.gd"
-}, {
-"base": "Control",
-"class": "WorldSpaceUI",
-"language": "GDScript",
-"path": "res://ui/world_space/WorldSpaceUI.gd"
 } ]
 _global_script_class_icons={
 "AI": "",
@@ -239,23 +234,22 @@ _global_script_class_icons={
 "MoveState": "",
 "PhysicsState": "",
 "PlayState": "",
+"PlayUI": "",
 "Player": "",
 "PlayerInputController": "",
 "RoamAI": "",
-"ScreenSpaceUI": "",
 "SearchAI": "",
 "State": "",
 "StateMachine": "",
 "Transition": "",
 "TurnState": "",
-"WallJumpState": "",
-"WorldSpaceUI": ""
+"WallJumpState": ""
 }
 
 [application]
 
 config/name="PerlaKnight"
-run/main_scene="res://levels/core/GameStateMachine.tscn"
+run/main_scene="res://ui/GameStateMachine.tscn"
 config/icon="res://utility/icons/icon.png"
 
 [autoload]

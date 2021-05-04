@@ -4,6 +4,18 @@ onready var root: Control = $HBoxContainer
 
 export var HeartScene: PackedScene
 
+func _ready() -> void:
+	visible = false
+
+func on_player_connected(player: Player) -> void:
+	set_max_health(player.max_health)
+	visible = true
+	player.connect("health_changed", self, "set_health")
+
+func on_player_disconnected(player: Player) -> void:
+	visible = false
+	player.disconnect("health_changed", self, "set_health")
+
 func set_max_health(max_health: int) -> void:
 	var health_difference: int = max_health - root.get_child_count()
 	if health_difference > 0:

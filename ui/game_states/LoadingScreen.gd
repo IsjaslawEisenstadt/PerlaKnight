@@ -3,6 +3,8 @@ class_name LoadingScreen
 
 signal load_finished(resource)
 
+onready var PlayState := $"../.."/PlayState
+
 export var max_load_ms_per_frame: float = 100
 
 var loader: ResourceInteractiveLoader
@@ -10,15 +12,14 @@ var loader: ResourceInteractiveLoader
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 
-	assert("scenes" in params && params.scenes is Dictionary)
+	assert("scene" in params)
 	
-	for scene_path in params.scenes:
-		loader = ResourceLoader.load_interactive(scene_path)
-		assert(loader)
-		params.scenes[scene_path] = yield(self, "load_finished").instance()
+	loader = ResourceLoader.load_interactive(params.scene)
+	assert(loader)
+	var scene: Node = yield(self, "load_finished").instance()
 	
 	loader = null
-	state_machine._pop_state(params)
+	state_machine._pop_push(PlayState, {"scene": scene})
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)

@@ -1,11 +1,10 @@
 extends GameState
 class_name MainMenu
 
-onready var PlayState := get_node(play_state_path) as GameState
-onready var Transition := get_node(transition_path) as Transition
+onready var LoadingScreen := $".."/LoadingScreen
+onready var Transition := $".."/Transition
 
-export var play_state_path: NodePath = "../PlayState"
-export var transition_path: NodePath = "../Transition"
+export(String, FILE, "*.tscn,*.scn,*.ldtk") var new_game_scene_path: String
 
 func _ready() -> void:
 	if OS.has_feature("HTML5"):
@@ -14,7 +13,7 @@ func _ready() -> void:
 func _on_NewGameButton_pressed() -> void:
 	Transition.start("fade_out")
 	yield(Transition, "transition_finished")
-	state_machine._pop_push(PlayState)
+	state_machine._pop_push(LoadingScreen, {"scene": new_game_scene_path})
 
 func _on_ExitButton_pressed() -> void:
 	get_tree().quit()
