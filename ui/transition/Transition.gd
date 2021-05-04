@@ -18,4 +18,3 @@ func is_playing() -> bool:
 
 func _on_AnimationPlayer_animation_finished(_animation_name: String) -> void:
 	emit_signal("transition_finished")
-	TransitionEffect.visible = false

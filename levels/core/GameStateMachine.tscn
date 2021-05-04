@@ -15,16 +15,8 @@ pause_mode = 1
 script = ExtResource( 1 )
 new_game_scene_path = "res://levels/test_level/TestLevel.tscn"
 runtime_screen_space_ui_path = "res://ui/ScreenSpaceUI.tscn"
-runtime_world_space_ui_path = "res://ui/WorldSpaceUI.tscn"
-
-[node name="RuntimeUI" type="Control" parent="."]
-pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+runtime_world_space_ui_path = "res://ui/world_space/WorldSpaceUI.tscn"
+runtime_world_space_ui_parent = NodePath("../ScreenSpaceUI/RuntimeUI")
 
 [node name="ScreenSpaceUI" type="CanvasLayer" parent="."]
 

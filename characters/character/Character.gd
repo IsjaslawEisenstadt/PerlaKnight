@@ -36,6 +36,16 @@ func _ready() -> void:
 func _process(delta: float):
 	InputController._input_process(delta)
 	
+	_interaction_process()
+	
+	if double_jump_acquired && !can_double_jump && is_on_floor():
+		can_double_jump = true
+
+	StateMachine._state_machine_process(delta)
+
+# meant to be overridden by the player, because he needs to know his
+# closest interaction before pressing a button
+func _interaction_process() -> void:
 	if (InputController._is_action_just_activated("interact") 
 		&& StateMachine.get_current_state()._can_interact() 
 		&& InteractionRay.is_colliding()):
@@ -43,11 +53,7 @@ func _process(delta: float):
 			assert(interaction is Interaction)
 			if interaction._can_interact(self):
 				interaction._interact(self)
-	
-	if double_jump_acquired && !can_double_jump && is_on_floor():
-		can_double_jump = true
 
-	StateMachine._state_machine_process(delta)
 
 func _physics_process(delta: float):
 	StateMachine._state_machine_physics_process(delta)
