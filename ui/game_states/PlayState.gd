@@ -22,3 +22,7 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	
 	Transition.start("fade_in")
 	yield(Transition, "transition_finished")
+
+func _state_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		pass

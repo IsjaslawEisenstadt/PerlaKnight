@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://ui/world_space/interaction_icon/InteractionIcon.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://ui/hud/health_container/HealthContainer.tscn" type="PackedScene" id=13]
 [ext_resource path="res://ui/world_space/interaction_icon/InteractionIcon.tscn" type="PackedScene" id=14]
 [ext_resource path="res://ui/transition/Transition.shader" type="Shader" id=15]
+[ext_resource path="res://ui/game_states/PauseMenu.gd" type="Script" id=16]
 
 [sub_resource type="StyleBoxTexture" id=1]
 content_margin_left = 8.0
@@ -252,6 +253,85 @@ custom_styles/normal = SubResource( 5 )
 custom_fonts/font = ExtResource( 11 )
 text = "Exit"
 
+[node name="PauseMenu" type="Control" parent="UI"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="UI/PauseMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 40
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="UI/PauseMenu/Margin"]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 460.0
+margin_bottom = 245.0
+
+[node name="TitleContainer" type="CenterContainer" parent="UI/PauseMenu/Margin/VBox"]
+margin_right = 440.0
+margin_bottom = 44.0
+
+[node name="Title" type="Label" parent="UI/PauseMenu/Margin/VBox/TitleContainer"]
+margin_left = 154.0
+margin_right = 286.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 12 )
+text = "Paused"
+
+[node name="ButtonCenter" type="CenterContainer" parent="UI/PauseMenu/Margin/VBox"]
+margin_top = 48.0
+margin_right = 440.0
+margin_bottom = 205.0
+size_flags_vertical = 3
+
+[node name="ButtonVBox" type="VBoxContainer" parent="UI/PauseMenu/Margin/VBox/ButtonCenter"]
+margin_left = 159.0
+margin_top = 35.0
+margin_right = 280.0
+margin_bottom = 121.0
+mouse_filter = 0
+custom_constants/separation = 22
+
+[node name="ContinueButton" type="Button" parent="UI/PauseMenu/Margin/VBox/ButtonCenter/ButtonVBox"]
+margin_right = 121.0
+margin_bottom = 32.0
+focus_neighbour_top = NodePath("../ExitButton")
+focus_neighbour_bottom = NodePath("../LoadGameButton")
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 11 )
+text = "Continue"
+
+[node name="BackToMenuButton" type="Button" parent="UI/PauseMenu/Margin/VBox/ButtonCenter/ButtonVBox"]
+margin_top = 54.0
+margin_right = 121.0
+margin_bottom = 86.0
+focus_neighbour_top = NodePath("../ExitButton")
+focus_neighbour_bottom = NodePath("../LoadGameButton")
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 11 )
+text = "Back to menu"
+
 [node name="LoadingScreen" type="Control" parent="UI"]
 pause_mode = 2
 visible = false
@@ -305,10 +385,12 @@ __meta__ = {
 anims/fade_in = SubResource( 7 )
 anims/fade_out = SubResource( 8 )
 
-[connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_connected"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
-[connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_disconnected"]
+[connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_connected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]
+[connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_disconnected"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/MainMenu" method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/MainMenu" method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/PauseMenu" method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Margin/VBox/ButtonCenter/ButtonVBox/BackToMenuButton" to="UI/PauseMenu" method="_on_BackToMenuButton_pressed"]
 [connection signal="animation_finished" from="UI/Transition/AnimationPlayer" to="UI/Transition" method="_on_AnimationPlayer_animation_finished"]
