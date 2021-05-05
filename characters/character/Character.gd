@@ -22,6 +22,7 @@ export var wall_climb_acquired: bool = false
 var velocity := Vector2.ZERO
 var look_direction: int = 1 setget set_look_direction
 var current_health: int = max_health setget set_current_health
+var invincible: bool = false
 
 # wallclimb dash resets require this flag, DashState updates it
 var can_dash: bool = dash_acquired
@@ -90,3 +91,7 @@ func set_current_health(new_health: int) -> void:
 	if current_health <= 0:
 		StateMachine.call_deferred("die")
 	emit_signal("health_changed", current_health)
+
+func hit(attacker: Node2D, damage: int) -> void:
+	self.current_health -= damage
+	StateMachine.hurt(attacker)

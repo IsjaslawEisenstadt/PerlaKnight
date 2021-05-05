@@ -3,7 +3,9 @@ class_name CharacterStateMachine
 
 onready var StartState := get_node(start_state_path) as State
 onready var DeathState := get_node_or_null(death_state_path) as State
+onready var HurtState := get_node_or_null(hurt_state_path)
 
+export var hurt_state_path: NodePath = "HurtState"
 export var start_state_path: NodePath = "IdleState"
 export var death_state_path: NodePath = "DeathState"
 
@@ -17,3 +19,6 @@ func start() -> void:
 
 func die() -> bool:
 	return _push_state(DeathState)
+
+func hurt(attacker: Node2D) -> bool:
+	return _push_state(HurtState,{"attacker": attacker})

@@ -69,6 +69,6 @@ func _on_animation_finished(finished_animation_name: String) -> void:
 			play_animation(animation_name, animation_speed, 0)
 
 func on_attack_hit(body) -> void:
-	if is_active() && body != self && body is Character && !body in hit_characters:
-		body.current_health -= attack_damage
+	if is_active() && body != self && body is Character && !body in hit_characters && !body.invincible:
+		body.hit(host, attack_damage)
 		hit_characters.append(body)
