@@ -14,7 +14,8 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)
-	if !popup_open && Input.is_action_just_pressed("pause"):
+	# ui_cancel for Gamepad B presses
+	if !popup_open && (Input.is_action_just_pressed("pause") || Input.is_action_just_pressed("ui_cancel")):
 		close()
 
 func blur_finished(_animation_name: String) -> void:
@@ -33,10 +34,11 @@ func on_new_game_pressed() -> void:
 	$NewGamePopup.open()
 	var confirmed: bool = yield($NewGamePopup, "popup_closed")
 	if confirmed:
-		# kind of hacky bit should be fine
+		# kind of hacky but should be fine
 		$".."/MainMenu.new_game()
 		
 	Input.action_release("pause")
+	Input.action_release("ui_cancel")
 	popup_open = false
 
 func on_exit_pressed() -> void:
@@ -47,4 +49,5 @@ func on_exit_pressed() -> void:
 		get_tree().quit()
 		
 	Input.action_release("pause")
+	Input.action_release("ui_cancel")
 	popup_open = false

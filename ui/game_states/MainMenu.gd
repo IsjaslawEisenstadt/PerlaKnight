@@ -15,8 +15,8 @@ func new_game() -> void:
 	yield(Transition, "transition_finished")
 	state_machine._pop_push(LoadingScreen, {"scene": new_game_scene_path})
 
-func _on_NewGameButton_pressed() -> void:
+func on_new_game_pressed() -> void:
 	new_game()
 
-func _on_ExitButton_pressed() -> void:
+func on_exit_pressed() -> void:
 	get_tree().quit()
