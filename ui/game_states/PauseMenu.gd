@@ -1,8 +1,6 @@
 extends GameState
 class_name PauseMenu
 
-onready var MainMenu := $".."/MainMenu
-
 var popup_open: bool = false
 
 func _ready() -> void:
@@ -35,8 +33,8 @@ func on_new_game_pressed() -> void:
 	$NewGamePopup.open()
 	var confirmed: bool = yield($NewGamePopup, "popup_closed")
 	if confirmed:
-		# TODO: implement new game during pause
-		pass
+		# kind of hacky bit should be fine
+		$".."/MainMenu.new_game()
 		
 	Input.action_release("pause")
 	popup_open = false
