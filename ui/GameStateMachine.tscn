@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://ui/world_space/interaction_icon/InteractionIcon.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://ui/world_space/interaction_icon/InteractionIcon.tscn" type="PackedScene" id=14]
 [ext_resource path="res://ui/transition/Transition.shader" type="Shader" id=15]
 [ext_resource path="res://ui/game_states/PauseMenu.gd" type="Script" id=16]
+[ext_resource path="res://ui/game_states/WarningPopup.gd" type="Script" id=18]
 
 [sub_resource type="StyleBoxTexture" id=1]
 content_margin_left = 8.0
@@ -39,19 +40,92 @@ content_margin_right = 8.0
 content_margin_top = 8.0
 content_margin_bottom = 8.0
 texture = ExtResource( 9 )
-region_rect = Rect2( 145, 113, 46, 14 )
-modulate_color = Color( 0.835294, 0.835294, 0.835294, 1 )
+region_rect = Rect2( 145, 81, 46, 14 )
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="Animation" id=4]
+resource_name = "blur"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Content:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Blur:material:shader_param/blur_amount")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 2.0 ]
+}
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform float blur_amount : hint_range(0, 5);
+
+void fragment() {
+	COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount);
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/blur_amount = 0.0
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 9 )
+region_rect = Rect2( 2, 34, 44, 44 )
+margin_left = 30.0
+margin_right = 30.0
+margin_top = 14.0
+margin_bottom = 14.0
+
+[sub_resource type="Animation" id=8]
+resource_name = "blur"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="StyleBoxTexture" id=9]
 content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 8.0
 content_margin_bottom = 8.0
 texture = ExtResource( 9 )
 region_rect = Rect2( 145, 113, 46, 14 )
-modulate_color = Color( 0.545098, 0.545098, 0.545098, 1 )
 
-[sub_resource type="StyleBoxTexture" id=5]
+[sub_resource type="StyleBoxTexture" id=10]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 9 )
+region_rect = Rect2( 145, 98, 46, 13 )
+
+[sub_resource type="StyleBoxTexture" id=11]
 content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 8.0
@@ -59,15 +133,31 @@ content_margin_bottom = 8.0
 texture = ExtResource( 9 )
 region_rect = Rect2( 145, 81, 46, 14 )
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="Animation" id=12]
+resource_name = "blur"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=13]
 shader = ExtResource( 15 )
 shader_param/cutoff = 1.0
 shader_param/smooth_size = 0.2
 shader_param/color = Color( 0, 0, 0, 1 )
 shader_param/mask = ExtResource( 8 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "fade_in"
+[sub_resource type="Animation" id=14]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -95,8 +185,7 @@ tracks/1/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "fade_out"
+[sub_resource type="Animation" id=15]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -132,14 +221,16 @@ start_state_path = NodePath("UI/MainMenu")
 [node name="PlayState" type="Node2D" parent="."]
 pause_mode = 1
 script = ExtResource( 4 )
+inactive_visibility = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="PlayUI" type="Control" parent="UI"]
 pause_mode = 1
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -155,6 +246,7 @@ __meta__ = {
 }
 
 [node name="HealthContainer" parent="UI/PlayUI/HUD" instance=ExtResource( 13 )]
+mouse_filter = 2
 
 [node name="WorldSpaceUI" type="Control" parent="UI/PlayUI"]
 anchor_right = 1.0
@@ -172,7 +264,6 @@ script = ExtResource( 1 )
 
 [node name="MainMenu" type="Control" parent="UI"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
@@ -180,11 +271,13 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+pause_game = true
 new_game_scene_path = "res://levels/test_level/TestLevel.tscn"
 
 [node name="Margin" type="MarginContainer" parent="UI/MainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 custom_constants/margin_right = 20
 custom_constants/margin_top = 40
 custom_constants/margin_left = 20
@@ -198,10 +291,12 @@ margin_left = 20.0
 margin_top = 40.0
 margin_right = 460.0
 margin_bottom = 245.0
+mouse_filter = 2
 
 [node name="TitleContainer" type="CenterContainer" parent="UI/MainMenu/Margin/VBox"]
 margin_right = 440.0
 margin_bottom = 44.0
+mouse_filter = 2
 
 [node name="Title" type="Label" parent="UI/MainMenu/Margin/VBox/TitleContainer"]
 margin_left = 85.0
@@ -214,136 +309,377 @@ text = "Perla Knight"
 margin_top = 48.0
 margin_right = 440.0
 margin_bottom = 205.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="ButtonVBox" type="VBoxContainer" parent="UI/MainMenu/Margin/VBox/ButtonCenter"]
-margin_left = 168.0
-margin_top = 35.0
-margin_right = 271.0
-margin_bottom = 121.0
-mouse_filter = 0
+margin_left = 174.0
+margin_top = 37.0
+margin_right = 266.0
+margin_bottom = 119.0
+mouse_filter = 2
 custom_constants/separation = 22
 
 [node name="NewGameButton" type="Button" parent="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox"]
-margin_right = 103.0
-margin_bottom = 32.0
-focus_neighbour_top = NodePath("../ExitButton")
-focus_neighbour_bottom = NodePath("../LoadGameButton")
+margin_right = 92.0
+margin_bottom = 30.0
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../ExitButton")
 focus_mode = 0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
 custom_fonts/font = ExtResource( 11 )
+toggle_mode = true
 text = "New Game"
 
 [node name="ExitButton" type="Button" parent="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox"]
-margin_top = 54.0
-margin_right = 103.0
-margin_bottom = 86.0
-focus_neighbour_top = NodePath("../ExitButton")
-focus_neighbour_bottom = NodePath("../LoadGameButton")
+margin_top = 52.0
+margin_right = 92.0
+margin_bottom = 82.0
+focus_mode = 0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
 custom_fonts/font = ExtResource( 11 )
 text = "Exit"
 
 [node name="PauseMenu" type="Control" parent="UI"]
 pause_mode = 2
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
+mouse_filter = 2
 script = ExtResource( 16 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+pause_game = true
 
-[node name="Margin" type="MarginContainer" parent="UI/PauseMenu"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/margin_right = 20
-custom_constants/margin_top = 40
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 25
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/PauseMenu"]
+anims/blur = SubResource( 4 )
+
+[node name="Blur" type="ColorRect" parent="UI/PauseMenu"]
+material = SubResource( 6 )
+margin_right = 480.0
+margin_bottom = 270.0
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBox" type="VBoxContainer" parent="UI/PauseMenu/Margin"]
-margin_left = 20.0
+[node name="Content" type="MarginContainer" parent="UI/PauseMenu"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="UI/PauseMenu/Content"]
+margin_left = 40.0
 margin_top = 40.0
-margin_right = 460.0
-margin_bottom = 245.0
-
-[node name="TitleContainer" type="CenterContainer" parent="UI/PauseMenu/Margin/VBox"]
 margin_right = 440.0
-margin_bottom = 44.0
+margin_bottom = 250.0
+mouse_filter = 2
 
-[node name="Title" type="Label" parent="UI/PauseMenu/Margin/VBox/TitleContainer"]
-margin_left = 154.0
-margin_right = 286.0
+[node name="TitleContainer" type="CenterContainer" parent="UI/PauseMenu/Content/VBox"]
+margin_right = 400.0
+margin_bottom = 44.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="UI/PauseMenu/Content/VBox/TitleContainer"]
+margin_left = 65.0
+margin_right = 335.0
 margin_bottom = 44.0
 custom_fonts/font = ExtResource( 12 )
-text = "Paused"
+text = "Perla Knight"
 
-[node name="ButtonCenter" type="CenterContainer" parent="UI/PauseMenu/Margin/VBox"]
+[node name="ButtonCenter" type="CenterContainer" parent="UI/PauseMenu/Content/VBox"]
 margin_top = 48.0
-margin_right = 440.0
-margin_bottom = 205.0
+margin_right = 400.0
+margin_bottom = 210.0
+mouse_filter = 2
 size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ButtonVBox" type="VBoxContainer" parent="UI/PauseMenu/Margin/VBox/ButtonCenter"]
-margin_left = 159.0
-margin_top = 35.0
-margin_right = 280.0
-margin_bottom = 121.0
-mouse_filter = 0
-custom_constants/separation = 22
+[node name="ButtonVBox" type="VBoxContainer" parent="UI/PauseMenu/Content/VBox/ButtonCenter"]
+margin_left = 154.0
+margin_top = 26.0
+margin_right = 246.0
+margin_bottom = 136.0
+mouse_filter = 2
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ContinueButton" type="Button" parent="UI/PauseMenu/Margin/VBox/ButtonCenter/ButtonVBox"]
-margin_right = 121.0
-margin_bottom = 32.0
-focus_neighbour_top = NodePath("../ExitButton")
-focus_neighbour_bottom = NodePath("../LoadGameButton")
+[node name="ContinueButton" type="Button" parent="UI/PauseMenu/Content/VBox/ButtonCenter/ButtonVBox"]
+margin_right = 92.0
+margin_bottom = 30.0
+focus_mode = 0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
 custom_fonts/font = ExtResource( 11 )
 text = "Continue"
 
-[node name="BackToMenuButton" type="Button" parent="UI/PauseMenu/Margin/VBox/ButtonCenter/ButtonVBox"]
-margin_top = 54.0
-margin_right = 121.0
-margin_bottom = 86.0
-focus_neighbour_top = NodePath("../ExitButton")
-focus_neighbour_bottom = NodePath("../LoadGameButton")
+[node name="NewGameButton" type="Button" parent="UI/PauseMenu/Content/VBox/ButtonCenter/ButtonVBox"]
+margin_top = 40.0
+margin_right = 92.0
+margin_bottom = 70.0
+focus_mode = 0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
 custom_fonts/font = ExtResource( 11 )
-text = "Back to menu"
+text = "New Game"
+
+[node name="ExitButton" type="Button" parent="UI/PauseMenu/Content/VBox/ButtonCenter/ButtonVBox"]
+margin_top = 80.0
+margin_right = 92.0
+margin_bottom = 110.0
+focus_mode = 0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = ExtResource( 11 )
+text = "Exit"
+
+[node name="NewGamePopup" type="PopupPanel" parent="UI/PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -141.0
+margin_top = -48.0
+margin_right = 141.0
+margin_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_styles/panel = SubResource( 7 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/PauseMenu/NewGamePopup"]
+anims/blur = SubResource( 8 )
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PauseMenu/NewGamePopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 14.0
+margin_right = -30.0
+margin_bottom = -14.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu/NewGamePopup/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 217.0
+margin_bottom = 102.0
+mouse_filter = 2
+custom_constants/separation = 19
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/PauseMenu/NewGamePopup/MarginContainer/VBoxContainer"]
+margin_right = 212.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 11 )
+text = "Are you sure you want to start a new game? Your save will be lost."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseMenu/NewGamePopup/MarginContainer/VBoxContainer"]
+margin_top = 67.0
+margin_right = 212.0
+margin_bottom = 97.0
+mouse_filter = 2
+custom_constants/separation = 15
+
+[node name="ConfirmButton" type="Button" parent="UI/PauseMenu/NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 98.0
+margin_bottom = 30.0
+focus_next = NodePath("../CancelButton")
+focus_previous = NodePath("../CancelButton")
+focus_mode = 0
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = ExtResource( 11 )
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CancelButton" type="Button" parent="UI/PauseMenu/NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 113.0
+margin_right = 212.0
+margin_bottom = 30.0
+focus_next = NodePath("../ConfirmButton")
+focus_previous = NodePath(".")
+focus_mode = 0
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = ExtResource( 11 )
+text = "No"
+
+[node name="ExitPopup" type="PopupPanel" parent="UI/PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -141.0
+margin_top = -48.0
+margin_right = 141.0
+margin_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_styles/panel = SubResource( 7 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/PauseMenu/ExitPopup"]
+anims/blur = SubResource( 12 )
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PauseMenu/ExitPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 14.0
+margin_right = -30.0
+margin_bottom = -14.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu/ExitPopup/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 217.0
+margin_bottom = 68.0
+mouse_filter = 2
+custom_constants/separation = 19
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/PauseMenu/ExitPopup/MarginContainer/VBoxContainer"]
+margin_right = 212.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 11 )
+text = "Are you sure you want to quit?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseMenu/ExitPopup/MarginContainer/VBoxContainer"]
+margin_top = 33.0
+margin_right = 212.0
+margin_bottom = 63.0
+mouse_filter = 2
+custom_constants/separation = 15
+
+[node name="ConfirmButton" type="Button" parent="UI/PauseMenu/ExitPopup/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_right = 98.0
+margin_bottom = 30.0
+focus_next = NodePath("../CancelButton")
+focus_previous = NodePath("../CancelButton")
+focus_mode = 0
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = ExtResource( 11 )
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CancelButton" type="Button" parent="UI/PauseMenu/ExitPopup/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 113.0
+margin_right = 212.0
+margin_bottom = 30.0
+focus_next = NodePath("../ConfirmButton")
+focus_previous = NodePath("../ConfirmButton")
+focus_mode = 0
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = ExtResource( 11 )
+text = "No"
 
 [node name="LoadingScreen" type="Control" parent="UI"]
 pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+pause_game = true
 
 [node name="ColorRect" type="ColorRect" parent="UI/LoadingScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="UI/LoadingScreen"]
@@ -368,10 +704,12 @@ __meta__ = {
 }
 
 [node name="TransitionEffect" type="ColorRect" parent="UI/Transition"]
-material = SubResource( 6 )
+material = SubResource( 13 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-mouse_filter = 1
+margin_left = -1.0
+margin_right = -1.0
+mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0, 0, 0, 1 )
@@ -380,8 +718,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Transition"]
-anims/fade_in = SubResource( 7 )
-anims/fade_out = SubResource( 8 )
+anims/fade_in = SubResource( 14 )
+anims/fade_out = SubResource( 15 )
 
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_connected"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
@@ -389,6 +727,13 @@ anims/fade_out = SubResource( 8 )
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/MainMenu" method="_on_NewGameButton_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/MainMenu" method="_on_ExitButton_pressed"]
-[connection signal="pressed" from="UI/PauseMenu/Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/PauseMenu" method="_on_ContinueButton_pressed"]
-[connection signal="pressed" from="UI/PauseMenu/Margin/VBox/ButtonCenter/ButtonVBox/BackToMenuButton" to="UI/PauseMenu" method="_on_BackToMenuButton_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Content/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/PauseMenu" method="on_continue_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Content/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/PauseMenu" method="on_new_game_pressed"]
+[connection signal="pressed" from="UI/PauseMenu/Content/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/PauseMenu" method="on_exit_pressed"]
+[connection signal="popup_hide" from="UI/PauseMenu/NewGamePopup" to="UI/PauseMenu/NewGamePopup" method="close" binds= [ false ]]
+[connection signal="pressed" from="UI/PauseMenu/NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="UI/PauseMenu/NewGamePopup" method="close" binds= [ true ]]
+[connection signal="pressed" from="UI/PauseMenu/NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="UI/PauseMenu/NewGamePopup" method="close" binds= [ false ]]
+[connection signal="popup_hide" from="UI/PauseMenu/ExitPopup" to="UI/PauseMenu/ExitPopup" method="close" binds= [ false ]]
+[connection signal="pressed" from="UI/PauseMenu/ExitPopup/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="UI/PauseMenu/ExitPopup" method="close" binds= [ true ]]
+[connection signal="pressed" from="UI/PauseMenu/ExitPopup/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="UI/PauseMenu/ExitPopup" method="close" binds= [ false ]]
 [connection signal="animation_finished" from="UI/Transition/AnimationPlayer" to="UI/Transition" method="_on_AnimationPlayer_animation_finished"]

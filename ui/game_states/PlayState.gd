@@ -8,32 +8,23 @@ onready var PlayUI := $".."/UI/PlayUI
 var current_scene: Node
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
+	._state_enter(previous_state, params)
 	
-	if !PlayUI.visible:
-		PlayUI.visible = true
-		
-	if !("from_pause" in params):
-		assert("scene" in params && params.scene is Node)
-		
-		if current_scene && is_instance_valid(current_scene):
+	if "scene" in params:
+		assert(params.scene is Node)
+		if current_scene:
 			remove_child(current_scene)
 			current_scene.queue_free()
 		
 		current_scene = params.scene
 		add_child(params.scene)
-		current_scene.set_ui(PlayUI)
-	
-	._state_enter(previous_state, params)
-
-	if !("from_pause" in params):
+		if current_scene is Level:
+			current_scene.set_ui(PlayUI)
+			
 		Transition.start("fade_in")
-		yield(Transition, "transition_finished")
-		
-	get_tree().paused = false
+	else:
+		assert(current_scene, "entered PlayState without scene param or previously active scene")
 
 func _state_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
-		get_tree().paused = true
-		PlayUI.visible = false
-		if state_machine._push_state(PauseMenu, {"scene" : current_scene}):
-			return
+		state_machine._push_state(PauseMenu)

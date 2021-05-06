@@ -2,28 +2,51 @@ extends GameState
 class_name PauseMenu
 
 onready var MainMenu := $".."/MainMenu
-export(String, FILE, "*.tscn,*.scn,*.ldtk") var new_game_scene_path: String
 
-var last_scene
+var popup_open: bool = false
 
 func _ready() -> void:
 	if OS.has_feature("HTML5"):
-		$Margin/VBox/ButtonCenter/ButtonVBox/ExitButton.visible = false
+		$Content/VBox/ButtonCenter/ButtonVBox/ExitButton.visible = false
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
+	$AnimationPlayer.play("blur")
+	$AnimationPlayer.advance(0)
 	._state_enter(previous_state, params)
-	last_scene = params.scene
 
-func _on_BackToMenuButton_pressed():
-	#Maybe save-logic here
-	
-	last_scene.queue_free()
-	state_machine.clear_stack({"scene" : last_scene, "from_pause" : true})
-	
-	if state_machine._push_state(MainMenu):
-		return
-	pass
+func _state_process(delta: float) -> void:
+	._state_process(delta)
+	if !popup_open && Input.is_action_just_pressed("pause"):
+		close()
 
-func _on_ContinueButton_pressed():
-	if state_machine._pop_state({"scene" : last_scene, "from_pause" : true}):
-		return
+func blur_finished(_animation_name: String) -> void:
+	state_machine._pop_state()
+
+func close() -> void:
+	if is_active() && !$AnimationPlayer.is_playing():
+		$AnimationPlayer.connect("animation_finished", self, "blur_finished", [], CONNECT_ONESHOT)
+		$AnimationPlayer.play_backwards("blur")
+
+func on_continue_pressed() -> void:
+	close()
+
+func on_new_game_pressed() -> void:
+	popup_open = true
+	$NewGamePopup.open()
+	var confirmed: bool = yield($NewGamePopup, "popup_closed")
+	if confirmed:
+		# TODO: implement new game during pause
+		pass
+		
+	Input.action_release("pause")
+	popup_open = false
+
+func on_exit_pressed() -> void:
+	popup_open = true
+	$ExitPopup.open()
+	var confirmed: bool = yield($ExitPopup, "popup_closed")
+	if confirmed:
+		get_tree().quit()
+		
+	Input.action_release("pause")
+	popup_open = false

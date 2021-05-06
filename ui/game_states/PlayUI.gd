@@ -6,6 +6,9 @@ signal player_disconnected(player)
 
 onready var Transition := $".."/Transition
 
+func _ready() -> void:
+	visible = true
+
 func transition_to_checkpoint(player: Player):
 	Transition.start("fade_out")
 	yield(Transition, "transition_finished")
