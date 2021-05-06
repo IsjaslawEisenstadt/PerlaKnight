@@ -93,5 +93,6 @@ func set_current_health(new_health: int) -> void:
 	emit_signal("health_changed", current_health)
 
 func hit(attacker: Node2D, damage: int) -> void:
-	self.current_health -= damage
-	StateMachine.hurt(attacker)
+	if !invincible:
+		self.current_health -= damage
+		StateMachine.hurt(attacker)
