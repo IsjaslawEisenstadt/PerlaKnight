@@ -1,9 +1,9 @@
 [gd_resource type="DynamicFont" load_steps=2 format=2]
 
-[ext_resource path="res://ui/game_states/fonts/bitmgothic.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/general/fonts/bitmgothic.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 44
+size = 48
 outline_size = 2
 outline_color = Color( 0.227451, 0.266667, 0.4, 1 )
 font_data = ExtResource( 1 )

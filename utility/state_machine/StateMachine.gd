@@ -63,3 +63,7 @@ func get_current_state() -> State:
 		return null
 	else:
 		return state_stack.front()
+
+func clear_stack(params: Dictionary = {}):
+	while !state_stack.empty():
+		_pop_state(params)
