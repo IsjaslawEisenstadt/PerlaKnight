@@ -1,11 +1,22 @@
 extends AttackState
 class_name MoveState
 
+enum TransitionMode {
+	NO_TRANSITION = 0,
+	TRANSITION_IN = 1,
+	TRANSITION_OUT = 2,
+	TRANSITION_IN_OUT = 3
+}
+
 onready var IdleState := get_node_or_null(idle_state_path) as CharacterState
 onready var TurnState := get_node_or_null(turn_state_path) as CharacterState
 onready var JumpState := get_node_or_null(jump_state_path) as CharacterState
 onready var FallState := get_node_or_null(fall_state_path) as CharacterState
 onready var DashState := get_node_or_null(dash_state_path) as CharacterState
+
+export(TransitionMode) var transition_mode: int = TransitionMode.NO_TRANSITION
+export var transition_in_animation: String = ""
+export var transition_out_animation: String = ""
 
 export var idle_state_path: NodePath = "../../IdleState"
 export var turn_state_path: NodePath = "../TurnState"
@@ -17,6 +28,9 @@ export var without_turn_state: bool = true
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
+	if transition_mode & TransitionMode.TRANSITION_IN:
+		print("trans_in")
+		play_animation(transition_in_animation)
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)
@@ -26,7 +40,10 @@ func _state_process(delta: float) -> void:
 			return
 
 	current_move_direction = host.InputController._get_move_direction()
-	if current_move_direction != 0.0 && current_move_direction != host.look_direction:
+	if !current_move_direction && (transition_mode & TransitionMode.TRANSITION_OUT) && !is_playing(transition_out_animation):
+		play_animation(transition_out_animation)
+		print("trans_out")
+	if current_move_direction && current_move_direction != host.look_direction:
 		if without_turn_state:
 			host.velocity.x = 0.0
 			host.look_direction *= -1
@@ -51,5 +68,13 @@ func _state_physics_process(delta: float) -> void:
 
 	if !host.InputController._is_moving() && abs(host.velocity.x) < VELOCITY_X_DEADZONE:
 		host.velocity.x = 0.0
+		if state_machine._push_state(IdleState):
+			return
+
+func _on_animation_finished(finished_animation_name: String) -> void:
+	._on_animation_finished(finished_animation_name)
+	if finished_animation_name == transition_in_animation:
+		play_animation()
+	elif finished_animation_name == transition_out_animation:
 		if state_machine._push_state(IdleState):
 			return
