@@ -10,7 +10,7 @@ export var death_state_path: NodePath = "DeathState"
 export var hurt_state_path: NodePath = "HurtState"
 
 func _push_state(next_state: State, params: Dictionary = {}) -> bool:
-	assert(next_state is CharacterState)
+	assert(!next_state || next_state is CharacterState)
 	return ._push_state(next_state, params)
 
 func start() -> void:
