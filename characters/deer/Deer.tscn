@@ -1,0 +1,147 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=1]
+[ext_resource path="res://characters/deer/textures/deer_animation_sheet.png" type="Texture" id=2]
+[ext_resource path="res://characters/character/states/IdleState.gd" type="Script" id=3]
+[ext_resource path="res://characters/character/states/move/MoveState.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 11.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 17, 23 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1, 15 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 37 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 35, 37 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 33 ]
+}
+
+[node name="Deer" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -24 )
+hframes = 16
+vframes = 3
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -21 )
+shape = SubResource( 1 )
+
+[node name="InteractionRay" parent="." index="2"]
+visible = false
+
+[node name="AnimationPlayer" parent="." index="3"]
+anims/idle = SubResource( 2 )
+anims/idle_hoof = SubResource( 3 )
+anims/idle_leg_up = SubResource( 5 )
+anims/run_end = SubResource( 6 )
+anims/run_loop = SubResource( 7 )
+anims/run_start = SubResource( 8 )
+
+[node name="StateMachine" parent="." index="5"]
+death_state_path = NodePath("../../Character/StateMachine/DeathState")
+hurt_state_path = NodePath("../../Character/StateMachine/HurtState")
+
+[node name="IdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource( 3 )
+host_path = NodePath("../..")
+animation_name = "idle"
+move_state_path = NodePath("../MoveState")
+random_animations = [ "idle_hoof", "idle_leg_up" ]
+
+[node name="MoveState" type="Node" parent="StateMachine" index="1"]
+script = ExtResource( 5 )
+host_path = NodePath("../..")
+animation_name = "run_loop"
+move_speed = 60.0
+move_damping = 0.7
+transition_mode = 3
+transition_in_animation = "run_start"
+transition_out_animation = "run_end"
+idle_state_path = NodePath("../IdleState")
