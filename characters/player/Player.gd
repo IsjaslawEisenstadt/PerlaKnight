@@ -4,6 +4,7 @@ class_name Player
 signal transition_to_checkpoint
 
 onready var Checkpoints := get_node_or_null("../../Checkpoints")
+onready var Runes = []
 
 var closest_interaction: Interaction
 var current_checkpoint: Checkpoint setget set_current_checkpoint
