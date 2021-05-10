@@ -2,7 +2,7 @@
 
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/deer/textures/deer_animation_sheet.png" type="Texture" id=2]
-[ext_resource path="res://characters/character/states/IdleState.gd" type="Script" id=3]
+[ext_resource path="res://characters/character/states/RandomIdleState.gd" type="Script" id=3]
 [ext_resource path="res://characters/character/states/move/MoveState.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -40,7 +40,7 @@ tracks/0/keys = {
 "values": [ 17, 23 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -55,7 +55,7 @@ tracks/0/keys = {
 "values": [ 1, 15 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -70,7 +70,7 @@ tracks/0/keys = {
 "values": [ 37 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -86,7 +86,7 @@ tracks/0/keys = {
 "values": [ 35, 37 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -119,10 +119,10 @@ visible = false
 [node name="AnimationPlayer" parent="." index="3"]
 anims/idle = SubResource( 2 )
 anims/idle_hoof = SubResource( 3 )
-anims/idle_leg_up = SubResource( 5 )
-anims/run_end = SubResource( 6 )
-anims/run_loop = SubResource( 7 )
-anims/run_start = SubResource( 8 )
+anims/idle_leg_up = SubResource( 4 )
+anims/run_end = SubResource( 5 )
+anims/run_loop = SubResource( 6 )
+anims/run_start = SubResource( 7 )
 
 [node name="StateMachine" parent="." index="5"]
 death_state_path = NodePath("../../Character/StateMachine/DeathState")

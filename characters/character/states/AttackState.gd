@@ -52,7 +52,6 @@ func _state_process(delta: float) -> void:
 		if !is_attacking && host.InputController._is_action_just_activated("attack"):
 			is_attacking = true
 			attack_queued = false
-			print(attack_animations)
 			play_animation(attack_animations[attack_index])
 
 func _state_exit(next_state: State) -> void:
@@ -60,6 +59,7 @@ func _state_exit(next_state: State) -> void:
 	hit_characters.clear()
 
 func _on_animation_finished(finished_animation_name: String) -> void:
+	._on_animation_finished(finished_animation_name)
 	if finished_animation_name in attack_animations:
 		hit_characters.clear()
 		if attack_queued:

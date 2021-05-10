@@ -29,7 +29,6 @@ export var without_turn_state: bool = true
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	if transition_mode & TransitionMode.TRANSITION_IN:
-		print("trans_in")
 		play_animation(transition_in_animation)
 
 func _state_process(delta: float) -> void:
@@ -42,7 +41,6 @@ func _state_process(delta: float) -> void:
 	current_move_direction = host.InputController._get_move_direction()
 	if !current_move_direction && (transition_mode & TransitionMode.TRANSITION_OUT) && !is_playing(transition_out_animation):
 		play_animation(transition_out_animation)
-		print("trans_out")
 	if current_move_direction && current_move_direction != host.look_direction:
 		if without_turn_state:
 			host.velocity.x = 0.0
