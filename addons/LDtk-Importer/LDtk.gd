@@ -69,7 +69,10 @@ func new_entity(entity_data, level, options):
 		if new_entity:
 			for field in entity_data.fieldInstances:
 				if field.__identifier != 'NodeType':
-					new_entity.set(field.__identifier, field.__value)
+					if new_entity is Rune && field.__identifier == 'rune_ressource':
+						new_entity.set(field.__identifier, load(field.__value))
+					else:
+						new_entity.set(field.__identifier, field.__value)
 		
 	else:
 		printerr("Could not load entity data: ", entity_data)
