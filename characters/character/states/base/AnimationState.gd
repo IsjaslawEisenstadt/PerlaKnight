@@ -19,5 +19,8 @@ func play_animation(anim_name := animation_name, anim_speed := animation_speed, 
 	host.play_animation(anim_name, anim_speed)
 	host.AnimationPlayer.advance(advance_delta)
 
+func is_playing(anim_name: String) -> bool:
+	return host.AnimationPlayer.is_playing() && host.AnimationPlayer.current_animation == anim_name
+
 func _on_animation_finished(_finished_animation_name: String) -> void:
 	pass

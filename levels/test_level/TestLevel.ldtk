@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 82,
+	"nextUid": 109,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 128,
 	"worldGridHeight": 128,
@@ -373,6 +373,25 @@
 			"tilesetDefUid": null,
 			"tilePivotX": 0,
 			"tilePivotY": 0
+		},
+		{
+			"__type": "Entities",
+			"identifier": "Decoration",
+			"type": "Entities",
+			"uid": 82,
+			"gridSize": 32,
+			"displayOpacity": 1,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"requiredTags": ["Decoration"],
+			"excludedTags": [],
+			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
+			"autoTilesetDefUid": null,
+			"autoRuleGroups": [],
+			"autoSourceLayerDefUid": null,
+			"tilesetDefUid": null,
+			"tilePivotX": 0,
+			"tilePivotY": 0
 		}
 	], "entities": [
 		{
@@ -567,25 +586,451 @@
 					"textLanguageMode": null
 				}
 			]
+		},
+		{
+			"identifier": "Lamp1",
+			"uid": 83,
+			"tags": ["Decoration"],
+			"width": 32,
+			"height": 32,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#007D96",
+			"renderMode": "Tile",
+			"showName": false,
+			"tilesetId": 84,
+			"tileId": 0,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 85,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/decoration/lamps/Lamp.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "type",
+					"__type": "Int",
+					"uid": 86,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [0] },
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "Lamp2",
+			"uid": 87,
+			"tags": ["Decoration"],
+			"width": 32,
+			"height": 32,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#007D96",
+			"renderMode": "Tile",
+			"showName": false,
+			"tilesetId": 84,
+			"tileId": 19,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 88,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/decoration/lamps/Lamp.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "type",
+					"__type": "Int",
+					"uid": 89,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [1] },
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "Lamp3",
+			"uid": 90,
+			"tags": ["Decoration"],
+			"width": 32,
+			"height": 32,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#007D96",
+			"renderMode": "Tile",
+			"showName": false,
+			"tilesetId": 84,
+			"tileId": 38,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 91,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/decoration/lamps/Lamp.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "type",
+					"__type": "Int",
+					"uid": 92,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [2] },
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "Lamp4",
+			"uid": 93,
+			"tags": ["Decoration"],
+			"width": 32,
+			"height": 32,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#007D96",
+			"renderMode": "Tile",
+			"showName": false,
+			"tilesetId": 84,
+			"tileId": 57,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 94,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/decoration/lamps/Lamp.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "type",
+					"__type": "Int",
+					"uid": 95,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [3] },
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "Lamp5",
+			"uid": 99,
+			"tags": ["Decoration"],
+			"width": 32,
+			"height": 32,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#007D96",
+			"renderMode": "Tile",
+			"showName": false,
+			"tilesetId": 84,
+			"tileId": 76,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 100,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/decoration/lamps/Lamp.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "type",
+					"__type": "Int",
+					"uid": 101,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [4] },
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "BrokenLamp1",
+			"uid": 102,
+			"tags": ["Decoration"],
+			"width": 32,
+			"height": 32,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#007D96",
+			"renderMode": "Tile",
+			"showName": false,
+			"tilesetId": 84,
+			"tileId": 95,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 103,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/decoration/lamps/BrokenLamp1.tscn"]
+					},
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "BrokenLamp2",
+			"uid": 105,
+			"tags": ["Decoration"],
+			"width": 32,
+			"height": 32,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#007D96",
+			"renderMode": "Tile",
+			"showName": false,
+			"tilesetId": 84,
+			"tileId": 96,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 106,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/decoration/lamps/BrokenLamp2.tscn"]
+					},
+					"textLanguageMode": null
+				}
+			]
 		}
 	], "tilesets": [
-		{
-			"__cWid": 8,
-			"__cHei": 8,
-			"identifier": "Tile_Set_Grey_Bricks",
-			"uid": 18,
-			"relPath": "textures/Tile_Set_Grey_Bricks.png",
-			"pxWid": 256,
-			"pxHei": 256,
-			"tileGridSize": 32,
-			"spacing": 0,
-			"padding": 0,
-			"tagsSourceEnumUid": null,
-			"enumTags": [],
-			"customData": [],
-			"savedSelections": [],
-			"cachedPixelData": null
-		},
 		{
 			"__cWid": 16,
 			"__cHei": 16,
@@ -604,6 +1049,26 @@
 			"cachedPixelData": {
 				"opaqueTiles": "0100101010101000010001010101000000000000000000000000100010000000000001010000000000000000000000001110000000000000000000000000000000100000000000000010000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
 				"averageColors": "f222f111f2220000f1110000f1110000f1110000f2220000f222000000000000f111f000f11100000000f1110000f1110000f1110000f2220000000000000000e222e111e22200000000000000000000000000000000000000000000000000000000000000000000f111f2220000f222f1110000f2220000f222000000000000f111e111f11100000000f1110000f11100000000e2220000e222000000000000f1110000f1110000000000000000722272227222000012220000122200000000f111f111f11100000000000000000333133303330000411100004111000000000000000000000000000000000000f1110000f1110000000000000000000000009222f111f111f111922200000000f1110000f1110000000000000000000000000000f111f000f1110000000000000000000000000000000000000000000000009111f000f000f11171110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+			}
+		},
+		{
+			"__cWid": 19,
+			"__cHei": 6,
+			"identifier": "ForestLampSet1",
+			"uid": 84,
+			"relPath": "../../environment/decoration/lamps/textures/ForestLampSet1.png",
+			"pxWid": 608,
+			"pxHei": 192,
+			"tileGridSize": 32,
+			"spacing": 0,
+			"padding": 0,
+			"tagsSourceEnumUid": null,
+			"enumTags": [],
+			"customData": [],
+			"savedSelections": [],
+			"cachedPixelData": {
+				"opaqueTiles": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+				"averageColors": "555555555555555555555555555555555555555555555555555555555555555555555555555655565555555555555555555555555555555555555555555555555555555555565555555655566565656565656565656565656565656565656565656565656565656565656565656565656565355635563555355535553555355535553555355535553555355535553556355635563556355655555555555555555555555555555555555555555555555555555555555555555555555555563555556500000000000000000000000000000000000000000000000000000000000000000000"
 			}
 		}
 	], "enums": [], "externalEnums": [], "levelFields": [] },
@@ -14968,6 +15433,202 @@
 								{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 80, "realEditorValues": [] },
 								{ "__identifier": "default", "__value": true, "__type": "Bool", "defUid": 81, "realEditorValues": [] }
 							]
+						}
+					]
+				},
+				{
+					"__identifier": "Decoration",
+					"__type": "Entities",
+					"__cWid": 292,
+					"__cHei": 152,
+					"__gridSize": 32,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 0,
+					"layerDefUid": 82,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 9681807,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": [
+						{
+							"__identifier": "Lamp1",
+							"__grid": [116,63],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 83,
+							"px": [3728,2048],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 85, "realEditorValues": [] },
+								{ "__identifier": "type", "__value": 0, "__type": "Int", "defUid": 86, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "Lamp1",
+							"__grid": [109,57],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 83,
+							"px": [3504,1856],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 85, "realEditorValues": [] },
+								{ "__identifier": "type", "__value": 0, "__type": "Int", "defUid": 86, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "Lamp1",
+							"__grid": [85,60],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 83,
+							"px": [2736,1952],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 85, "realEditorValues": [] },
+								{ "__identifier": "type", "__value": 0, "__type": "Int", "defUid": 86, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "Lamp2",
+							"__grid": [85,44],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,32,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 87,
+							"px": [2736,1440],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 88, "realEditorValues": [] },
+								{ "__identifier": "type", "__value": 1, "__type": "Int", "defUid": 89, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "Lamp3",
+							"__grid": [126,49],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,64,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 90,
+							"px": [4048,1600],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 91, "realEditorValues": [] },
+								{ "__identifier": "type", "__value": 2, "__type": "Int", "defUid": 92, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "Lamp3",
+							"__grid": [94,51],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,64,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 90,
+							"px": [3024,1664],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 91, "realEditorValues": [] },
+								{ "__identifier": "type", "__value": 2, "__type": "Int", "defUid": 92, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "Lamp4",
+							"__grid": [105,44],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,96,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 93,
+							"px": [3376,1440],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 94, "realEditorValues": [] },
+								{ "__identifier": "type", "__value": 3, "__type": "Int", "defUid": 95, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "Lamp4",
+							"__grid": [136,65],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,96,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 93,
+							"px": [4368,2112],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 94, "realEditorValues": [] },
+								{ "__identifier": "type", "__value": 3, "__type": "Int", "defUid": 95, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "Lamp5",
+							"__grid": [128,57],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,128,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 99,
+							"px": [4112,1856],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 100, "realEditorValues": [] },
+								{ "__identifier": "type", "__value": 4, "__type": "Int", "defUid": 101, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "BrokenLamp1",
+							"__grid": [111,53],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,160,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 102,
+							"px": [3568,1728],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/BrokenLamp1.tscn", "__type": "String", "defUid": 103, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "BrokenLamp2",
+							"__grid": [89,56],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [32,160,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 105,
+							"px": [2864,1824],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/BrokenLamp2.tscn", "__type": "String", "defUid": 106, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "BrokenLamp2",
+							"__grid": [86,69],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [32,160,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 105,
+							"px": [2768,2240],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/BrokenLamp2.tscn", "__type": "String", "defUid": 106, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "BrokenLamp1",
+							"__grid": [123,44],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,160,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 102,
+							"px": [3952,1440],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/BrokenLamp1.tscn", "__type": "String", "defUid": 103, "realEditorValues": [] }]
 						}
 					]
 				}

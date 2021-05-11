@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://environment/decoration/lamps/textures/LightMask.png" type="Texture" id=1]
+[ext_resource path="res://environment/decoration/lamps/textures/ForestLampSet1.png" type="Texture" id=2]
+[ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "burn"
+length = 1.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 18 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:energy")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.75, 0.65, 0.75 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "draw_frame"
+}, {
+"args": [ 18 ],
+"method": "draw_frame"
+} ]
+}
+
+[node name="Lamp" type="Sprite"]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+anims/burn = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, -19 )
+texture = ExtResource( 1 )
+texture_scale = 0.51
+color = Color( 0.192157, 0.482353, 1, 1 )
+energy = 0.731598
