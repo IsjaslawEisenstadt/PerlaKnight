@@ -4,7 +4,7 @@ class_name Rune
 export(Resource) var rune_ressource
 
 func _ready():
-	rune_ressource.texture = $Sprite.texture
+	$Sprite.texture = rune_ressource.texture 
 
 func _interact(character) -> void:
 	character.Runes.push_front(rune_ressource)

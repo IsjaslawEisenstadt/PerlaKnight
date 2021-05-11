@@ -192,7 +192,7 @@ _global_script_classes=[ {
 "base": "Interaction",
 "class": "Rune",
 "language": "GDScript",
-"path": "res://environment/runes/Rune.gd"
+"path": "res://environment/runes/RuneContainer.gd"
 }, {
 "base": "Resource",
 "class": "RuneResource",
