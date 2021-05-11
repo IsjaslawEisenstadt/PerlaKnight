@@ -1,14 +1,12 @@
 extends Interaction
 class_name Rune
 
-var interactable = true
+export(Resource) var rune_ressource
+
+func _ready():
+	rune_ressource.texture = $Sprite.texture
 
 func _interact(character) -> void:
-	character.Runes.push_front(self)
+	character.Runes.push_front(rune_ressource)
 	
-	visible = false
-	interactable = false
-	pass
-
-func _can_interact(_character) -> bool:
-	return interactable
+	queue_free()

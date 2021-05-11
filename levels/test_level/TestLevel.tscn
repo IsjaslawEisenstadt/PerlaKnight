@@ -9,37 +9,64 @@
 [ext_resource path="res://levels/test_level/textures/background/Background.png" type="Texture" id=7]
 [ext_resource path="res://levels/test_level/textures/background/Castle.png" type="Texture" id=8]
 [ext_resource path="res://levels/test_level/textures/background/Mountain1.png" type="Texture" id=9]
-[ext_resource path="res://environment/runes/DoubleJumpRune.tscn" type="PackedScene" id=10]
-[ext_resource path="res://environment/runes/DashRune.tscn" type="PackedScene" id=11]
-[ext_resource path="res://environment/runes/WallClimbRune.tscn" type="PackedScene" id=12]
-[ext_resource path="res://environment/runes/HealthRune.tscn" type="PackedScene" id=13]
+[ext_resource path="res://environment/runes/instances/DashRune.tscn" type="PackedScene" id=10]
+[ext_resource path="res://environment/runes/instances/WallClimbRune.tscn" type="PackedScene" id=11]
+[ext_resource path="res://environment/runes/instances/DoubleJumpRune.tscn" type="PackedScene" id=12]
+[ext_resource path="res://environment/runes/instances/HealthRune.tscn" type="PackedScene" id=13]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="Lamp" parent="Level1/Decoration" index="0"]
+frame = 11
+
+[node name="Lamp2" parent="Level1/Decoration" index="1"]
+frame = 11
+
+[node name="Lamp3" parent="Level1/Decoration" index="2"]
+frame = 11
+
+[node name="Lamp4" parent="Level1/Decoration" index="3"]
+frame = 30
+
+[node name="Lamp5" parent="Level1/Decoration" index="4"]
+frame = 49
+
+[node name="Lamp6" parent="Level1/Decoration" index="5"]
+frame = 49
+
+[node name="Lamp7" parent="Level1/Decoration" index="6"]
+frame = 68
+
+[node name="Lamp8" parent="Level1/Decoration" index="7"]
+frame = 68
+
+[node name="Lamp9" parent="Level1/Decoration" index="8"]
+frame = 87
+
 [node name="Runes" type="Node2D" parent="Level1" index="2"]
 
-[node name="DashRune" parent="Level1/Runes" index="0" instance=ExtResource( 11 )]
-position = Vector2( 836.697, -586.658 )
+[node name="DashRune" parent="Level1/Runes" index="0" instance=ExtResource( 10 )]
+position = Vector2( 997.608, -616.797 )
 collision_layer = 2
 collision_mask = 0
 
-[node name="DoubleJumpRune" parent="Level1/Runes" index="1" instance=ExtResource( 10 )]
-position = Vector2( 973.361, -618.479 )
+[node name="DoubleJumpRune" parent="Level1/Runes" index="1" instance=ExtResource( 12 )]
+position = Vector2( 939.337, -616.844 )
 collision_layer = 2
 collision_mask = 0
 
 [node name="HealthRune" parent="Level1/Runes" index="2" instance=ExtResource( 13 )]
-position = Vector2( 1064.08, -585.705 )
+position = Vector2( 851.773, -585.031 )
 collision_layer = 2
 collision_mask = 0
 
-[node name="WallClimbRune" parent="Level1/Runes" index="3" instance=ExtResource( 12 )]
-position = Vector2( 767.113, -585.705 )
+[node name="WallClimbRune" parent="Level1/Runes" index="3" instance=ExtResource( 11 )]
+position = Vector2( 776.493, -585.031 )
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionsLayer" parent="Level1" index="3"]
+[node name="CollisionsLayer" parent="Level1" index="4"]
 visible = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="1"]
