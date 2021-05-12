@@ -1,6 +1,7 @@
 extends GameState
 class_name PlayState
 
+# warning-ignore:unused_signal
 signal save_requested()
 
 onready var PauseMenu = $".."/UI/PauseMenu

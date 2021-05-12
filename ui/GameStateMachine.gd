@@ -1,6 +1,11 @@
 extends StateMachine
 class_name GameStateMachine
 
+# save files can become incompatible over time, with breaking changes being a real possibility.
+# a version number saved in these files will give us the chance to not read old save data
+# in order to ensure proper functionality, especially during active development
+const CURRENT_SAVE_VERSION: int = 1
+
 export var start_state_path: NodePath = "ScreenSpaceUI/MainMenu"
 export var save_file_path: String = "user://PerlaKnight.save"
 
@@ -23,6 +28,8 @@ func save_game() -> void:
 	if !current_level:
 		printerr('Tried to save without a current level!')
 		return
+	
+	save_data["version"] = CURRENT_SAVE_VERSION
 	save_data["current_level"] = current_level.filename
 	
 	current_level.save_game(save_data)
@@ -37,7 +44,9 @@ func save_game() -> void:
 func load_game() -> Dictionary:
 	var save_file := File.new()
 	var err: int = save_file.open(save_file_path, File.READ)
-	print(err)
 	if err:
 		return {}
-	return {"save_data": parse_json(save_file.get_as_text())}
+	var save_data: Dictionary = parse_json(save_file.get_as_text())
+	if !"version" in save_data || save_data.version != CURRENT_SAVE_VERSION:
+		return {}
+	return {"save_data": save_data}

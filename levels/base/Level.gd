@@ -2,6 +2,7 @@ tool
 extends Node2D
 class_name Level
 
+# warning-ignore:unused_signal
 signal save_requested()
 
 onready var player := get_node(player_path) as Player
