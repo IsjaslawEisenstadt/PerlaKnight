@@ -1074,7 +1074,7 @@
 			"pivotY": 1,
 			"fieldDefs": [
 				{
-					"identifier": "rune_resource_path",
+					"identifier": "rune_resource",
 					"__type": "String",
 					"uid": 113,
 					"type": "F_String",
@@ -1146,7 +1146,7 @@
 			"pivotY": 1,
 			"fieldDefs": [
 				{
-					"identifier": "rune_resource_path",
+					"identifier": "rune_resource",
 					"__type": "String",
 					"uid": 116,
 					"type": "F_String",
@@ -1218,7 +1218,7 @@
 			"pivotY": 1,
 			"fieldDefs": [
 				{
-					"identifier": "rune_resource_path",
+					"identifier": "rune_resource",
 					"__type": "String",
 					"uid": 119,
 					"type": "F_String",
@@ -1290,7 +1290,7 @@
 			"pivotY": 1,
 			"fieldDefs": [
 				{
-					"identifier": "rune_resource_path",
+					"identifier": "rune_resource",
 					"__type": "String",
 					"uid": 122,
 					"type": "F_String",
@@ -1375,7 +1375,7 @@
 			"savedSelections": [],
 			"cachedPixelData": {
 				"opaqueTiles": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-				"averageColors": "555555555555555555555555555555555555555555555555555555555555555555555555555655565555555555555555555555555555555555555555555555555555555555565555555655566565656565656565656565656565656565656565656565656565656565656565656565656565355635563555355535553555355535553555355535553555355535553556355635563556355655555555555555555555555555555555555555555555555555555555555555555555555555563555556500000000000000000000000000000000000000000000000000000000000000000000"
+				"averageColors": "555555555555555555555555555555555555555555555555555555555555555555555555555655565555555555555555555555555555555555555555555555555555555555565555555655566565656565656565656565656565656565656565656565656565656565656565656565656565355635563555355535553555355535553555355535553555355535553556355635563556355655555555555555555555555555555555555555555555555555555555555555555555555555553555556500000000000000000000000000000000000000000000000000000000000000000000"
 			}
 		}
 	], "enums": [], "externalEnums": [], "levelFields": [] },
@@ -15715,13 +15715,7 @@
 							"px": [4184,2112],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 112, "realEditorValues": [] },
-								{
-									"__identifier": "rune_resource_path",
-									"__value": "res://environment/runes/resource/DashRuneResource.tres",
-									"__type": "String",
-									"defUid": 113,
-									"realEditorValues": []
-								}
+								{ "__identifier": "rune_resource", "__value": "res://environment/runes/resource/DashRuneResource.tres", "__type": "String", "defUid": 113, "realEditorValues": [] }
 							]
 						},
 						{
@@ -15735,7 +15729,7 @@
 							"px": [4232,2112],
 							"fieldInstances": [
 								{
-									"__identifier": "rune_resource_path",
+									"__identifier": "rune_resource",
 									"__value": "res://environment/runes/resource/DoubleJumpRuneResource.tres",
 									"__type": "String",
 									"defUid": 116,
@@ -15755,7 +15749,7 @@
 							"px": [4280,2112],
 							"fieldInstances": [
 								{
-									"__identifier": "rune_resource_path",
+									"__identifier": "rune_resource",
 									"__value": "res://environment/runes/resource/HealthRuneResource.tres",
 									"__type": "String",
 									"defUid": 119,
@@ -15775,7 +15769,7 @@
 							"px": [4328,2112],
 							"fieldInstances": [
 								{
-									"__identifier": "rune_resource_path",
+									"__identifier": "rune_resource",
 									"__value": "res://environment/runes/resource/WallClimbRuneResource.tres",
 									"__type": "String",
 									"defUid": 122,

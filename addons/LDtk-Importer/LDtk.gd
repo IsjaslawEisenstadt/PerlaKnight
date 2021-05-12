@@ -65,15 +65,6 @@ func new_entity(entity_data, level, options):
 						is_custom_entity = true
 			elif options.Import_Metadata:
 				metadata.append({'name': field.__identifier, 'value': field.__value})
-		
-		if new_entity:
-			for field in entity_data.fieldInstances:
-				if field.__identifier != 'NodeType':
-					if new_entity is Rune && field.__identifier == 'rune_ressource':
-						new_entity.set(field.__identifier, load(field.__value))
-					else:
-						new_entity.set(field.__identifier, field.__value)
-		
 	else:
 		printerr("Could not load entity data: ", entity_data)
 		return
@@ -83,7 +74,10 @@ func new_entity(entity_data, level, options):
 
 	for data in metadata:
 		if data['name'] in new_entity:
-			new_entity[data['name']] = data['value']
+			if new_entity is Rune && data['name'] == 'rune_resource':
+				new_entity[data['name']] = load(data['value'])
+			else:
+				new_entity[data['name']] = data['value']
 		else:
 			new_entity.set_meta(data['name'], data['value'])
 
