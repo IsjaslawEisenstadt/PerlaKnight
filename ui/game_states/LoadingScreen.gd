@@ -19,7 +19,10 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	var scene: Node = yield(self, "load_finished").instance()
 	
 	loader = null
-	state_machine._pop_push(PlayState, {"scene": scene})
+	
+	# keep using same params so we can pass around save data
+	params["scene"] = scene
+	state_machine._pop_push(PlayState, params)
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)

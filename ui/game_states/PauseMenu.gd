@@ -35,7 +35,7 @@ func on_new_game_pressed() -> void:
 	var confirmed: bool = yield($NewGamePopup, "popup_closed")
 	if confirmed:
 		# kind of hacky but should be fine
-		$".."/MainMenu.new_game()
+		$".."/MainMenu.start_game()
 		
 	Input.action_release("pause")
 	Input.action_release("ui_cancel")
