@@ -5,10 +5,7 @@ onready var AnimationPlayer := $AnimationPlayer
 
 export var default: bool
 
-var last_position: Vector2
-
 func _interact(character) -> void:
-	last_position = character.position
 	character.current_checkpoint = self
 	activate()
 
