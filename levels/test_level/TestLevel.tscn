@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/test_level/TestLevel.ldtk" type="PackedScene" id=1]
 [ext_resource path="res://levels/base/Level.gd" type="Script" id=2]
@@ -9,47 +9,42 @@
 [ext_resource path="res://levels/test_level/textures/background/Background.png" type="Texture" id=7]
 [ext_resource path="res://levels/test_level/textures/background/Castle.png" type="Texture" id=8]
 [ext_resource path="res://levels/test_level/textures/background/Mountain1.png" type="Texture" id=9]
-[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=10]
-[ext_resource path="res://environment/runes/resource/DoubleJumpRuneResource.tres" type="Resource" id=11]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Lamp" parent="Level1/Decoration" index="0"]
-frame = 0
+frame = 10
 
 [node name="Lamp2" parent="Level1/Decoration" index="1"]
-frame = 0
+frame = 10
 
 [node name="Lamp3" parent="Level1/Decoration" index="2"]
-frame = 0
+frame = 10
 
 [node name="Lamp4" parent="Level1/Decoration" index="3"]
-frame = 19
+frame = 29
 
 [node name="Lamp5" parent="Level1/Decoration" index="4"]
-frame = 38
+frame = 48
 
 [node name="Lamp6" parent="Level1/Decoration" index="5"]
-frame = 38
+frame = 48
 
 [node name="Lamp7" parent="Level1/Decoration" index="6"]
-frame = 57
+frame = 67
 
 [node name="Lamp8" parent="Level1/Decoration" index="7"]
-frame = 57
+frame = 67
 
 [node name="Lamp9" parent="Level1/Decoration" index="8"]
-frame = 76
+frame = 86
 
-[node name="Runes" type="Node2D" parent="Level1" index="2"]
+[node name="Checkpoint2" parent="Level1/Checkpoints" index="1"]
+position = Vector2( 1334.44, -576 )
 
-[node name="DashRune" parent="Level1/Runes" index="0" instance=ExtResource( 10 )]
-position = Vector2( 1206.41, -649.955 )
-
-[node name="DoubleJumpRune" parent="Level1/Runes" index="1" instance=ExtResource( 10 )]
-position = Vector2( 1140.18, -652.2 )
-rune_ressource = ExtResource( 11 )
+[node name="Runes" parent="Level1" index="2"]
+z_index = 0
 
 [node name="CollisionsLayer" parent="Level1" index="4"]
 visible = false
