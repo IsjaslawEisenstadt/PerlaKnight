@@ -124,10 +124,16 @@ func get_level_layerInstances(level, options, added_entities := []):
 					layers.push_front(new_layer)
 
 		if layerInstance.__type == 'IntGrid':
-			var collision_layer = LDtk.import_collisions(layerInstance, level, options)
-			if collision_layer:
-				collision_layer.z_index = i
-				layers.push_front(collision_layer)
+			if options.Import_Collisions:
+				var collision_layer
+				if layerInstance.__identifier == "Collisions":
+					collision_layer = LDtk.import_collisions(layerInstance, level, "CollisionsLayer", 1 << 0)
+				elif layerInstance.__identifier == "CameraCollisions":
+					# 1 << 19 is the last collision_mask
+					collision_layer = LDtk.import_collisions(layerInstance, level, "CameraCollisionsLayer", 1 << 19)
+				if collision_layer:
+					collision_layer.z_index = i
+					layers.push_front(collision_layer)
 
 		i -= 1
 

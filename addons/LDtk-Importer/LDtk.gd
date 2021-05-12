@@ -209,11 +209,7 @@ func tileId_to_pxCoords(tileId, atlasGridSize, atlasGridWidth, padding, spacing)
 
 	return Vector2(pixelTileX, pixelTileY)
 
-func import_collisions(tilemap_data, level, options):
-	var shouldImportCollisions = options.Import_Collisions and tilemap_data.__identifier == "Collisions"
-	if not shouldImportCollisions:
-		return
-	
+func import_collisions(tilemap_data, level, layer_name, layer_mask):
 	var gridSize
 	for layer in map_data.defs.layers:
 		if layer.uid == tilemap_data.layerDefUid:
@@ -226,8 +222,10 @@ func import_collisions(tilemap_data, level, options):
 		return
 
 	var layer = StaticBody2D.new()
-	layer.name = 'CollisionsLayer'
+	layer.name = layer_name
 	layer.position = Vector2(level.worldX, level.worldY)
+	layer.collision_layer = layer_mask
+	layer.collision_mask = layer_mask
 
 	var layer_width = tilemap_data.__cWid
 	var grid_size = tilemap_data.__gridSize

@@ -11,6 +11,12 @@ export var player_path: NodePath
 
 var play_ui: PlayUI
 
+func _ready() -> void:
+	if player:
+		var smart_camera: SmartCamera = preload("res://utility/camera/SmartCamera.tscn").instance()
+		smart_camera.player = player
+		add_child(smart_camera)
+
 func set_ui(play_ui_: PlayUI) -> void:
 	play_ui = play_ui_
 	play_ui.connect_player(player)
