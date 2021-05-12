@@ -67,8 +67,10 @@ func import(source_file, save_path, options, platform_v, r_gen_files):
 	#load LDtk map
 	LDtk.map_data = source_file
 
-	var map = Node2D.new()
+	var map = Level.new()
 	map.name = source_file.get_file().get_basename()
+	
+	var added_entities := []
 	
 	#add levels as Node2D
 	for level in LDtk.map_data.levels:
@@ -78,7 +80,7 @@ func import(source_file, save_path, options, platform_v, r_gen_files):
 		new_level.set_owner(map)
 
 		#add layers
-		var layerInstances = get_level_layerInstances(level, options)
+		var layerInstances = get_level_layerInstances(level, options, added_entities)
 		for layerInstance in layerInstances:
 			new_level.add_child(layerInstance)
 			layerInstance.set_owner(map)
@@ -90,6 +92,8 @@ func import(source_file, save_path, options, platform_v, r_gen_files):
 					for grandchild in child.get_children():
 						grandchild.set_owner(map)
 
+	map.new_entities(added_entities)
+
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(map)
 	
@@ -99,7 +103,7 @@ func import(source_file, save_path, options, platform_v, r_gen_files):
 	return ret
 
 #create layers in level
-func get_level_layerInstances(level, options):
+func get_level_layerInstances(level, options, added_entities := []):
 	var layers = []
 	var i = level.layerInstances.size()
 	for layerInstance in level.layerInstances:
@@ -111,7 +115,7 @@ func get_level_layerInstances(level, options):
 				var entities = LDtk.get_layer_entities(layerInstance, level, options)
 				for entity in entities:
 					new_node.add_child(entity)
-
+				added_entities.append_array(entities)
 				layers.push_front(new_node)
 			'Tiles', 'IntGrid', 'AutoLayer':
 				var new_layer = LDtk.new_tilemap(layerInstance, level)
