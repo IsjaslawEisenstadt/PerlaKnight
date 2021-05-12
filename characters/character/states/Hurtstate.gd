@@ -11,7 +11,7 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	
 	host.velocity = (host.position-attacker.position).normalized() * kickback_strength
 	host.invincible = true
-	var direction: int = sign(attacker.position.x - host.position.x)
+	var direction := int(sign(attacker.position.x - host.position.x))
 	if direction != 0:
 		host.look_direction = direction
 
