@@ -166,7 +166,9 @@ tracks/1/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[node name="GameStateMachine" type="Node"]
+[node name="GameStateMachine" type="Node" groups=[
+"SaveListener",
+]]
 pause_mode = 2
 script = ExtResource( 2 )
 start_state_path = NodePath("UI/MainMenu")
@@ -217,7 +219,6 @@ script = ExtResource( 1 )
 
 [node name="MainMenu" type="Control" parent="UI"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
@@ -269,29 +270,39 @@ size_flags_vertical = 3
 
 [node name="ButtonVBox" type="VBoxContainer" parent="UI/MainMenu/Margin/VBox/ButtonCenter"]
 margin_left = 174.0
-margin_top = 35.0
+margin_top = 21.0
 margin_right = 266.0
-margin_bottom = 117.0
+margin_bottom = 131.0
 mouse_filter = 2
-custom_constants/separation = 22
+custom_constants/separation = 10
 
-[node name="NewGameButton" parent="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 19 )]
+[node name="ContinueButton" parent="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 19 )]
 focus_neighbour_top = NodePath("../ExitButton")
-focus_neighbour_bottom = NodePath("../ExitButton")
-focus_next = NodePath("../ExitButton")
-focus_previous = NodePath("../ExitButton")
-
-[node name="ExitButton" parent="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 19 )]
-margin_top = 52.0
-margin_bottom = 82.0
-focus_neighbour_top = NodePath("../NewGameButton")
 focus_neighbour_bottom = NodePath("../NewGameButton")
 focus_next = NodePath("../NewGameButton")
+focus_previous = NodePath("../ExitButton")
+text = "Continue"
+
+[node name="NewGameButton" parent="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 19 )]
+margin_top = 40.0
+margin_bottom = 70.0
+focus_neighbour_top = NodePath("../ContinueButton")
+focus_neighbour_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../ContinueButton")
+
+[node name="ExitButton" parent="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 19 )]
+margin_top = 80.0
+margin_bottom = 110.0
+focus_neighbour_top = NodePath("../NewGameButton")
+focus_neighbour_bottom = NodePath("../ContinueButton")
+focus_next = NodePath("../ContinueButton")
 focus_previous = NodePath("../NewGameButton")
 text = "Exit"
 
 [node name="PauseMenu" type="Control" parent="UI"]
 pause_mode = 2
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -618,10 +629,12 @@ __meta__ = {
 anims/fade_in = SubResource( 8 )
 anims/fade_out = SubResource( 9 )
 
+[connection signal="save_requested" from="PlayState" to="." method="save_game"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_connected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_disconnected"]
+[connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/MainMenu" method="on_continue_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/MainMenu" method="on_new_game_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/MainMenu" method="on_exit_pressed"]
 [connection signal="pressed" from="UI/PauseMenu/Content/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/PauseMenu" method="on_continue_pressed"]

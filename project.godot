@@ -129,7 +129,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/character/states/jump/LandState.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
 "class": "Level",
 "language": "GDScript",
 "path": "res://levels/base/Level.gd"
