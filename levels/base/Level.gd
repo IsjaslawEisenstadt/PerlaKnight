@@ -2,10 +2,11 @@ tool
 extends Node2D
 class_name Level
 
+signal save_requested()
+
 onready var player := get_node(player_path) as Player
 
 export var player_path: NodePath
-export(Array, NodePath) var checkpoint_paths := [] 
 
 var play_ui: PlayUI
 
@@ -17,8 +18,8 @@ func _exit_tree() -> void:
 	if play_ui:
 		play_ui.disconnect_player(player)
 
-func save(save_data: Dictionary) -> void:
-	player.save(save_data)
+func save_game(save_data: Dictionary) -> void:
+	player.save_game(save_data)
 
 func load_game(save_data: Dictionary) -> void:
 	player.load_game(save_data)
@@ -26,10 +27,9 @@ func load_game(save_data: Dictionary) -> void:
 # used by the LDtk importer
 func new_entities(new_entity: Array) -> void:
 	player_path = ""
-	checkpoint_paths.clear()
-	
 	for entity in new_entity:
+		if entity.has_signal("save_requested"):
+			# CONNECT_PERSIST makes sure the signal connection is saved to disk
+			entity.connect("save_requested", self, "emit_signal", ["save_requested"], CONNECT_PERSIST)
 		if entity is Player:
 			player_path = get_path_to(entity)
-		elif entity is Checkpoint:
-			checkpoint_paths.append(get_path_to(entity))
