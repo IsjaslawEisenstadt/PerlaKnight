@@ -1,3 +1,4 @@
+tool
 extends Area2D
 class_name Doorway
 
@@ -6,4 +7,4 @@ class_name Doorway
 export var exit_direction: int
 
 export(String, FILE, "*.tscn,*.scn,*.ldtk") var next_level_path: String
-export var other_door_path: NodePath
+export var other_door_name: String

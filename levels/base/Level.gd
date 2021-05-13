@@ -4,7 +4,7 @@ class_name Level
 
 # warning-ignore:unused_signal
 signal save_requested()
-signal transition_requested(level_path, target_path)
+signal transition_requested(level_path, target_name)
 
 onready var player := get_node(player_path) as Player
 
@@ -30,10 +30,12 @@ func save_game(save_data: Dictionary) -> void:
 	player.save_game(save_data)
 
 func load_game(save_data: Dictionary) -> void:
+	if "spawn_target" in save_data:
+		save_data.spawn_target = get_node(save_data.spawn_target)
 	player.load_game(save_data)
 
-func on_transition_requested(level_path, target_path) -> void:
-	emit_signal("transition_requested", level_path, target_path)
+func on_transition_requested(level_path, target_name) -> void:
+	emit_signal("transition_requested", level_path, target_name)
 
 # used by the LDtk importer
 func new_entities(new_entity: Array) -> void:

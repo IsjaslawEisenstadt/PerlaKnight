@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 120,
+	"nextUid": 121,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 128,
 	"worldGridHeight": 128,
@@ -1023,9 +1023,9 @@
 				},
 				{
 					"identifier": "exit_direction",
-					"__type": "LocalEnum.Direction",
-					"uid": 114,
-					"type": { "id": "F_Enum", "params": [113] },
+					"__type": "Int",
+					"uid": 120,
+					"type": "F_Int",
 					"isArray": false,
 					"canBeNull": false,
 					"arrayMinLength": null,
@@ -1034,11 +1034,11 @@
 					"editorDisplayPos": "Above",
 					"editorAlwaysShow": false,
 					"editorCutLongValues": true,
-					"min": null,
-					"max": null,
+					"min": -1,
+					"max": 1,
 					"regex": null,
 					"acceptFileTypes": null,
-					"defaultOverride": null,
+					"defaultOverride": { "id": "V_Int", "params": [1] },
 					"textLanguageMode": null
 				},
 				{
@@ -1124,7 +1124,7 @@
 				"averageColors": "555555555555555555555555555555555555555555555555555555555555555555555555555655565555555555555555555555555555555555555555555555555555555555565555555655566565656565656565656565656565656565656565656565656565656565656565656565656565355635563555355535553555355535553555355535553555355535553556355635563556355655555555555555555555555555555555555555555555555555555555555555555555555555553555556500000000000000000000000000000000000000000000000000000000000000000000"
 			}
 		}
-	], "enums": [{ "identifier": "Direction", "uid": 113, "values": [ { "id": "Left", "tileId": null, "color": 968525, "__tileSrcRect": null }, { "id": "Right", "tileId": null, "color": 12359946, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }], "externalEnums": [], "levelFields": [] },
+	], "enums": [], "externalEnums": [], "levelFields": [] },
 	"levels": [
 		{
 			"identifier": "Level1",
@@ -17748,16 +17748,6 @@
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
 								{
-									"__identifier": "exit_direction",
-									"__value": "Right",
-									"__type": "LocalEnum.Direction",
-									"defUid": 114,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Right"]
-									}]
-								},
-								{
 									"__identifier": "next_level_path",
 									"__value": "res://levels/test_level/TestLevel.tscn",
 									"__type": "String",
@@ -17786,6 +17776,13 @@
 										"id": "V_String",
 										"params": ["Door1"]
 									}]
+								},
+								{
+									"__identifier": "exit_direction",
+									"__value": 1,
+									"__type": "Int",
+									"defUid": 120,
+									"realEditorValues": [{ "id": "V_Int", "params": [1] }]
 								}
 							]
 						},
