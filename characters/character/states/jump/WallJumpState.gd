@@ -4,17 +4,23 @@ class_name WallJumpState
 onready var JumpState := get_node_or_null(jump_state_path) as CharacterState
 onready var DashState := get_node_or_null(dash_state_path) as CharacterState
 
+onready var WallClimbTop = get_node(wall_climb_top_path) as Area2D
+onready var WallClimbBottom = get_node(wall_climb_bottom_path) as Area2D
+
 export var jump_state_path: NodePath = "../JumpState"
 export var dash_state_path: NodePath = "../../Move/DashState"
+
+export var wall_climb_top_path: NodePath = "../../../Colliders/WallClimbTop"
+export var wall_climb_bottom_path: NodePath = "../../../Colliders/WallClimbBottom"
 
 export var horizontal_jump_force: float = 400
 export var friction: float = 0.85
 export var input_delay: float = 0.1
 
 func _can_enter() -> bool:
-	return  host.wall_climb_acquired && !host.InputController._is_action_active("let_go") && \
-			host.WallClimbAssistantTop != null && !host.WallClimbAssistantTop.get_overlapping_bodies().empty() && \
-			host.WallClimbAssistantBottom != null && !host.WallClimbAssistantBottom.get_overlapping_bodies().empty() \
+	return  (host.wall_climb_acquired && !host.InputController._is_action_active("let_go") &&
+			!WallClimbTop.get_overlapping_bodies().empty() &&
+			!WallClimbBottom.get_overlapping_bodies().empty())
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)

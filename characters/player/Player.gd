@@ -5,8 +5,8 @@ signal transition_to_checkpoint()
 signal save_requested()
 signal transition_requested(level_path, target_path)
 
-onready var DoorCastLeft: RayCast2D = $DoorRays/DoorCastLeft
-onready var DoorCastRight: RayCast2D = $DoorRays/DoorCastRight
+onready var DoorCastLeft: RayCast2D = $Colliders/DoorCastLeft
+onready var DoorCastRight: RayCast2D = $Colliders/DoorCastRight
 
 var closest_interaction: Interaction
 var current_checkpoint: Checkpoint setget set_current_checkpoint
