@@ -5,7 +5,7 @@ onready var AttackHitbox := get_node_or_null(attack_hitbox_path) as Area2D
 
 export(Array, String) var attack_animations := []
 
-export var attack_hitbox_path: NodePath = "../../AttackHitbox"
+export var attack_hitbox_path: NodePath = "../../Colliders/AttackHitbox"
 export var attack_damage: int = 1
 
 var hit_characters := []
@@ -28,14 +28,14 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 		# asking 'previous_state is AttackState' would result in a cyclic dependency
 		# so we have to resort to duck typing
 		if previous_state && "is_attacking" in previous_state && previous_state.is_attacking:
-				is_attacking = true
-				attack_index = previous_state.attack_index
-				attack_queued = previous_state.attack_queued
-				hit_characters = previous_state.hit_characters
-				params["animation_override"] = {
-					"animation_name": attack_animations[attack_index],
-					"frame": host.AnimationPlayer.current_animation_position
-				}
+			is_attacking = true
+			attack_index = previous_state.attack_index
+			attack_queued = previous_state.attack_queued
+			hit_characters = previous_state.hit_characters
+			params["animation_override"] = {
+				"animation_name": attack_animations[attack_index],
+				"frame": host.AnimationPlayer.current_animation_position
+			}
 	
 	._state_enter(previous_state, params)
 
