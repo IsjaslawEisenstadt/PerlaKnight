@@ -11,6 +11,9 @@
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 
+[node name="Player" parent="Level1/Characters" index="0"]
+position = Vector2( 1840, -576 )
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="1"]
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" index="0"]

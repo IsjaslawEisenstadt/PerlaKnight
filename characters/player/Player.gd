@@ -3,6 +3,10 @@ class_name Player
 
 signal transition_to_checkpoint()
 signal save_requested()
+signal transition_requested(level_path, target_path)
+
+onready var DoorCastLeft: RayCast2D = $DoorRays/DoorCastLeft
+onready var DoorCastRight: RayCast2D = $DoorRays/DoorCastRight
 
 var closest_interaction: Interaction
 var current_checkpoint: Checkpoint setget set_current_checkpoint
@@ -10,6 +14,11 @@ var current_checkpoint: Checkpoint setget set_current_checkpoint
 func _process(_delta: float) -> void:
 	if InputController._is_action_just_activated("reset"):
 		emit_signal("transition_to_checkpoint")
+	
+	if DoorCastLeft.is_colliding() && DoorCastRight.is_colliding():
+		assert(DoorCastLeft.get_collider() is Doorway && DoorCastRight.get_collider() is Doorway)
+		var doorway: Doorway = DoorCastLeft.get_collider()
+		emit_signal("transition_requested", doorway.next_level_path, doorway.other_door_path)
 
 func _interaction_process() -> void:
 	closest_interaction = null

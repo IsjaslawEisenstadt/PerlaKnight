@@ -64,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/character/states/DeathState.gd"
 }, {
+"base": "Area2D",
+"class": "Doorway",
+"language": "GDScript",
+"path": "res://environment/doors/Doorway.gd"
+}, {
 "base": "AttackState",
 "class": "FallState",
 "language": "GDScript",
@@ -236,6 +241,7 @@ _global_script_class_icons={
 "Checkpoint": "",
 "DashState": "",
 "DeathState": "",
+"Doorway": "",
 "FallState": "",
 "FollowAI": "",
 "GameState": "",
@@ -319,6 +325,12 @@ texture={
 "size_limit": 0,
 "stream": false,
 "svg/scale": 1.0
+}
+LDtk.import={
+"Import_Collisions": true,
+"Import_Custom_Entities": true,
+"Import_Metadata": true,
+"Reload_Inheriting_Scene": true
 }
 
 [input]
