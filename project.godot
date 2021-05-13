@@ -194,6 +194,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/character/ai/base/SearchAI.gd"
 }, {
+"base": "AI",
+"class": "Sequence",
+"language": "GDScript",
+"path": "res://characters/character/ai/base/Sequence.gd"
+}, {
+"base": "AIController",
+"class": "SequenceController",
+"language": "GDScript",
+"path": "res://characters/character/input/SequenceController.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "SmartCamera",
 "language": "GDScript",
@@ -262,6 +272,8 @@ _global_script_class_icons={
 "RandomIdleState": "",
 "RoamAI": "",
 "SearchAI": "",
+"Sequence": "",
+"SequenceController": "",
 "SmartCamera": "",
 "State": "",
 "StateMachine": "",

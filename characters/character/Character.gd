@@ -5,7 +5,7 @@ signal health_changed(current_health)
 signal character_turned(new_look_direction)
 
 onready var AnimationPlayer := $AnimationPlayer
-onready var InputController := $InputController
+onready var InputController: InputController = $InputController setget ,_get_input_controller
 onready var StateMachine := $StateMachine
 onready var InteractionRay := get_node_or_null("Colliders/InteractionRay") as RayCast2D
 
@@ -89,3 +89,7 @@ func hit(attacker: Node2D, damage: int) -> void:
 	if !invincible:
 		self.current_health -= damage
 		StateMachine.hurt(attacker)
+
+# can be overridden to dynamically switch between different input controllers
+func _get_input_controller() -> InputController:
+	return InputController
