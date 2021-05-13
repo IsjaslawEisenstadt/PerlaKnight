@@ -1,7 +1,7 @@
 [gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=1]
-[ext_resource path="res://characters/character/input/PlayerInputController.gd" type="Script" id=2]
+[ext_resource path="res://characters/character/input/PlayerController.gd" type="Script" id=2]
 [ext_resource path="res://characters/character/states/IdleState.gd" type="Script" id=3]
 [ext_resource path="res://characters/player/textures/PLACERHOLDER_player_sheet.png" type="Texture" id=4]
 [ext_resource path="res://characters/character/states/move/MoveState.gd" type="Script" id=5]

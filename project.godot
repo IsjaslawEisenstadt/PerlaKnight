@@ -15,9 +15,9 @@ _global_script_classes=[ {
 "path": "res://characters/character/ai/base/AI.gd"
 }, {
 "base": "InputController",
-"class": "AIInputController",
+"class": "AIController",
 "language": "GDScript",
-"path": "res://characters/character/input/AIInputController.gd"
+"path": "res://characters/character/input/AIController.gd"
 }, {
 "base": "StateMachine",
 "class": "AIStateMachine",
@@ -175,9 +175,9 @@ _global_script_classes=[ {
 "path": "res://characters/player/Player.gd"
 }, {
 "base": "InputController",
-"class": "PlayerInputController",
+"class": "PlayerController",
 "language": "GDScript",
-"path": "res://characters/character/input/PlayerInputController.gd"
+"path": "res://characters/character/input/PlayerController.gd"
 }, {
 "base": "IdleState",
 "class": "RandomIdleState",
@@ -226,7 +226,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AI": "",
-"AIInputController": "",
+"AIController": "",
 "AIStateMachine": "",
 "AnimationState": "",
 "AttackState": "",
@@ -258,7 +258,7 @@ _global_script_class_icons={
 "PlayState": "",
 "PlayUI": "",
 "Player": "",
-"PlayerInputController": "",
+"PlayerController": "",
 "RandomIdleState": "",
 "RoamAI": "",
 "SearchAI": "",

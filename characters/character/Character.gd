@@ -27,12 +27,9 @@ var can_double_jump: bool = double_jump_acquired
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
-	InputController._start(self)
 	StateMachine.start()
 
 func _process(delta: float):
-	InputController._input_process(delta)
-	
 	_interaction_process()
 	
 	if double_jump_acquired && !can_double_jump && is_on_floor():
