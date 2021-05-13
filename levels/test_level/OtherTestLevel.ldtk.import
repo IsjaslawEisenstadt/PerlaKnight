@@ -1,0 +1,17 @@
+[remap]
+
+importer="LDtk.import"
+type="PackedScene"
+path="res://.import/OtherTestLevel.ldtk-91088f78154bd9bb0a0ab3ff9b787453.tscn"
+
+[deps]
+
+source_file="res://levels/test_level/OtherTestLevel.ldtk"
+dest_files=[ "res://.import/OtherTestLevel.ldtk-91088f78154bd9bb0a0ab3ff9b787453.tscn" ]
+
+[params]
+
+Import_Collisions=true
+Import_Custom_Entities=true
+Import_Metadata=true
+Reload_Inheriting_Scene=true
