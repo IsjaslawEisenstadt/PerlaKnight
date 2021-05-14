@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=3 format=2]
-
-[ext_resource path="res://environment/runes/resource/RuneResource.gd" type="Script" id=1]
-[ext_resource path="res://environment/runes/textures/Rune-3.png" type="Texture" id=2]
-
-[resource]
-script = ExtResource( 1 )
-description = "This rune gives you the power of wall climbing."
-texture = ExtResource( 2 )

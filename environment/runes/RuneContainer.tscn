@@ -1,23 +1,48 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://utility/interaction/Interaction.tscn" type="PackedScene" id=1]
-[ext_resource path="res://environment/runes/textures/Rune-1.png" type="Texture" id=2]
 [ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=3]
+[ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20.5231, 20.5563 )
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 32.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "hover"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8 ), Vector2( 0, 8 ) ]
+}
 
 [node name="Rune" instance=ExtResource( 1 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
-position = Vector2( 0, -9 )
-scale = Vector2( 0.153759, 0.158872 )
-texture = ExtResource( 2 )
+light_mask = 0
+position = Vector2( 0, 0.739334 )
+texture = SubResource( 1 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, -9 )
-shape = SubResource( 1 )
+visible = false
+shape = SubResource( 2 )
 
 [node name="IconPosition" parent="." index="2"]
-position = Vector2( 0, -9 )
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+anims/hover = SubResource( 3 )

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=3 format=2]
-
-[ext_resource path="res://environment/runes/resource/RuneResource.gd" type="Script" id=1]
-[ext_resource path="res://environment/runes/textures/Rune-10.png" type="Texture" id=2]
-
-[resource]
-script = ExtResource( 1 )
-description = "With this rune, you can dash."
-texture = ExtResource( 2 )

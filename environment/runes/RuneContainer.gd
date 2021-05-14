@@ -1,13 +1,16 @@
 tool
 extends Interaction
-class_name Rune
+class_name RuneContainer
 
-export var rune_resource: Resource
+export var rune: Resource
 
-func _ready():
-	if rune_resource:
-		$Sprite.texture = rune_resource.texture 
+func _ready() -> void:
+	if rune:
+		assert(rune is Rune)
+		$Sprite.texture = rune.texture 
+		$AnimationPlayer.play("hover")
+		$AnimationPlayer.advance(randf() * $AnimationPlayer.current_animation_length)
 
 func _interact(character) -> void:
-	character.Runes.push_front(rune_resource)
+	character.Runes.push_front(rune)
 	queue_free()

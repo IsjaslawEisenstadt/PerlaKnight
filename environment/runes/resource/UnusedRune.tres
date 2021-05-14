@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://environment/runes/resource/Rune.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/runes.png-e2e476bdaf3ce92014d5f12f50d0c723.stex"
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = SubResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[resource]
+script = ExtResource( 1 )
+name = ""
+description = "This rune improves your health."
+texture = SubResource( 1 )

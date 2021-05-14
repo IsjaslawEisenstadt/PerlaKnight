@@ -1071,10 +1071,10 @@
 			"limitScope": "PerWorld",
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0.5,
-			"pivotY": 1,
+			"pivotY": 0.5,
 			"fieldDefs": [
 				{
-					"identifier": "rune_resource",
+					"identifier": "rune",
 					"__type": "String",
 					"uid": 113,
 					"type": "F_String",
@@ -1092,7 +1092,7 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/runes/resource/DashRuneResource.tres"]
+						"params": ["res://environment/runes/resource/DashRune.tres"]
 					},
 					"textLanguageMode": null
 				},
@@ -1143,10 +1143,10 @@
 			"limitScope": "PerWorld",
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0.5,
-			"pivotY": 1,
+			"pivotY": 0.5,
 			"fieldDefs": [
 				{
-					"identifier": "rune_resource",
+					"identifier": "rune",
 					"__type": "String",
 					"uid": 116,
 					"type": "F_String",
@@ -1164,7 +1164,7 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/runes/resource/DoubleJumpRuneResource.tres"]
+						"params": ["res://environment/runes/resource/DoubleJumpRune.tres"]
 					},
 					"textLanguageMode": null
 				},
@@ -1215,10 +1215,10 @@
 			"limitScope": "PerWorld",
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0.5,
-			"pivotY": 1,
+			"pivotY": 0.5,
 			"fieldDefs": [
 				{
-					"identifier": "rune_resource",
+					"identifier": "rune",
 					"__type": "String",
 					"uid": 119,
 					"type": "F_String",
@@ -1236,7 +1236,7 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/runes/resource/HealthRuneResource.tres"]
+						"params": ["res://environment/runes/resource/HealthRune.tres"]
 					},
 					"textLanguageMode": null
 				},
@@ -1287,10 +1287,10 @@
 			"limitScope": "PerWorld",
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0.5,
-			"pivotY": 1,
+			"pivotY": 0.5,
 			"fieldDefs": [
 				{
-					"identifier": "rune_resource",
+					"identifier": "rune",
 					"__type": "String",
 					"uid": 122,
 					"type": "F_String",
@@ -1308,7 +1308,7 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/runes/resource/WallClimbRuneResource.tres"]
+						"params": ["res://environment/runes/resource/WallClimbRune.tres"]
 					},
 					"textLanguageMode": null
 				},
@@ -15706,75 +15706,57 @@
 					"entityInstances": [
 						{
 							"__identifier": "DashRune",
-							"__grid": [261,131],
-							"__pivot": [0.5,1],
+							"__grid": [262,130],
+							"__pivot": [0.5,0.5],
 							"__tile": null,
 							"width": 16,
 							"height": 16,
 							"defUid": 109,
-							"px": [4184,2112],
+							"px": [4200,2088],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 112, "realEditorValues": [] },
-								{ "__identifier": "rune_resource", "__value": "res://environment/runes/resource/DashRuneResource.tres", "__type": "String", "defUid": 113, "realEditorValues": [] }
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DashRune.tres", "__type": "String", "defUid": 113, "realEditorValues": [] }
 							]
 						},
 						{
 							"__identifier": "DoubleJumpRune",
-							"__grid": [264,131],
-							"__pivot": [0.5,1],
+							"__grid": [264,130],
+							"__pivot": [0.5,0.5],
 							"__tile": null,
 							"width": 16,
 							"height": 16,
 							"defUid": 115,
-							"px": [4232,2112],
+							"px": [4232,2088],
 							"fieldInstances": [
-								{
-									"__identifier": "rune_resource",
-									"__value": "res://environment/runes/resource/DoubleJumpRuneResource.tres",
-									"__type": "String",
-									"defUid": 116,
-									"realEditorValues": []
-								},
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DoubleJumpRune.tres", "__type": "String", "defUid": 116, "realEditorValues": [] },
 								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 117, "realEditorValues": [] }
 							]
 						},
 						{
 							"__identifier": "HealthRune",
-							"__grid": [267,131],
-							"__pivot": [0.5,1],
+							"__grid": [266,130],
+							"__pivot": [0.5,0.5],
 							"__tile": null,
 							"width": 16,
 							"height": 16,
 							"defUid": 118,
-							"px": [4280,2112],
+							"px": [4264,2088],
 							"fieldInstances": [
-								{
-									"__identifier": "rune_resource",
-									"__value": "res://environment/runes/resource/HealthRuneResource.tres",
-									"__type": "String",
-									"defUid": 119,
-									"realEditorValues": []
-								},
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/HealthRune.tres", "__type": "String", "defUid": 119, "realEditorValues": [] },
 								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 120, "realEditorValues": [] }
 							]
 						},
 						{
 							"__identifier": "WallClimbRune",
-							"__grid": [270,131],
-							"__pivot": [0.5,1],
+							"__grid": [268,130],
+							"__pivot": [0.5,0.5],
 							"__tile": null,
 							"width": 16,
 							"height": 16,
 							"defUid": 121,
-							"px": [4328,2112],
+							"px": [4296,2088],
 							"fieldInstances": [
-								{
-									"__identifier": "rune_resource",
-									"__value": "res://environment/runes/resource/WallClimbRuneResource.tres",
-									"__type": "String",
-									"defUid": 122,
-									"realEditorValues": []
-								},
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/WallClimbRune.tres", "__type": "String", "defUid": 122, "realEditorValues": [] },
 								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 123, "realEditorValues": [] }
 							]
 						}

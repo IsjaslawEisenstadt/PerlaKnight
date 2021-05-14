@@ -74,7 +74,7 @@ func new_entity(entity_data, level, options):
 
 	for data in metadata:
 		if data['name'] in new_entity:
-			if new_entity is Rune && data['name'] == 'rune_resource':
+			if new_entity is RuneContainer && data['name'] == 'rune':
 				new_entity[data['name']] = load(data['value'])
 			else:
 				new_entity[data['name']] = data['value']
