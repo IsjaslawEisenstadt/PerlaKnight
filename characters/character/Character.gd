@@ -9,7 +9,7 @@ onready var CollisionShape := $CollisionShape2D
 onready var AnimationPlayer := $AnimationPlayer
 onready var InputController := $InputController
 onready var StateMachine := $StateMachine
-onready var InteractionRay := get_node_or_null("InteractionRay") as RayCast2D
+onready var Interactor := $Interactor
 onready var WallClimbAssistantTop := get_node_or_null("WallClimbAssistantTop") as Area2D
 onready var WallClimbAssistantBottom := get_node_or_null("WallClimbAssistantBottom") as Area2D
 
@@ -48,12 +48,10 @@ func _process(delta: float):
 # closest interaction before pressing a button
 func _interaction_process() -> void:
 	if (InputController._is_action_just_activated("interact") 
-		&& StateMachine.get_current_state()._can_interact() 
-		&& InteractionRay.is_colliding()):
-			var interaction := InteractionRay.get_collider()
-			assert(interaction is Interaction)
-			if interaction._can_interact(self):
-				interaction._interact(self)
+		&& StateMachine.get_current_state()._can_interact()):
+		var closest_interaction: Interaction = Interactor.get_closest_interaction(self)
+		if closest_interaction:
+			closest_interaction._interact(self)
 
 
 func _physics_process(delta: float):

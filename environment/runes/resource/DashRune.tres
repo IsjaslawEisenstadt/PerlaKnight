@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://environment/runes/resource/Rune.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/runes.png-e2e476bdaf3ce92014d5f12f50d0c723.stex"
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = SubResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[resource]
+script = ExtResource( 1 )
+name = "Dash Rune"
+description = "With this rune, you can dash."
+texture = SubResource( 2 )

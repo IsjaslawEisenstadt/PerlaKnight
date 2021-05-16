@@ -1,6 +1,5 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://ui/world_space/interaction_icon/InteractionIcon.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=2]
 [ext_resource path="res://ui/game_states/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://ui/game_states/PlayState.gd" type="Script" id=4]
@@ -13,7 +12,6 @@
 [ext_resource path="res://ui/general/fonts/MinimalPixel.tres" type="DynamicFont" id=11]
 [ext_resource path="res://ui/general/fonts/bitmgothic.tres" type="DynamicFont" id=12]
 [ext_resource path="res://ui/hud/health_container/HealthContainer.tscn" type="PackedScene" id=13]
-[ext_resource path="res://ui/world_space/interaction_icon/InteractionIcon.tscn" type="PackedScene" id=14]
 [ext_resource path="res://ui/transition/Transition.shader" type="Shader" id=15]
 [ext_resource path="res://ui/game_states/PauseMenu.gd" type="Script" id=16]
 [ext_resource path="res://ui/general/WarningPopup.gd" type="Script" id=18]
@@ -212,10 +210,6 @@ size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="InteractionIcon" parent="UI/PlayUI/WorldSpaceUI" instance=ExtResource( 14 )]
-visible = false
-script = ExtResource( 1 )
 
 [node name="MainMenu" type="Control" parent="UI"]
 pause_mode = 2
@@ -631,9 +625,7 @@ anims/fade_out = SubResource( 9 )
 
 [connection signal="save_requested" from="PlayState" to="." method="save_game"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
-[connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_connected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]
-[connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_disconnected"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/MainMenu" method="on_continue_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/MainMenu" method="on_new_game_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/MainMenu" method="on_exit_pressed"]
