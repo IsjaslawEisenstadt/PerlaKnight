@@ -4,6 +4,7 @@ class_name PlayState
 # warning-ignore:unused_signal
 signal save_requested()
 
+onready var RuneAbilityInterface = $".."/UI/RuneAbilityInterface
 onready var PauseMenu = $".."/UI/PauseMenu
 onready var Transition := $".."/UI/Transition
 onready var PlayUI := $".."/UI/PlayUI
@@ -32,3 +33,5 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 func _state_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		state_machine._push_state(PauseMenu)
+	if Input.is_action_just_pressed("runes"):
+		state_machine._push_state(RuneAbilityInterface)
