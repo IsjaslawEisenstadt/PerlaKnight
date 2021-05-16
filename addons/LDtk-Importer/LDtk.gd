@@ -63,6 +63,10 @@ func new_entity(entity_data, level, options):
 						new_entity = resource.instance()
 						new_entity.position = Vector2(entity_data.px[0] + level.worldX, entity_data.px[1] + level.worldY)
 						is_custom_entity = true
+						
+						if new_entity is Doorway:
+							new_entity.shape = Vector2(entity_data.width, entity_data.height)
+						
 			elif options.Import_Metadata:
 				metadata.append({'name': field.__identifier, 'value': field.__value})
 	else:

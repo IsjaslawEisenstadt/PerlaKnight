@@ -1173,13 +1173,14 @@ collision_mask = 0
 script = ExtResource( 7 )
 
 [node name="Door1" type="Area2D" parent="SpawnTargets" instance=ExtResource( 3 )]
-position = Vector2( 2336, 608 )
+position = Vector2( 2336, 544 )
 collision_layer = 262144
 collision_mask = 262144
 script = ExtResource( 5 )
-exit_direction = 1
 next_level = "Level1"
 next_door = "Door1"
+exit_direction = 1
+shape = Vector2( 64, 64 )
 
 [node name="Characters" type="Node2D" parent="."]
 z_index = 3

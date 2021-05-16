@@ -960,8 +960,8 @@
 			"tags": ["SpawnTargets"],
 			"width": 64,
 			"height": 64,
-			"resizableX": false,
-			"resizableY": false,
+			"resizableX": true,
+			"resizableY": true,
 			"keepAspectRatio": false,
 			"fillOpacity": 1,
 			"lineOpacity": 1,
@@ -976,7 +976,7 @@
 			"limitScope": "PerLevel",
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0,
-			"pivotY": 1,
+			"pivotY": 0,
 			"fieldDefs": [
 				{
 					"identifier": "NodeType",
@@ -1018,7 +1018,10 @@
 					"max": null,
 					"regex": null,
 					"acceptFileTypes": null,
-					"defaultOverride": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["Door"]
+					},
 					"textLanguageMode": null
 				},
 				{
@@ -4835,13 +4838,13 @@
 					"entityInstances": [
 						{
 							"__identifier": "Doorway",
-							"__grid": [67,26],
-							"__pivot": [0,1],
+							"__grid": [67,25],
+							"__pivot": [0,0],
 							"__tile": null,
 							"width": 64,
 							"height": 64,
 							"defUid": 110,
-							"px": [2144,864],
+							"px": [2144,800],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
 								{
@@ -6395,13 +6398,13 @@
 						},
 						{
 							"__identifier": "Doorway",
-							"__grid": [0,13],
-							"__pivot": [0,1],
+							"__grid": [0,12],
+							"__pivot": [0,0],
 							"__tile": null,
 							"width": 64,
 							"height": 64,
 							"defUid": 110,
-							"px": [0,448],
+							"px": [0,384],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
 								{
