@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 122,
+	"nextUid": 123,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -1022,6 +1022,49 @@
 					"textLanguageMode": null
 				},
 				{
+					"identifier": "next_level",
+					"__type": "String",
+					"uid": 122,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["Level1"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "next_door",
+					"__type": "String",
+					"uid": 118,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
 					"identifier": "exit_direction",
 					"__type": "Int",
 					"uid": 120,
@@ -1039,46 +1082,6 @@
 					"regex": null,
 					"acceptFileTypes": null,
 					"defaultOverride": { "id": "V_Int", "params": [1] },
-					"textLanguageMode": null
-				},
-				{
-					"identifier": "next_level_path",
-					"__type": "String",
-					"uid": 115,
-					"type": "F_String",
-					"isArray": false,
-					"canBeNull": false,
-					"arrayMinLength": null,
-					"arrayMaxLength": null,
-					"editorDisplayMode": "Hidden",
-					"editorDisplayPos": "Above",
-					"editorAlwaysShow": false,
-					"editorCutLongValues": true,
-					"min": null,
-					"max": null,
-					"regex": null,
-					"acceptFileTypes": null,
-					"defaultOverride": null,
-					"textLanguageMode": null
-				},
-				{
-					"identifier": "other_door_name",
-					"__type": "String",
-					"uid": 118,
-					"type": "F_String",
-					"isArray": false,
-					"canBeNull": false,
-					"arrayMinLength": null,
-					"arrayMaxLength": null,
-					"editorDisplayMode": "Hidden",
-					"editorDisplayPos": "Above",
-					"editorAlwaysShow": false,
-					"editorCutLongValues": true,
-					"min": null,
-					"max": null,
-					"regex": null,
-					"acceptFileTypes": null,
-					"defaultOverride": null,
 					"textLanguageMode": null
 				}
 			]
@@ -4842,17 +4845,7 @@
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
 								{
-									"__identifier": "next_level_path",
-									"__value": "res://maps/test_map/levels/Level2.tscn",
-									"__type": "String",
-									"defUid": 115,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["res://maps/test_map/levels/Level2.tscn"]
-									}]
-								},
-								{
-									"__identifier": "other_door_name",
+									"__identifier": "next_door",
 									"__value": "Door1",
 									"__type": "String",
 									"defUid": 118,
@@ -4877,6 +4870,16 @@
 									"__type": "Int",
 									"defUid": 120,
 									"realEditorValues": [{ "id": "V_Int", "params": [-1] }]
+								},
+								{
+									"__identifier": "next_level",
+									"__value": "Level2",
+									"__type": "String",
+									"defUid": 122,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Level2"]
+									}]
 								}
 							]
 						},
@@ -6402,17 +6405,7 @@
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
 								{
-									"__identifier": "next_level_path",
-									"__value": "res://maps/test_map/levels/Level1.tscn",
-									"__type": "String",
-									"defUid": 115,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["res://maps/test_map/levels/Level1.tscn"]
-									}]
-								},
-								{
-									"__identifier": "other_door_name",
+									"__identifier": "next_door",
 									"__value": "Door1",
 									"__type": "String",
 									"defUid": 118,
@@ -6431,7 +6424,8 @@
 										"params": ["Door1"]
 									}]
 								},
-								{ "__identifier": "exit_direction", "__value": 1, "__type": "Int", "defUid": 120, "realEditorValues": [] }
+								{ "__identifier": "exit_direction", "__value": 1, "__type": "Int", "defUid": 120, "realEditorValues": [] },
+								{ "__identifier": "next_level", "__value": "Level1", "__type": "String", "defUid": 122, "realEditorValues": [] }
 							]
 						}
 					]

@@ -35,17 +35,21 @@ func _state_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		state_machine._push_state(PauseMenu)
 
-func on_transition_requested(level_path, target_name) -> void:
+func on_transition_requested(level_name, target_name) -> void:
 	get_tree().paused = true
 	var temp_save_data: Dictionary = {}
 	temp_save_data["current_level"] = current_level.filename # for consistency
 	current_level.save_game(temp_save_data)
-	temp_save_data["current_level"] = level_path
-	temp_save_data["spawn_target"] = "SpawnTargets/" + target_name
+	
+	var next_level_path: String = current_level.filename.get_base_dir() + "/" + level_name + ".tscn"
+	temp_save_data["current_level"] = next_level_path
+	temp_save_data["spawn_target"] = target_name
+	
 	Transition.start("fade_out")
 	yield(Transition, "transition_finished")
+	
 	remove_child(current_level)
 	current_level.queue_free()
 	current_level = null
-	state_machine._pop_push(LoadingScreen, {"scene": level_path, "save_data": temp_save_data})
+	state_machine._pop_push(LoadingScreen, {"scene": next_level_path, "save_data": temp_save_data})
 	
