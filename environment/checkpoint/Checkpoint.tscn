@@ -26,19 +26,31 @@ tracks/0/keys = {
 [node name="Checkpoint" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2( 0, -30 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
 position = Vector2( 0, 0.187286 )
 texture = ExtResource( 2 )
 offset = Vector2( 0, -42 )
 hframes = 4
 vframes = 3
 
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, -30 )
-shape = SubResource( 1 )
+[node name="Icons" parent="Sprite" index="0"]
+scale = Vector2( 1.5, 1.5 )
 
-[node name="IconPosition" parent="." index="2"]
-position = Vector2( 0, -19 )
+[node name="IconLeftOffset" parent="Sprite/Icons" index="0"]
+position = Vector2( -20, -14 )
+
+[node name="IconLeft" parent="Sprite/Icons/IconLeftOffset" index="0"]
+position = Vector2( -13.5626, 0 )
+
+[node name="IconRightOffset" parent="Sprite/Icons" index="1"]
+position = Vector2( 21, -14 )
+
+[node name="IconRight" parent="Sprite/Icons/IconRightOffset" index="0"]
+position = Vector2( 13.5626, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 playback_speed = 1.75

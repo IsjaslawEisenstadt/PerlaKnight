@@ -488,18 +488,13 @@ texture = ExtResource( 4 )
 offset = Vector2( 7.5, -21 )
 hframes = 6
 vframes = 21
-frame = 40
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
 position = Vector2( 0, -16.5 )
 shape = SubResource( 1 )
 
-[node name="InteractionRay" parent="." index="2"]
-visible = false
-position = Vector2( 0, -16 )
-
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="2"]
 anims/dash_attack = SubResource( 2 )
 anims/dash_end = SubResource( 3 )
 anims/dash_travel = SubResource( 4 )
@@ -521,7 +516,7 @@ anims/run_attack2 = SubResource( 19 )
 anims/slide = SubResource( 20 )
 anims/wall_slide = SubResource( 21 )
 
-[node name="InputController" parent="." index="4"]
+[node name="InputController" parent="." index="3"]
 script = ExtResource( 2 )
 
 [node name="IdleState" type="Node" parent="StateMachine" index="0"]
@@ -586,6 +581,9 @@ host_path = NodePath("../..")
 animation_name = "hurt"
 move_speed = 80.0
 
+[node name="Interactor" parent="." index="5"]
+position = Vector2( 0, -16 )
+
 [node name="Camera2D" type="Camera2D" parent="." index="6"]
 current = true
 
@@ -614,3 +612,4 @@ collision_mask = 4
 [node name="AttackCollisionShape" type="CollisionShape2D" parent="AttackHitbox" index="0"]
 position = Vector2( 25, -23 )
 shape = SubResource( 23 )
+disabled = true

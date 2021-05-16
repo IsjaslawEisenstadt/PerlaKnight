@@ -11,6 +11,6 @@ region = Rect2( 0, 0, 16, 16 )
 
 [resource]
 script = ExtResource( 1 )
-name = ""
+name = "Dash Rune"
 description = "With this rune, you can dash."
 texture = SubResource( 2 )

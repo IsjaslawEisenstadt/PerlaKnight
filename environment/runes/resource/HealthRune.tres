@@ -11,6 +11,6 @@ region = Rect2( 64, 0, 16, 16 )
 
 [resource]
 script = ExtResource( 1 )
-name = ""
+name = "Health Rune"
 description = "This rune improves your health."
 texture = SubResource( 2 )

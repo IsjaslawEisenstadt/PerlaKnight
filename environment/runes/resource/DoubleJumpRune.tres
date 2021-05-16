@@ -11,6 +11,6 @@ region = Rect2( 16, 0, 16, 16 )
 
 [resource]
 script = ExtResource( 1 )
-name = ""
+name = "Double Jump Rune"
 description = "This rune makes you jump even higher."
 texture = SubResource( 2 )

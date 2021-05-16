@@ -1,16 +1,65 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://utility/interaction/Interaction.gd" type="Script" id=1]
+[ext_resource path="res://ui/general/textures/arrow_right.tres" type="Texture" id=2]
+[ext_resource path="res://ui/general/textures/arrow_left.tres" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 5 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "bounce"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite/Icons/IconLeftOffset/IconLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 0.133972, 0.0883884 ),
+"update": 0,
+"values": [ Vector2( -12, 0 ), Vector2( -16, 0 ), Vector2( -12, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/Icons/IconRightOffset/IconRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 0.133972, 0.0883884 ),
+"update": 0,
+"values": [ Vector2( 12, 0 ), Vector2( 16, 0 ), Vector2( 12, 0 ) ]
+}
 
 [node name="Interaction" type="Area2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 1 )
 
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="Icons" type="Node2D" parent="Sprite"]
+
+[node name="IconLeftOffset" type="Node2D" parent="Sprite/Icons"]
+
+[node name="IconLeft" type="Sprite" parent="Sprite/Icons/IconLeftOffset"]
+position = Vector2( -14.1829, 0 )
+texture = ExtResource( 3 )
+
+[node name="IconRightOffset" type="Node2D" parent="Sprite/Icons"]
+
+[node name="IconRight" type="Sprite" parent="Sprite/Icons/IconRightOffset"]
+position = Vector2( 14.1829, 0 )
+texture = ExtResource( 2 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
-[node name="IconPosition" type="Position2D" parent="."]
+[node name="IconAnimator" type="AnimationPlayer" parent="."]
+anims/bounce = SubResource( 2 )
