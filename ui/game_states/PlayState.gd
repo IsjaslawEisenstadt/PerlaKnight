@@ -41,7 +41,7 @@ func on_transition_requested(level_path, target_name) -> void:
 	temp_save_data["current_level"] = current_level.filename # for consistency
 	current_level.save_game(temp_save_data)
 	temp_save_data["current_level"] = level_path
-	temp_save_data["spawn_target"] = "Level1/SpawnTargets/" + target_name
+	temp_save_data["spawn_target"] = "SpawnTargets/" + target_name
 	Transition.start("fade_out")
 	yield(Transition, "transition_finished")
 	remove_child(current_level)
