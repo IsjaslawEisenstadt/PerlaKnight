@@ -142,7 +142,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Level",
 "language": "GDScript",
-"path": "res://levels/base/Level.gd"
+"path": "res://maps/Level.gd"
 }, {
 "base": "GameState",
 "class": "LoadingScreen",

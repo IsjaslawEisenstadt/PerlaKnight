@@ -1,12 +1,13 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://levels/test_level/textures/background/Mountain2.png" type="Texture" id=1]
-[ext_resource path="res://levels/test_level/AutoScroll.gd" type="Script" id=2]
-[ext_resource path="res://levels/test_level/textures/background/Castle.png" type="Texture" id=3]
-[ext_resource path="res://levels/test_level/textures/background/Background.png" type="Texture" id=4]
-[ext_resource path="res://levels/test_level/textures/background/Clouds.png" type="Texture" id=5]
-[ext_resource path="res://levels/test_level/textures/background/Mountain1.png" type="Texture" id=6]
-[ext_resource path="res://levels/test_level/textures/background/BackgroundMountains.png" type="Texture" id=7]
+[ext_resource path="res://maps/background/textures/Mountain2.png" type="Texture" id=1]
+[ext_resource path="res://maps/background/AutoScroll.gd" type="Script" id=2]
+[ext_resource path="res://maps/background/textures/Castle.png" type="Texture" id=3]
+[ext_resource path="res://maps/background/textures/Background.png" type="Texture" id=4]
+[ext_resource path="res://maps/background/textures/Clouds.png" type="Texture" id=5]
+[ext_resource path="res://maps/background/textures/Mountain1.png" type="Texture" id=6]
+[ext_resource path="res://maps/background/textures/BackgroundMountains.png" type="Texture" id=7]
+
 
 [node name="Background" type="ParallaxBackground"]
 

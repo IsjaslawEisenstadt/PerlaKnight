@@ -4843,12 +4843,12 @@
 								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
 								{
 									"__identifier": "next_level_path",
-									"__value": "res://levels/test_level/levels/Level2.tscn",
+									"__value": "res://maps/test_map/levels/Level2.tscn",
 									"__type": "String",
 									"defUid": 115,
 									"realEditorValues": [{
 										"id": "V_String",
-										"params": ["res://levels/test_level/levels/Level2.tscn"]
+										"params": ["res://maps/test_map/levels/Level2.tscn"]
 									}]
 								},
 								{
@@ -6403,12 +6403,12 @@
 								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
 								{
 									"__identifier": "next_level_path",
-									"__value": "res://levels/test_level/levels/Level1.tscn",
+									"__value": "res://maps/test_map/levels/Level1.tscn",
 									"__type": "String",
 									"defUid": 115,
 									"realEditorValues": [{
 										"id": "V_String",
-										"params": ["res://levels/test_level/levels/Level1.tscn"]
+										"params": ["res://maps/test_map/levels/Level1.tscn"]
 									}]
 								},
 								{
