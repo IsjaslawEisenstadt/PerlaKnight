@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/interface/rune_ability_interface/RuneAbilityEntryContainer.gd" type="Script" id=1]
+[ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.360784, 0.364706, 0.501961, 1 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 1, 1, 14, 14 )
+
+[node name="RuneAbilityEntryContainer" type="MarginContainer"]
+margin_right = 404.0
+margin_bottom = 50.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_right = 404.0
+margin_bottom = 50.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 404.0
+margin_bottom = 50.0
+
+[node name="RuneTextureRect" type="TextureRect" parent="HBoxContainer"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = SubResource( 2 )
+stretch_mode = 1
+
+[node name="DescriptionRichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+margin_left = 54.0
+margin_right = 404.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 350, 0 )
+text = "Description."
+scroll_active = false

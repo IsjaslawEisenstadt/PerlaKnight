@@ -1,6 +1,7 @@
 extends Character
 class_name Player
 
+signal rune_added(rune)
 signal transition_to_checkpoint()
 signal save_requested()
 
@@ -34,6 +35,10 @@ func set_current_checkpoint(new_checkpoint: Checkpoint) -> void:
 			current_checkpoint.deactivate()
 		current_checkpoint = new_checkpoint
 		emit_signal("save_requested")
+		
+func add_rune(rune):
+	Runes.push_front(rune)
+	emit_signal("rune_added", rune)
 
 func reset() -> void:
 	self.position = current_checkpoint.global_position

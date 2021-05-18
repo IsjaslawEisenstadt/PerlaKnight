@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://ui/interface/rune_ability_interface/RuneAbilityInterface.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=2]
@@ -13,13 +13,13 @@
 [ext_resource path="res://ui/general/fonts/MinimalPixel.tres" type="DynamicFont" id=11]
 [ext_resource path="res://ui/general/fonts/bitmgothic.tres" type="DynamicFont" id=12]
 [ext_resource path="res://ui/hud/health_container/HealthContainer.tscn" type="PackedScene" id=13]
-[ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=14]
+[ext_resource path="res://ui/interface/rune_ability_interface/RuneAbilityEntryContainer.tscn" type="PackedScene" id=14]
 [ext_resource path="res://ui/transition/Transition.shader" type="Shader" id=15]
 [ext_resource path="res://ui/game_states/PauseMenu.gd" type="Script" id=16]
 [ext_resource path="res://ui/interface/rune_ability_interface/rune_interface.png" type="Texture" id=17]
 [ext_resource path="res://ui/general/WarningPopup.gd" type="Script" id=18]
 [ext_resource path="res://ui/general/Button.tscn" type="PackedScene" id=19]
-[ext_resource path="res://ui/interface/rune_ability_interface/RuneAbilityEntryContainer.gd" type="Script" id=20]
+[ext_resource path="res://ui/interface/rune_ability_interface/RuneAbilityEntriesContainer.gd" type="Script" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "blur"
@@ -105,7 +105,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=7]
 resource_name = "blur"
 length = 0.15
 step = 0.05
@@ -122,21 +122,14 @@ tracks/0/keys = {
 "values": [ 0.0, 2.0 ]
 }
 
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.360784, 0.364706, 0.501961, 1 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 14 )
-region = Rect2( 1, 1, 14, 14 )
-
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 15 )
 shader_param/cutoff = 1.0
 shader_param/smooth_size = 0.2
 shader_param/color = Color( 0, 0, 0, 1 )
 shader_param/mask = ExtResource( 8 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -164,7 +157,7 @@ tracks/1/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -606,7 +599,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/RuneAbilityInterface"]
-anims/blur = SubResource( 10 )
+anims/blur = SubResource( 7 )
 
 [node name="Blur" type="ColorRect" parent="UI/RuneAbilityInterface"]
 visible = false
@@ -638,47 +631,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/RuneAbilityInterface/ScrollContainer"]
-margin_right = 404.0
-margin_bottom = 50.0
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/RuneAbilityInterface/ScrollContainer/VBoxContainer"]
-margin_right = 404.0
-margin_bottom = 50.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="UI/RuneAbilityInterface/ScrollContainer/VBoxContainer/MarginContainer"]
-margin_right = 404.0
-margin_bottom = 50.0
-custom_styles/panel = SubResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RuneAbilityEntryContainer" type="HBoxContainer" parent="UI/RuneAbilityInterface/ScrollContainer/VBoxContainer/MarginContainer"]
-margin_right = 404.0
-margin_bottom = 50.0
+[node name="RuneAbilityEntriesContainer" type="VBoxContainer" parent="UI/RuneAbilityInterface/ScrollContainer"]
 script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RuneTextureRect" type="TextureRect" parent="UI/RuneAbilityInterface/ScrollContainer/VBoxContainer/MarginContainer/RuneAbilityEntryContainer"]
-margin_right = 50.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 50, 50 )
-texture = SubResource( 11 )
-stretch_mode = 1
-
-[node name="DescriptionRichTextLabel" type="RichTextLabel" parent="UI/RuneAbilityInterface/ScrollContainer/VBoxContainer/MarginContainer/RuneAbilityEntryContainer"]
-margin_left = 54.0
-margin_right = 404.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 350, 0 )
-text = "asdasdasdasdasassssssssssssssssssssssssssssssssssssssssss"
-scroll_active = false
+RuneAbilityEntry = ExtResource( 14 )
 
 [node name="LoadingScreen" type="Control" parent="UI"]
 pause_mode = 2
@@ -721,7 +676,7 @@ __meta__ = {
 }
 
 [node name="TransitionEffect" type="ColorRect" parent="UI/Transition"]
-material = SubResource( 7 )
+material = SubResource( 8 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1.0
@@ -735,12 +690,14 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Transition"]
-anims/fade_in = SubResource( 8 )
-anims/fade_out = SubResource( 9 )
+anims/fade_in = SubResource( 9 )
+anims/fade_out = SubResource( 10 )
 
 [connection signal="save_requested" from="PlayState" to="." method="save_game"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
+[connection signal="player_connected" from="UI/PlayUI" to="UI/RuneAbilityInterface/ScrollContainer/RuneAbilityEntriesContainer" method="on_player_connected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]
+[connection signal="player_disconnected" from="UI/PlayUI" to="UI/RuneAbilityInterface/ScrollContainer/RuneAbilityEntriesContainer" method="on_player_disconnected"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/MainMenu" method="on_continue_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/MainMenu" method="on_new_game_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/MainMenu" method="on_exit_pressed"]

@@ -12,5 +12,5 @@ func _ready() -> void:
 		$AnimationPlayer.advance(randf() * $AnimationPlayer.current_animation_length)
 
 func _interact(character) -> void:
-	character.Runes.push_front(rune)
+	character.add_rune(rune)
 	queue_free()
