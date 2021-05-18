@@ -23,7 +23,10 @@ tracks/0/keys = {
 "values": [ 0, 11 ]
 }
 
-[node name="Checkpoint" instance=ExtResource( 1 )]
+[node name="Checkpoint" groups=[
+"Checkpoint",
+"Persistent",
+] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]

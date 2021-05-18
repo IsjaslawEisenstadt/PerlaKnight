@@ -166,9 +166,7 @@ tracks/1/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[node name="GameStateMachine" type="Node" groups=[
-"SaveListener",
-]]
+[node name="GameStateMachine" type="Node"]
 pause_mode = 2
 script = ExtResource( 2 )
 start_state_path = NodePath("UI/MainMenu")
@@ -228,7 +226,6 @@ __meta__ = {
 }
 pause_game = true
 default_focus_path = NodePath("Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton")
-new_game_scene_path = "res://maps/test_map/levels/Level1.tscn"
 
 [node name="Margin" type="MarginContainer" parent="UI/MainMenu"]
 anchor_right = 1.0
@@ -582,7 +579,6 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-pause_game = true
 
 [node name="ColorRect" type="ColorRect" parent="UI/LoadingScreen"]
 anchor_right = 1.0
@@ -627,7 +623,6 @@ __meta__ = {
 anims/fade_in = SubResource( 8 )
 anims/fade_out = SubResource( 9 )
 
-[connection signal="save_requested" from="PlayState" to="." method="save_game"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/WorldSpaceUI/InteractionIcon" method="on_player_connected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]

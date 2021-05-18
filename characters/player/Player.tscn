@@ -482,7 +482,9 @@ height = 14.0
 [sub_resource type="CircleShape2D" id=24]
 radius = 32.0
 
-[node name="Player" instance=ExtResource( 1 )]
+[node name="Player" groups=[
+"Persistent",
+] instance=ExtResource( 1 )]
 script = ExtResource( 10 )
 dash_acquired = true
 double_jump_acquired = true

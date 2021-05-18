@@ -40,8 +40,8 @@ func _process(delta: float):
 # meant to be overridden by the player, because she needs to know her
 # closest interaction before pressing a button
 func _interaction_process() -> void:
-	if (InputController._is_action_just_activated("interact") 
-		&& StateMachine.get_current_state()._can_interact() 
+	if (InputController._is_action_just_activated("interact")
+		&& StateMachine.get_current_state()._can_interact()
 		&& InteractionRay.is_colliding()):
 			var interaction := InteractionRay.get_collider()
 			assert(interaction is Interaction)

@@ -10,7 +10,7 @@ var timer = Timer.new()
 func _state_enter(_previous_state: State, params: Dictionary = {}) -> void:
 	assert("object" in params && params.object is Doorway)
 	
-	host.global_position = params.object.global_position
+	host.global_position = params.object.SpawnPosition.global_position
 	host.look_direction = params.object.exit_direction
 	input_controller.activate_action("move_right" if host.look_direction == 1 else "move_left")
 	

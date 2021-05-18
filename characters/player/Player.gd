@@ -1,8 +1,6 @@
 extends Character
 class_name Player
 
-signal transition_to_checkpoint()
-signal save_requested()
 signal transition_requested(level_name, target_name)
 
 onready var DoorCastLeft: RayCast2D = $Colliders/DoorCastLeft
@@ -10,14 +8,14 @@ onready var DoorCastRight: RayCast2D = $Colliders/DoorCastRight
 onready var SequenceController: SequenceController = $SequenceController
 
 var closest_interaction: Interaction
-var current_checkpoint: Checkpoint setget set_current_checkpoint
 
 var is_in_sequence: bool = false
 
 func _process(_delta: float) -> void:
 	if InputController._is_action_just_activated("reset"):
-		emit_signal("transition_to_checkpoint")
-	
+		# a 'default' transition call, this will infer to use checkpoints
+		emit_signal("transition_requested", null, null)
+
 	if !is_in_sequence && DoorCastLeft.is_colliding() && DoorCastRight.is_colliding():
 		assert(DoorCastLeft.get_collider() is Doorway && DoorCastRight.get_collider() is Doorway)
 		var doorway: Doorway = DoorCastLeft.get_collider()
@@ -32,27 +30,12 @@ func _interaction_process() -> void:
 			if InputController._is_action_just_activated("interact"):
 				closest_interaction._interact(self)
 
-func set_current_checkpoint(new_checkpoint: Checkpoint) -> void:
-	if new_checkpoint != current_checkpoint:
-		if current_checkpoint:
-			current_checkpoint.deactivate()
-		current_checkpoint = new_checkpoint
-		emit_signal("save_requested")
-
-func reset() -> void:
-	self.position = current_checkpoint.global_position
-
-func save_game(save_data: Dictionary) -> void:
-	if current_checkpoint:
-		save_data["player_checkpoint_path"] = get_path_to(current_checkpoint)
-
-func load_game(save_data: Dictionary) -> void:
-	var checkpoint := get_node_or_null(save_data.get("player_checkpoint_path", "")) as Checkpoint
-	if checkpoint:
-		checkpoint._interact(self)
-		reset()
-	if "start_sequence" in save_data:
-		start_sequence(save_data.start_sequence)
+func load_game(save_data: Dictionary, level) -> void:
+	if "spawn_target" in save_data:
+		start_sequence(level.SpawnTargets.get_node(save_data.spawn_target))
+		save_data.erase("spawn_target")
+	elif save_data.get("checkpoint_level") == level.name && "checkpoint_name" in save_data:
+		global_position = level.SpawnTargets.get_node(save_data.checkpoint_name).global_position
 
 func _get_input_controller() -> InputController:
 	return SequenceController if is_in_sequence else InputController
