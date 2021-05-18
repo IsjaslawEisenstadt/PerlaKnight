@@ -61,7 +61,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 2 )
-shader_param/blur_amount = 2.0
+shader_param/blur_amount = 0.0
 
 [sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 9 )
@@ -592,6 +592,8 @@ text = "No"
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -480.0
+margin_bottom = -270.0
 mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
@@ -602,7 +604,6 @@ __meta__ = {
 anims/blur = SubResource( 7 )
 
 [node name="Blur" type="ColorRect" parent="UI/RuneAbilityInterface"]
-visible = false
 material = SubResource( 3 )
 margin_right = 480.0
 margin_bottom = 270.0
@@ -611,27 +612,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="UI/RuneAbilityInterface"]
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 450.0
-margin_bottom = 250.0
-texture = ExtResource( 17 )
+[node name="MarginContainer" type="MarginContainer" parent="UI/RuneAbilityInterface"]
+margin_left = 60.0
+margin_top = 60.0
+margin_right = 420.0
+margin_bottom = 210.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/RuneAbilityInterface"]
-margin_left = 43.0
-margin_top = 43.0
-margin_right = 447.0
-margin_bottom = 247.0
+[node name="TextureRect" type="TextureRect" parent="UI/RuneAbilityInterface/MarginContainer"]
+margin_right = 360.0
+margin_bottom = 150.0
+rect_clip_content = true
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/RuneAbilityInterface/MarginContainer"]
+margin_right = 360.0
+margin_bottom = 150.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UI/RuneAbilityInterface/MarginContainer/MarginContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 356.0
+margin_bottom = 146.0
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RuneAbilityEntriesContainer" type="VBoxContainer" parent="UI/RuneAbilityInterface/ScrollContainer"]
+[node name="RuneAbilityEntriesContainer" type="VBoxContainer" parent="UI/RuneAbilityInterface/MarginContainer/MarginContainer/ScrollContainer"]
+margin_right = 352.0
+size_flags_horizontal = 3
 script = ExtResource( 20 )
 RuneAbilityEntry = ExtResource( 14 )
 
@@ -695,9 +716,9 @@ anims/fade_out = SubResource( 10 )
 
 [connection signal="save_requested" from="PlayState" to="." method="save_game"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
-[connection signal="player_connected" from="UI/PlayUI" to="UI/RuneAbilityInterface/ScrollContainer/RuneAbilityEntriesContainer" method="on_player_connected"]
+[connection signal="player_connected" from="UI/PlayUI" to="UI/RuneAbilityInterface/MarginContainer/MarginContainer/ScrollContainer/RuneAbilityEntriesContainer" method="on_player_connected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]
-[connection signal="player_disconnected" from="UI/PlayUI" to="UI/RuneAbilityInterface/ScrollContainer/RuneAbilityEntriesContainer" method="on_player_disconnected"]
+[connection signal="player_disconnected" from="UI/PlayUI" to="UI/RuneAbilityInterface/MarginContainer/MarginContainer/ScrollContainer/RuneAbilityEntriesContainer" method="on_player_disconnected"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/MainMenu" method="on_continue_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/MainMenu" method="on_new_game_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/MainMenu" method="on_exit_pressed"]
