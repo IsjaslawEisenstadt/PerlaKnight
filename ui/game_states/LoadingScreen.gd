@@ -1,32 +1,24 @@
-extends GameState
+extends Control
 class_name LoadingScreen
 
 signal load_finished(resource)
-
-onready var PlayState := $"../.."/PlayState
 
 export var max_load_ms_per_frame: float = 100
 
 var loader: ResourceInteractiveLoader
 
-func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
-	._state_enter(previous_state, params)
+func _ready() -> void:
+	visible = false
+	set_process(false)
 
-	assert("scene" in params)
-	
-	loader = ResourceLoader.load_interactive(params.scene)
+func load_scene(load_path: String) -> void:
+	visible = true
+	get_tree().paused = true
+	loader = ResourceLoader.load_interactive(load_path)
 	assert(loader)
-	var scene: Node = yield(self, "load_finished").instance()
-	
-	loader = null
-	
-	# keep using same params so we can pass around save data
-	params["scene"] = scene
-	state_machine._pop_push(PlayState, params)
+	set_process(true)
 
-func _state_process(delta: float) -> void:
-	._state_process(delta)
-	
+func _process(_delta: float) -> void:
 	var time = OS.get_ticks_msec()
 	while OS.get_ticks_msec() < time + max_load_ms_per_frame:
 		var err = loader.poll()
@@ -35,4 +27,8 @@ func _state_process(delta: float) -> void:
 			$Label.text = str((float(loader.get_stage()) / float(loader.get_stage_count())) * 100.0) + "%"
 		elif err == ERR_FILE_EOF:
 			emit_signal("load_finished", loader.get_resource())
+			loader = null
+			visible = false
+			get_tree().paused = false
+			set_process(false)
 			return

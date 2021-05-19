@@ -4,14 +4,10 @@ class_name Character
 signal health_changed(current_health)
 signal character_turned(new_look_direction)
 
-onready var Sprite := $Sprite
-onready var CollisionShape := $CollisionShape2D
 onready var AnimationPlayer := $AnimationPlayer
-onready var InputController := $InputController
+onready var InputController: InputController = $InputController setget ,_get_input_controller
 onready var StateMachine := $StateMachine
-onready var Interactor := $Interactor
-onready var WallClimbAssistantTop := get_node_or_null("WallClimbAssistantTop") as Area2D
-onready var WallClimbAssistantBottom := get_node_or_null("WallClimbAssistantBottom") as Area2D
+onready var Interactor := $Colliders/Interactor
 
 export var max_health: int = 5
 
@@ -31,12 +27,9 @@ var can_double_jump: bool = double_jump_acquired
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
-	InputController._start(self)
 	StateMachine.start()
 
 func _process(delta: float):
-	InputController._input_process(delta)
-	
 	_interaction_process()
 	
 	if double_jump_acquired && !can_double_jump && is_on_floor():
@@ -44,7 +37,7 @@ func _process(delta: float):
 
 	StateMachine._state_machine_process(delta)
 
-# meant to be overridden by the player, because he needs to know his
+# meant to be overridden by the player, because she needs to know her
 # closest interaction before pressing a button
 func _interaction_process() -> void:
 	if (InputController._is_action_just_activated("interact") 
@@ -52,7 +45,6 @@ func _interaction_process() -> void:
 		var closest_interaction: Interaction = Interactor.get_closest_interaction(self)
 		if closest_interaction:
 			closest_interaction._interact(self)
-
 
 func _physics_process(delta: float):
 	StateMachine._state_machine_physics_process(delta)
@@ -94,3 +86,7 @@ func hit(attacker: Node2D, damage: int) -> void:
 	if !invincible:
 		self.current_health -= damage
 		StateMachine.hurt(attacker)
+
+# can be overridden to dynamically switch between different input controllers
+func _get_input_controller() -> InputController:
+	return InputController

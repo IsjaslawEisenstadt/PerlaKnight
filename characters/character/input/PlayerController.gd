@@ -1,5 +1,5 @@
 extends InputController
-class_name PlayerInputController
+class_name PlayerController
 
 """
 the input controller for player input

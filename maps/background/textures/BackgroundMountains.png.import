@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tileset_grey.png-6745ab2041e8e6de1a80c2914c4be180.stex"
+path="res://.import/BackgroundMountains.png-4cb9fd1bb2849e0e78231ff3028989f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/test_level/textures/Tileset_grey.png"
-dest_files=[ "res://.import/Tileset_grey.png-6745ab2041e8e6de1a80c2914c4be180.stex" ]
+source_file="res://maps/background/textures/BackgroundMountains.png"
+dest_files=[ "res://.import/BackgroundMountains.png-4cb9fd1bb2849e0e78231ff3028989f9.stex" ]
 
 [params]
 
