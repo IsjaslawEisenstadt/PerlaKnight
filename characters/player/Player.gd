@@ -1,10 +1,10 @@
 extends Character
 class_name Player
 
+signal save_requested()
 signal transition_requested(level_name, target_name)
 
-onready var DoorCastLeft: RayCast2D = $Colliders/DoorCastLeft
-onready var DoorCastRight: RayCast2D = $Colliders/DoorCastRight
+onready var DoorCast: DoorCast = $Colliders/DoorCast
 onready var SequenceController: SequenceController = $SequenceController
 
 var closest_interaction: Interaction
@@ -16,10 +16,13 @@ func _process(_delta: float) -> void:
 		# a 'default' transition call, this will infer to use checkpoints
 		emit_signal("transition_requested", null, null)
 
-	if !is_in_sequence && DoorCastLeft.is_colliding() && DoorCastRight.is_colliding():
-		assert(DoorCastLeft.get_collider() is Doorway && DoorCastRight.get_collider() is Doorway)
-		var doorway: Doorway = DoorCastLeft.get_collider()
-		emit_signal("transition_requested", doorway.next_level, doorway.next_door)
+	if !is_in_sequence:
+		var doorway: Doorway = DoorCast.get_doorway()
+		if doorway:
+			emit_signal("transition_requested", doorway.next_level, doorway.next_door)
+			set_process(false)
+			yield(get_tree(), "idle_frame")
+			StateMachine.state_stack = []
 
 func _interaction_process() -> void:
 	closest_interaction = null
@@ -34,6 +37,7 @@ func load_game(save_data: Dictionary, level) -> void:
 	if "spawn_target" in save_data:
 		start_sequence(level.SpawnTargets.get_node(save_data.spawn_target))
 		save_data.erase("spawn_target")
+		emit_signal("save_requested")
 	elif save_data.get("checkpoint_level") == level.name && "checkpoint_name" in save_data:
 		global_position = level.SpawnTargets.get_node(save_data.checkpoint_name).global_position
 
