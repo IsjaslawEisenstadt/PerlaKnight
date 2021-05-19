@@ -37,7 +37,8 @@ func set_active(new_active: bool) -> void:
 			for checkpoint in get_tree().get_nodes_in_group("Checkpoint"):
 				if checkpoint != self:
 					assert("active" in checkpoint)
-					checkpoint.active = false
+					if checkpoint.active:
+						checkpoint.deactivate()
 			emit_signal("save_requested")
 
 func save_game(save_data: Dictionary, level) -> void:
