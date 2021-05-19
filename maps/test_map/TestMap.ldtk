@@ -5035,13 +5035,13 @@
 					"entityInstances": [
 						{
 							"__identifier": "Player",
-							"__grid": [92,53],
+							"__grid": [79,49],
 							"__pivot": [0.5,1],
 							"__tile": null,
 							"width": 16,
 							"height": 32,
 							"defUid": 23,
-							"px": [1478,863],
+							"px": [1270,799],
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
 						}
 					]
@@ -5069,7 +5069,64 @@
 					"seed": 7551912,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
-					"entityInstances": []
+					"entityInstances": [
+						{
+							"__identifier": "DashRune",
+							"__grid": [103,52],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [0,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 128,
+							"px": [1656,840],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 130, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DashRune.tres", "__type": "String", "defUid": 131, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "DoubleJumpRune",
+							"__grid": [107,52],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [16,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 132,
+							"px": [1720,840],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 133, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DoubleJumpRune.tres", "__type": "String", "defUid": 134, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "HealthRune",
+							"__grid": [111,52],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [64,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 135,
+							"px": [1784,840],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 136, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/HealthRune.tres", "__type": "String", "defUid": 137, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "WallClimbRune",
+							"__grid": [115,52],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [48,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 138,
+							"px": [1848,840],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 139, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/WallClimbRune.tres", "__type": "String", "defUid": 140, "realEditorValues": [] }
+							]
+						}
+					]
 				},
 				{
 					"__identifier": "SpawnTargets",
@@ -5150,13 +5207,13 @@
 						},
 						{
 							"__identifier": "Checkpoint",
-							"__grid": [52,26],
+							"__grid": [46,26],
 							"__pivot": [0.5,1],
 							"__tile": null,
 							"width": 84,
 							"height": 68,
 							"defUid": 72,
-							"px": [1680,864],
+							"px": [1488,864],
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
 						},
 						{
@@ -5222,6 +5279,17 @@
 									}]
 								}
 							]
+						},
+						{
+							"__identifier": "Checkpoint",
+							"__grid": [61,26],
+							"__pivot": [0.5,1],
+							"__tile": null,
+							"width": 84,
+							"height": 68,
+							"defUid": 72,
+							"px": [1968,864],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
 						}
 					]
 				},
@@ -5342,20 +5410,6 @@
 							"height": 32,
 							"defUid": 93,
 							"px": [880,192],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 94, "realEditorValues": [] },
-								{ "__identifier": "type", "__value": 3, "__type": "Int", "defUid": 95, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "Lamp4",
-							"__grid": [58,26],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 84, "srcRect": [0,96,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 93,
-							"px": [1872,864],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 94, "realEditorValues": [] },
 								{ "__identifier": "type", "__value": 3, "__type": "Int", "defUid": 95, "realEditorValues": [] }
@@ -9152,64 +9206,7 @@
 					"seed": 9903328,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
-					"entityInstances": [
-						{
-							"__identifier": "DashRune",
-							"__grid": [111,34],
-							"__pivot": [0.5,0.5],
-							"__tile": { "tilesetUid": 129, "srcRect": [0,0,16,16] },
-							"width": 16,
-							"height": 16,
-							"defUid": 128,
-							"px": [1784,552],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 130, "realEditorValues": [] },
-								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DashRune.tres", "__type": "String", "defUid": 131, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "DoubleJumpRune",
-							"__grid": [114,34],
-							"__pivot": [0.5,0.5],
-							"__tile": { "tilesetUid": 129, "srcRect": [16,0,16,16] },
-							"width": 16,
-							"height": 16,
-							"defUid": 132,
-							"px": [1832,552],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 133, "realEditorValues": [] },
-								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DoubleJumpRune.tres", "__type": "String", "defUid": 134, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "HealthRune",
-							"__grid": [108,34],
-							"__pivot": [0.5,0.5],
-							"__tile": { "tilesetUid": 129, "srcRect": [64,0,16,16] },
-							"width": 16,
-							"height": 16,
-							"defUid": 135,
-							"px": [1736,552],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 136, "realEditorValues": [] },
-								{ "__identifier": "rune", "__value": "res://environment/runes/resource/HealthRune.tres", "__type": "String", "defUid": 137, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "WallClimbRune",
-							"__grid": [105,34],
-							"__pivot": [0.5,0.5],
-							"__tile": { "tilesetUid": 129, "srcRect": [48,0,16,16] },
-							"width": 16,
-							"height": 16,
-							"defUid": 138,
-							"px": [1688,552],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 139, "realEditorValues": [] },
-								{ "__identifier": "rune", "__value": "res://environment/runes/resource/WallClimbRune.tres", "__type": "String", "defUid": 140, "realEditorValues": [] }
-							]
-						}
-					]
+					"entityInstances": []
 				},
 				{
 					"__identifier": "SpawnTargets",

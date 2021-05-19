@@ -1,17 +1,11 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=110 format=2]
 
-[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=1]
 [ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=2]
 [ext_resource path="res://maps/Level.gd" type="Script" id=3]
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=4]
 [ext_resource path="res://maps/test_map/textures/Tileset_grey.png" type="Texture" id=5]
 [ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=6]
-[ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=7]
-[ext_resource path="res://environment/runes/resource/HealthRune.tres" type="Resource" id=8]
-[ext_resource path="res://environment/runes/resource/DashRune.tres" type="Resource" id=9]
-[ext_resource path="res://environment/runes/resource/DoubleJumpRune.tres" type="Resource" id=10]
 [ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=11]
-[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=12]
 [ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=13]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=14]
 [ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=15]
@@ -1269,38 +1263,6 @@ script = ExtResource( 6 )
 
 [node name="Runes" type="Node2D" parent="."]
 z_index = 3
-
-[node name="RuneContainer" type="Area2D" parent="Runes" instance=ExtResource( 12 )]
-modulate = Color( 1.5, 1.5, 1.5, 1 )
-position = Vector2( 2232, 552 )
-collision_layer = 2
-collision_mask = 0
-script = ExtResource( 1 )
-rune = ExtResource( 9 )
-
-[node name="RuneContainer2" type="Area2D" parent="Runes" instance=ExtResource( 12 )]
-modulate = Color( 1.5, 1.5, 1.5, 1 )
-position = Vector2( 2280, 552 )
-collision_layer = 2
-collision_mask = 0
-script = ExtResource( 1 )
-rune = ExtResource( 10 )
-
-[node name="RuneContainer3" type="Area2D" parent="Runes" instance=ExtResource( 12 )]
-modulate = Color( 1.5, 1.5, 1.5, 1 )
-position = Vector2( 2184, 552 )
-collision_layer = 2
-collision_mask = 0
-script = ExtResource( 1 )
-rune = ExtResource( 8 )
-
-[node name="RuneContainer4" type="Area2D" parent="Runes" instance=ExtResource( 12 )]
-modulate = Color( 1.5, 1.5, 1.5, 1 )
-position = Vector2( 2136, 552 )
-collision_layer = 2
-collision_mask = 0
-script = ExtResource( 1 )
-rune = ExtResource( 7 )
 
 [node name="Characters" type="Node2D" parent="."]
 z_index = 4

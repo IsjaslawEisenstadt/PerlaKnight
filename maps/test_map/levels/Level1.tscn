@@ -1,4 +1,4 @@
-[gd_scene load_steps=231 format=2]
+[gd_scene load_steps=237 format=2]
 
 [ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=1]
 [ext_resource path="res://maps/Level.gd" type="Script" id=2]
@@ -14,6 +14,12 @@
 [ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=12]
 [ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=13]
 [ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=14]
+[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=15]
+[ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=16]
+[ext_resource path="res://environment/runes/resource/HealthRune.tres" type="Resource" id=17]
+[ext_resource path="res://environment/runes/resource/DashRune.tres" type="Resource" id=18]
+[ext_resource path="res://environment/runes/resource/DoubleJumpRune.tres" type="Resource" id=19]
+[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -1641,16 +1647,6 @@ script = ExtResource( 6 )
 type = 3
 
 [node name="Lamp8" type="Sprite" parent="Decoration" instance=ExtResource( 8 )]
-position = Vector2( 1872, -288 )
-texture = ExtResource( 5 )
-offset = Vector2( 0, -16 )
-hframes = 19
-vframes = 6
-frame = 1
-script = ExtResource( 6 )
-type = 3
-
-[node name="Lamp9" type="Sprite" parent="Decoration" instance=ExtResource( 8 )]
 position = Vector2( 1616, -544 )
 texture = ExtResource( 5 )
 offset = Vector2( 0, -16 )
@@ -1709,7 +1705,7 @@ shape = Vector2( 64, 64 )
 "Checkpoint",
 "Persistent",
 ] instance=ExtResource( 12 )]
-position = Vector2( 1680, -288 )
+position = Vector2( 1488, -288 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 7 )
@@ -1733,8 +1729,49 @@ next_door = "Door2"
 exit_direction = "UpLeft"
 shape = Vector2( 96, 64 )
 
+[node name="Checkpoint3" type="Area2D" parent="SpawnTargets" groups=[
+"Checkpoint",
+"Persistent",
+] instance=ExtResource( 12 )]
+position = Vector2( 1968, -288 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 7 )
+
 [node name="Runes" type="Node2D" parent="."]
 z_index = 3
+
+[node name="RuneContainer" type="Area2D" parent="Runes" instance=ExtResource( 20 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+position = Vector2( 1656, -312 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 15 )
+rune = ExtResource( 18 )
+
+[node name="RuneContainer2" type="Area2D" parent="Runes" instance=ExtResource( 20 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+position = Vector2( 1720, -312 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 15 )
+rune = ExtResource( 19 )
+
+[node name="RuneContainer3" type="Area2D" parent="Runes" instance=ExtResource( 20 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+position = Vector2( 1784, -312 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 15 )
+rune = ExtResource( 17 )
+
+[node name="RuneContainer4" type="Area2D" parent="Runes" instance=ExtResource( 20 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+position = Vector2( 1848, -312 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 15 )
+rune = ExtResource( 16 )
 
 [node name="Characters" type="Node2D" parent="."]
 z_index = 4
@@ -1742,7 +1779,7 @@ z_index = 4
 [node name="Player" type="KinematicBody2D" parent="Characters" groups=[
 "Persistent",
 ] instance=ExtResource( 11 )]
-position = Vector2( 1478, -289 )
+position = Vector2( 1270, -353 )
 collision_layer = 4
 collision_mask = 5
 script = ExtResource( 3 )
@@ -2626,5 +2663,6 @@ shape = SubResource( 216 )
 
 [connection signal="save_requested" from="SpawnTargets/Checkpoint" to="." method="emit_signal" binds= [ "save_requested" ]]
 [connection signal="save_requested" from="SpawnTargets/Checkpoint2" to="." method="emit_signal" binds= [ "save_requested" ]]
+[connection signal="save_requested" from="SpawnTargets/Checkpoint3" to="." method="emit_signal" binds= [ "save_requested" ]]
 [connection signal="save_requested" from="Characters/Player" to="." method="emit_signal" binds= [ "save_requested" ]]
 [connection signal="transition_requested" from="Characters/Player" to="." method="on_transition_requested"]
