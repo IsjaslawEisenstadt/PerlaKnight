@@ -595,8 +595,9 @@ host_path = NodePath("../..")
 animation_name = "hurt"
 move_speed = 80.0
 
-[node name="InteractionRay" parent="Colliders" index="0"]
+[node name="Interactor" parent="Colliders" index="0"]
 visible = false
+position = Vector2( 0, -16 )
 
 [node name="WallClimbTop" type="Area2D" parent="Colliders" index="1"]
 visible = false
@@ -611,7 +612,7 @@ shape = SubResource( 22 )
 visible = false
 collision_layer = 0
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colliders/WallClimbBottom" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/WallClimbBottom" index="0"]
 position = Vector2( 0, -5 )
 rotation = 4.71239
 shape = SubResource( 22 )

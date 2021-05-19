@@ -7,6 +7,8 @@ signal transition_requested(level_name, target_name)
 onready var DoorCast: DoorCast = $Colliders/DoorCast
 onready var SequenceController: SequenceController = $SequenceController
 
+onready var Runes = []
+
 var closest_interaction: Interaction
 
 var is_in_sequence: bool = false
@@ -25,13 +27,19 @@ func _process(_delta: float) -> void:
 			StateMachine.state_stack = []
 
 func _interaction_process() -> void:
-	closest_interaction = null
-	if StateMachine.get_current_state()._can_interact() && InteractionRay.is_colliding():
-		var interaction := InteractionRay.get_collider()
-		if interaction is Interaction && interaction._can_interact(self):
-			closest_interaction = interaction
-			if InputController._is_action_just_activated("interact"):
-				closest_interaction._interact(self)
+	if closest_interaction && is_instance_valid(closest_interaction):
+		closest_interaction.hide_icons()
+	
+	closest_interaction = Interactor.get_closest_interaction(self)
+	
+	if closest_interaction && is_instance_valid(closest_interaction):
+			closest_interaction.show_icons()
+	
+	if (closest_interaction 
+		&& InputController._is_action_just_activated("interact") 
+		&& StateMachine.get_current_state()._can_interact()):
+		
+		closest_interaction._interact(self)
 
 func load_game(save_data: Dictionary, level) -> void:
 	if "spawn_target" in save_data:

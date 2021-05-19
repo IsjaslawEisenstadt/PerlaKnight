@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://environment/runes/resource/Rune.gd" type="Script" id=1]
+[ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 16, 16 )
+
+[resource]
+script = ExtResource( 1 )
+name = "Wall Climb Rune"
+description = "This rune gives you the power of wall climbing."
+texture = SubResource( 1 )

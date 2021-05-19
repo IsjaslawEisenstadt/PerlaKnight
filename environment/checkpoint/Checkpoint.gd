@@ -1,3 +1,4 @@
+tool
 extends Interaction
 class_name Checkpoint
 

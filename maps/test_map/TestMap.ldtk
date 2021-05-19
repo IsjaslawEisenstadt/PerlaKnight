@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 128,
+	"nextUid": 142,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -365,6 +365,25 @@
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
 			"requiredTags": ["Characters"],
+			"excludedTags": [],
+			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
+			"autoTilesetDefUid": null,
+			"autoRuleGroups": [],
+			"autoSourceLayerDefUid": null,
+			"tilesetDefUid": null,
+			"tilePivotX": 0,
+			"tilePivotY": 0
+		},
+		{
+			"__type": "Entities",
+			"identifier": "Runes",
+			"type": "Entities",
+			"uid": 141,
+			"gridSize": 16,
+			"displayOpacity": 1,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"requiredTags": ["Runes"],
 			"excludedTags": [],
 			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
 			"autoTilesetDefUid": null,
@@ -1088,6 +1107,294 @@
 					"textLanguageMode": null
 				}
 			]
+		},
+		{
+			"identifier": "DashRune",
+			"uid": 128,
+			"tags": ["Runes"],
+			"width": 16,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#94D9B3",
+			"renderMode": "Tile",
+			"showName": true,
+			"tilesetId": 129,
+			"tileId": 0,
+			"tileRenderMode": "FitInside",
+			"maxCount": 1,
+			"limitScope": "PerWorld",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 0.5,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 130,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/runes/RuneContainer.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "rune",
+					"__type": "String",
+					"uid": 131,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/runes/resource/DashRune.tres"]
+					},
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "DoubleJumpRune",
+			"uid": 132,
+			"tags": ["Runes"],
+			"width": 16,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#94D9B3",
+			"renderMode": "Tile",
+			"showName": true,
+			"tilesetId": 129,
+			"tileId": 1,
+			"tileRenderMode": "FitInside",
+			"maxCount": 1,
+			"limitScope": "PerWorld",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 0.5,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 133,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/runes/RuneContainer.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "rune",
+					"__type": "String",
+					"uid": 134,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/runes/resource/DoubleJumpRune.tres"]
+					},
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "HealthRune",
+			"uid": 135,
+			"tags": ["Runes"],
+			"width": 16,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#94D9B3",
+			"renderMode": "Tile",
+			"showName": true,
+			"tilesetId": 129,
+			"tileId": 4,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerWorld",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 0.5,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 136,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/runes/RuneContainer.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "rune",
+					"__type": "String",
+					"uid": 137,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/runes/resource/HealthRune.tres"]
+					},
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "WallClimbRune",
+			"uid": 138,
+			"tags": ["Runes"],
+			"width": 16,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#94D9B3",
+			"renderMode": "Tile",
+			"showName": true,
+			"tilesetId": 129,
+			"tileId": 3,
+			"tileRenderMode": "FitInside",
+			"maxCount": 1,
+			"limitScope": "PerWorld",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 0.5,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 139,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/runes/RuneContainer.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "rune",
+					"__type": "String",
+					"uid": 140,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/runes/resource/WallClimbRune.tres"]
+					},
+					"textLanguageMode": null
+				}
+			]
 		}
 	], "tilesets": [
 		{
@@ -1129,6 +1436,23 @@
 				"opaqueTiles": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
 				"averageColors": "555555555555555555555555555555555555555555555555555555555555555555555555555655565555555555555555555555555555555555555555555555555555555555565555555655566565656565656565656565656565656565656565656565656565656565656565656565656565355635563555355535553555355535553555355535553555355535553556355635563556355655555555555555555555555555555555555555555555555555555555555555555555555555553555556500000000000000000000000000000000000000000000000000000000000000000000"
 			}
+		},
+		{
+			"__cWid": 5,
+			"__cHei": 1,
+			"identifier": "Runes",
+			"uid": 129,
+			"relPath": "../../environment/runes/textures/runes.png",
+			"pxWid": 80,
+			"pxHei": 16,
+			"tileGridSize": 16,
+			"spacing": 0,
+			"padding": 0,
+			"tagsSourceEnumUid": null,
+			"enumTags": [],
+			"customData": [],
+			"savedSelections": [],
+			"cachedPixelData": { "opaqueTiles": "00000", "averageColors": "9a86979aaa7b8b7786a7" }
 		}
 	], "enums": [{ "identifier": "ExitDirection", "uid": 126, "values": [
 		{ "id": "UpLeft", "tileId": null, "color": 0, "__tileSrcRect": null },
@@ -4723,6 +5047,31 @@
 					]
 				},
 				{
+					"__identifier": "Runes",
+					"__type": "Entities",
+					"__cWid": 138,
+					"__cHei": 72,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 0,
+					"layerDefUid": 141,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 7551912,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
 					"__identifier": "SpawnTargets",
 					"__type": "Entities",
 					"__cWid": 69,
@@ -6274,6 +6623,31 @@
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
 						}
 					]
+				},
+				{
+					"__identifier": "Runes",
+					"__type": "Entities",
+					"__cWid": 66,
+					"__cHei": 46,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 121,
+					"layerDefUid": 141,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 8254450,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				},
 				{
 					"__identifier": "SpawnTargets",
@@ -8752,6 +9126,88 @@
 							"defUid": 23,
 							"px": [2264,576],
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+						}
+					]
+				},
+				{
+					"__identifier": "Runes",
+					"__type": "Entities",
+					"__cWid": 176,
+					"__cHei": 44,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 125,
+					"layerDefUid": 141,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 9903328,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": [
+						{
+							"__identifier": "DashRune",
+							"__grid": [111,34],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [0,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 128,
+							"px": [1784,552],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 130, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DashRune.tres", "__type": "String", "defUid": 131, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "DoubleJumpRune",
+							"__grid": [114,34],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [16,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 132,
+							"px": [1832,552],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 133, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DoubleJumpRune.tres", "__type": "String", "defUid": 134, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "HealthRune",
+							"__grid": [108,34],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [64,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 135,
+							"px": [1736,552],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 136, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/HealthRune.tres", "__type": "String", "defUid": 137, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "WallClimbRune",
+							"__grid": [105,34],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [48,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 138,
+							"px": [1688,552],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 139, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/WallClimbRune.tres", "__type": "String", "defUid": 140, "realEditorValues": [] }
+							]
 						}
 					]
 				},

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/InteractionIcon.png-79b6011e74dcbd4e3b4d9e822ea04207.stex"
+path="res://.import/runes.png-35d99a453db78341308daa0aa4199a0b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/world_space/interaction_icon/InteractionIcon.png"
-dest_files=[ "res://.import/InteractionIcon.png-79b6011e74dcbd4e3b4d9e822ea04207.stex" ]
+source_file="res://environment/runes/textures/runes.png"
+dest_files=[ "res://.import/runes.png-35d99a453db78341308daa0aa4199a0b.stex" ]
 
 [params]
 
