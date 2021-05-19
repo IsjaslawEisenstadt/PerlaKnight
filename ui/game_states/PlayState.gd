@@ -62,11 +62,11 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 		current_level.connect("transition_requested", self, "on_transition_requested")
 		current_level.set_ui(PlayUI)
 		load_game()
+		._state_enter(previous_state, params)
+		Transition.start("fade_in")
 	else:
 		assert(current_level, "entered PlayState without enter_play_mode param or previously active level")
-	
-	._state_enter(previous_state, params)
-	Transition.start("fade_in")
+		._state_enter(previous_state, params)
 
 func _state_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):

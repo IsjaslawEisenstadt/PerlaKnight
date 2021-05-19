@@ -1,18 +1,18 @@
 [gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=1]
-[ext_resource path="res://maps/Level.gd" type="Script" id=2]
-[ext_resource path="res://characters/player/Player.gd" type="Script" id=3]
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=2]
+[ext_resource path="res://maps/Level.gd" type="Script" id=3]
 [ext_resource path="res://maps/test_map/textures/Tileset_grey.png" type="Texture" id=4]
 [ext_resource path="res://environment/decoration/lamps/textures/ForestLampSet1.png" type="Texture" id=5]
 [ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=6]
 [ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=7]
-[ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=8]
-[ext_resource path="res://environment/decoration/lamps/BrokenLamp2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=10]
-[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=11]
-[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=12]
-[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=13]
+[ext_resource path="res://environment/decoration/lamps/BrokenLamp2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=10]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=12]
+[ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -1176,16 +1176,16 @@ extents = Vector2( 336, 16 )
 extents = Vector2( 144, 16 )
 
 [node name="Level2" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 player_path = NodePath("Characters/Player")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 13 )]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 12 )]
 environment = SubResource( 1 )
 
 [node name="Decoration" type="Node2D" parent="."]
 z_index = 1
 
-[node name="Lamp" type="Sprite" parent="Decoration" instance=ExtResource( 10 )]
+[node name="Lamp" type="Sprite" parent="Decoration" instance=ExtResource( 13 )]
 position = Vector2( 2384, -288 )
 texture = ExtResource( 5 )
 offset = Vector2( 0, -16 )
@@ -1195,7 +1195,7 @@ frame = 1
 script = ExtResource( 6 )
 type = 4
 
-[node name="BrokenLamp1" type="Sprite" parent="Decoration" instance=ExtResource( 9 )]
+[node name="BrokenLamp1" type="Sprite" parent="Decoration" instance=ExtResource( 8 )]
 position = Vector2( 2704, -352 )
 texture = ExtResource( 5 )
 offset = Vector2( 0, -16 )
@@ -1203,7 +1203,7 @@ hframes = 19
 vframes = 6
 frame = 96
 
-[node name="Lamp2" type="Sprite" parent="Decoration" instance=ExtResource( 10 )]
+[node name="Lamp2" type="Sprite" parent="Decoration" instance=ExtResource( 13 )]
 position = Vector2( 3088, -128 )
 texture = ExtResource( 5 )
 offset = Vector2( 0, -16 )
@@ -1219,13 +1219,13 @@ z_index = 2
 [node name="Checkpoint" type="Area2D" parent="SpawnTargets" groups=[
 "Checkpoint",
 "Persistent",
-] instance=ExtResource( 11 )]
+] instance=ExtResource( 9 )]
 position = Vector2( 3024, -480 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 7 )
 
-[node name="Door1" type="Area2D" parent="SpawnTargets" instance=ExtResource( 8 )]
+[node name="Door1" type="Area2D" parent="SpawnTargets" instance=ExtResource( 10 )]
 position = Vector2( 2208, -352 )
 collision_layer = 262144
 collision_mask = 262144
@@ -1235,7 +1235,7 @@ next_door = "Door1"
 exit_direction = "Right"
 shape = Vector2( 64, 64 )
 
-[node name="Door2" type="Area2D" parent="SpawnTargets" instance=ExtResource( 8 )]
+[node name="Door2" type="Area2D" parent="SpawnTargets" instance=ExtResource( 10 )]
 position = Vector2( 2880, -64 )
 collision_layer = 262144
 collision_mask = 262144
@@ -1253,11 +1253,11 @@ z_index = 4
 
 [node name="Player" type="KinematicBody2D" parent="Characters" groups=[
 "Persistent",
-] instance=ExtResource( 12 )]
+] instance=ExtResource( 11 )]
 position = Vector2( 2952, -480 )
 collision_layer = 4
 collision_mask = 5
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 dash_acquired = true
 double_jump_acquired = true
 wall_climb_acquired = true
