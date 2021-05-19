@@ -26,11 +26,17 @@ func start_game(enter_play_mode: int = PlayState.EnterPlayMode.NEW_GAME) -> void
 	yield(Transition, "transition_finished")
 	state_machine._pop_push(PlayState, {"enter_play_mode": enter_play_mode})
 
+func can_press() -> bool:
+	return !Transition.is_playing()
+
 func on_continue_pressed():
-	start_game(PlayState.EnterPlayMode.LOAD_GAME)
+	if can_press():
+		start_game(PlayState.EnterPlayMode.LOAD_GAME)
 
 func on_new_game_pressed() -> void:
-	start_game()
+	if can_press():
+		start_game()
 
 func on_exit_pressed() -> void:
-	get_tree().quit()
+	if can_press():
+		get_tree().quit()
