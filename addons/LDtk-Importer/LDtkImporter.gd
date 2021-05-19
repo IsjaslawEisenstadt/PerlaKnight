@@ -70,13 +70,16 @@ func import(source_file, save_path, options, platform_v, r_gen_files):
 	var map = Node2D.new()
 	map.name = source_file.get_file().get_basename()
 	
+	var world_env_scene = load("res://maps/world_environment/WorldEnvironment.tscn")
+	
 	#add levels as Node2D
 	for level in LDtk.map_data.levels:
 		var new_level = Level.new()
 		new_level.name = level.identifier
 		
-		#map.add_child(new_level)
-		#new_level.set_owner(map)
+		var world_env = world_env_scene.instance()
+		new_level.add_child(world_env, true)
+		world_env.set_owner(new_level)
 
 		#add layers
 		
