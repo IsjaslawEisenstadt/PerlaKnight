@@ -64,7 +64,6 @@ func add_rune(rune: Rune) -> void:
 	if rune.resource_name == "HealthRune":
 		max_health = max_health + 1
 		set_current_health(max_health, true)
-		print(current_health)
 
 func has_rune(name: String) -> bool:
 	for rune in Runes:
