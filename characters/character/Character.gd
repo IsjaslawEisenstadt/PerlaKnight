@@ -9,7 +9,7 @@ onready var InputController: InputController = $InputController setget ,_get_inp
 onready var StateMachine := $StateMachine
 onready var Interactor := $Colliders/Interactor
 
-export var max_health: int = 5
+export var max_health: int = 4
 
 export var dash_acquired: bool = false
 export var double_jump_acquired: bool = false
@@ -74,13 +74,13 @@ func set_look_direction(new_look_direction: int) -> void:
 				child.scale.x = sign(look_direction)
 		emit_signal("character_turned")
 
-func set_current_health(new_health: int) -> void:
+func set_current_health(new_health: int, increase_max: bool = false) -> void:
 	assert(new_health >= 0 && new_health <= max_health)
 	
 	current_health = new_health
 	if current_health <= 0:
 		StateMachine.call_deferred("die")
-	emit_signal("health_changed", current_health)
+	emit_signal("health_changed", current_health, increase_max)
 
 func hit(attacker: Node2D, damage: int) -> void:
 	if !invincible:

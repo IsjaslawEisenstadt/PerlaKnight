@@ -65,7 +65,7 @@ func _state_process(delta: float) -> void:
 			return
 	if !double_jump_frame_skipped:
 		double_jump_frame_skipped = true
-	elif input_delay_timer.is_stopped() && host.can_double_jump && host.InputController._is_action_just_activated("jump"):
+	elif input_delay_timer.is_stopped() && host.can_double_jump && host.InputController._is_action_just_activated("jump") && host.has_rune("DoubleJumpRune"):
 		if state_machine._pop_push(self):
 			host.can_double_jump = false
 			return

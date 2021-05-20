@@ -30,7 +30,11 @@ func set_max_health(max_health: int) -> void:
 			var children = root.get_children()
 			root.remove_child(children[-i])
 
-func set_health(health: int) -> void:
+func set_health(health: int, increase_max: bool = false) -> void:
+	
+	if increase_max:
+		set_max_health(health)
+	
 	var i: int = 0
 	for heart in root.get_children():
 		heart.is_filled = i < health

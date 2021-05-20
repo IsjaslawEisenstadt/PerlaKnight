@@ -57,3 +57,17 @@ func start_sequence(object) -> void:
 	if is_in_sequence:
 		yield(SequenceController, "sequence_finished")
 		is_in_sequence = false
+
+func add_rune(rune: Rune) -> void:
+	Runes.push_front(rune)
+	
+	if rune.resource_name == "HealthRune":
+		max_health = max_health + 1
+		set_current_health(max_health, true)
+		print(current_health)
+
+func has_rune(name: String) -> bool:
+	for rune in Runes:
+		if rune.resource_name == name:
+			return true
+	return false

@@ -49,7 +49,7 @@ func _state_process(delta: float) -> void:
 		if state_machine._pop_push(JumpState):
 			return
 	
-	if host.can_double_jump && host.InputController._is_action_just_activated("jump"):
+	if host.can_double_jump && host.InputController._is_action_just_activated("jump") && host.has_rune("DoubleJumpRune"):
 		if state_machine._pop_push(JumpState):
 			host.can_double_jump = false
 			return

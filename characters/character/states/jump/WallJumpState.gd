@@ -20,7 +20,8 @@ export var input_delay: float = 0.1
 func _can_enter() -> bool:
 	return  (host.wall_climb_acquired && !host.InputController._is_action_active("let_go") &&
 			!WallClimbTop.get_overlapping_bodies().empty() &&
-			!WallClimbBottom.get_overlapping_bodies().empty())
+			!WallClimbBottom.get_overlapping_bodies().empty() &&
+			host.has_rune("WallClimbRune"))
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
