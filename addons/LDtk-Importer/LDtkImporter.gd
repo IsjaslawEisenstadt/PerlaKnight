@@ -67,32 +67,49 @@ func import(source_file, save_path, options, platform_v, r_gen_files):
 	#load LDtk map
 	LDtk.map_data = source_file
 
-	var map = Level.new()
+	var map = Node2D.new()
 	map.name = source_file.get_file().get_basename()
 	
-	var added_entities := []
+	var world_env_scene = load("res://maps/world_environment/WorldEnvironment.tscn")
 	
 	#add levels as Node2D
 	for level in LDtk.map_data.levels:
-		var new_level = Node2D.new()
+		var new_level = Level.new()
 		new_level.name = level.identifier
-		map.add_child(new_level)
-		new_level.set_owner(map)
+		
+		var world_env = world_env_scene.instance()
+		new_level.add_child(world_env, true)
+		world_env.set_owner(new_level)
 
 		#add layers
+		
+		var added_entities := []
 		var layerInstances = get_level_layerInstances(level, options, added_entities)
 		for layerInstance in layerInstances:
 			new_level.add_child(layerInstance)
-			layerInstance.set_owner(map)
+			layerInstance.set_owner(new_level)
 
 			for child in layerInstance.get_children():
-				child.set_owner(map)
+				child.set_owner(new_level)
 				
 				if not options.Import_Custom_Entities:
 					for grandchild in child.get_children():
-						grandchild.set_owner(map)
-
-	map.new_entities(added_entities)
+						grandchild.set_owner(new_level)
+		
+		new_level.new_entities(added_entities)
+		var packed_scene = PackedScene.new()
+		packed_scene.pack(new_level)
+		
+		var dir = Directory.new()
+		if !dir.dir_exists(source_file.get_base_dir() + "/levels/"):
+			dir.make_dir(source_file.get_base_dir() + "/levels/")
+		
+		var path = source_file.get_base_dir() + "/levels/" + new_level.name + ".tscn"
+		var ret = ResourceSaver.save(path, packed_scene)
+		
+		var child = load(path).instance()
+		map.add_child(child)
+		child.set_owner(map)
 
 	var packed_scene = PackedScene.new()
 	packed_scene.pack(map)

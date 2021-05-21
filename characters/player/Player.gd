@@ -4,15 +4,29 @@ class_name Player
 signal rune_added(rune)
 signal transition_to_checkpoint()
 signal save_requested()
+signal transition_requested(level_name, target_name)
+
+onready var DoorCast: DoorCast = $Colliders/DoorCast
+onready var SequenceController: SequenceController = $SequenceController
 
 onready var Runes = []
 
 var closest_interaction: Interaction
-var current_checkpoint: Checkpoint setget set_current_checkpoint
+
+var is_in_sequence: bool = false
 
 func _process(_delta: float) -> void:
 	if InputController._is_action_just_activated("reset"):
-		emit_signal("transition_to_checkpoint")
+		# a 'default' transition call, this will infer to use checkpoints
+		emit_signal("transition_requested", null, null)
+
+	if !is_in_sequence:
+		var doorway: Doorway = DoorCast.get_doorway()
+		if doorway:
+			emit_signal("transition_requested", doorway.next_level, doorway.next_door)
+			set_process(false)
+			yield(get_tree(), "idle_frame")
+			StateMachine.state_stack = []
 
 func _interaction_process() -> void:
 	if closest_interaction && is_instance_valid(closest_interaction):
@@ -29,26 +43,23 @@ func _interaction_process() -> void:
 		
 		closest_interaction._interact(self)
 
-func set_current_checkpoint(new_checkpoint: Checkpoint) -> void:
-	if new_checkpoint != current_checkpoint:
-		if current_checkpoint:
-			current_checkpoint.deactivate()
-		current_checkpoint = new_checkpoint
+func load_game(save_data: Dictionary, level) -> void:
+	if "spawn_target" in save_data:
+		start_sequence(level.SpawnTargets.get_node(save_data.spawn_target))
+		save_data.erase("spawn_target")
 		emit_signal("save_requested")
+	elif save_data.get("checkpoint_level") == level.name && "checkpoint_name" in save_data:
+		global_position = level.SpawnTargets.get_node(save_data.checkpoint_name).global_position
 		
 func add_rune(rune):
 	Runes.push_front(rune)
 	emit_signal("rune_added", rune)
 
-func reset() -> void:
-	self.position = current_checkpoint.global_position
+func _get_input_controller() -> InputController:
+	return SequenceController if is_in_sequence else InputController
 
-func save_game(save_data: Dictionary) -> void:
-	if current_checkpoint:
-		save_data["player_checkpoint_path"] = get_path_to(current_checkpoint)
-
-func load_game(save_data: Dictionary) -> void:
-	var checkpoint := get_node_or_null(save_data.get("player_checkpoint_path", "")) as Checkpoint
-	if checkpoint:
-		checkpoint._interact(self)
-		reset()
+func start_sequence(object) -> void:
+	is_in_sequence = SequenceController.start_sequence(object)
+	if is_in_sequence:
+		yield(SequenceController, "sequence_finished")
+		is_in_sequence = false

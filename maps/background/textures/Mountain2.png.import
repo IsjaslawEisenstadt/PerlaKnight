@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Castle.png-ae908f8637853069ffc6e07163d78616.stex"
+path="res://.import/Mountain2.png-72993fb31fa0e2d0b2734fb03789e41d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/test_level/textures/background/Castle.png"
-dest_files=[ "res://.import/Castle.png-ae908f8637853069ffc6e07163d78616.stex" ]
+source_file="res://maps/background/textures/Mountain2.png"
+dest_files=[ "res://.import/Mountain2.png-72993fb31fa0e2d0b2734fb03789e41d.stex" ]
 
 [params]
 
