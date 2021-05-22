@@ -2,7 +2,6 @@ extends Character
 class_name Player
 
 signal rune_added(rune)
-signal transition_to_checkpoint()
 signal save_requested()
 signal transition_requested(level_name, target_name)
 
