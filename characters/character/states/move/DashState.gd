@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 		host.can_dash = true
 
 func _can_enter() -> bool:
-	return host.dash_acquired && host.can_dash && host.has_rune("DashRune")
+	return host.dash_acquired && host.can_dash
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
