@@ -17,7 +17,7 @@ export var wall_climb_acquired: bool = false
 
 var velocity := Vector2.ZERO
 var look_direction: int = 1 setget set_look_direction
-var current_health: int = max_health setget set_current_health
+onready var current_health: int = max_health setget set_current_health
 var invincible: bool = false
 
 # wallclimb dash resets require this flag, DashState updates it
