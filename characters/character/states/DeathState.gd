@@ -2,8 +2,20 @@ tool
 extends PhysicsState
 class_name DeathState
 
+export var despawnable = false
+export var time_to_despawn = 3
+
 var collision_layer: int = 1
 var collision_mask: int = 0
+
+var despawn_timer : Timer
+
+func _ready():
+	despawn_timer = Timer.new()
+	despawn_timer.one_shot = true
+	add_child(despawn_timer)
+	
+	despawn_timer.connect("timeout", self, "despawn")
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
@@ -11,6 +23,9 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	host.collision_mask = collision_mask
 	host.velocity.x = 0.0
 	
+	if despawnable:
+		despawn_timer.start(time_to_despawn)
+		
 func _state_physics_process(delta: float) -> void:
 	._state_physics_process(delta)
 	fall(delta)
@@ -29,3 +44,6 @@ func _get_property_list() -> Array:
 		"type": TYPE_INT,
 		"hint": PROPERTY_HINT_LAYERS_2D_PHYSICS
 	}]
+	
+func despawn() -> void:
+	host.queue_free()

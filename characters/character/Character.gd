@@ -9,6 +9,8 @@ onready var InputController: InputController = $InputController setget ,_get_inp
 onready var StateMachine := $StateMachine
 onready var Interactor := $Colliders/Interactor
 
+onready var current_health: int = max_health setget set_current_health
+
 export var max_health: int = 5
 
 export var dash_acquired: bool = false
@@ -17,7 +19,6 @@ export var wall_climb_acquired: bool = false
 
 var velocity := Vector2.ZERO
 var look_direction: int = 1 setget set_look_direction
-onready var current_health: int = max_health setget set_current_health
 var invincible: bool = false
 
 # wallclimb dash resets require this flag, DashState updates it
