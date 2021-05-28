@@ -8,6 +8,7 @@ atlas = ExtResource( 2 )
 region = Rect2( 32, 0, 16, 16 )
 
 [resource]
+resource_name = "UnusedRune"
 script = ExtResource( 1 )
 name = ""
 description = "This rune improves your health."

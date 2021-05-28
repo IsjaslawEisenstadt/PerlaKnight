@@ -8,6 +8,7 @@ atlas = ExtResource( 2 )
 region = Rect2( 16, 0, 16, 16 )
 
 [resource]
+resource_name = "DoubleJumpRune"
 script = ExtResource( 1 )
 name = "Double Jump Rune"
 description = "This rune makes you jump even higher."
