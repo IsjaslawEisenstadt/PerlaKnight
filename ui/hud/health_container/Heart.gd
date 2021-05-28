@@ -1,10 +1,16 @@
-tool
 extends Control
 class_name Heart
 
-export var is_filled: bool = true setget set_filled
+onready var AnimationPlayer := $AnimationPlayer
 
-func set_filled(new_is_filled: bool) -> void:
-	if is_filled != new_is_filled:
-		is_filled = new_is_filled
-		$AnimationPlayer.play("fill" if is_filled else "deplete")
+var filled: bool = false
+
+func set_filled(new_is_filled: bool, complete_immediately: bool = false) -> void:
+	filled = new_is_filled
+	var animation_name: String = "fill" if filled else "deplete"
+	AnimationPlayer.play(animation_name)
+	if complete_immediately:
+		AnimationPlayer.advance(AnimationPlayer.get_animation(animation_name).length)
+
+func is_filled() -> bool:
+	return filled
