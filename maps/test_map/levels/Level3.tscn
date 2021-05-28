@@ -1,14 +1,14 @@
 [gd_scene load_steps=110 format=2]
 
-[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=1]
-[ext_resource path="res://maps/Level.gd" type="Script" id=2]
-[ext_resource path="res://characters/player/Player.gd" type="Script" id=3]
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=2]
+[ext_resource path="res://maps/Level.gd" type="Script" id=3]
 [ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=4]
 [ext_resource path="res://maps/test_map/textures/Tileset_grey.png" type="Texture" id=5]
-[ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=6]
-[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=7]
-[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=8]
-[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=7]
+[ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=8]
+[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -1211,10 +1211,10 @@ extents = Vector2( 1408, 16 )
 extents = Vector2( 1408, 16 )
 
 [node name="Level3" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 player_path = NodePath("Characters/Player")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 8 )]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 7 )]
 environment = SubResource( 1 )
 
 [node name="Decoration" type="Node2D" parent="."]
@@ -1223,11 +1223,11 @@ z_index = 1
 [node name="SpawnTargets" type="Node2D" parent="."]
 z_index = 2
 
-[node name="Door1" type="Area2D" parent="SpawnTargets" instance=ExtResource( 6 )]
+[node name="Door1" type="Area2D" parent="SpawnTargets" instance=ExtResource( 8 )]
 position = Vector2( 2880, 0 )
 collision_layer = 262144
 collision_mask = 262144
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 next_level = "Level2"
 next_door = "Door2"
 exit_direction = "Down"
@@ -1236,17 +1236,17 @@ shape = Vector2( 96, 64 )
 [node name="Checkpoint" type="Area2D" parent="SpawnTargets" groups=[
 "Checkpoint",
 "Persistent",
-] instance=ExtResource( 7 )]
+] instance=ExtResource( 9 )]
 position = Vector2( 2512, 576 )
 collision_layer = 2
 collision_mask = 0
 script = ExtResource( 4 )
 
-[node name="Door2" type="Area2D" parent="SpawnTargets" instance=ExtResource( 6 )]
+[node name="Door2" type="Area2D" parent="SpawnTargets" instance=ExtResource( 8 )]
 position = Vector2( 704, 0 )
 collision_layer = 262144
 collision_mask = 262144
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 next_level = "Level1"
 next_door = "Door2"
 exit_direction = "Down"
@@ -1255,7 +1255,7 @@ shape = Vector2( 96, 64 )
 [node name="Checkpoint2" type="Area2D" parent="SpawnTargets" groups=[
 "Checkpoint",
 "Persistent",
-] instance=ExtResource( 7 )]
+] instance=ExtResource( 9 )]
 position = Vector2( 688, 512 )
 collision_layer = 2
 collision_mask = 0
@@ -1269,11 +1269,11 @@ z_index = 4
 
 [node name="Player" type="KinematicBody2D" parent="Characters" groups=[
 "Persistent",
-] instance=ExtResource( 9 )]
+] instance=ExtResource( 6 )]
 position = Vector2( 2712, 576 )
 collision_layer = 4
 collision_mask = 5
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 
 [node name="CollisionsLayer" type="StaticBody2D" parent="."]
 position = Vector2( 448, 0 )
@@ -1685,7 +1685,7 @@ shape = SubResource( 99 )
 position = Vector2( 1408, 688 )
 shape = SubResource( 100 )
 
-[connection signal="save_requested" from="SpawnTargets/Checkpoint" to="." method="emit_signal" binds= [ "save_requested" ]]
-[connection signal="save_requested" from="SpawnTargets/Checkpoint2" to="." method="emit_signal" binds= [ "save_requested" ]]
-[connection signal="save_requested" from="Characters/Player" to="." method="emit_signal" binds= [ "save_requested" ]]
+[connection signal="save_requested" from="SpawnTargets/Checkpoint" to="." method="on_save_requested"]
+[connection signal="save_requested" from="SpawnTargets/Checkpoint2" to="." method="on_save_requested"]
+[connection signal="save_requested" from="Characters/Player" to="." method="on_save_requested"]
 [connection signal="transition_requested" from="Characters/Player" to="." method="on_transition_requested"]

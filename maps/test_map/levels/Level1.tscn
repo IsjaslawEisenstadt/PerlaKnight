@@ -2545,8 +2545,8 @@ shape = SubResource( 215 )
 position = Vector2( 1504, 1136 )
 shape = SubResource( 216 )
 
-[connection signal="save_requested" from="SpawnTargets/Checkpoint" to="." method="emit_signal" binds= [ "save_requested" ]]
-[connection signal="save_requested" from="SpawnTargets/Checkpoint2" to="." method="emit_signal" binds= [ "save_requested" ]]
-[connection signal="save_requested" from="SpawnTargets/Checkpoint3" to="." method="emit_signal" binds= [ "save_requested" ]]
-[connection signal="save_requested" from="Characters/Player" to="." method="emit_signal" binds= [ "save_requested" ]]
+[connection signal="save_requested" from="SpawnTargets/Checkpoint" to="." method="on_save_requested"]
+[connection signal="save_requested" from="SpawnTargets/Checkpoint2" to="." method="on_save_requested"]
+[connection signal="save_requested" from="SpawnTargets/Checkpoint3" to="." method="on_save_requested"]
+[connection signal="save_requested" from="Characters/Player" to="." method="on_save_requested"]
 [connection signal="transition_requested" from="Characters/Player" to="." method="on_transition_requested"]
