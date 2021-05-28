@@ -9,7 +9,6 @@ func on_rune_added(rune: Rune) -> void:
 	if rune.name != "Health Rune":
 		var new_entry := RuneEntry.new()
 		new_entry.rune = rune
-		new_entry.modulate = Color(1.5, 1.5, 1.5)
 		Root.add_child(new_entry)
 
 func on_player_connected(player: Player) -> void:
