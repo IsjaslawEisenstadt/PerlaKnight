@@ -21,8 +21,8 @@ var current_health: int = max_health setget set_current_health
 var invincible: bool = false
 
 # wallclimb dash resets require this flag, DashState updates it
-var can_dash: bool = dash_acquired
-var can_double_jump: bool = double_jump_acquired
+var can_dash: bool = dash_acquired setget set_can_dash
+var can_double_jump: bool = double_jump_acquired setget set_can_double_jump
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
@@ -90,3 +90,9 @@ func hit(attacker: Node2D, damage: int) -> void:
 # can be overridden to dynamically switch between different input controllers
 func _get_input_controller() -> InputController:
 	return InputController
+
+func set_can_dash(new_can_dash: bool) -> void:
+	can_dash = dash_acquired && new_can_dash
+
+func set_can_double_jump(new_can_double_jump: bool) -> void:
+	can_double_jump = double_jump_acquired && new_can_double_jump
