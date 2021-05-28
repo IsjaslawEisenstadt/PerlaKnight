@@ -16,7 +16,7 @@ func _can_interact(_character) -> bool:
 
 func _interact(character) -> void:
 	visible = false
-	character.add_rune(rune.resource_name)
+	character.add_rune(rune)
 
 func save_game(save_data: Dictionary, level) -> void:
 	if !visible:

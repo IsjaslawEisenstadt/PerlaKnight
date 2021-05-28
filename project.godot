@@ -219,6 +219,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://environment/runes/RuneContainer.gd"
 }, {
+"base": "TextureRect",
+"class": "RuneEntry",
+"language": "GDScript",
+"path": "res://ui/hud/rune_hud/RuneEntry.gd"
+}, {
+"base": "MarginContainer",
+"class": "RuneHUD",
+"language": "GDScript",
+"path": "res://ui/hud/rune_hud/RuneHUD.gd"
+}, {
 "base": "AI",
 "class": "SearchAI",
 "language": "GDScript",
@@ -307,6 +317,8 @@ _global_script_class_icons={
 "RoamAI": "",
 "Rune": "",
 "RuneContainer": "",
+"RuneEntry": "",
+"RuneHUD": "",
 "SearchAI": "",
 "Sequence": "",
 "SequenceController": "",

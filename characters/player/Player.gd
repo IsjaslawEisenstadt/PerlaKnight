@@ -1,8 +1,12 @@
 extends Character
 class_name Player
 
+signal rune_added(rune)
 signal save_requested()
 signal transition_requested(level_name, target_name)
+
+# this is pretty hacky, but it saves us from storing filepaths in our savefiles
+const RUNE_RESOURCES_PATH: String = "res://environment/runes/resource"
 
 onready var DoorCast: DoorCast = $Colliders/DoorCast
 onready var SequenceController: SequenceController = $SequenceController
@@ -47,9 +51,9 @@ func load_game(save_data: Dictionary, level) -> void:
 	if "runes" in save_data:
 		for rune_name in save_data.runes:
 			if rune_name.begins_with("HealthRune"):
-				add_rune("HealthRune")
-			else:
-				add_rune(rune_name)
+				rune_name = "HealthRune"
+			var path = "%s/%s.tres" % [RUNE_RESOURCES_PATH, rune_name]
+			add_rune(load(path))
 	
 	var health: int
 	if "current_health" in save_data:
@@ -81,8 +85,8 @@ func start_sequence(object) -> void:
 		yield(SequenceController, "sequence_finished")
 		is_in_sequence = false
 
-func add_rune(rune_name: String) -> void:
-	match rune_name:
+func add_rune(rune: Rune) -> void:
+	match rune.resource_name:
 		"HealthRune":
 			self.max_health += 1
 		"DashRune":
@@ -92,4 +96,5 @@ func add_rune(rune_name: String) -> void:
 		"DoubleJumpRune":
 			double_jump_acquired = true
 	
+	emit_signal("rune_added", rune)
 	emit_signal("save_requested")
