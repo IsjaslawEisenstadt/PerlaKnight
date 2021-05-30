@@ -30,6 +30,7 @@ var can_double_jump: bool = double_jump_acquired
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
+	AudioMusicPlayer.load_play("TitleMusic")
 	StateMachine.start()
 
 func _process(delta: float):
