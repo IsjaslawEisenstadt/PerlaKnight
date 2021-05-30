@@ -10,7 +10,8 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	host.collision_layer = collision_layer
 	host.collision_mask = collision_mask
 	host.velocity.x = 0.0
-	
+	host.AudioMusicPlayer.load_play("i want to sleep forever")
+
 func _state_physics_process(delta: float) -> void:
 	._state_physics_process(delta)
 	fall(delta)
