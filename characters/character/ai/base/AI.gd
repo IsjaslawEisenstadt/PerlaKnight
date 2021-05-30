@@ -9,9 +9,9 @@ onready var EdgeCollider = get_node_or_null(edge_collider_path) as Area2D
 onready var WallCollider = get_node_or_null(wall_collider_path) as Area2D
 onready var Perception := get_node_or_null(perception_path) as Area2D
 
-export var edge_collider_path: NodePath = "../../EdgeCollider"
-export var wall_collider_path: NodePath = "../../WallCollider"
-export var perception_path: NodePath = "../../Perception"
+export var edge_collider_path: NodePath = "../../Colliders/EdgeCollider"
+export var wall_collider_path: NodePath = "../../Colliders/WallCollider"
+export var perception_path: NodePath = "../../CollidersPerception"
 
 #warning-ignore:unused_class_variable
 var host: Character

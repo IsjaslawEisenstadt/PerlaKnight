@@ -15,7 +15,6 @@ export var land_state_path: NodePath = "../LandState"
 export var dash_state_path: NodePath = "../../Move/DashState"
 export var wall_jump_state_path: NodePath = "../WallJumpState"
 
-export var slow_landing_fall_time: float = 0.5
 export var without_landing: bool = true
 
 # a coyote jump is a jump that's allowed even though the character is already falling
