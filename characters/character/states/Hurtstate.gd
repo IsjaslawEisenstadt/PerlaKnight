@@ -6,6 +6,8 @@ export var kickback_strength: float = 1000.0
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	
+	host.AudioMovementPlayer.load_play("hurt_grunt")
+	
 	assert("attacker" in params)
 	var attacker: Node2D = params.attacker
 	
