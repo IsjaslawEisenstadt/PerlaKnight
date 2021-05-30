@@ -8,6 +8,7 @@ onready var AnimationPlayer := $AnimationPlayer
 onready var InputController: InputController = $InputController setget ,_get_input_controller
 onready var StateMachine := $StateMachine
 onready var Interactor := $Colliders/Interactor
+onready var AttackHitBoxCollider := get_node_or_null("Colliders/AttackHitbox/AttackCollisionShape") as CollisionShape2D
 
 onready var current_health: int = max_health setget set_current_health
 
@@ -91,3 +92,7 @@ func hit(attacker: Node2D, damage: int) -> void:
 # can be overridden to dynamically switch between different input controllers
 func _get_input_controller() -> InputController:
 	return InputController
+
+func set_attack_shape_enabled(enabled: bool) -> void:
+	if AttackHitBoxCollider:
+		AttackHitBoxCollider.disabled = !enabled

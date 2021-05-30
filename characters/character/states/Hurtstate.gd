@@ -9,9 +9,9 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	assert("attacker" in params)
 	var attacker: Node2D = params.attacker
 	
-	host.velocity = (host.position-attacker.position).normalized() * kickback_strength
+	host.velocity = (host.global_position - attacker.global_position).normalized() * kickback_strength
 	host.invincible = true
-	var direction := int(sign(attacker.position.x - host.position.x))
+	var direction := int(sign(attacker.global_position.x - host.global_position.x))
 	if direction != 0:
 		host.look_direction = direction
 
