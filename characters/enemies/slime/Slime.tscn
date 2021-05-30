@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://characters/enemies/slime/textures/slime_animations.png" type="Texture" id=1]
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=2]
@@ -15,8 +15,8 @@
 [ext_resource path="res://environment/hazards/base/Hazard.tscn" type="PackedScene" id=13]
 [ext_resource path="res://characters/character/states/jump/LandState.gd" type="Script" id=14]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 21.8226, 16.8791 )
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 18, 15.5 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "death"
@@ -139,6 +139,9 @@ length = 29.922
 [sub_resource type="CircleShape2D" id=10]
 radius = 170.0
 
+[sub_resource type="CircleShape2D" id=14]
+radius = 15.5
+
 [node name="Slime" instance=ExtResource( 2 )]
 collision_layer = 0
 collision_mask = 1
@@ -149,11 +152,12 @@ texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 hframes = 10
 vframes = 5
-frame = 44
+frame = 40
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( -0.913, -17 )
-shape = SubResource( 1 )
+visible = false
+position = Vector2( 0, -15.5 )
+shape = SubResource( 13 )
 
 [node name="AnimationPlayer" parent="." index="2"]
 anims/death = SubResource( 2 )
@@ -240,8 +244,10 @@ move_speed = 0.0
 move_damping = 1.0
 
 [node name="Colliders" parent="." index="5"]
-visible = false
 position = Vector2( 0, -15 )
+
+[node name="Interactor" parent="Colliders" index="0"]
+visible = false
 
 [node name="EdgeCollider" type="Area2D" parent="Colliders" index="1"]
 visible = false
@@ -274,4 +280,11 @@ position = Vector2( 0.374573, 0 )
 shape = SubResource( 10 )
 
 [node name="Hazard" parent="Colliders" index="4" instance=ExtResource( 13 )]
+visible = false
 position = Vector2( 0, 15 )
+
+[node name="CollisionShape2D" parent="Colliders/Hazard" index="0"]
+position = Vector2( 0, -15.5 )
+shape = SubResource( 14 )
+
+[editable path="Colliders/Hazard"]

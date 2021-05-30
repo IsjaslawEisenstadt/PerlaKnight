@@ -234,11 +234,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/character/input/SequenceController.gd"
 }, {
-"base": "Character",
-"class": "Slime",
-"language": "GDScript",
-"path": "res://characters/enemies/slime/Slime.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "SmartCamera",
 "language": "GDScript",
@@ -320,7 +315,6 @@ _global_script_class_icons={
 "SearchAI": "",
 "Sequence": "",
 "SequenceController": "",
-"Slime": "",
 "SmartCamera": "",
 "State": "",
 "StateMachine": "",
