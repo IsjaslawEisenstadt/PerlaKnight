@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hurt_grunt.wav-61b3c30b2b623e4b0e92c79287d54df7.sample"
+
+[deps]
+
+source_file="res://music_sounds/sound/movement/hurt_grunt.wav"
+dest_files=[ "res://.import/hurt_grunt.wav-61b3c30b2b623e4b0e92c79287d54df7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

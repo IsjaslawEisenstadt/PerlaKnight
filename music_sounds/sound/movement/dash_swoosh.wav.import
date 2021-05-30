@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dash_swoosh.wav-2964b7e2cac82a8f1ddc6a01d48f403c.sample"
+
+[deps]
+
+source_file="res://music_sounds/sound/movement/dash_swoosh.wav"
+dest_files=[ "res://.import/dash_swoosh.wav-2964b7e2cac82a8f1ddc6a01d48f403c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

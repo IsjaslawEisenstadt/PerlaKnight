@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jump_grunt.wav-da2011dd3a4a442925159dccb9f0185b.sample"
+
+[deps]
+
+source_file="res://music_sounds/sound/movement/jump_grunt.wav"
+dest_files=[ "res://.import/jump_grunt.wav-da2011dd3a4a442925159dccb9f0185b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fall_on_stone.wav-e39fc3c1d781ec1706b2a28f9123e1ea.sample"
+
+[deps]
+
+source_file="res://music_sounds/sound/movement/fall_on_stone.wav"
+dest_files=[ "res://.import/fall_on_stone.wav-e39fc3c1d781ec1706b2a28f9123e1ea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

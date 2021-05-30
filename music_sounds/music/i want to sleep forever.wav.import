@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/i want to sleep forever.wav-da9fef549ba262c6f8d729ff7fbb243c.sample"
+
+[deps]
+
+source_file="res://music_sounds/music/i want to sleep forever.wav"
+dest_files=[ "res://.import/i want to sleep forever.wav-da9fef549ba262c6f8d729ff7fbb243c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0
