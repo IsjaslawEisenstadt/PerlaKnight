@@ -23,6 +23,7 @@ func _can_enter() -> bool:
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	
+	host.AudioMovementPlayer.load_play("dash_swoosh")
 	travel_finished = false
 	host.can_dash = false
 
