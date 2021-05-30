@@ -8,6 +8,9 @@ onready var AnimationPlayer := $AnimationPlayer
 onready var InputController: InputController = $InputController setget ,_get_input_controller
 onready var StateMachine := $StateMachine
 onready var Interactor := $Colliders/Interactor
+onready var AudioMusicPlayer := $AudioMusicPlayer
+onready var AudioCombatPlayer := $AudioCombatPlayer
+onready var AudioMovementPlayer := $AudioMovementPlayer
 
 export var max_health: int = 5
 
