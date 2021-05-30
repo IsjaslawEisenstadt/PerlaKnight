@@ -53,6 +53,7 @@ func _state_process(delta: float) -> void:
 			is_attacking = true
 			attack_queued = false
 			play_animation(attack_animations[attack_index])
+			host.AudioCombatPlayer.load_play("sword_stroke")
 
 func _state_exit(next_state: State) -> void:
 	._state_exit(next_state)
@@ -67,6 +68,7 @@ func _on_animation_finished(finished_animation_name: String) -> void:
 			is_attacking = true
 			attack_index = (attack_index + 1) % attack_animations.size()
 			play_animation(attack_animations[attack_index])
+			host.AudioCombatPlayer.load_play("sword_stroke")
 		else:
 			is_attacking = false
 			attack_index = 0
