@@ -138,16 +138,20 @@ func get_level_layerInstances(level, options, added_entities := []):
 				var new_layer = LDtk.new_tilemap(layerInstance, level)
 				if new_layer:
 					new_layer.z_index = i
+					if options.Import_Collisions:
+						new_layer.name = new_layer.name.trim_prefix("Collision_")
 					layers.push_front(new_layer)
 
 		if layerInstance.__type == 'IntGrid':
 			if options.Import_Collisions:
 				var collision_layer
-				if layerInstance.__identifier == "Collisions":
-					collision_layer = LDtk.import_collisions(layerInstance, level, "CollisionsLayer", 1 << 0)
-				elif layerInstance.__identifier == "CameraCollisions":
-					# 1 << 19 is the last collision_mask
-					collision_layer = LDtk.import_collisions(layerInstance, level, "CameraCollisionsLayer", 1 << 19)
+				if layerInstance.__identifier.begins_with("Collision_"):
+					if layerInstance.__identifier == "Collision_Camera":
+						# 1 << 19 is the last collision_mask
+						collision_layer = LDtk.import_collisions(layerInstance, level, layerInstance.__identifier, 1 << 19)
+					else:
+						collision_layer = LDtk.import_collisions(layerInstance, level, layerInstance.__identifier, 1 << 0)
+
 				if collision_layer:
 					collision_layer.z_index = i
 					layers.push_front(collision_layer)
