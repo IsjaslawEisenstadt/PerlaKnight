@@ -1,6 +1,7 @@
-[gd_scene load_steps=233 format=2]
+[gd_scene load_steps=234 format=2]
 
 [ext_resource path="res://maps/Level.gd" type="Script" id=1]
+[ext_resource path="res://environment/destructibles/crates/Crate1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://maps/test_map/textures/Tileset_Green.png" type="Texture" id=5]
 [ext_resource path="res://maps/test_map/textures/Tileset_grey.png" type="Texture" id=6]
 [ext_resource path="res://environment/runes/resource/HealthRune.tres" type="Resource" id=8]
@@ -3902,46 +3903,73 @@ z_index = 1
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 655383, 45, 0, 655390, 30, 0, 655432, 30, 0, 655439, 45, 0, 1572890, 3, 0, 1835026, 15, 0, 2359340, 45, 0, 2359363, 78, 0, 2359365, 47, 0, 2359367, 76, 0, 2359404, 16, 0, 2490376, 31, 0, 3276857, 33, 0, 3276859, 34, 0, 3276861, 35, 0, 3407925, 3, 0, 3407929, 48, 0, 3407931, 49, 0, 3407933, 50, 0, 3407936, 2, 0, 3407938, 2, 0, 3670026, 32, 0, 4194346, 0, 0 )
+tile_data = PoolIntArray( 655383, 45, 0, 655390, 30, 0, 655432, 30, 0, 655439, 45, 0, 1835026, 15, 0, 2359340, 45, 0, 2359363, 78, 0, 2359365, 47, 0, 2359367, 76, 0, 2359404, 16, 0, 2490376, 31, 0, 3276857, 33, 0, 3276859, 34, 0, 3276861, 35, 0, 3407929, 48, 0, 3407931, 49, 0, 3407933, 50, 0, 3407936, 2, 0, 3407938, 2, 0, 3670026, 32, 0, 4194346, 0, 0 )
+
+[node name="Destructibles" type="Node2D" parent="."]
+z_index = 2
+
+[node name="Crate1" parent="Destructibles" instance=ExtResource( 2 )]
+position = Vector2( 848, -288 )
+
+[node name="Crate2" parent="Destructibles" instance=ExtResource( 2 )]
+position = Vector2( 432, -736 )
+
+[node name="Crate3" parent="Destructibles" instance=ExtResource( 2 )]
+position = Vector2( 1552, -544 )
+
+[node name="Crate4" parent="Destructibles" instance=ExtResource( 2 )]
+position = Vector2( 1360, -288 )
+
+[node name="Crate5" parent="Destructibles" instance=ExtResource( 2 )]
+position = Vector2( 1584, -288 )
+
+[node name="Crate6" parent="Destructibles" instance=ExtResource( 2 )]
+position = Vector2( 1680, -960 )
+
+[node name="Crate7" parent="Destructibles" instance=ExtResource( 2 )]
+position = Vector2( 464, -224 )
+
+[node name="Crate8" parent="Destructibles" instance=ExtResource( 2 )]
+position = Vector2( 560, -960 )
 
 [node name="DecorationEntities" type="Node2D" parent="."]
-z_index = 2
+z_index = 3
 
 [node name="Lamp" parent="DecorationEntities" instance=ExtResource( 12 )]
 position = Vector2( 1232, -352 )
-frame = 2
+frame = 10
 
 [node name="Lamp2" parent="DecorationEntities" instance=ExtResource( 12 )]
 position = Vector2( 1008, -544 )
-frame = 2
+frame = 10
 
 [node name="Lamp3" parent="DecorationEntities" instance=ExtResource( 12 )]
 position = Vector2( 240, -448 )
-frame = 2
+frame = 10
 
 [node name="Lamp4" parent="DecorationEntities" instance=ExtResource( 12 )]
 position = Vector2( 240, -960 )
-frame = 21
+frame = 29
 type = 1
 
 [node name="Lamp5" parent="DecorationEntities" instance=ExtResource( 12 )]
 position = Vector2( 1552, -800 )
-frame = 40
+frame = 48
 type = 2
 
 [node name="Lamp6" parent="DecorationEntities" instance=ExtResource( 12 )]
 position = Vector2( 528, -736 )
-frame = 40
+frame = 48
 type = 2
 
 [node name="Lamp7" parent="DecorationEntities" instance=ExtResource( 12 )]
 position = Vector2( 880, -960 )
-frame = 59
+frame = 67
 type = 3
 
 [node name="Lamp8" parent="DecorationEntities" instance=ExtResource( 12 )]
 position = Vector2( 1616, -544 )
-frame = 78
+frame = 86
 type = 4
 
 [node name="BrokenLamp1" parent="DecorationEntities" instance=ExtResource( 15 )]
@@ -3957,7 +3985,7 @@ position = Vector2( 272, -160 )
 position = Vector2( 1456, -960 )
 
 [node name="SpawnTargets" type="Node2D" parent="."]
-z_index = 3
+z_index = 4
 
 [node name="Door1" parent="SpawnTargets" instance=ExtResource( 17 )]
 position = Vector2( 2144, -352 )
@@ -3983,7 +4011,7 @@ shape = Vector2( 96, 64 )
 position = Vector2( 1968, -288 )
 
 [node name="Runes" type="Node2D" parent="."]
-z_index = 4
+z_index = 5
 
 [node name="RuneContainer" parent="Runes" instance=ExtResource( 18 )]
 position = Vector2( 1656, -312 )
@@ -4001,14 +4029,14 @@ position = Vector2( 1848, -312 )
 rune = ExtResource( 9 )
 
 [node name="Characters" type="Node2D" parent="."]
-z_index = 5
+z_index = 6
 
 [node name="Player" parent="Characters" instance=ExtResource( 19 )]
 position = Vector2( 1270, -353 )
 
 [node name="Collision_Dungeon" type="StaticBody2D" parent="."]
 position = Vector2( 0, -1152 )
-z_index = 6
+z_index = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Dungeon"]
 position = Vector2( 1104, 16 )
@@ -4592,7 +4620,7 @@ shape = SubResource( 147 )
 
 [node name="Dungeon" type="TileMap" parent="."]
 position = Vector2( 0, -1152 )
-z_index = 6
+z_index = 7
 tile_set = SubResource( 148 )
 cell_size = Vector2( 32, 32 )
 format = 1
@@ -4600,18 +4628,18 @@ tile_data = PoolIntArray( 0, 17, 0, 1, 17, 0, 2, 17, 0, 3, 17, 0, 4, 17, 0, 5, 1
 
 [node name="Collision_Forest" type="StaticBody2D" parent="."]
 position = Vector2( 0, -1152 )
-z_index = 7
+z_index = 8
 
 [node name="Forest" type="TileMap" parent="."]
 position = Vector2( 0, -1152 )
-z_index = 7
+z_index = 8
 tile_set = SubResource( 149 )
 cell_size = Vector2( 32, 32 )
 format = 1
 
 [node name="Collision_Camera" type="StaticBody2D" parent="."]
 position = Vector2( 0, -1152 )
-z_index = 8
+z_index = 9
 collision_layer = 524288
 collision_mask = 524288
 
