@@ -3977,8 +3977,6 @@ shape = SubResource( 88 )
 position = Vector2( 912, 720 )
 shape = SubResource( 89 )
 
-[connection signal="area_entered" from="Destructibles/Crate1" to="Destructibles/Crate1" method="on_body_entered"]
-[connection signal="body_entered" from="Destructibles/Crate1" to="Destructibles/Crate1" method="on_body_entered"]
 [connection signal="save_requested" from="SpawnTargets/Checkpoint" to="." method="on_save_requested"]
 [connection signal="save_requested" from="Characters/Player" to="." method="on_save_requested"]
 [connection signal="transition_requested" from="Characters/Player" to="." method="on_transition_requested"]

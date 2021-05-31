@@ -4069,16 +4069,6 @@ shape = SubResource( 101 )
 position = Vector2( 1408, 688 )
 shape = SubResource( 102 )
 
-[connection signal="area_entered" from="Destructibles/Crate1" to="Destructibles/Crate1" method="on_body_entered"]
-[connection signal="body_entered" from="Destructibles/Crate1" to="Destructibles/Crate1" method="on_body_entered"]
-[connection signal="area_entered" from="Destructibles/Crate2" to="Destructibles/Crate2" method="on_body_entered"]
-[connection signal="body_entered" from="Destructibles/Crate2" to="Destructibles/Crate2" method="on_body_entered"]
-[connection signal="area_entered" from="Destructibles/Crate3" to="Destructibles/Crate3" method="on_body_entered"]
-[connection signal="body_entered" from="Destructibles/Crate3" to="Destructibles/Crate3" method="on_body_entered"]
-[connection signal="area_entered" from="Destructibles/Crate4" to="Destructibles/Crate4" method="on_body_entered"]
-[connection signal="body_entered" from="Destructibles/Crate4" to="Destructibles/Crate4" method="on_body_entered"]
-[connection signal="area_entered" from="Destructibles/Crate5" to="Destructibles/Crate5" method="on_body_entered"]
-[connection signal="body_entered" from="Destructibles/Crate5" to="Destructibles/Crate5" method="on_body_entered"]
 [connection signal="save_requested" from="SpawnTargets/Checkpoint" to="." method="on_save_requested"]
 [connection signal="save_requested" from="SpawnTargets/Checkpoint2" to="." method="on_save_requested"]
 [connection signal="save_requested" from="Characters/Player" to="." method="on_save_requested"]

@@ -3,7 +3,11 @@ class_name Destructible
 
 export var destruct_animation_name: String = "destruct"
 
-func on_body_entered(_body) -> void:
+func _ready() -> void:
+	if !is_connected("area_entered", self, "on_area_entered"):
+		connect("area_entered", self, "on_area_entered")
+
+func on_area_entered(_area) -> void:
 	if !$AnimationPlayer.is_playing():
 		$AnimationPlayer.play(destruct_animation_name)
 
