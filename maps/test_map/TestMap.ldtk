@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 364,
+	"nextUid": 369,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -1099,6 +1099,25 @@
 			"tilePivotY": 0
 		},
 		{
+			"__type": "Entities",
+			"identifier": "Platforms",
+			"type": "Entities",
+			"uid": 368,
+			"gridSize": 1,
+			"displayOpacity": 1,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"requiredTags": ["Platforms"],
+			"excludedTags": [],
+			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
+			"autoTilesetDefUid": null,
+			"autoRuleGroups": [],
+			"autoSourceLayerDefUid": null,
+			"tilesetDefUid": null,
+			"tilePivotX": 0,
+			"tilePivotY": 0
+		},
+		{
 			"__type": "Tiles",
 			"identifier": "Decoration",
 			"type": "Tiles",
@@ -2130,6 +2149,104 @@
 					"textLanguageMode": null
 				}
 			]
+		},
+		{
+			"identifier": "OneWayPlatform1",
+			"uid": 364,
+			"tags": ["Platforms"],
+			"width": 96,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#94D9B3",
+			"renderMode": "Rectangle",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 0,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 366,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/platforms/OneWayPlatform1.tscn"]
+					},
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "OneWayPlatform2",
+			"uid": 365,
+			"tags": ["Platforms"],
+			"width": 96,
+			"height": 16,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#94D9B3",
+			"renderMode": "Rectangle",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 0,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 367,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/platforms/OneWayPlatform2.tscn"]
+					},
+					"textLanguageMode": null
+				}
+			]
 		}
 	], "tilesets": [
 		{
@@ -2149,7 +2266,7 @@
 			"savedSelections": [],
 			"cachedPixelData": {
 				"opaqueTiles": "0100101010101000010001010101000000000000000000000000100010000000000001010000000000000000000000001110000000000000000000000000000000100000000000000010000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-				"averageColors": "f222f111f2220000f1110000f1110000f1110000f2220000f222000000000000f111f000f11100000000f1110000f1110000f1110000f2220000000000000000e222e111e22200000000000000000000000000000000000000000000000000000000000000000000f111f2220000f222f1110000f2220000f222000000000000f111e111f11100000000f1110000f11100000000e2220000e222000000000000f1110000f1110000000000000000722272227222000012220000122200000000f111f111f11100000000000000000333133303330000411100004111000000000000000000000000000000000000f1110000f1110000000000000000000000009222f111f111f111922200000000f1110000f1110000000000000000000000000000f111f000f1110000000000000000000000000000000000000000000000009111f000f000f11171110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+				"averageColors": "f222f111f2220000f1110000f1110000f1110000f2220000f222000000000000f111f000f11100000000f1110000f1110000f1110000f2220000000000000000e222e111e22200000000000000000000000000000000000000000000000000000000000000000000f111f2220000f222f1110000f2220000f222000000000000f111e111f11100000000f1110000f11100000000e2220000e222000000000000f1110000f1110000000000000000722272227222000012220000122200000000f111f111f11100000000000000000333133303330000411100004111000000000000000000000000000000000000f1110000f1110000000000000000000000009222f111f111f111922200000432f1110000f1110000000000000000000000000000f111f000f1110000000000004654454346540000000000000000000000009111f000f000f11171110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
 			}
 		},
 		{
@@ -2469,6 +2586,7 @@
 						{ "coordId": 1103, "v": 0 },
 						{ "coordId": 1104, "v": 0 },
 						{ "coordId": 1105, "v": 0 },
+						{ "coordId": 1118, "v": 0 },
 						{ "coordId": 1171, "v": 0 },
 						{ "coordId": 1172, "v": 0 },
 						{ "coordId": 1173, "v": 0 },
@@ -2700,7 +2818,7 @@
 						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,
 						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,
 						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 						0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -6454,6 +6572,54 @@
 					]
 				},
 				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 2208,
+					"__cHei": 1152,
+					"__gridSize": 1,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 0,
+					"layerDefUid": 368,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 3878426,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": [
+						{
+							"__identifier": "OneWayPlatform1",
+							"__grid": [1361,799],
+							"__pivot": [0.5,0],
+							"__tile": null,
+							"width": 96,
+							"height": 16,
+							"defUid": 364,
+							"px": [1361,799],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "OneWayPlatform2",
+							"__grid": [1136,799],
+							"__pivot": [0.5,0],
+							"__tile": null,
+							"width": 96,
+							"height": 16,
+							"defUid": 365,
+							"px": [1136,799],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform2.tscn", "__type": "String", "defUid": 367, "realEditorValues": [] }]
+						}
+					]
+				},
+				{
 					"__identifier": "Decoration",
 					"__type": "Tiles",
 					"__cWid": 138,
@@ -8011,6 +8177,31 @@
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						}
 					]
+				},
+				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 1056,
+					"__cHei": 736,
+					"__gridSize": 1,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 121,
+					"layerDefUid": 368,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 7684724,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -10694,6 +10885,31 @@
 					]
 				},
 				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 2816,
+					"__cHei": 704,
+					"__gridSize": 1,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 125,
+					"layerDefUid": 368,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 3875188,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
 					"__identifier": "Decoration",
 					"__type": "Tiles",
 					"__cWid": 176,
@@ -11647,6 +11863,31 @@
 					"intGridCsv": [],
 					"autoLayerTiles": [],
 					"seed": 216530,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 1152,
+					"__cHei": 896,
+					"__gridSize": 1,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 143,
+					"layerDefUid": 368,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 5161287,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
 					"entityInstances": []
