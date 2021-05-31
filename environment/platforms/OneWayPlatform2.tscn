@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://maps/test_map/textures/Tileset_Green.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 256, 96, 16 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 7.83633 )
+
+[node name="OneWayPlatform2" type="Sprite"]
+texture = SubResource( 3 )
+region_rect = Rect2( 96, 256, 96, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 2 )
+one_way_collision = true

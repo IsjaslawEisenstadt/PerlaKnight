@@ -9,8 +9,7 @@ region = Rect2( 224, 304, 96, 8 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 48, 4 )
 
-[node name="OneWayPlatform" type="Sprite"]
-position = Vector2( 1076.34, 788.501 )
+[node name="OneWayPlatform1" type="Sprite"]
 texture = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
