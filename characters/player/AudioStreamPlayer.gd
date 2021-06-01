@@ -1,4 +1,4 @@
-extends AudioStreamPlayer
+extends AudioStreamPlayer2D
 
 var jump_variation: Array = ["jump_grunt", "jump_grunt2"] 
 var suffix: String = ".wav"

@@ -673,8 +673,8 @@ collision_mask = 262144
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/DoorSequenceRange" index="0"]
 shape = SubResource( 24 )
 
-[node name="AudioMovementPlayer" type="AudioStreamPlayer" parent="." index="7"]
+[node name="AudioMovementPlayer" type="AudioStreamPlayer2D" parent="." index="7"]
 script = ExtResource( 16 )
 
-[node name="AudioCombatPlayer" type="AudioStreamPlayer" parent="." index="8"]
+[node name="AudioCombatPlayer" type="AudioStreamPlayer2D" parent="." index="8"]
 script = ExtResource( 16 )
