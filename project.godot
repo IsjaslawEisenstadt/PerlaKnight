@@ -164,6 +164,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/game_states/LoadingScreen.gd"
 }, {
+"base": "Area2D",
+"class": "LootPickup",
+"language": "GDScript",
+"path": "res://loot_pickups/LootPickup.gd"
+}, {
 "base": "GameState",
 "class": "MainMenu",
 "language": "GDScript",
@@ -311,6 +316,7 @@ _global_script_class_icons={
 "LandState": "",
 "Level": "",
 "LoadingScreen": "",
+"LootPickup": "",
 "MainMenu": "",
 "MoveState": "",
 "PauseMenu": "",
@@ -485,6 +491,7 @@ pause={
 2d_physics/layer_2="interaction"
 2d_physics/layer_3="characters"
 2d_physics/layer_4="destructibles"
+2d_physics/layer_5="loot"
 2d_physics/layer_20="camera_bounds"
 
 [network]
