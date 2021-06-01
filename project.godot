@@ -109,6 +109,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://environment/hazards/base/Hazard.gd"
 }, {
+"base": "LootPickup",
+"class": "HealthLootPickup",
+"language": "GDScript",
+"path": "res://loot_pickups/health_loot_pickup/HealthLootPickup.gd"
+}, {
 "base": "Control",
 "class": "Heart",
 "language": "GDScript",
@@ -305,6 +310,7 @@ _global_script_class_icons={
 "GameState": "",
 "GameStateMachine": "",
 "Hazard": "",
+"HealthLootPickup": "",
 "Heart": "",
 "HurtState": "",
 "IdleAI": "",
