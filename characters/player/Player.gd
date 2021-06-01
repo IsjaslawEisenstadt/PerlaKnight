@@ -111,9 +111,11 @@ func add_rune(rune: Rune) -> void:
 	
 func on_body_entered(body) -> void:
 	if body is Platform:
+		body.enable()
 		platform = body
 		
 func on_body_exited(body) -> void:
 	if body is Platform:
 		body.enable()
 		body = null
+		
