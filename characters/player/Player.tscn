@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/character/input/PlayerController.gd" type="Script" id=2]
@@ -483,6 +483,9 @@ height = 14.0
 [sub_resource type="CircleShape2D" id=24]
 radius = 32.0
 
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 10, 19.9732 )
+
 [node name="Player" groups=[
 "Persistent",
 ] instance=ExtResource( 1 )]
@@ -668,3 +671,9 @@ collision_mask = 262144
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/DoorSequenceRange" index="0"]
 shape = SubResource( 24 )
+
+[node name="PlatformCollider" type="Area2D" parent="." index="7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformCollider" index="0"]
+position = Vector2( 0.166855, -14.3495 )
+shape = SubResource( 25 )

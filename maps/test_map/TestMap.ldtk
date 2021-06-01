@@ -6607,7 +6607,16 @@
 							"height": 8,
 							"defUid": 364,
 							"px": [1136,798],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+							"fieldInstances": [{
+								"__identifier": "NodeType",
+								"__value": "res://environment/platforms/OneWayPlatform1.tscn",
+								"__type": "String",
+								"defUid": 366,
+								"realEditorValues": [{
+									"id": "V_String",
+									"params": ["res://environment/platforms/OneWayPlatform1.tscn"]
+								}]
+							}]
 						},
 						{
 							"__identifier": "OneWayPlatform2",
