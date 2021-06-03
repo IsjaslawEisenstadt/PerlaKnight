@@ -12,6 +12,7 @@ var velocity: Vector2
 
 func _is_collectible() -> bool:
 	return false
+	
 func _on_influence(player) -> void:
 	self.player = player
 	
@@ -21,8 +22,12 @@ func _on_influence(player) -> void:
 		
 func _on_pickup(player) -> void:
 	pass
+		
+func pickup(player) -> void:
+	_on_pickup(player)
+	queue_free()
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	if player && _is_collectible():
 		if force < max_force:
 			force += force_acceleration * delta

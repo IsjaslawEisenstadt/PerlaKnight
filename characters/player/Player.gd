@@ -110,4 +110,4 @@ func on_loot_influence_range_entered(loot) -> void:
 	
 func on_loot_pickup_range_entered(loot) -> void:
 	if loot._is_collectible():
-		loot._on_pickup(self)
+		loot.pickup(self)
