@@ -112,7 +112,7 @@ _global_script_classes=[ {
 "base": "LootPickup",
 "class": "HealthLootPickup",
 "language": "GDScript",
-"path": "res://loot_pickups/health_loot_pickup/HealthLootPickup.gd"
+"path": "res://environment/loot_pickups/health_loot_pickup/HealthLootPickup.gd"
 }, {
 "base": "Control",
 "class": "Heart",
@@ -172,7 +172,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "LootPickup",
 "language": "GDScript",
-"path": "res://loot_pickups/LootPickup.gd"
+"path": "res://environment/loot_pickups/LootPickup.gd"
 }, {
 "base": "GameState",
 "class": "MainMenu",
