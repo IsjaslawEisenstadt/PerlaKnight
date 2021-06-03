@@ -10,14 +10,16 @@ const RUNE_RESOURCES_PATH: String = "res://environment/runes/resource"
 
 onready var DoorCast: DoorCast = $Colliders/DoorCast
 onready var SequenceController: SequenceController = $SequenceController
-onready var LootCollectionRange := $Colliders/LootCollectionRange
+onready var LootInfluenceRange := $Colliders/LootInfluenceRange
+onready var LootPickupRange := $Colliders/LootPickupRange
 
 var closest_interaction: Interaction
 
 var is_in_sequence: bool = false
 
 func _ready() -> void:
-	LootCollectionRange.connect("area_entered", self, "on_loot_collection_range_entered")
+	LootInfluenceRange.connect("body_entered", self, "on_loot_influence_range_entered")
+	LootPickupRange.connect("body_entered", self, "on_loot_pickup_range_entered")
 
 func _process(_delta: float) -> void:
 
@@ -102,6 +104,9 @@ func add_rune(rune: Rune) -> void:
 	
 	emit_signal("rune_added", rune)
 	emit_signal("save_requested")
+
+func on_loot_influence_range_entered(loot):
+	loot._on_influence(self)
 	
-func on_loot_collection_range_entered(loot):
+func on_loot_pickup_range_entered(loot):
 	loot._on_pickup(self)
