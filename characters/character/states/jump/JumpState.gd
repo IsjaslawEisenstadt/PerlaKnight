@@ -41,7 +41,7 @@ func _ready() -> void:
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	
-	host.AudioMovementPlayer.load_play("jump_grunt")
+	host.AudioMovementPlayer.load_play("jump")
 	
 	if !host.InputController._is_action_just_activated("jump"):
 		state_machine._pop_state()

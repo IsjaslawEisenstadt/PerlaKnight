@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/character/input/PlayerController.gd" type="Script" id=2]
@@ -16,6 +16,11 @@
 [ext_resource path="res://characters/character/ai/sequences/DoorSequence.gd" type="Script" id=14]
 [ext_resource path="res://characters/player/DoorCast.gd" type="Script" id=15]
 [ext_resource path="res://characters/player/AudioStreamPlayer.gd" type="Script" id=16]
+[ext_resource path="res://music_sounds/sound/movement/dash_swoosh.wav" type="AudioStream" id=17]
+[ext_resource path="res://music_sounds/sound/attack/sword_stroke.wav" type="AudioStream" id=18]
+[ext_resource path="res://music_sounds/sound/movement/jump_grunt.wav" type="AudioStream" id=19]
+[ext_resource path="res://music_sounds/sound/movement/hurt_grunt.wav" type="AudioStream" id=20]
+[ext_resource path="res://music_sounds/sound/movement/step_stone.wav" type="AudioStream" id=21]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.0
@@ -675,6 +680,15 @@ shape = SubResource( 24 )
 
 [node name="AudioMovementPlayer" type="AudioStreamPlayer2D" parent="." index="7"]
 script = ExtResource( 16 )
+sounds = {
+"dash": ExtResource( 17 ),
+"hurt": ExtResource( 20 ),
+"jump": ExtResource( 19 ),
+"step": ExtResource( 21 )
+}
 
 [node name="AudioCombatPlayer" type="AudioStreamPlayer2D" parent="." index="8"]
 script = ExtResource( 16 )
+sounds = {
+"sword_stroke": ExtResource( 18 )
+}

@@ -34,7 +34,7 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 func _state_process(delta: float) -> void:
 	._state_process(delta)
 	if host.AudioMovementPlayer.playing == false: 
-		host.AudioMovementPlayer.load_play("step_stone")
+		host.AudioMovementPlayer.load_play("step")
 
 	if host.InputController._is_action_just_activated("dash"):
 		if state_machine._push_state(DashState):
