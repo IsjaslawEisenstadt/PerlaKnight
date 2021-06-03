@@ -2,11 +2,10 @@
 
 [ext_resource path="res://environment/loot_pickups/LootPickup.gd" type="Script" id=1]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="LootPickup" type="KinematicBody2D"]
-collision_layer = 17
+collision_layer = 16
 collision_mask = 17
 script = ExtResource( 1 )
 

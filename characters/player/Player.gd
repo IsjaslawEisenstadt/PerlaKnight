@@ -105,8 +105,9 @@ func add_rune(rune: Rune) -> void:
 	emit_signal("rune_added", rune)
 	emit_signal("save_requested")
 
-func on_loot_influence_range_entered(loot):
+func on_loot_influence_range_entered(loot) -> void:
 	loot._on_influence(self)
 	
-func on_loot_pickup_range_entered(loot):
-	loot._on_pickup(self)
+func on_loot_pickup_range_entered(loot) -> void:
+	if loot._is_collectible():
+		loot._on_pickup(self)

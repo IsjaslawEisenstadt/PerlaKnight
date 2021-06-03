@@ -10,16 +10,20 @@ var force := 0.0
 
 var velocity: Vector2
 
+func _is_collectible() -> bool:
+	return false
 func _on_influence(player) -> void:
 	self.player = player
 	
-	set_collision_mask_bit(0, false)
-	set_collision_layer_bit(0, false)
+	if _is_collectible():
+		set_collision_mask_bit(0, false)
+		set_collision_layer_bit(0, false)
+		
 func _on_pickup(player) -> void:
 	pass
 
 func _physics_process(delta):
-	if player:
+	if player && _is_collectible():
 		if force < max_force:
 			force += force_acceleration * delta
 		move_and_slide(position.direction_to(player.LootPickupRange.global_position) * force)
