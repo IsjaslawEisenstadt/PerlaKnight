@@ -13,7 +13,7 @@ onready var SequenceController: SequenceController = $SequenceController
 onready var PlatformCollider := $PlatformCollider
 
 var closest_interaction: Interaction
-var platform: Platform
+var platform: OneWayPlatform
 
 var is_in_sequence: bool = false
 
@@ -110,12 +110,12 @@ func add_rune(rune: Rune) -> void:
 	emit_signal("save_requested")
 	
 func on_body_entered(body) -> void:
-	if body is Platform:
+	if body is OneWayPlatform:
 		body.enable()
 		platform = body
 		
 func on_body_exited(body) -> void:
-	if body is Platform:
+	if body is OneWayPlatform:
 		body.enable()
 		body = null
 		
