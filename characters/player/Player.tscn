@@ -486,6 +486,8 @@ radius = 32.0
 [node name="Player" groups=[
 "Persistent",
 ] instance=ExtResource( 1 )]
+collision_layer = 1024
+collision_mask = 1025
 script = ExtResource( 10 )
 
 [node name="Sprite" parent="." index="0"]
