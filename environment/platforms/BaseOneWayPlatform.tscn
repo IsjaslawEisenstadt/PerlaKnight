@@ -4,9 +4,11 @@
 [ext_resource path="res://environment/platforms/platforms.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 64, 10 )
+extents = Vector2( 32, 10 )
 
 [node name="OneWayPlatform" type="StaticBody2D"]
+collision_layer = 7168
+collision_mask = 0
 script = ExtResource( 1 )
 width = 64
 

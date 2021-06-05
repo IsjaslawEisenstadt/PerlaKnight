@@ -495,8 +495,10 @@ down={
 
 2d_physics/layer_1="world"
 2d_physics/layer_2="interaction"
-2d_physics/layer_3="characters"
 2d_physics/layer_4="destructibles"
+2d_physics/layer_11="player"
+2d_physics/layer_12="enemies"
+2d_physics/layer_13="friendlies"
 2d_physics/layer_20="camera_bounds"
 
 [network]

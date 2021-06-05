@@ -10,16 +10,10 @@ const RUNE_RESOURCES_PATH: String = "res://environment/runes/resource"
 
 onready var DoorCast: DoorCast = $Colliders/DoorCast
 onready var SequenceController: SequenceController = $SequenceController
-onready var PlatformCollider := $PlatformCollider
 
 var closest_interaction: Interaction
-var platform: OneWayPlatform
 
 var is_in_sequence: bool = false
-
-func _ready() -> void:
-	PlatformCollider.connect("body_entered", self, "on_body_entered")
-	PlatformCollider.connect("body_exited", self, "on_body_exited")
 
 func _process(_delta: float) -> void:
 
@@ -43,10 +37,6 @@ func _interaction_process() -> void:
 	
 	if closest_interaction && is_instance_valid(closest_interaction):
 			closest_interaction.show_icons()
-			
-	if InputController._is_action_active("down"):
-		if platform:
-			platform.disable()
 	
 	if (closest_interaction 
 		&& InputController._is_action_just_activated("interact") 
@@ -108,14 +98,3 @@ func add_rune(rune: Rune) -> void:
 	
 	emit_signal("rune_added", rune)
 	emit_signal("save_requested")
-	
-func on_body_entered(body) -> void:
-	if body is OneWayPlatform:
-		body.enable()
-		platform = body
-		
-func on_body_exited(body) -> void:
-	if body is OneWayPlatform:
-		body.enable()
-		body = null
-		

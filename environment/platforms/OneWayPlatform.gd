@@ -6,6 +6,8 @@ export var tile_width: int = 32
 
 export var width: int = 0 setget set_width
 
+var active: bool = true setget set_active
+
 func set_width(new_width: int) -> void:
 	# warning-ignore:integer_division
 	new_width = int(max(int(new_width / tile_width) * tile_width, tile_width * 2))
@@ -32,10 +34,17 @@ func set_width(new_width: int) -> void:
 		var collision_width: int = (num_tiles * tile_width) / 2
 		$CollisionShape2D.position.x = collision_width
 		$CollisionShape2D.shape.extents.x = collision_width
+
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed("down"):
+		if active:
+			self.active = false
+	else:
+		if !active:
+			self.active = true
 	
 
-func disable() -> void:
-	set_collision_layer_bit(0, false)
-	
-func enable() -> void:
-	set_collision_layer_bit(0, true)
+func set_active(new_active: bool) -> void:
+	# player is at layer 11
+	active = new_active
+	set_collision_layer_bit(1 << 11, new_active)

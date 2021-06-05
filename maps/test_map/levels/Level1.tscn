@@ -1,12 +1,18 @@
-[gd_scene load_steps=235 format=2]
+[gd_scene load_steps=244 format=2]
 
+[ext_resource path="res://environment/destructibles/Destructible.gd" type="Script" id=1]
 [ext_resource path="res://maps/test_map/textures/Tileset_Green.png" type="Texture" id=2]
 [ext_resource path="res://maps/test_map/textures/Tileset_grey.png" type="Texture" id=3]
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=4]
+[ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=5]
+[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=6]
 [ext_resource path="res://environment/runes/resource/HealthRune.tres" type="Resource" id=7]
 [ext_resource path="res://environment/runes/resource/DoubleJumpRune.tres" type="Resource" id=8]
 [ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=9]
+[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=10]
 [ext_resource path="res://environment/decoration/Props.png" type="Texture" id=11]
 [ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=12]
+[ext_resource path="res://environment/platforms/OneWayPlatform.gd" type="Script" id=13]
 [ext_resource path="res://environment/destructibles/crates/Crate1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://environment/platforms/OneWayPlatform1.tscn" type="PackedScene" id=15]
 [ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=16]
@@ -16,7 +22,10 @@
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=20]
 [ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=21]
 [ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=22]
+[ext_resource path="res://environment/decoration/lamps/textures/ForestLampSet1.png" type="Texture" id=23]
 [ext_resource path="res://maps/Level.gd" type="Script" id=24]
+[ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=25]
+[ext_resource path="res://environment/runes/resource/DashRune.tres" type="Resource" id=26]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -3951,7 +3960,7 @@ extents = Vector2( 704, 16 )
 script = ExtResource( 24 )
 player_path = NodePath("Characters/Player")
 
-[node name="WorldEnvironment" parent="." instance=ExtResource( 12 )]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 12 )]
 environment = SubResource( 1 )
 
 [node name="Decoration" type="TileMap" parent="."]
@@ -3965,154 +3974,307 @@ tile_data = PoolIntArray( 655383, 45, 0, 655390, 30, 0, 655432, 30, 0, 655439, 4
 [node name="Platforms" type="Node2D" parent="."]
 z_index = 2
 
-[node name="OneWayPlatform1" parent="Platforms" instance=ExtResource( 15 )]
+[node name="OneWayPlatform1" type="StaticBody2D" parent="Platforms" instance=ExtResource( 15 )]
 position = Vector2( 544, -224 )
+collision_layer = 7168
+collision_mask = 0
+script = ExtResource( 13 )
 width = 256
 
-[node name="OneWayPlatform2" parent="Platforms" instance=ExtResource( 15 )]
+[node name="OneWayPlatform2" type="StaticBody2D" parent="Platforms" instance=ExtResource( 15 )]
 position = Vector2( 544, -192 )
+collision_layer = 7168
+collision_mask = 0
+script = ExtResource( 13 )
 width = 256
 
-[node name="OneWayPlatform3" parent="Platforms" instance=ExtResource( 15 )]
+[node name="OneWayPlatform3" type="StaticBody2D" parent="Platforms" instance=ExtResource( 15 )]
 position = Vector2( 576, -160 )
+collision_layer = 7168
+collision_mask = 0
+script = ExtResource( 13 )
 width = 224
 
-[node name="OneWayPlatform4" parent="Platforms" instance=ExtResource( 15 )]
+[node name="OneWayPlatform4" type="StaticBody2D" parent="Platforms" instance=ExtResource( 15 )]
 position = Vector2( 640, -128 )
+collision_layer = 7168
+collision_mask = 0
+script = ExtResource( 13 )
 width = 160
 
-[node name="OneWayPlatform5" parent="Platforms" instance=ExtResource( 15 )]
+[node name="OneWayPlatform5" type="StaticBody2D" parent="Platforms" instance=ExtResource( 15 )]
 position = Vector2( 704, -96 )
+collision_layer = 7168
+collision_mask = 0
+script = ExtResource( 13 )
 width = 96
 
 [node name="Destructibles" type="Node2D" parent="."]
 z_index = 3
 
-[node name="Crate1" parent="Destructibles" instance=ExtResource( 14 )]
+[node name="Crate1" type="Area2D" parent="Destructibles" instance=ExtResource( 14 )]
 position = Vector2( 848, -288 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 1 )
 
-[node name="Crate2" parent="Destructibles" instance=ExtResource( 14 )]
+[node name="Crate2" type="Area2D" parent="Destructibles" instance=ExtResource( 14 )]
 position = Vector2( 432, -736 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 1 )
 
-[node name="Crate3" parent="Destructibles" instance=ExtResource( 14 )]
+[node name="Crate3" type="Area2D" parent="Destructibles" instance=ExtResource( 14 )]
 position = Vector2( 1552, -544 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 1 )
 
-[node name="Crate4" parent="Destructibles" instance=ExtResource( 14 )]
+[node name="Crate4" type="Area2D" parent="Destructibles" instance=ExtResource( 14 )]
 position = Vector2( 1360, -288 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 1 )
 
-[node name="Crate5" parent="Destructibles" instance=ExtResource( 14 )]
+[node name="Crate5" type="Area2D" parent="Destructibles" instance=ExtResource( 14 )]
 position = Vector2( 1584, -288 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 1 )
 
-[node name="Crate6" parent="Destructibles" instance=ExtResource( 14 )]
+[node name="Crate6" type="Area2D" parent="Destructibles" instance=ExtResource( 14 )]
 position = Vector2( 1680, -960 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 1 )
 
-[node name="Crate7" parent="Destructibles" instance=ExtResource( 14 )]
+[node name="Crate7" type="Area2D" parent="Destructibles" instance=ExtResource( 14 )]
 position = Vector2( 464, -224 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 1 )
 
-[node name="Crate8" parent="Destructibles" instance=ExtResource( 14 )]
+[node name="Crate8" type="Area2D" parent="Destructibles" instance=ExtResource( 14 )]
 position = Vector2( 560, -960 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 1 )
 
 [node name="DecorationEntities" type="Node2D" parent="."]
 z_index = 4
 
-[node name="Lamp" parent="DecorationEntities" instance=ExtResource( 16 )]
+[node name="Lamp" type="Sprite" parent="DecorationEntities" instance=ExtResource( 16 )]
 position = Vector2( 1232, -352 )
-frame = 18
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 5 )
 
-[node name="Lamp2" parent="DecorationEntities" instance=ExtResource( 16 )]
+[node name="Lamp2" type="Sprite" parent="DecorationEntities" instance=ExtResource( 16 )]
 position = Vector2( 1008, -544 )
-frame = 18
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 5 )
 
-[node name="Lamp3" parent="DecorationEntities" instance=ExtResource( 16 )]
+[node name="Lamp3" type="Sprite" parent="DecorationEntities" instance=ExtResource( 16 )]
 position = Vector2( 240, -448 )
-frame = 18
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 5 )
 
-[node name="Lamp4" parent="DecorationEntities" instance=ExtResource( 16 )]
+[node name="Lamp4" type="Sprite" parent="DecorationEntities" instance=ExtResource( 16 )]
 position = Vector2( 240, -960 )
-frame = 37
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 5 )
 type = 1
 
-[node name="Lamp5" parent="DecorationEntities" instance=ExtResource( 16 )]
+[node name="Lamp5" type="Sprite" parent="DecorationEntities" instance=ExtResource( 16 )]
 position = Vector2( 1552, -800 )
-frame = 56
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 5 )
 type = 2
 
-[node name="Lamp6" parent="DecorationEntities" instance=ExtResource( 16 )]
+[node name="Lamp6" type="Sprite" parent="DecorationEntities" instance=ExtResource( 16 )]
 position = Vector2( 528, -736 )
-frame = 56
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 5 )
 type = 2
 
-[node name="Lamp7" parent="DecorationEntities" instance=ExtResource( 16 )]
+[node name="Lamp7" type="Sprite" parent="DecorationEntities" instance=ExtResource( 16 )]
 position = Vector2( 880, -960 )
-frame = 75
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 5 )
 type = 3
 
-[node name="Lamp8" parent="DecorationEntities" instance=ExtResource( 16 )]
+[node name="Lamp8" type="Sprite" parent="DecorationEntities" instance=ExtResource( 16 )]
 position = Vector2( 1616, -544 )
-frame = 94
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 5 )
 type = 4
 
-[node name="BrokenLamp1" parent="DecorationEntities" instance=ExtResource( 17 )]
+[node name="BrokenLamp1" type="Sprite" parent="DecorationEntities" instance=ExtResource( 17 )]
 position = Vector2( 1072, -672 )
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 95
 
-[node name="BrokenLamp2" parent="DecorationEntities" instance=ExtResource( 18 )]
+[node name="BrokenLamp2" type="Sprite" parent="DecorationEntities" instance=ExtResource( 18 )]
 position = Vector2( 368, -576 )
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 96
 
-[node name="BrokenLamp3" parent="DecorationEntities" instance=ExtResource( 18 )]
+[node name="BrokenLamp3" type="Sprite" parent="DecorationEntities" instance=ExtResource( 18 )]
 position = Vector2( 272, -160 )
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 96
 
-[node name="BrokenLamp4" parent="DecorationEntities" instance=ExtResource( 17 )]
+[node name="BrokenLamp4" type="Sprite" parent="DecorationEntities" instance=ExtResource( 17 )]
 position = Vector2( 1456, -960 )
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 95
 
 [node name="SpawnTargets" type="Node2D" parent="."]
 z_index = 5
 
-[node name="Door1" parent="SpawnTargets" instance=ExtResource( 19 )]
+[node name="Door1" type="Area2D" parent="SpawnTargets" instance=ExtResource( 19 )]
 position = Vector2( 2144, -352 )
+collision_layer = 262144
+collision_mask = 262144
+script = ExtResource( 6 )
 next_level = "Level2"
 next_door = "Door1"
 exit_direction = "Left"
 shape = Vector2( 64, 64 )
 
-[node name="Checkpoint" parent="SpawnTargets" instance=ExtResource( 21 )]
+[node name="Checkpoint" type="Area2D" parent="SpawnTargets" groups=[
+"Checkpoint",
+"Persistent",
+] instance=ExtResource( 21 )]
 position = Vector2( 1488, -288 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 25 )
 
-[node name="Checkpoint2" parent="SpawnTargets" instance=ExtResource( 21 )]
+[node name="Checkpoint2" type="Area2D" parent="SpawnTargets" groups=[
+"Checkpoint",
+"Persistent",
+] instance=ExtResource( 21 )]
 position = Vector2( 1296, -512 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 25 )
 
-[node name="Door2" parent="SpawnTargets" instance=ExtResource( 19 )]
+[node name="Door2" type="Area2D" parent="SpawnTargets" instance=ExtResource( 19 )]
 position = Vector2( 704, -64 )
+collision_layer = 262144
+collision_mask = 262144
+script = ExtResource( 6 )
 next_level = "Level3"
 next_door = "Door2"
 exit_direction = "UpLeft"
 shape = Vector2( 96, 64 )
 
-[node name="Checkpoint3" parent="SpawnTargets" instance=ExtResource( 21 )]
+[node name="Checkpoint3" type="Area2D" parent="SpawnTargets" groups=[
+"Checkpoint",
+"Persistent",
+] instance=ExtResource( 21 )]
 position = Vector2( 1968, -288 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 25 )
 
 [node name="Runes" type="Node2D" parent="."]
 z_index = 6
 
-[node name="RuneContainer" parent="Runes" instance=ExtResource( 22 )]
+[node name="RuneContainer" type="Area2D" parent="Runes" groups=[
+"Persistent",
+] instance=ExtResource( 22 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 1656, -312 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 10 )
+rune = ExtResource( 26 )
 
-[node name="RuneContainer2" parent="Runes" instance=ExtResource( 22 )]
+[node name="RuneContainer2" type="Area2D" parent="Runes" groups=[
+"Persistent",
+] instance=ExtResource( 22 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 1720, -312 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 10 )
 rune = ExtResource( 8 )
 
-[node name="RuneContainer3" parent="Runes" instance=ExtResource( 22 )]
+[node name="RuneContainer3" type="Area2D" parent="Runes" groups=[
+"Persistent",
+] instance=ExtResource( 22 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 1784, -312 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 10 )
 rune = ExtResource( 7 )
 
-[node name="RuneContainer4" parent="Runes" instance=ExtResource( 22 )]
+[node name="RuneContainer4" type="Area2D" parent="Runes" groups=[
+"Persistent",
+] instance=ExtResource( 22 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 1848, -312 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 10 )
 rune = ExtResource( 9 )
 
 [node name="Characters" type="Node2D" parent="."]
 z_index = 7
 
-[node name="Player" parent="Characters" instance=ExtResource( 20 )]
+[node name="Player" type="KinematicBody2D" parent="Characters" groups=[
+"Persistent",
+] instance=ExtResource( 20 )]
 position = Vector2( 1270, -353 )
+collision_layer = 1024
+collision_mask = 1025
+script = ExtResource( 4 )
 
 [node name="Collision_Dungeon" type="StaticBody2D" parent="."]
 position = Vector2( 0, -1152 )
