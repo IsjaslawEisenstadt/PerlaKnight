@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 364,
+	"nextUid": 373,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -1099,6 +1099,25 @@
 			"tilePivotY": 0
 		},
 		{
+			"__type": "Entities",
+			"identifier": "Platforms",
+			"type": "Entities",
+			"uid": 368,
+			"gridSize": 8,
+			"displayOpacity": 1,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"requiredTags": ["Platforms"],
+			"excludedTags": [],
+			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
+			"autoTilesetDefUid": null,
+			"autoRuleGroups": [],
+			"autoSourceLayerDefUid": null,
+			"tilesetDefUid": null,
+			"tilePivotX": 0,
+			"tilePivotY": 0
+		},
+		{
 			"__type": "Tiles",
 			"identifier": "Decoration",
 			"type": "Tiles",
@@ -2130,6 +2149,104 @@
 					"textLanguageMode": null
 				}
 			]
+		},
+		{
+			"identifier": "OneWayPlatform1",
+			"uid": 364,
+			"tags": ["Platforms"],
+			"width": 64,
+			"height": 8,
+			"resizableX": true,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#94D9B3",
+			"renderMode": "Tile",
+			"showName": false,
+			"tilesetId": 371,
+			"tileId": 5,
+			"tileRenderMode": "Repeat",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0,
+			"pivotY": 0,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 366,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/platforms/OneWayPlatform1.tscn"]
+					},
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "OneWayPlatform2",
+			"uid": 365,
+			"tags": ["Platforms"],
+			"width": 64,
+			"height": 16,
+			"resizableX": true,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#94D9B3",
+			"renderMode": "Tile",
+			"showName": false,
+			"tilesetId": 372,
+			"tileId": 8,
+			"tileRenderMode": "Repeat",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0,
+			"pivotY": 0,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 367,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/platforms/OneWayPlatform2.tscn"]
+					},
+					"textLanguageMode": null
+				}
+			]
 		}
 	], "tilesets": [
 		{
@@ -2149,7 +2266,7 @@
 			"savedSelections": [],
 			"cachedPixelData": {
 				"opaqueTiles": "0100101010101000010001010101000000000000000000000000100010000000000001010000000000000000000000001110000000000000000000000000000000100000000000000010000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
-				"averageColors": "f222f111f2220000f1110000f1110000f1110000f2220000f222000000000000f111f000f11100000000f1110000f1110000f1110000f2220000000000000000e222e111e22200000000000000000000000000000000000000000000000000000000000000000000f111f2220000f222f1110000f2220000f222000000000000f111e111f11100000000f1110000f11100000000e2220000e222000000000000f1110000f1110000000000000000722272227222000012220000122200000000f111f111f11100000000000000000333133303330000411100004111000000000000000000000000000000000000f1110000f1110000000000000000000000009222f111f111f111922200000000f1110000f1110000000000000000000000000000f111f000f1110000000000000000000000000000000000000000000000009111f000f000f11171110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+				"averageColors": "f222f111f2220000f1110000f1110000f1110000f2220000f222000000000000f111f000f11100000000f1110000f1110000f1110000f2220000000000000000e222e111e22200000000000000000000000000000000000000000000000000000000000000000000f111f2220000f222f1110000f2220000f222000000000000f111e111f11100000000f1110000f11100000000e2220000e222000000000000f1110000f1110000000000000000722272227222000012220000122200000000f111f111f11100000000000000000333133303330000411100004111000000000000000000000000000000000000f1110000f1110000000000000000000000009222f111f111f111922200000432f1110000f1110000000000000000000000000000f111f000f1110000000000004654454346540000000000000000000000009111f000f000f11171110000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
 			}
 		},
 		{
@@ -2228,6 +2345,43 @@
 				"opaqueTiles": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111111111111111",
 				"averageColors": "264326436766a7547754000000000000000000000000000000000000000026432643a7662654465400000000000000000000000000000000000000007833244524451455245514550000000000000000000000000000000000007336233433344344b45544440000000000000000000000000000000000003334434423343334254314320000000000000000000000000000000000003334434453346334a4455445000000000000000000000000000000000000134513450000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
 			}
+		},
+		{
+			"__cWid": 12,
+			"__cHei": 4,
+			"identifier": "Platforms8x",
+			"uid": 371,
+			"relPath": "../../environment/platforms/platforms.png",
+			"pxWid": 96,
+			"pxHei": 32,
+			"tileGridSize": 8,
+			"spacing": 0,
+			"padding": 0,
+			"tagsSourceEnumUid": null,
+			"enumTags": [],
+			"customData": [],
+			"savedSelections": [],
+			"cachedPixelData": {
+				"opaqueTiles": "111111111111000000000000001000100000000000000000",
+				"averageColors": "f766f654f543f543f543f543f543f543f543f543f654f766000000000000000000000000000000000000000000000000e287f186f186d176e186f186f186e186e186f186e186e287e297e186e286c186c186e186c186e186e186e186d176e297"
+			}
+		},
+		{
+			"__cWid": 6,
+			"__cHei": 2,
+			"identifier": "Platforms16x",
+			"uid": 372,
+			"relPath": "../../environment/platforms/platforms.png",
+			"pxWid": 96,
+			"pxHei": 32,
+			"tileGridSize": 16,
+			"spacing": 0,
+			"padding": 0,
+			"tagsSourceEnumUid": null,
+			"enumTags": [],
+			"customData": [],
+			"savedSelections": [],
+			"cachedPixelData": { "opaqueTiles": "000000000000", "averageColors": "766575437543754375437665e287e186e186e186e186e286" }
 		}
 	], "enums": [{ "identifier": "ExitDirection", "uid": 126, "values": [
 		{ "id": "UpLeft", "tileId": null, "color": 0, "__tileSrcRect": null },
@@ -6454,6 +6608,120 @@
 					]
 				},
 				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 276,
+					"__cHei": 144,
+					"__gridSize": 8,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 0,
+					"layerDefUid": 368,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 3878426,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": [
+						{
+							"__identifier": "OneWayPlatform1",
+							"__grid": [68,116],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
+							"width": 256,
+							"height": 8,
+							"defUid": 364,
+							"px": [544,928],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "OneWayPlatform1",
+							"__grid": [72,124],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
+							"width": 224,
+							"height": 8,
+							"defUid": 364,
+							"px": [576,992],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "OneWayPlatform1",
+							"__grid": [88,132],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
+							"width": 96,
+							"height": 8,
+							"defUid": 364,
+							"px": [704,1056],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "OneWayPlatform1",
+							"__grid": [252,99],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [2016,792],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "OneWayPlatform1",
+							"__grid": [252,92],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [2016,736],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "OneWayPlatform1",
+							"__grid": [252,85],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [2016,680],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "OneWayPlatform1",
+							"__grid": [252,78],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [2016,624],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "OneWayPlatform1",
+							"__grid": [220,76],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [1760,608],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+						}
+					]
+				},
+				{
 					"__identifier": "Decoration",
 					"__type": "Tiles",
 					"__cWid": 138,
@@ -8013,6 +8281,31 @@
 					]
 				},
 				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 132,
+					"__cHei": 92,
+					"__gridSize": 8,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 121,
+					"layerDefUid": 368,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 7684724,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
 					"__identifier": "Decoration",
 					"__type": "Tiles",
 					"__cWid": 66,
@@ -8035,12 +8328,7 @@
 					"seed": 7010586,
 					"overrideTilesetUid": null,
 					"gridTiles": [
-						{ "px": [864,224], "src": [96,160], "f": 0, "t": 78, "d": [978] },
 						{ "px": [528,352], "src": [64,96], "f": 0, "t": 47, "d": [1485] },
-						{ "px": [512,544], "src": [128,128], "f": 0, "t": 64, "d": [2276] },
-						{ "px": [544,544], "src": [160,128], "f": 0, "t": 65, "d": [2278] },
-						{ "px": [512,576], "src": [128,160], "f": 0, "t": 79, "d": [2408] },
-						{ "px": [544,576], "src": [160,160], "f": 0, "t": 80, "d": [2410] },
 						{ "px": [768,608], "src": [32,0], "f": 0, "t": 1, "d": [2556] }
 					],
 					"entityInstances": []
@@ -10694,6 +10982,31 @@
 					]
 				},
 				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 352,
+					"__cHei": 88,
+					"__gridSize": 8,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 125,
+					"layerDefUid": 368,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 3875188,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
 					"__identifier": "Decoration",
 					"__type": "Tiles",
 					"__cWid": 176,
@@ -10722,29 +11035,14 @@
 						{ "px": [1520,512], "src": [96,64], "f": 0, "t": 33, "d": [5727] },
 						{ "px": [1552,512], "src": [128,64], "f": 0, "t": 34, "d": [5729] },
 						{ "px": [1584,512], "src": [160,64], "f": 0, "t": 35, "d": [5731] },
-						{ "px": [736,544], "src": [96,96], "f": 0, "t": 48, "d": [6030] },
-						{ "px": [768,544], "src": [128,96], "f": 0, "t": 49, "d": [6032] },
-						{ "px": [800,544], "src": [160,96], "f": 0, "t": 50, "d": [6034] },
 						{ "px": [912,544], "src": [0,32], "f": 0, "t": 15, "d": [6041] },
 						{ "px": [944,544], "src": [0,32], "f": 0, "t": 15, "d": [6043] },
 						{ "px": [976,544], "src": [0,32], "f": 0, "t": 15, "d": [6045] },
 						{ "px": [1008,544], "src": [64,96], "f": 0, "t": 47, "d": [6047] },
-						{ "px": [1040,544], "src": [96,160], "f": 0, "t": 78, "d": [6049] },
-						{ "px": [1072,544], "src": [32,128], "f": 0, "t": 61, "d": [6051] },
-						{ "px": [1104,544], "src": [96,160], "f": 0, "t": 78, "d": [6053] },
-						{ "px": [1152,544], "src": [32,128], "f": 0, "t": 61, "d": [6056] },
-						{ "px": [1184,544], "src": [96,128], "f": 0, "t": 63, "d": [6058] },
 						{ "px": [1216,544], "src": [64,96], "f": 0, "t": 47, "d": [6060] },
-						{ "px": [1248,544], "src": [32,128], "f": 0, "t": 61, "d": [6062] },
-						{ "px": [1280,544], "src": [32,160], "f": 0, "t": 76, "d": [6064] },
-						{ "px": [1296,544], "src": [96,160], "f": 0, "t": 78, "d": [6065] },
-						{ "px": [1344,544], "src": [32,160], "f": 0, "t": 76, "d": [6068] },
 						{ "px": [1360,544], "src": [0,32], "f": 0, "t": 15, "d": [6069] },
 						{ "px": [1392,544], "src": [0,32], "f": 0, "t": 15, "d": [6071] },
-						{ "px": [1424,544], "src": [0,32], "f": 0, "t": 15, "d": [6073] },
-						{ "px": [1520,544], "src": [96,96], "f": 0, "t": 48, "d": [6079] },
-						{ "px": [1552,544], "src": [128,96], "f": 0, "t": 49, "d": [6081] },
-						{ "px": [1584,544], "src": [160,96], "f": 0, "t": 50, "d": [6083] }
+						{ "px": [1424,544], "src": [0,32], "f": 0, "t": 15, "d": [6073] }
 					],
 					"entityInstances": []
 				}
@@ -11647,6 +11945,31 @@
 					"intGridCsv": [],
 					"autoLayerTiles": [],
 					"seed": 216530,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 144,
+					"__cHei": 112,
+					"__gridSize": 8,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 143,
+					"layerDefUid": 368,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 5161287,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
 					"entityInstances": []

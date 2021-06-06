@@ -9,9 +9,6 @@ extents = Vector2( 7.09945, 6.41194 )
 
 [node name="HealthLootPickup" instance=ExtResource( 3 )]
 script = ExtResource( 1 )
-force_acceleration = 200.0
-max_force = 1000.0
-gravity = 1000.0
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
