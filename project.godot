@@ -174,11 +174,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ui/game_states/LoadingScreen.gd"
 }, {
-"base": "Destructible",
-"class": "LootDestructible",
-"language": "GDScript",
-"path": "res://environment/destructibles/LootDestructible.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "LootPickup",
 "language": "GDScript",
@@ -333,7 +328,6 @@ _global_script_class_icons={
 "LandState": "",
 "Level": "",
 "LoadingScreen": "",
-"LootDestructible": "",
 "LootPickup": "",
 "MainMenu": "",
 "MoveState": "",

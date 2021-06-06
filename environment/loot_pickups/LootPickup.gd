@@ -1,14 +1,13 @@
 extends KinematicBody2D
 class_name LootPickup
 
-var player: Player
+export var force_acceleration: float = 200.0
+export var max_force: float = 1000.0
+export var gravity: float = 1000.0
 
-export (float) var force_acceleration:= 200
-export (float) var max_force := 1000.0
-export (float) var gravity = 1000
 var force := 0.0
-
 var velocity: Vector2
+var player: Player
 
 func _is_collectible() -> bool:
 	return false

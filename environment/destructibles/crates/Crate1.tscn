@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://environment/destructibles/LootDestructible.gd" type="Script" id=1]
 [ext_resource path="res://environment/destructibles/crates/textures/crate1_explosion.png" type="Texture" id=2]
 [ext_resource path="res://environment/destructibles/Destructible.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environment/decoration/Props.png" type="Texture" id=4]
@@ -117,7 +116,6 @@ tracks/3/keys = {
 }
 
 [node name="Crate1" instance=ExtResource( 3 )]
-script = ExtResource( 1 )
 possible_drops = [ ExtResource( 6 ) ]
 
 [node name="Sprite" parent="." index="0"]
