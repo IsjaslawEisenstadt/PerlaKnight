@@ -28,21 +28,29 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -8 ), Vector2( 0, 8 ) ]
 }
 
-[node name="RuneContainer" instance=ExtResource( 1 )]
+[node name="RuneContainer" groups=[
+"Persistent",
+] instance=ExtResource( 1 )]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 script = ExtResource( 3 )
 rune = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
 light_mask = 0
-position = Vector2( 0, -1.16441 )
+position = Vector2( 0, -4.68703 )
 texture = SubResource( 1 )
 
 [node name="IconLeftOffset" parent="Sprite/Icons" index="0"]
 position = Vector2( -2, 0 )
 
+[node name="IconLeft" parent="Sprite/Icons/IconLeftOffset" index="0"]
+position = Vector2( -15.9091, 0 )
+
 [node name="IconRightOffset" parent="Sprite/Icons" index="1"]
 position = Vector2( 2, 0 )
+
+[node name="IconRight" parent="Sprite/Icons/IconRightOffset" index="0"]
+position = Vector2( 15.9091, 0 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 2 )

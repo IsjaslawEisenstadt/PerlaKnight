@@ -2,6 +2,7 @@ extends KinematicBody2D
 class_name Character
 
 signal health_changed(current_health)
+signal max_health_changed(max_health)
 signal character_turned(new_look_direction)
 
 onready var AnimationPlayer := $AnimationPlayer
@@ -10,9 +11,7 @@ onready var StateMachine := $StateMachine
 onready var Interactor := $Colliders/Interactor
 onready var AttackHitBoxCollider := get_node_or_null("Colliders/AttackHitbox/AttackCollisionShape") as CollisionShape2D
 
-onready var current_health: int = max_health setget set_current_health
-
-export var max_health: int = 5
+export var max_health: int = 4 setget set_max_health
 
 export var dash_acquired: bool = false
 export var double_jump_acquired: bool = false
@@ -20,11 +19,12 @@ export var wall_climb_acquired: bool = false
 
 var velocity := Vector2.ZERO
 var look_direction: int = 1 setget set_look_direction
+var current_health: int = max_health setget _set_current_health
 var invincible: bool = false
 
 # wallclimb dash resets require this flag, DashState updates it
-var can_dash: bool = dash_acquired
-var can_double_jump: bool = double_jump_acquired
+var can_dash: bool = dash_acquired setget set_can_dash
+var can_double_jump: bool = double_jump_acquired setget set_can_double_jump
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
@@ -76,13 +76,21 @@ func set_look_direction(new_look_direction: int) -> void:
 				child.scale.x = sign(look_direction)
 		emit_signal("character_turned")
 
-func set_current_health(new_health: int) -> void:
+func _set_current_health(new_health: int) -> void:
 	assert(new_health >= 0 && new_health <= max_health)
 	
 	current_health = new_health
 	if current_health <= 0:
 		StateMachine.call_deferred("die")
+	
 	emit_signal("health_changed", current_health)
+
+func set_max_health(new_max_health: int) -> void:
+	assert(new_max_health > 0)
+	
+	max_health = new_max_health
+	self.current_health = max_health
+	emit_signal("max_health_changed", max_health)
 
 func hit(attacker: Node2D, damage: int) -> void:
 	if !invincible:
@@ -93,6 +101,13 @@ func hit(attacker: Node2D, damage: int) -> void:
 func _get_input_controller() -> InputController:
 	return InputController
 
+func set_can_dash(new_can_dash: bool) -> void:
+	can_dash = dash_acquired && new_can_dash
+
+func set_can_double_jump(new_can_double_jump: bool) -> void:
+	can_double_jump = double_jump_acquired && new_can_double_jump
+
 func set_attack_shape_enabled(enabled: bool) -> void:
 	if AttackHitBoxCollider:
 		AttackHitBoxCollider.disabled = !enabled
+

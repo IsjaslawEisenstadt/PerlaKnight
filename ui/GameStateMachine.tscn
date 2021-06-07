@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
+[ext_resource path="res://ui/hud/rune_hud/RuneEntry.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=2]
 [ext_resource path="res://ui/game_states/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://ui/game_states/PlayState.gd" type="Script" id=4]
@@ -12,13 +13,19 @@
 [ext_resource path="res://ui/general/fonts/MinimalPixel.tres" type="DynamicFont" id=11]
 [ext_resource path="res://ui/general/fonts/bitmgothic.tres" type="DynamicFont" id=12]
 [ext_resource path="res://ui/hud/health_container/HealthContainer.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ui/hud/rune_hud/RuneHUD.gd" type="Script" id=14]
 [ext_resource path="res://ui/transition/Transition.shader" type="Shader" id=15]
 [ext_resource path="res://ui/game_states/PauseMenu.gd" type="Script" id=16]
+[ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=17]
 [ext_resource path="res://ui/general/WarningPopup.gd" type="Script" id=18]
 [ext_resource path="res://ui/general/Button.tscn" type="PackedScene" id=19]
+[ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=22]
 
-[sub_resource type="Animation" id=1]
-resource_name = "blur"
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 17 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="Animation" id=2]
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
@@ -46,7 +53,7 @@ tracks/1/keys = {
 "values": [ 0.0, 2.0 ]
 }
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=3]
 code = "shader_type canvas_item;
 
 uniform float blur_amount : hint_range(0, 5);
@@ -55,11 +62,11 @@ void fragment() {
 	COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount);
 }"
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
-shader_param/blur_amount = 2.0
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/blur_amount = 0.0
 
-[sub_resource type="StyleBoxTexture" id=4]
+[sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 9 )
 region_rect = Rect2( 2, 34, 44, 44 )
 margin_left = 30.0
@@ -67,25 +74,7 @@ margin_right = 30.0
 margin_top = 14.0
 margin_bottom = 14.0
 
-[sub_resource type="Animation" id=5]
-resource_name = "blur"
-length = 0.15
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-
 [sub_resource type="Animation" id=6]
-resource_name = "blur"
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
@@ -101,14 +90,30 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="Animation" id=7]
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 15 )
 shader_param/cutoff = 1.0
 shader_param/smooth_size = 0.2
 shader_param/color = Color( 0, 0, 0, 1 )
 shader_param/mask = ExtResource( 8 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -136,7 +141,7 @@ tracks/1/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=10]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -178,7 +183,6 @@ inactive_visibility = true
 
 [node name="PlayUI" type="Control" parent="UI"]
 pause_mode = 1
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -199,6 +203,44 @@ __meta__ = {
 [node name="HealthContainer" parent="UI/PlayUI/HUD" instance=ExtResource( 13 )]
 mouse_filter = 2
 
+[node name="RuneHUD" type="MarginContainer" parent="UI/PlayUI/HUD"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -36.0
+margin_top = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="UI/PlayUI/HUD/RuneHUD"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 26.0
+margin_bottom = 26.0
+grow_horizontal = 0
+grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RuneEntry3" type="TextureRect" parent="UI/PlayUI/HUD/RuneHUD/HBox"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = SubResource( 1 )
+stretch_mode = 6
+script = ExtResource( 1 )
+rune = ExtResource( 22 )
+
 [node name="WorldSpaceUI" type="Control" parent="UI/PlayUI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -211,6 +253,7 @@ __meta__ = {
 
 [node name="MainMenu" type="Control" parent="UI"]
 pause_mode = 2
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
@@ -305,10 +348,10 @@ pause_game = true
 default_focus_path = NodePath("Content/VBox/ButtonCenter/ButtonVBox/ContinueButton")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/PauseMenu"]
-anims/blur = SubResource( 1 )
+anims/blur = SubResource( 2 )
 
 [node name="Blur" type="ColorRect" parent="UI/PauseMenu"]
-material = SubResource( 3 )
+material = SubResource( 4 )
 margin_right = 480.0
 margin_bottom = 270.0
 mouse_filter = 2
@@ -406,14 +449,14 @@ grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 5 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/PauseMenu/NewGamePopup"]
-anims/blur = SubResource( 5 )
+anims/blur = SubResource( 6 )
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/PauseMenu/NewGamePopup"]
 anchor_right = 1.0
@@ -492,14 +535,14 @@ grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 5 )
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/PauseMenu/ExitPopup"]
-anims/blur = SubResource( 6 )
+anims/blur = SubResource( 7 )
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/PauseMenu/ExitPopup"]
 anchor_right = 1.0
@@ -602,7 +645,7 @@ __meta__ = {
 }
 
 [node name="TransitionEffect" type="ColorRect" parent="UI/Transition"]
-material = SubResource( 7 )
+material = SubResource( 8 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -614,11 +657,13 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Transition"]
-anims/fade_in = SubResource( 8 )
-anims/fade_out = SubResource( 9 )
+anims/fade_in = SubResource( 9 )
+anims/fade_out = SubResource( 10 )
 
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
+[connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_connected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]
+[connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_disconnected"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/MainMenu" method="on_continue_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/MainMenu" method="on_new_game_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/MainMenu" method="on_exit_pressed"]
