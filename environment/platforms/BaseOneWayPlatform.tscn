@@ -8,9 +8,8 @@ extents = Vector2( 32, 10 )
 
 [node name="OneWayPlatform" type="StaticBody2D"]
 collision_layer = 7168
-collision_mask = 0
+collision_mask = 16
 script = ExtResource( 1 )
-width = 64
 
 [node name="LeftEnd" type="Sprite" parent="."]
 

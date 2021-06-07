@@ -10,6 +10,7 @@ const RUNE_RESOURCES_PATH: String = "res://environment/runes/resource"
 
 onready var DoorCast: DoorCast = $Colliders/DoorCast
 onready var SequenceController: SequenceController = $SequenceController
+onready var LootPicker: Area2D = $Colliders/LootPicker
 
 var closest_interaction: Interaction
 
@@ -20,6 +21,14 @@ func _process(_delta: float) -> void:
 	if InputController._is_action_just_activated("reset"):
 		# a 'default' transition call, this will infer to use checkpoints
 		emit_signal("transition_requested", null, null)
+
+	var loot_in_range: Array = LootPicker.get_overlapping_bodies()
+	if !loot_in_range.empty():
+		for loot in loot_in_range:
+			assert(loot is LootPickup)
+			if loot._can_pickup(self):
+				if loot is HealthLootPickup:
+					loot._pickup(self)
 
 	if !is_in_sequence:
 		var doorway: Doorway = DoorCast.get_doorway()

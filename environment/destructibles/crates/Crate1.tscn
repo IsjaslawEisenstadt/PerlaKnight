@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://environment/destructibles/crates/textures/crate1_explosion.png" type="Texture" id=2]
 [ext_resource path="res://environment/destructibles/Destructible.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environment/decoration/Props.png" type="Texture" id=4]
+[ext_resource path="res://environment/loot_pickups/health_loot_pickup/HealthLootDrop.tres" type="Resource" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -115,6 +116,7 @@ tracks/3/keys = {
 }
 
 [node name="Crate1" instance=ExtResource( 3 )]
+possible_drops = [ ExtResource( 6 ) ]
 
 [node name="Sprite" parent="." index="0"]
 texture = SubResource( 1 )
