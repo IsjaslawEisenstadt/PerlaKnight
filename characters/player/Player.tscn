@@ -476,14 +476,13 @@ tracks/1/keys = {
 [sub_resource type="RayShape2D" id=22]
 length = 10.0
 
-[sub_resource type="CapsuleShape2D" id=23]
-radius = 9.0
-height = 14.0
+[sub_resource type="CircleShape2D" id=26]
+radius = 20.0
 
 [sub_resource type="CircleShape2D" id=24]
 radius = 32.0
 
-[sub_resource type="CircleShape2D" id=26]
+[sub_resource type="CircleShape2D" id=25]
 radius = 15.0
 
 [node name="Player" groups=[
@@ -625,8 +624,8 @@ collision_layer = 0
 collision_mask = 12
 
 [node name="AttackCollisionShape" type="CollisionShape2D" parent="Colliders/AttackHitbox" index="0"]
-position = Vector2( 25, -23 )
-shape = SubResource( 23 )
+position = Vector2( 14, -22 )
+shape = SubResource( 26 )
 disabled = true
 
 [node name="DoorCast" type="Node2D" parent="Colliders" index="4"]
@@ -675,9 +674,10 @@ collision_mask = 262144
 shape = SubResource( 24 )
 
 [node name="LootPicker" type="Area2D" parent="Colliders" index="6"]
+visible = false
 position = Vector2( 0, -18 )
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/LootPicker" index="0"]
-shape = SubResource( 26 )
+shape = SubResource( 25 )

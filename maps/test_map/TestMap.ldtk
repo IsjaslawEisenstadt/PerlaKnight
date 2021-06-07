@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 373,
+	"nextUid": 375,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -27,7 +27,7 @@
 	"pngFilePattern": null,
 	"backupOnSave": false,
 	"backupLimit": 10,
-	"levelNamePattern": "Level_%idx",
+	"levelNamePattern": "Level%idx",
 	"flags": [],
 	"defs": { "layers": [
 		{
@@ -2102,7 +2102,7 @@
 			]
 		},
 		{
-			"identifier": "Crate1",
+			"identifier": "Crate",
 			"uid": 361,
 			"tags": ["Destructibles"],
 			"width": 32,
@@ -2144,7 +2144,56 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/destructibles/crates/Crate1.tscn"]
+						"params": ["res://environment/destructibles/Crate.tscn"]
+					},
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "Barrel",
+			"uid": 373,
+			"tags": ["Destructibles"],
+			"width": 32,
+			"height": 32,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#777777",
+			"renderMode": "Tile",
+			"showName": false,
+			"tilesetId": 359,
+			"tileId": 2,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 374,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://environment/destructibles/Barrel.tscn"]
 					},
 					"textLanguageMode": null
 				}
@@ -6518,7 +6567,7 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [26,26],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -6526,10 +6575,10 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [848,864],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [13,12],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -6537,10 +6586,10 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [432,416],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [48,18],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -6548,10 +6597,10 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [1552,608],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [42,26],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -6559,10 +6608,10 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [1360,864],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [49,26],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -6570,10 +6619,10 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [1584,864],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [52,5],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -6581,10 +6630,10 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [1680,192],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [14,28],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -6592,10 +6641,10 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [464,928],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [17,5],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -6603,7 +6652,29 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [560,192],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Barrel",
+							"__grid": [33,26],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 373,
+							"px": [1072,864],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Barrel",
+							"__grid": [32,26],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 373,
+							"px": [1040,864],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
 						}
 					]
 				},
@@ -6761,8 +6832,6 @@
 						{ "px": [912,832], "src": [96,96], "f": 0, "t": 48, "d": [7233] },
 						{ "px": [944,832], "src": [128,96], "f": 0, "t": 49, "d": [7235] },
 						{ "px": [976,832], "src": [160,96], "f": 0, "t": 50, "d": [7237] },
-						{ "px": [1024,832], "src": [64,0], "f": 0, "t": 2, "d": [7240] },
-						{ "px": [1056,832], "src": [64,0], "f": 0, "t": 2, "d": [7242] },
 						{ "px": [160,896], "src": [64,64], "f": 0, "t": 32, "d": [7738] },
 						{ "px": [672,1024], "src": [0,0], "f": 0, "t": 0, "d": [8874] }
 					],
@@ -8268,7 +8337,7 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [13,17],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -8276,7 +8345,7 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [432,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						}
 					]
 				},
@@ -10925,7 +10994,7 @@
 					"gridTiles": [],
 					"entityInstances": [
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [77,15],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -10933,10 +11002,10 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [2480,512],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [58,17],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -10944,10 +11013,10 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [1872,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [56,17],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -10955,10 +11024,10 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [1808,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [15,17],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -10966,10 +11035,10 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [496,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate1",
+							"__identifier": "Crate",
 							"__grid": [14,17],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
@@ -10977,7 +11046,40 @@
 							"height": 32,
 							"defUid": 361,
 							"px": [464,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/crates/Crate1.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Barrel",
+							"__grid": [16,8],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 373,
+							"px": [528,288],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Barrel",
+							"__grid": [60,17],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 373,
+							"px": [1936,576],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Barrel",
+							"__grid": [80,5],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 373,
+							"px": [2576,192],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
 						}
 					]
 				},

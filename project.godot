@@ -67,7 +67,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Destructible",
 "language": "GDScript",
-"path": "res://environment/destructibles/Destructible.gd"
+"path": "res://environment/destructibles/base/Destructible.gd"
 }, {
 "base": "Node2D",
 "class": "DoorCast",
