@@ -1,11 +1,11 @@
 extends LootPickup
 class_name HealthLootPickup
 
-export var heal_amount := 1
+export var heal_amount: int = 1
 
-func _is_collectible() -> bool:
-	return player.current_health < player.max_health
-		
-func _on_pickup(player) -> void:
-	player.heal(heal_amount)
-	queue_free()
+func _can_pickup(character) -> bool:
+	return ._can_pickup(character) && character.current_health < character.max_health
+
+func _pickup(character) -> void:
+	._pickup(character)
+	character.current_health += heal_amount

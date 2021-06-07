@@ -83,9 +83,6 @@ func _set_current_health(new_health: int) -> void:
 		StateMachine.call_deferred("die")
 	
 	emit_signal("health_changed", current_health)
-	
-func heal(amount: int) -> void:
-	_set_current_health(current_health+amount)
 
 func set_max_health(new_max_health: int) -> void:
 	assert(new_max_health > 0)

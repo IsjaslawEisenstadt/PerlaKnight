@@ -10,22 +10,25 @@ const RUNE_RESOURCES_PATH: String = "res://environment/runes/resource"
 
 onready var DoorCast: DoorCast = $Colliders/DoorCast
 onready var SequenceController: SequenceController = $SequenceController
-onready var LootInfluenceRange := $Colliders/LootInfluenceRange
-onready var LootPickupRange := $Colliders/LootPickupRange
+onready var LootPicker: Area2D = $Colliders/LootPicker
 
 var closest_interaction: Interaction
 
 var is_in_sequence: bool = false
-
-func _ready() -> void:
-	LootInfluenceRange.connect("body_entered", self, "on_loot_influence_range_entered")
-	LootPickupRange.connect("body_entered", self, "on_loot_pickup_range_entered")
 
 func _process(_delta: float) -> void:
 
 	if InputController._is_action_just_activated("reset"):
 		# a 'default' transition call, this will infer to use checkpoints
 		emit_signal("transition_requested", null, null)
+
+	var loot_in_range: Array = LootPicker.get_overlapping_bodies()
+	if !loot_in_range.empty():
+		for loot in loot_in_range:
+			assert(loot is LootPickup)
+			if loot._can_pickup(self):
+				if loot is HealthLootPickup:
+					loot._pickup(self)
 
 	if !is_in_sequence:
 		var doorway: Doorway = DoorCast.get_doorway()
@@ -104,10 +107,3 @@ func add_rune(rune: Rune) -> void:
 	
 	emit_signal("rune_added", rune)
 	emit_signal("save_requested")
-
-func on_loot_influence_range_entered(loot) -> void:
-	loot._on_influence(self)
-	
-func on_loot_pickup_range_entered(loot) -> void:
-	if loot._is_collectible():
-		loot.pickup(self)
