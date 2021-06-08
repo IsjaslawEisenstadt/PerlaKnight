@@ -7,10 +7,8 @@ extents = Vector2( 32, 32 )
 
 [node name="Hazard" type="Area2D"]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 7168
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-
-[connection signal="body_entered" from="." to="." method="on_body_entered"]

@@ -19,9 +19,7 @@ var host: Character
 var input_controller: AIController
 
 func is_standing_on_edge() -> bool:
-	assert(EdgeCollider)
-	return EdgeCollider.get_overlapping_bodies().empty()
+	return EdgeCollider && EdgeCollider.get_overlapping_bodies().empty()
 
 func is_near_wall() -> bool:
-	assert(WallCollider)
-	return !WallCollider.get_overlapping_bodies().empty()
+	return WallCollider && !WallCollider.get_overlapping_bodies().empty()

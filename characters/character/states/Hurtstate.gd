@@ -7,13 +7,15 @@ export var idle_state_path: NodePath = "../IdleState"
 
 export var kickback_strength: float = 550.0
 
+export var makes_invincible: bool = true
+
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	
 	assert("attacker" in params)
 	var attacker: Node2D = params.attacker
 	
-	host.invincible = true
+	host.invincible = makes_invincible
 	var direction := int(sign(attacker.global_position.x - host.global_position.x))
 	if direction != 0:
 		host.look_direction = direction

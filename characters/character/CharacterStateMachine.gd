@@ -9,6 +9,8 @@ export var start_state_path: NodePath = "IdleState"
 export var death_state_path: NodePath = "DeathState"
 export var hurt_state_path: NodePath = "HurtState"
 
+var alive: bool = true
+
 func _push_state(next_state: State, params: Dictionary = {}) -> bool:
 	assert(!next_state || next_state is CharacterState)
 	return ._push_state(next_state, params)
@@ -17,8 +19,12 @@ func start() -> void:
 	var start_success = _push_state(StartState)
 	assert(start_success)
 
-func die() -> bool:
-	return _push_state(DeathState)
+func die() -> void:
+	alive = false
+	call_deferred("_push_state", DeathState)
 
 func hurt(attacker: Node2D) -> bool:
-	return _push_state(HurtState,{"attacker": attacker})
+	if get_current_state() == HurtState:
+		return _pop_push(HurtState, {"attacker": attacker})
+	else:
+		return _push_state(HurtState, {"attacker": attacker})

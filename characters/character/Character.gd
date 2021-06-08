@@ -9,6 +9,7 @@ onready var AnimationPlayer := $AnimationPlayer
 onready var InputController: InputController = $InputController setget ,_get_input_controller
 onready var StateMachine := $StateMachine
 onready var Interactor := $Colliders/Interactor
+onready var Colliders := $Colliders
 onready var AttackHitBoxCollider := get_node_or_null("Colliders/AttackHitbox/AttackCollisionShape") as CollisionShape2D
 
 export var max_health: int = 4 setget set_max_health
@@ -32,10 +33,11 @@ func _ready() -> void:
 	StateMachine.start()
 
 func _process(delta: float):
-	_interaction_process()
+	if StateMachine.alive:
+		_interaction_process()
 	
-	if double_jump_acquired && !can_double_jump && is_on_floor():
-		can_double_jump = true
+		if double_jump_acquired && !can_double_jump && is_on_floor():
+			can_double_jump = true
 
 	StateMachine._state_machine_process(delta)
 
@@ -81,7 +83,7 @@ func _set_current_health(new_health: int) -> void:
 	
 	current_health = new_health
 	if current_health <= 0:
-		StateMachine.call_deferred("die")
+		StateMachine.die()
 	
 	emit_signal("health_changed", current_health)
 
@@ -93,7 +95,7 @@ func set_max_health(new_max_health: int) -> void:
 	emit_signal("max_health_changed", max_health)
 
 func hit(attacker: Node2D, damage: int) -> void:
-	if !invincible:
+	if !invincible && StateMachine.alive:
 		self.current_health -= damage
 		StateMachine.hurt(attacker)
 

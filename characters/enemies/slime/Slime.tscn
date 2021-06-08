@@ -15,7 +15,7 @@
 [ext_resource path="res://environment/hazards/base/Hazard.tscn" type="PackedScene" id=13]
 [ext_resource path="res://characters/character/states/jump/LandState.gd" type="Script" id=14]
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 15.5 )
 
 [sub_resource type="Animation" id=2]
@@ -52,7 +52,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-length = 0.4
+length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -60,10 +60,10 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 30, 33 ]
+"values": [ 31, 32 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -98,7 +98,7 @@ tracks/0/keys = {
 "values": [ 25, 26 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=7]
 resource_name = "land"
 length = 0.3
 tracks/0/type = "value"
@@ -114,7 +114,7 @@ tracks/0/keys = {
 "values": [ 27, 29 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=8]
 resource_name = "up_to_jump"
 length = 0.3
 tracks/0/type = "value"
@@ -130,34 +130,33 @@ tracks/0/keys = {
 "values": [ 29, 27 ]
 }
 
-[sub_resource type="RayShape2D" id=8]
+[sub_resource type="RayShape2D" id=9]
 length = 46.6239
 
-[sub_resource type="RayShape2D" id=9]
+[sub_resource type="RayShape2D" id=10]
 length = 29.922
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=11]
 radius = 170.0
 
-[sub_resource type="CircleShape2D" id=14]
+[sub_resource type="CircleShape2D" id=12]
 radius = 15.5
 
 [node name="Slime" instance=ExtResource( 2 )]
-collision_layer = 0
+collision_layer = 2048
 collision_mask = 1
-max_health = 2
+max_health = 3
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )
 offset = Vector2( 0, -16 )
 hframes = 10
 vframes = 5
-frame = 40
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
 position = Vector2( 0, -15.5 )
-shape = SubResource( 13 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." index="2"]
 anims/death = SubResource( 2 )
@@ -165,8 +164,8 @@ anims/fall = SubResource( 3 )
 anims/hurt = SubResource( 4 )
 anims/idle = SubResource( 5 )
 anims/jump = SubResource( 6 )
-anims/land = SubResource( 11 )
-anims/up_to_jump = SubResource( 12 )
+anims/land = SubResource( 7 )
+anims/up_to_jump = SubResource( 8 )
 
 [node name="InputController" parent="." index="3"]
 script = ExtResource( 8 )
@@ -205,15 +204,18 @@ host_path = NodePath("../..")
 animation_name = "death"
 move_speed = 0.0
 move_damping = 1.0
-despawnable = true
-collision_layer = 1
-collision_mask = 0
+will_despawn = true
+time_to_despawn = 0.15
+collision_layer = 0
+collision_mask = 1
 
 [node name="HurtState" type="Node" parent="StateMachine" index="2"]
 script = ExtResource( 3 )
 host_path = NodePath("../..")
 animation_name = "hurt"
 move_speed = 80.0
+kickback_strength = 0.0
+makes_invincible = false
 
 [node name="Jump" type="Node" parent="StateMachine" index="3"]
 
@@ -257,7 +259,7 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/EdgeCollider" index="0"]
 position = Vector2( 0, -32.8949 )
 rotation = -0.785398
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="WallCollider" type="Area2D" parent="Colliders" index="2"]
 visible = false
@@ -267,7 +269,7 @@ collision_layer = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/WallCollider" index="0"]
 position = Vector2( 0, -18.133 )
 rotation = -1.5708
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Perception" type="Area2D" parent="Colliders" index="3"]
 visible = false
@@ -277,14 +279,15 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Perception" index="0"]
 position = Vector2( 0.374573, 0 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Hazard" parent="Colliders" index="4" instance=ExtResource( 13 )]
 visible = false
 position = Vector2( 0, 15 )
+collision_mask = 1024
 
 [node name="CollisionShape2D" parent="Colliders/Hazard" index="0"]
 position = Vector2( 0, -15.5 )
-shape = SubResource( 14 )
+shape = SubResource( 12 )
 
 [editable path="Colliders/Hazard"]

@@ -538,7 +538,7 @@ tracks/1/keys = {
 [sub_resource type="RayShape2D" id=22]
 length = 10.0
 
-[sub_resource type="CircleShape2D" id=26]
+[sub_resource type="CircleShape2D" id=23]
 radius = 20.0
 
 [sub_resource type="CircleShape2D" id=24]
@@ -650,14 +650,15 @@ ground_dash_end_damping = 0.9
 script = ExtResource( 11 )
 host_path = NodePath("../..")
 animation_name = "death"
-collision_layer = 1
-collision_mask = 0
+collision_layer = 0
+collision_mask = 1
 
 [node name="HurtState" type="Node" parent="StateMachine" index="4"]
 script = ExtResource( 12 )
 host_path = NodePath("../..")
 animation_name = "hurt"
 move_speed = 80.0
+kickback_strength = 450.0
 
 [node name="Interactor" parent="Colliders" index="0"]
 visible = false
@@ -684,11 +685,11 @@ shape = SubResource( 22 )
 [node name="AttackHitbox" type="Area2D" parent="Colliders" index="3"]
 visible = false
 collision_layer = 0
-collision_mask = 12
+collision_mask = 2056
 
 [node name="AttackCollisionShape" type="CollisionShape2D" parent="Colliders/AttackHitbox" index="0"]
 position = Vector2( 14, -22 )
-shape = SubResource( 26 )
+shape = SubResource( 23 )
 disabled = true
 
 [node name="DoorCast" type="Node2D" parent="Colliders" index="4"]
