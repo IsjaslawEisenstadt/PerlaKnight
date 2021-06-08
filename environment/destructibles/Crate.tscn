@@ -1,18 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
+[ext_resource path="res://environment/destructibles/sounds/crate_destruct.wav" type="AudioStream" id=1]
 [ext_resource path="res://environment/destructibles/textures/crate_explosion.png" type="Texture" id=2]
 [ext_resource path="res://environment/destructibles/base/Destructible.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environment/decoration/Props.png" type="Texture" id=4]
 [ext_resource path="res://environment/loot_pickups/health_loot_pickup/HealthLootDrop.tres" type="Resource" id=6]
 
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 4 )
-region = Rect2( 96, 0, 32, 32 )
-
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 11 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.666667
 step = 0.0416667
 tracks/0/type = "value"
@@ -76,7 +73,11 @@ tracks/4/keys = {
 "values": [ Vector2( -1, -17 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="Animation" id=4]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -88,7 +89,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ SubResource( 4 ) ]
+"values": [ SubResource( 3 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -143,14 +144,19 @@ tracks/4/keys = {
 possible_drops = [ ExtResource( 6 ) ]
 
 [node name="Sprite" parent="." index="0"]
-texture = SubResource( 4 )
-offset = Vector2( 0, -16 )
+texture = ExtResource( 2 )
+offset = Vector2( -1, -17 )
+hframes = 4
+vframes = 4
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, -11 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." index="2"]
 autoplay = "reset_pose"
-anims/destruct = SubResource( 3 )
-anims/reset_pose = SubResource( 5 )
+anims/destruct = SubResource( 2 )
+anims/reset_pose = SubResource( 4 )
+
+[node name="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource( 1 )
