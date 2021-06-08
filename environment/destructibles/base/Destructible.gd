@@ -26,12 +26,18 @@ func drop_random(drop_dir: int = 1) -> void:
 func on_area_entered(area) -> void:
 	if !$AnimationPlayer.is_playing():
 		$AnimationPlayer.play(destruct_animation_name)
+		if $AudioStreamPlayer2D.playing == false:
+			$AudioStreamPlayer2D.play()
 		
 		var drop_dir := int(sign((global_position - area.global_position).x))
 		# calling immediately causes physics issues
 		call_deferred("drop_random", drop_dir)
 
 func on_animation_finished(anim_name):
-	if anim_name == destruct_animation_name:
+	if anim_name == destruct_animation_name and $AudioStreamPlayer2D.playing == false:
 		get_parent().remove_child(self)
 		queue_free()
+
+func _on_AudioStreamPlayer2D_finished():
+	get_parent().remove_child(self)
+	queue_free()
