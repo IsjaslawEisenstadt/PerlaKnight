@@ -5,6 +5,7 @@ signal transition_finished()
 
 onready var TransitionEffect = $TransitionEffect
 onready var AnimationPlayer = $AnimationPlayer
+onready var TransitionSound = $TransitionSound
 
 func _ready() -> void:
 	TransitionEffect.visible = false
@@ -12,6 +13,8 @@ func _ready() -> void:
 func start(transition_name: String) -> void:
 	TransitionEffect.visible = true
 	AnimationPlayer.play(transition_name)
+	if TransitionSound.playing == false:
+		TransitionSound.play()
 
 func is_playing() -> bool:
 	return AnimationPlayer.is_playing()
