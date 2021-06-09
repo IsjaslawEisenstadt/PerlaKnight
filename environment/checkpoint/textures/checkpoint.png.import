@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/food.png-24e4d94d527f18c3400fcaaf32c7964d.stex"
+path="res://.import/checkpoint.png-6ecfe64eec829839693e0761d265eb8f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/loot_pickups/health_loot_pickup/textures/food.png"
-dest_files=[ "res://.import/food.png-24e4d94d527f18c3400fcaaf32c7964d.stex" ]
+source_file="res://environment/checkpoint/textures/checkpoint.png"
+dest_files=[ "res://.import/checkpoint.png-6ecfe64eec829839693e0761d265eb8f.stex" ]
 
 [params]
 
