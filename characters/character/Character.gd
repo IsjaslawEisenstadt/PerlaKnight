@@ -8,8 +8,7 @@ onready var AnimationPlayer := $AnimationPlayer
 onready var InputController: InputController = $InputController setget ,_get_input_controller
 onready var StateMachine := $StateMachine
 onready var Interactor := $Colliders/Interactor
-onready var AudioCombatPlayer := $AudioCombatPlayer
-onready var AudioMovementPlayer := $AudioMovementPlayer
+onready var Sounds := $Sounds
 
 export var max_health: int = 5
 
@@ -92,3 +91,14 @@ func hit(attacker: Node2D, damage: int) -> void:
 # can be overridden to dynamically switch between different input controllers
 func _get_input_controller() -> InputController:
 	return InputController
+
+func play_sound(player_name: String) -> void:
+	var player := Sounds.get_node_or_null(player_name) as AudioStreamPlayer2D
+	if player:
+		player._play()
+
+func is_playing_sound(player_name: String) -> bool:
+	var player := Sounds.get_node_or_null(player_name) as AudioStreamPlayer2D
+	if player:
+		return player.playing
+	return false
