@@ -23,6 +23,7 @@
 [ext_resource path="res://utility/stream_player/VariationStreamPlayer.gd" type="Script" id=16]
 [ext_resource path="res://utility/stream_player/SingleStreamPlayer.gd" type="Script" id=17]
 [ext_resource path="res://characters/player/sound/dash/dash_swoosh.wav" type="AudioStream" id=18]
+[ext_resource path="res://characters/player/sound/hurt/hurt_grunt.wav" type="AudioStream" id=20]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.0

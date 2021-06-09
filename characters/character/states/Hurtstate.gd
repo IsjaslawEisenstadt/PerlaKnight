@@ -2,11 +2,12 @@ extends PhysicsState
 class_name HurtState
 
 export var kickback_strength: float = 1000.0
+export var hurt_player_name: String = "HurtSound"
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	
-	host.AudioMovementPlayer.load_play("hurt")
+	host.play_sound(hurt_player_name)
 	
 	assert("attacker" in params)
 	var attacker: Node2D = params.attacker
