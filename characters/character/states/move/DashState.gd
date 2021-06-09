@@ -11,6 +11,8 @@ export var ground_dash_end_animation: String = "dash_end"
 export var ground_dash_end_animation_speed: float = 1.0
 export var ground_dash_end_damping: float = 0.5
 
+export var dash_player_name: String = "DashSound"
+
 var travel_finished: bool = false
 
 func _process(_delta: float) -> void:
@@ -23,7 +25,7 @@ func _can_enter() -> bool:
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	
-	host.AudioMovementPlayer.load_play("dash")
+	host.play_sound(dash_player_name)
 	travel_finished = false
 	host.can_dash = false
 
