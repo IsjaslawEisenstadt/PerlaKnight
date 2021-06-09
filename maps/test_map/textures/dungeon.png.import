@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ForestLampSet1.png-d2580e19b973b6d688519fd1786c7630.stex"
+path="res://.import/dungeon.png-1f14aaf5e85e65524dc278d230f2fab9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/decoration/lamps/textures/ForestLampSet1.png"
-dest_files=[ "res://.import/ForestLampSet1.png-d2580e19b973b6d688519fd1786c7630.stex" ]
+source_file="res://maps/test_map/textures/dungeon.png"
+dest_files=[ "res://.import/dungeon.png-1f14aaf5e85e65524dc278d230f2fab9.stex" ]
 
 [params]
 
