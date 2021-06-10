@@ -1,6 +1,6 @@
 tool
-extends SingleStreamPlayer
-class_name AudioVariation
+extends AudioPlayer
+class_name RandomAudioPlayer
 
 export(Array, AudioStream) var sounds
 

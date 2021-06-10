@@ -15,14 +15,14 @@
 [ext_resource path="res://characters/character/input/SequenceController.gd" type="Script" id=13]
 [ext_resource path="res://characters/character/ai/sequences/DoorSequence.gd" type="Script" id=14]
 [ext_resource path="res://characters/player/DoorCast.gd" type="Script" id=15]
-[ext_resource path="res://utility/stream_player/VariationStreamPlayer.gd" type="Script" id=16]
-[ext_resource path="res://utility/stream_player/SingleStreamPlayer.gd" type="Script" id=17]
-[ext_resource path="res://music_sounds/sound/attack/sword_stroke.wav" type="AudioStream" id=18]
-[ext_resource path="res://music_sounds/sound/movement/jump_grunt.wav" type="AudioStream" id=19]
-[ext_resource path="res://characters/player/sound/hurt/hurt_grunt.wav" type="AudioStream" id=20]
-[ext_resource path="res://music_sounds/sound/movement/jump_grunt2.wav" type="AudioStream" id=21]
-[ext_resource path="res://characters/player/sound/dash/dash_swoosh.wav" type="AudioStream" id=22]
-[ext_resource path="res://music_sounds/sound/movement/step_stone.wav" type="AudioStream" id=23]
+[ext_resource path="res://utility/audio_player/RandomAudioPlayer.gd" type="Script" id=16]
+[ext_resource path="res://utility/audio_player/AudioPlayer.gd" type="Script" id=17]
+[ext_resource path="res://characters/player/sound/attack.wav" type="AudioStream" id=18]
+[ext_resource path="res://characters/player/sound/jump1.wav" type="AudioStream" id=19]
+[ext_resource path="res://characters/player/sound/hurt.wav" type="AudioStream" id=20]
+[ext_resource path="res://characters/player/sound/jump2.wav" type="AudioStream" id=21]
+[ext_resource path="res://characters/player/sound/dash.wav" type="AudioStream" id=22]
+[ext_resource path="res://characters/player/sound/move_short.wav" type="AudioStream" id=23]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.0
@@ -705,8 +705,10 @@ sounds = [ ExtResource( 18 ) ]
 [node name="Dash" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
 stream = ExtResource( 22 )
 script = ExtResource( 17 )
+demo = false
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
 stream = ExtResource( 20 )
 volume_db = -8.0
 script = ExtResource( 17 )
+demo = false

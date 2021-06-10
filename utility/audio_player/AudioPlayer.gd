@@ -1,6 +1,6 @@
 tool
 extends AudioStreamPlayer2D
-class_name SingleStreamPlayer
+class_name AudioPlayer
 
 export var demo: bool = false setget _play
 
