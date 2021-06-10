@@ -25,6 +25,8 @@ var invincible: bool = false
 var can_dash: bool = dash_acquired
 var can_double_jump: bool = double_jump_acquired
 
+var audio_player_cache: Dictionary = {}
+
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
 	AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
@@ -93,12 +95,21 @@ func _get_input_controller() -> InputController:
 	return InputController
 
 func play_sound(player_name: String) -> void:
-	var player := Sounds.get_node_or_null(player_name) as AudioStreamPlayer2D
-	if player:
-		player._play()
+	if player_name in audio_player_cache:
+		audio_player_cache[player_name]._play()
+	else:
+		var player := Sounds.get_node_or_null(player_name) as AudioStreamPlayer2D
+		if player:
+			audio_player_cache[player_name] = player
+			player._play()
 
 func is_playing_sound(player_name: String) -> bool:
+	if player_name in audio_player_cache:
+		return audio_player_cache[player_name].playing
+	
 	var player := Sounds.get_node_or_null(player_name) as AudioStreamPlayer2D
 	if player:
+		audio_player_cache[player_name] = player
 		return player.playing
+	
 	return false

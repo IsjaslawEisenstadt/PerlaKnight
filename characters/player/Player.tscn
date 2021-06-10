@@ -15,15 +15,14 @@
 [ext_resource path="res://characters/character/input/SequenceController.gd" type="Script" id=13]
 [ext_resource path="res://characters/character/ai/sequences/DoorSequence.gd" type="Script" id=14]
 [ext_resource path="res://characters/player/DoorCast.gd" type="Script" id=15]
-[ext_resource path="res://characters/player/AudioStreamPlayer.gd" type="Script" id=16]
-[ext_resource path="res://music_sounds/sound/movement/dash_swoosh.wav" type="AudioStream" id=17]
-[ext_resource path="res://music_sounds/sound/attack/sword_stroke.wav" type="AudioStream" id=18]
-[ext_resource path="res://music_sounds/sound/movement/jump_grunt.wav" type="AudioStream" id=19]
-[ext_resource path="res://music_sounds/sound/movement/hurt_grunt.wav" type="AudioStream" id=20]
 [ext_resource path="res://utility/stream_player/VariationStreamPlayer.gd" type="Script" id=16]
 [ext_resource path="res://utility/stream_player/SingleStreamPlayer.gd" type="Script" id=17]
-[ext_resource path="res://characters/player/sound/dash/dash_swoosh.wav" type="AudioStream" id=18]
+[ext_resource path="res://music_sounds/sound/attack/sword_stroke.wav" type="AudioStream" id=18]
+[ext_resource path="res://music_sounds/sound/movement/jump_grunt.wav" type="AudioStream" id=19]
 [ext_resource path="res://characters/player/sound/hurt/hurt_grunt.wav" type="AudioStream" id=20]
+[ext_resource path="res://music_sounds/sound/movement/jump_grunt2.wav" type="AudioStream" id=21]
+[ext_resource path="res://characters/player/sound/dash/dash_swoosh.wav" type="AudioStream" id=22]
+[ext_resource path="res://music_sounds/sound/movement/step_stone.wav" type="AudioStream" id=23]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 9.0
@@ -505,7 +504,6 @@ texture = ExtResource( 4 )
 offset = Vector2( 7.5, -21 )
 hframes = 6
 vframes = 21
-frame = 77
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
@@ -562,6 +560,7 @@ attack_animations = [ "jump_attack1", "jump_attack2" ]
 attack_hitbox_path = NodePath("../../../Colliders/AttackHitbox")
 max_jump_height = 90.0
 min_jump_height = 15.0
+jump_sound = "Dash"
 
 [node name="FallState" type="Node" parent="StateMachine/Jump" index="1"]
 script = ExtResource( 9 )
@@ -682,22 +681,32 @@ collision_mask = 262144
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/DoorSequenceRange" index="0"]
 shape = SubResource( 24 )
 
-[node name="MoveSound" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
-script = ExtResource( 16 )
-sounds = [ ExtResource( 19 ), ExtResource( 19 ) ]
+[node name="Sounds" parent="." index="7"]
+position = Vector2( 0, -16 )
 
-[node name="DashSound" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+[node name="Move" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+position = Vector2( 0, 1 )
+stream = ExtResource( 23 )
+script = ExtResource( 16 )
+sounds = [ ExtResource( 23 ) ]
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+position = Vector2( 0, 1 )
+stream = ExtResource( 21 )
+script = ExtResource( 16 )
+sounds = [ ExtResource( 19 ), ExtResource( 21 ) ]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
 stream = ExtResource( 18 )
+volume_db = -5.0
+script = ExtResource( 16 )
+sounds = [ ExtResource( 18 ) ]
+
+[node name="Dash" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
+stream = ExtResource( 22 )
 script = ExtResource( 17 )
 
-[node name="HurtSound" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+[node name="Hurt" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
 stream = ExtResource( 20 )
+volume_db = -8.0
 script = ExtResource( 17 )
-
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
-script = ExtResource( 16 )
-sounds = [ ExtResource( 22 ) ]
-
-[node name="SwordAttackSound" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
-script = ExtResource( 16 )
-sounds = [ ExtResource( 24 ), ExtResource( 23 ) ]
