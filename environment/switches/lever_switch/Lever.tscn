@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://environment/switches/lever_switch/textures/lever_sheet-sheet.png" type="Texture" id=1]
+[ext_resource path="res://utility/interaction/Interaction.tscn" type="PackedScene" id=2]
+[ext_resource path="res://environment/switches/Switch.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Trigger"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 11 ]
+}
+
+[node name="Lever" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -16 )
+hframes = 12
+
+[node name="Icons" parent="Sprite" index="0"]
+visible = true
+position = Vector2( 0, -5 )
+
+[node name="IconLeft" parent="Sprite/Icons/IconLeftOffset" index="0"]
+position = Vector2( -12.4757, 0 )
+
+[node name="IconRight" parent="Sprite/Icons/IconRightOffset" index="0"]
+position = Vector2( 12.4757, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+anims/Trigger = SubResource( 1 )
