@@ -21,7 +21,6 @@
 [ext_resource path="res://ui/general/Button.tscn" type="PackedScene" id=19]
 [ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=22]
 
-
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 17 )
 region = Rect2( 48, 0, 16, 16 )

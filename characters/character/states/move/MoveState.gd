@@ -26,6 +26,8 @@ export var dash_state_path: NodePath = "../DashState"
 
 export var without_turn_state: bool = true
 
+export var move_sound: String = "Move"
+
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	if transition_mode & TransitionMode.TRANSITION_IN:
@@ -33,6 +35,8 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)
+	if !host.is_playing_sound(move_sound): 
+		host.play_sound(move_sound)
 
 	if host.InputController._is_action_just_activated("dash"):
 		if state_machine._push_state(DashState):

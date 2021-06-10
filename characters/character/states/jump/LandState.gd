@@ -8,6 +8,7 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	host.velocity.x *= 1 - slowdown
 	assert(host.AnimationPlayer.current_animation == animation_name)
+	host.AudioMovementPlayer.load_play("fall_on_stone")
 
 func _state_physics_process(delta: float) -> void:
 	._state_physics_process(delta)

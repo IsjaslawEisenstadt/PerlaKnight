@@ -5,6 +5,7 @@
 [ext_resource path="res://environment/loot_pickups/LootPickup.tscn" type="PackedScene" id=3]
 
 
+
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 7 )
 
