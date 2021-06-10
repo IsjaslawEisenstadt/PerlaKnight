@@ -8,6 +8,7 @@ atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )
 
 [resource]
+resource_name = "DashRune"
 script = ExtResource( 1 )
 name = "Dash Rune"
 description = "With this rune, you can dash."

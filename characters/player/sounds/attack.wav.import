@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/dash.wav-607f4c9e5bd210ed9942fc70bc592eb8.sample"
+path="res://.import/attack.wav-902829297499559fd3564d427ea3bb12.sample"
 
 [deps]
 
-source_file="res://characters/player/sound/dash.wav"
-dest_files=[ "res://.import/dash.wav-607f4c9e5bd210ed9942fc70bc592eb8.sample" ]
+source_file="res://characters/player/sounds/attack.wav"
+dest_files=[ "res://.import/attack.wav-902829297499559fd3564d427ea3bb12.sample" ]
 
 [params]
 

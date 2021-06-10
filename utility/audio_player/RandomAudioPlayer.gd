@@ -4,7 +4,7 @@ class_name RandomAudioPlayer
 
 export(Array, AudioStream) var sounds
 
-func _play(demo: bool = false) -> void:
+func _play(_demo: bool = false) -> void:
 	if sounds.empty():
 		._play()
 	else:

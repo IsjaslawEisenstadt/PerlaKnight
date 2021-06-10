@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/deer_animation_sheet.png-489ca1f1ae7e797226e4f1e7c298591f.stex"
+path="res://.import/dungeon.png-1f14aaf5e85e65524dc278d230f2fab9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/deer/textures/deer_animation_sheet.png"
-dest_files=[ "res://.import/deer_animation_sheet.png-489ca1f1ae7e797226e4f1e7c298591f.stex" ]
+source_file="res://maps/test_map/textures/dungeon.png"
+dest_files=[ "res://.import/dungeon.png-1f14aaf5e85e65524dc278d230f2fab9.stex" ]
 
 [params]
 

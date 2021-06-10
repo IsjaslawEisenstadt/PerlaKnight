@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://environment/decoration/lamps/textures/ForestLampSet1.png" type="Texture" id=1]
+[ext_resource path="res://environment/decoration/lamps/textures/forest_lamps.png" type="Texture" id=1]
 
 [node name="BrokenLamp1" type="Sprite"]
 texture = ExtResource( 1 )

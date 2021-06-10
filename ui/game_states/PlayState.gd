@@ -1,12 +1,10 @@
 extends GameState
 class_name PlayState
 
-#signal save_requested()
-
 # save files can become incompatible over time, with breaking changes being a real possibility.
 # a version number saved in these files will give us the chance to not read old save data
 # in order to ensure proper functionality, especially during active development
-const CURRENT_SAVE_VERSION: int = 3
+const CURRENT_SAVE_VERSION: int = 4
 
 const SAVE_FILE_PATH: String = "user://PerlaKnight.save"
 
@@ -41,8 +39,10 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 				assert("next_level_name" in params)
 				next_level_name = params.next_level_name
 			EnterPlayMode.LOAD_GAME:
-				assert("checkpoint_level" in save_data)
-				next_level_name = save_data.checkpoint_level
+				if "checkpoint_level" in save_data:
+					next_level_name = save_data.checkpoint_level
+				else:
+					next_level_name = new_game_level_name
 			EnterPlayMode.NEW_GAME:
 				next_level_name = new_game_level_name
 				reset_save_data()

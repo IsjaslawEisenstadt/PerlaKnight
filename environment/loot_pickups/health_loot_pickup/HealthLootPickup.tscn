@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://environment/loot_pickups/health_loot_pickup/HealthLootPickup.gd" type="Script" id=1]
+[ext_resource path="res://environment/loot_pickups/health_loot_pickup/textures/food.png" type="Texture" id=2]
+[ext_resource path="res://environment/loot_pickups/LootPickup.tscn" type="PackedScene" id=3]
+
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 7 )
+
+[node name="HealthLootPickup" instance=ExtResource( 3 )]
+script = ExtResource( 1 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 32, 96, 16, 16 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource( 1 )
