@@ -1,8 +1,8 @@
 [gd_scene load_steps=118 format=2]
 
-[ext_resource path="res://maps/Level.gd" type="Script" id=1]
-[ext_resource path="res://characters/player/Player.gd" type="Script" id=2]
-[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=3]
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=2]
+[ext_resource path="res://maps/Level.gd" type="Script" id=3]
 [ext_resource path="res://maps/test_map/textures/dungeon.png" type="Texture" id=4]
 [ext_resource path="res://maps/test_map/textures/forest.png" type="Texture" id=5]
 [ext_resource path="res://environment/decoration/props.png" type="Texture" id=6]
@@ -3347,7 +3347,7 @@ extents = Vector2( 592, 16 )
 extents = Vector2( 592, 16 )
 
 [node name="Level4" type="Node2D"]
-script = ExtResource( 1 )
+script = ExtResource( 3 )
 player_path = NodePath("Characters/Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 7 )]
@@ -3376,7 +3376,7 @@ z_index = 5
 position = Vector2( 383, 287 )
 collision_layer = 262144
 collision_mask = 262144
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 next_level = "Level3"
 next_door = "Door3"
 exit_direction = "Left"
@@ -3394,7 +3394,7 @@ z_index = 7
 position = Vector2( -552, 352 )
 collision_layer = 1024
 collision_mask = 1025
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 
 [node name="Collision_Forest" type="StaticBody2D" parent="."]
 position = Vector2( -736, 0 )
