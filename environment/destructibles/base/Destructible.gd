@@ -32,12 +32,13 @@ func on_area_entered(area) -> void:
 		var drop_dir := int(sign((global_position - area.global_position).x))
 		# calling immediately causes physics issues
 		call_deferred("drop_random", drop_dir)
+		
+		yield($AnimationPlayer, "animation_finished")
+		if $AudioStreamPlayer2D.playing:
+			yield($AudioStreamPlayer2D, "finished")
+		
+		destroy()
 
-func on_animation_finished(anim_name):
-	if anim_name == destruct_animation_name and $AudioStreamPlayer2D.playing == false:
-		get_parent().remove_child(self)
-		queue_free()
-
-func _on_AudioStreamPlayer2D_finished():
+func destroy() -> void:
 	get_parent().remove_child(self)
 	queue_free()
