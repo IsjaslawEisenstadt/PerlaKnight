@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tileset_Green.png-8112e311c0f896abdf4d277fd8e1846f.stex"
+path="res://.import/props.png-7acf20f9fc91124c5f1f2eaa4b4257cd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://maps/test_map/textures/Tileset_Green.png"
-dest_files=[ "res://.import/Tileset_Green.png-8112e311c0f896abdf4d277fd8e1846f.stex" ]
+source_file="res://environment/decoration/props.png"
+dest_files=[ "res://.import/props.png-7acf20f9fc91124c5f1f2eaa4b4257cd.stex" ]
 
 [params]
 
