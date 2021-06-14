@@ -378,6 +378,10 @@ config/name="PerlaKnight"
 run/main_scene="res://ui/GameStateMachine.tscn"
 config/icon="res://utility/icons/icon.png"
 
+[audio]
+
+default_bus_layout="res://utility/bus_layout.tres"
+
 [autoload]
 
 Utility="*res://utility/Utility.gd"
