@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://environment/destructibles/sounds/crate_destruct.wav" type="AudioStream" id=1]
+[ext_resource path="res://environment/destructibles/sounds/impactwood23.wav" type="AudioStream" id=1]
 [ext_resource path="res://environment/destructibles/textures/crate_explosion.png" type="Texture" id=2]
 [ext_resource path="res://environment/destructibles/base/Destructible.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environment/decoration/props.png" type="Texture" id=4]

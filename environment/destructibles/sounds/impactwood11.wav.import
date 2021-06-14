@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/impactwood11.wav-6a3223b722fc649b064c15764d8a5069.sample"
+
+[deps]
+
+source_file="res://environment/destructibles/sounds/impactwood11.wav"
+dest_files=[ "res://.import/impactwood11.wav-6a3223b722fc649b064c15764d8a5069.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
