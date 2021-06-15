@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GUI.png-074d774bb81b9ad2280e0430bd4036c8.stex"
+path="res://.import/barrel_explosion.png-c7594e7958e5290c53a38d69311a16a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/general/textures/GUI.png"
-dest_files=[ "res://.import/GUI.png-074d774bb81b9ad2280e0430bd4036c8.stex" ]
+source_file="res://environment/destructibles/textures/barrel_explosion.png"
+dest_files=[ "res://.import/barrel_explosion.png-c7594e7958e5290c53a38d69311a16a4.stex" ]
 
 [params]
 

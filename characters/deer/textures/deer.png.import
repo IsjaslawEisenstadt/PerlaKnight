@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ForestLampSet1.png-d2580e19b973b6d688519fd1786c7630.stex"
+path="res://.import/deer.png-2facd227289423a29c48dac2559709ad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/decoration/lamps/textures/ForestLampSet1.png"
-dest_files=[ "res://.import/ForestLampSet1.png-d2580e19b973b6d688519fd1786c7630.stex" ]
+source_file="res://characters/deer/textures/deer.png"
+dest_files=[ "res://.import/deer.png-2facd227289423a29c48dac2559709ad.stex" ]
 
 [params]
 

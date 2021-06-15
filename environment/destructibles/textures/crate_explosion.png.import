@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Clouds.png-1fa8c1ec7a2ee2bd63b559e79752cb75.stex"
+path="res://.import/crate_explosion.png-6416306cc58c08b7bf8f1feb4fd59783.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://maps/background/textures/Clouds.png"
-dest_files=[ "res://.import/Clouds.png-1fa8c1ec7a2ee2bd63b559e79752cb75.stex" ]
+source_file="res://environment/destructibles/textures/crate_explosion.png"
+dest_files=[ "res://.import/crate_explosion.png-6416306cc58c08b7bf8f1feb4fd59783.stex" ]
 
 [params]
 

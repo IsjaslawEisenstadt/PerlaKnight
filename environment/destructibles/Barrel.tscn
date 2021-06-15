@@ -1,19 +1,20 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://environment/destructibles/crates/textures/crate1_explosion.png" type="Texture" id=2]
-[ext_resource path="res://environment/destructibles/Destructible.tscn" type="PackedScene" id=3]
-[ext_resource path="res://environment/decoration/Props.png" type="Texture" id=4]
+[ext_resource path="res://environment/destructibles/textures/barrel_explosion.png" type="Texture" id=1]
+[ext_resource path="res://environment/destructibles/base/Destructible.tscn" type="PackedScene" id=3]
+[ext_resource path="res://environment/decoration/props.png" type="Texture" id=4]
 [ext_resource path="res://environment/loot_pickups/health_loot_pickup/HealthLootDrop.tres" type="Resource" id=6]
+
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
-region = Rect2( 96, 0, 32, 32 )
+region = Rect2( 64, 0, 32, 32 )
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 16, 11 )
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10, 11.5 )
 
 [sub_resource type="Animation" id=3]
-length = 0.5
+length = 0.541667
 step = 0.0416667
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
@@ -25,7 +26,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:hframes")
@@ -58,10 +59,22 @@ tracks/3/loop_wrap = false
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.458333 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 0, 14 ]
+"values": [ 0, 12 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, -17 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -114,8 +127,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 0 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ) ]
+}
 
-[node name="Crate1" instance=ExtResource( 3 )]
+[node name="Barrel" instance=ExtResource( 3 )]
 possible_drops = [ ExtResource( 6 ) ]
 
 [node name="Sprite" parent="." index="0"]
@@ -123,9 +148,8 @@ texture = SubResource( 1 )
 offset = Vector2( 0, -16 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = false
-position = Vector2( 0, -11 )
-shape = SubResource( 2 )
+position = Vector2( 0, -11.5 )
+shape = SubResource( 5 )
 
 [node name="AnimationPlayer" parent="." index="2"]
 autoplay = "reset_pose"
