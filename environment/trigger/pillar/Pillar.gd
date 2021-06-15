@@ -1,6 +1,7 @@
-extends StaticBody2D
+extends Trigger
+class_name Pillar
 
-var switch: Switch
 
-func _ready():
-	pass # Replace with function body.
+func _on_switch_triggered(activated):
+	print("Pillar")
+	pass
