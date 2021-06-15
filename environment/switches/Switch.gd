@@ -15,9 +15,6 @@ func _interact(character) -> void:
 	else: 
 		$AnimationPlayer.play_backwards("Trigger")
 		emit_signal("switch_triggered", false)
-		
-func _can_interact(_character) -> bool:
-	return true
 
 func on_animation_finished(anim_name):
 	triggered = !triggered
