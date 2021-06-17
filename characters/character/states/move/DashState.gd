@@ -40,13 +40,15 @@ func _state_physics_process(delta: float) -> void:
 
 	#fall(delta, true)
 	move(delta)
-	host.velocity = host.move_and_slide_with_snap(host.velocity, SNAP_DISTANCE, FLOOR_DIRECTION, true, MAX_SLIDES, MAX_FLOOR_ANGLE)
+	apply_velocity()
 	
 	if host.is_on_wall():
 		if state_machine._pop_push(WallJumpState):
 			return
 
 func _on_animation_finished(finished_animation_name: String) -> void:
+	._on_animation_finished(finished_animation_name)
+	
 	if finished_animation_name == animation_name:
 		travel_finished = true
 		current_move_damping = ground_dash_end_damping

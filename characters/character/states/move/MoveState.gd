@@ -53,7 +53,7 @@ func _state_physics_process(delta: float) -> void:
 
 	fall(delta, true)
 	move(delta)
-	host.velocity = host.move_and_slide_with_snap(host.velocity, SNAP_DISTANCE, FLOOR_DIRECTION, true, MAX_SLIDES, MAX_FLOOR_ANGLE)
+	apply_velocity()
 
 	# is_on_floor() should always be called directly after move_and_slide
 	if !host.is_on_floor():

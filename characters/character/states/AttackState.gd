@@ -54,12 +54,13 @@ func _state_process(delta: float) -> void:
 			attack_queued = false
 			play_animation(attack_animations[attack_index])
 
-func _state_exit(next_state: State) -> void:
-	._state_exit(next_state)
+func _state_exit(next_state: State, params: Dictionary = {}) -> void:
+	._state_exit(next_state, params)
 	hit_characters.clear()
 
 func _on_animation_finished(finished_animation_name: String) -> void:
 	._on_animation_finished(finished_animation_name)
+	
 	if finished_animation_name in attack_animations:
 		hit_characters.clear()
 		if attack_queued:

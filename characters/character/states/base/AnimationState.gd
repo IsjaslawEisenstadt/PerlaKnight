@@ -11,7 +11,8 @@ export var animation_speed: float = 1.0
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	if "animation_override" in params:
-		play_animation(params.animation_override.animation_name, animation_speed, params.animation_override.frame)
+		if "animation_name" in params.animation_override:
+			play_animation(params.animation_override.animation_name, animation_speed, params.animation_override.frame)
 	else:
 		play_animation()
 

@@ -60,11 +60,11 @@ func _state_physics_process(delta: float) -> void:
 	
 	if current_move_direction != 0 && current_move_direction != host.look_direction:
 		host.look_direction = current_move_direction
-
+	
 	fall(delta)
 	move(delta)
-	host.velocity = host.move_and_slide(host.velocity, FLOOR_DIRECTION)
-
+	apply_velocity()
+	
 	if host.is_on_floor():
 		if without_landing:
 			state_machine._pop_state()
@@ -76,6 +76,6 @@ func _state_physics_process(delta: float) -> void:
 		if state_machine._pop_push(WallJumpState):
 			return
 
-func _state_exit(next_state: State) -> void:
-	._state_exit(next_state)
+func _state_exit(next_state: State, params: Dictionary = {}) -> void:
+	._state_exit(next_state, params)
 	coyote_jump_timer.stop()

@@ -5,6 +5,8 @@ class_name DeathState
 export var will_despawn: bool = false
 export var time_to_despawn: float = 3.0
 
+export var force_animation: bool = false
+
 var collision_layer: int = 0
 var collision_mask: int = 1
 
@@ -17,18 +19,23 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	host.Colliders.queue_free()
 	
 	host.velocity.x = 0.0
+	
+	if force_animation:
+		host.AnimationPlayer.play(animation_name)
+		host.HurtPlayer.stop()
 
 func _state_physics_process(delta: float) -> void:
 	._state_physics_process(delta)
 	fall(delta)
-	host.velocity = host.move_and_slide(host.velocity, FLOOR_DIRECTION, true)
+	move(delta)
+	apply_velocity()
 
-func _on_animation_finished(_finished_animation_name: String) -> void:
-	if will_despawn:
+func _on_animation_finished(finished_animation_name: String) -> void:
+	if finished_animation_name == animation_name && will_despawn:
 		yield(get_tree().create_timer(time_to_despawn, false), "timeout")
 		host.queue_free()
 
-func _state_exit(_next_state: State) -> void:
+func _state_exit(_next_state: State, _params: Dictionary = {}) -> void:
 	assert(false, "Can't leave a DeathState")
 
 # this is required to export collision layers

@@ -1,14 +1,8 @@
 extends StateMachine
-class_name AIStateMachine
-
-"""
-a state machine for AI states, it's base state is called AI
-works like a regular state machine but also supplies AI states with the host
-and input_controller
-"""
+class_name SequenceStateMachine
 
 var host: Character
-var input_controller: Node
+var input_controller
 
 func _push_state(next_state: State, params: Dictionary = {}) -> bool:
 	assert(host && input_controller)

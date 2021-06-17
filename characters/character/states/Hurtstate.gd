@@ -1,44 +1,39 @@
 extends PhysicsState
 class_name HurtState
 
-onready var IdleState := get_node(idle_state_path)
-
-export var idle_state_path: NodePath = "../IdleState"
-
+export var hurt_animation_name: String = "hurt"
 export var kickback_strength: float = 550.0
-
 export var makes_invincible: bool = true
+export var pop_on_hurt: bool = false
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
+	if host.AnimationPlayer.current_animation == hurt_animation_name:
+		params.animation_override = {}
+		current_move_speed = move_speed * 0.1
+	
 	._state_enter(previous_state, params)
+
+func _on_animation_finished(finished_animation_name: String) -> void:
+	._on_animation_finished(finished_animation_name)
 	
-	assert("attacker" in params)
-	var attacker: Node2D = params.attacker
-	
+	if finished_animation_name == hurt_animation_name:
+		host.kickback_velocity = Vector2.ZERO
+		current_move_speed = move_speed
+		play_animation()
+
+func hurt(attacker: Node2D) -> void:
 	host.invincible = makes_invincible
+	
 	var direction := int(sign(attacker.global_position.x - host.global_position.x))
 	if direction != 0:
 		host.look_direction = direction
 	
-	host.velocity.x = kickback_strength * -direction
-	host.velocity.y = ((host.global_position - attacker.global_position).normalized() * kickback_strength).y
-
-func _on_animation_finished(finished_animation_name: String) -> void:
-	._on_animation_finished(finished_animation_name)
-	state_machine._push_state(IdleState)
-
-func _state_physics_process(delta: float) -> void:
-	._state_physics_process(delta)
+	host.kickback_velocity.x = kickback_strength * -direction
+	host.kickback_velocity.y = ((host.global_position - attacker.global_position).normalized() * kickback_strength).y
 	
-	# TODO: unify this with the current PhysicsState.move() function
-	host.velocity *= pow(1.0 - current_move_damping, delta * 10.0)
-	fall(delta)
+	current_move_speed = move_speed * 0.1
 	
-	host.velocity.x = clamp(host.velocity.x, -kickback_strength, kickback_strength)
-	host.velocity.y = clamp(host.velocity.y, -kickback_strength, kickback_strength)
+	play_animation(hurt_animation_name)
 	
-	host.velocity = host.move_and_slide(host.velocity, FLOOR_DIRECTION)
-
-func _state_exit(next_state: State) -> void:
-	._state_exit(next_state)
-	host.invincible = false
+	if pop_on_hurt:
+		state_machine._pop_state({"attacker": attacker})

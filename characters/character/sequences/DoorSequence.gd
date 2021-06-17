@@ -47,7 +47,7 @@ func _state_process(_delta: float) -> void:
 	if input_timer.is_stopped() && DoorSequenceRange.get_overlapping_areas().empty():
 		state_machine._pop_state()
 
-func _state_exit(_next_state: State) -> void:
+func _state_exit(_next_state: State, _params: Dictionary = {}) -> void:
 	input_controller.deactivate_actions()
 
 func _does_handle(object) -> bool:

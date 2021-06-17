@@ -1,4 +1,4 @@
-extends AnimationState
+extends PhysicsState
 class_name UpToJumpState
 
 onready var NextState := get_node_or_null(next_state_path) as CharacterState

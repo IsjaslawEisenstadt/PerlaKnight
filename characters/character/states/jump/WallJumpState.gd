@@ -18,14 +18,16 @@ export var friction: float = 0.85
 export var input_delay: float = 0.1
 
 func _can_enter() -> bool:
-	return  (host.wall_climb_acquired && !host.InputController._is_action_active("let_go") &&
+	var x = (host.wall_climb_acquired && !host.InputController._is_action_active("let_go") &&
 			!WallClimbTop.get_overlapping_bodies().empty() &&
 			!WallClimbBottom.get_overlapping_bodies().empty())
+	return x
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	
-	host.velocity.y = 0.0
+	host.velocity = Vector2.ZERO
+	host.kickback_velocity = Vector2.ZERO
 	host.can_dash = true
 	host.can_double_jump = true
 
@@ -57,4 +59,4 @@ func _state_physics_process(delta: float) -> void:
 		return
 	
 	fall(delta, true, friction)
-	host.velocity = host.move_and_slide_with_snap(host.velocity, SNAP_DISTANCE, FLOOR_DIRECTION, true, MAX_SLIDES, MAX_FLOOR_ANGLE)
+	apply_velocity()
