@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Background.png-7071fd38d76baab94b7aac23a0757d35.stex"
+path="res://.import/light_mask.png-4b9e4a55c52a87bc6b0e9a1ab575db82.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://maps/background/textures/Background.png"
-dest_files=[ "res://.import/Background.png-7071fd38d76baab94b7aac23a0757d35.stex" ]
+source_file="res://environment/decoration/lamps/textures/light_mask.png"
+dest_files=[ "res://.import/light_mask.png-4b9e4a55c52a87bc6b0e9a1ab575db82.stex" ]
 
 [params]
 

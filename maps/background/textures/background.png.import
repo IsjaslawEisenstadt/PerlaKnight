@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/deer_animation_sheet.png-489ca1f1ae7e797226e4f1e7c298591f.stex"
+path="res://.import/background.png-5437bc36ab246fa35d328f1333badda4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/deer/textures/deer_animation_sheet.png"
-dest_files=[ "res://.import/deer_animation_sheet.png-489ca1f1ae7e797226e4f1e7c298591f.stex" ]
+source_file="res://maps/background/textures/background.png"
+dest_files=[ "res://.import/background.png-5437bc36ab246fa35d328f1333badda4.stex" ]
 
 [params]
 

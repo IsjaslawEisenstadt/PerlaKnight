@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tileset_grey.png-6f1952ff665035609b5cd2c09301a446.stex"
+path="res://.import/player.png-0ca1881b24d94ff9af539531086d224e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://maps/test_map/textures/Tileset_grey.png"
-dest_files=[ "res://.import/Tileset_grey.png-6f1952ff665035609b5cd2c09301a446.stex" ]
+source_file="res://characters/player/textures/player.png"
+dest_files=[ "res://.import/player.png-0ca1881b24d94ff9af539531086d224e.stex" ]
 
 [params]
 

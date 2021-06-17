@@ -21,6 +21,8 @@ export var use_mid_jump_animation: bool = false
 export var mid_jump_animation: String = ""
 export var mid_jump_animation_speed: float = 1.0
 
+export var jump_sound: String = "Jump"
+
 var accelerating: bool
 var initial_velocity_y: float
 var time_to_apex: float
@@ -44,6 +46,12 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	#if !host.InputController._is_action_just_activated("jump"):
 	#	state_machine._pop_state()
 	#	return
+	
+	host.play_sound(jump_sound)
+	
+	if !host.InputController._is_action_just_activated("jump"):
+		state_machine._pop_state()
+		return
 	
 	double_jump_frame_skipped = false
 	

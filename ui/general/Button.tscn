@@ -1,8 +1,9 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ui/general/Button.gd" type="Script" id=1]
-[ext_resource path="res://ui/general/textures/GUI.png" type="Texture" id=2]
+[ext_resource path="res://ui/general/textures/gui.png" type="Texture" id=2]
 [ext_resource path="res://ui/general/fonts/MinimalPixel.tres" type="DynamicFont" id=3]
+
 
 [sub_resource type="StyleBoxTexture" id=1]
 content_margin_left = 8.0

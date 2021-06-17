@@ -8,6 +8,8 @@ export(Array, String) var attack_animations := []
 export var attack_hitbox_path: NodePath = "../../Colliders/AttackHitbox"
 export var attack_damage: int = 1
 
+export var attack_sound: String = "Attack"
+
 var hit_characters := []
 var frame_skipped: bool = false
 var attack_queued: bool = false
@@ -53,6 +55,7 @@ func _state_process(delta: float) -> void:
 			is_attacking = true
 			attack_queued = false
 			play_animation(attack_animations[attack_index])
+			host.play_sound(attack_sound)
 
 func _state_exit(next_state: State, params: Dictionary = {}) -> void:
 	._state_exit(next_state, params)
@@ -68,6 +71,7 @@ func _on_animation_finished(finished_animation_name: String) -> void:
 			is_attacking = true
 			attack_index = (attack_index + 1) % attack_animations.size()
 			play_animation(attack_animations[attack_index])
+			host.play_sound(attack_sound)
 		else:
 			is_attacking = false
 			attack_index = 0

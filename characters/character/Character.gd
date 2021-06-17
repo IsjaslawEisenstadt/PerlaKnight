@@ -13,6 +13,7 @@ onready var Colliders := $Colliders
 onready var Perception := $Colliders/Perception
 onready var Interactor := $Colliders/Interactor
 onready var AttackHitBoxCollider := get_node_or_null("Colliders/AttackHitbox/AttackCollisionShape") as CollisionShape2D
+onready var Sounds := $Sounds
 
 export var max_health: int = 4 setget set_max_health
 
@@ -31,6 +32,8 @@ var invincible: bool = false
 # wallclimb dash resets require this flag, DashState updates it
 var can_dash: bool = dash_acquired setget set_can_dash
 var can_double_jump: bool = double_jump_acquired setget set_can_double_jump
+
+var audio_player_cache: Dictionary = {}
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
@@ -121,3 +124,23 @@ func set_can_double_jump(new_can_double_jump: bool) -> void:
 func set_attack_shape_enabled(enabled: bool) -> void:
 	if AttackHitBoxCollider:
 		AttackHitBoxCollider.disabled = !enabled
+
+func play_sound(player_name: String) -> void:
+	if player_name in audio_player_cache:
+		audio_player_cache[player_name]._play()
+	else:
+		var player := Sounds.get_node_or_null(player_name) as AudioStreamPlayer2D
+		if player:
+			audio_player_cache[player_name] = player
+			player._play()
+
+func is_playing_sound(player_name: String) -> bool:
+	if player_name in audio_player_cache:
+		return audio_player_cache[player_name].playing
+	
+	var player := Sounds.get_node_or_null(player_name) as AudioStreamPlayer2D
+	if player:
+		audio_player_cache[player_name] = player
+		return player.playing
+	
+	return false
