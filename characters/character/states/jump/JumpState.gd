@@ -43,15 +43,7 @@ func _ready() -> void:
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	
-	#if !host.InputController._is_action_just_activated("jump"):
-	#	state_machine._pop_state()
-	#	return
-	
 	host.play_sound(jump_sound)
-	
-	if !host.InputController._is_action_just_activated("jump"):
-		state_machine._pop_state()
-		return
 	
 	double_jump_frame_skipped = false
 	

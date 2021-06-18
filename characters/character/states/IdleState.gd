@@ -40,7 +40,7 @@ func _state_physics_process(delta: float) -> void:
 	check_physics()
 
 func check_input() -> bool:
-	if host.InputController._is_action_active("jump"):
+	if host.InputController._is_action_just_activated("jump"):
 		if state_machine._push_state(JumpState):
 			return true
 	if host.InputController._is_moving():
