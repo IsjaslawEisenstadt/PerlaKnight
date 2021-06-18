@@ -3386,6 +3386,7 @@ position = Vector2( -552, 352 )
 collision_layer = 1024
 collision_mask = 1025
 script = ExtResource( 1 )
+max_health = 500
 
 [node name="Collision_Forest" type="StaticBody2D" parent="."]
 position = Vector2( -736, 0 )

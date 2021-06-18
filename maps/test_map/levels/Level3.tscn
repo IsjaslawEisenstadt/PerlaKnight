@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=2]
+[gd_scene load_steps=127 format=2]
 
 [ext_resource path="res://environment/platforms/OneWayPlatform.gd" type="Script" id=1]
 [ext_resource path="res://characters/character/Character.gd" type="Script" id=2]
@@ -16,9 +16,10 @@
 [ext_resource path="res://environment/platforms/OneWayPlatform1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=15]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=16]
-[ext_resource path="res://characters/slimes/base/BaseSlime.tscn" type="PackedScene" id=17]
+[ext_resource path="res://characters/slimes/IceSlime.tscn" type="PackedScene" id=17]
 [ext_resource path="res://environment/destructibles/Crate.tscn" type="PackedScene" id=18]
 [ext_resource path="res://environment/destructibles/Barrel.tscn" type="PackedScene" id=19]
+[ext_resource path="res://characters/slimes/GhostSlime.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -3363,7 +3364,6 @@ z_index = 1
 tile_set = SubResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 2097198, 33, 0, 2097200, 34, 0, 2097202, 35, 0, 2097247, 33, 0, 2097249, 34, 0, 2097251, 35, 0, 2228270, 48, 0, 2228272, 49, 0, 2228274, 50, 0, 2228281, 15, 0, 2228283, 15, 0, 2228285, 15, 0, 2228287, 47, 0, 2228289, 61, 0, 2228291, 78, 0, 2228294, 63, 0, 2228296, 78, 0, 2228299, 47, 0, 2228301, 91, 0, 2228304, 76, 0, 2228307, 47, 0, 2228309, 15, 0, 2228311, 15, 0, 2228313, 15, 0, 2228319, 48, 0, 2228321, 49, 0, 2228323, 50, 0 )
 
 [node name="Props" type="Node2D" parent="."]
 z_index = 2
@@ -3508,21 +3508,40 @@ position = Vector2( 2712, 576 )
 collision_layer = 1024
 collision_mask = 1025
 script = ExtResource( 3 )
+max_health = 500
 
-[node name="Slime" type="KinematicBody2D" parent="Characters" instance=ExtResource( 17 )]
+[node name="GhostSlime" type="KinematicBody2D" parent="Characters" instance=ExtResource( 20 )]
 position = Vector2( 1328, 352 )
 collision_layer = 2048
 script = ExtResource( 2 )
 max_health = 3
 
-[node name="Slime2" type="KinematicBody2D" parent="Characters" instance=ExtResource( 17 )]
+[node name="GhostSlime2" type="KinematicBody2D" parent="Characters" instance=ExtResource( 20 )]
 position = Vector2( 1440, 352 )
 collision_layer = 2048
 script = ExtResource( 2 )
 max_health = 3
 
-[node name="Slime3" type="KinematicBody2D" parent="Characters" instance=ExtResource( 17 )]
+[node name="GhostSlime3" type="KinematicBody2D" parent="Characters" instance=ExtResource( 20 )]
 position = Vector2( 1552, 352 )
+collision_layer = 2048
+script = ExtResource( 2 )
+max_health = 3
+
+[node name="IceSlime" type="KinematicBody2D" parent="Characters" instance=ExtResource( 17 )]
+position = Vector2( 1672, 352 )
+collision_layer = 2048
+script = ExtResource( 2 )
+max_health = 3
+
+[node name="IceSlime2" type="KinematicBody2D" parent="Characters" instance=ExtResource( 17 )]
+position = Vector2( 1768, 352 )
+collision_layer = 2048
+script = ExtResource( 2 )
+max_health = 3
+
+[node name="IceSlime3" type="KinematicBody2D" parent="Characters" instance=ExtResource( 17 )]
+position = Vector2( 1864, 352 )
 collision_layer = 2048
 script = ExtResource( 2 )
 max_health = 3

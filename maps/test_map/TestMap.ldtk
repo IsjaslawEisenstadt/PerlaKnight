@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 441,
+	"nextUid": 444,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -3049,7 +3049,7 @@
 			]
 		},
 		{
-			"identifier": "Slime",
+			"identifier": "GhostSlime",
 			"uid": 438,
 			"tags": ["Enemies"],
 			"width": 32,
@@ -3060,11 +3060,11 @@
 			"fillOpacity": 1,
 			"lineOpacity": 1,
 			"hollow": false,
-			"color": "#3DC3B9",
-			"renderMode": "Rectangle",
+			"color": "#7D2CEC",
+			"renderMode": "Tile",
 			"showName": true,
-			"tilesetId": null,
-			"tileId": null,
+			"tilesetId": 443,
+			"tileId": 0,
 			"tileRenderMode": "FitInside",
 			"maxCount": 0,
 			"limitScope": "PerLevel",
@@ -3091,7 +3091,56 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://characters/slimes/base/BaseSlime.tscn"]
+						"params": ["res://characters/slimes/GhostSlime.tscn"]
+					},
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "IceSlime",
+			"uid": 441,
+			"tags": ["Enemies"],
+			"width": 32,
+			"height": 32,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#3DC3B9",
+			"renderMode": "Tile",
+			"showName": true,
+			"tilesetId": 443,
+			"tileId": 1,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 442,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://characters/slimes/IceSlime.tscn"]
 					},
 					"textLanguageMode": null
 				}
@@ -3231,6 +3280,23 @@
 			"customData": [],
 			"savedSelections": [],
 			"cachedPixelData": { "opaqueTiles": "000000000000", "averageColors": "766575437543754375437665e287e186e186e186e186e286" }
+		},
+		{
+			"__cWid": 2,
+			"__cHei": 1,
+			"identifier": "Slimes",
+			"uid": 443,
+			"relPath": "../../characters/slimes/textures/slimes.png",
+			"pxWid": 64,
+			"pxHei": 32,
+			"tileGridSize": 32,
+			"spacing": 0,
+			"padding": 0,
+			"tagsSourceEnumUid": null,
+			"enumTags": [],
+			"customData": [],
+			"savedSelections": [],
+			"cachedPixelData": { "opaqueTiles": "00", "averageColors": "398b3cee" }
 		}
 	], "enums": [{ "identifier": "ExitDirection", "uid": 126, "values": [
 		{ "id": "UpLeft", "tileId": null, "color": 0, "__tileSrcRect": null },
@@ -7492,27 +7558,7 @@
 					"autoLayerTiles": [],
 					"seed": 1492122,
 					"overrideTilesetUid": null,
-					"gridTiles": [
-						{ "px": [368,160], "src": [0,96], "f": 0, "t": 45, "d": [1403] },
-						{ "px": [480,160], "src": [0,64], "f": 0, "t": 30, "d": [1410] },
-						{ "px": [1152,160], "src": [0,64], "f": 0, "t": 30, "d": [1452] },
-						{ "px": [1264,160], "src": [0,96], "f": 0, "t": 45, "d": [1459] },
-						{ "px": [288,448], "src": [0,32], "f": 0, "t": 15, "d": [3882] },
-						{ "px": [704,576], "src": [0,96], "f": 0, "t": 45, "d": [5012] },
-						{ "px": [1072,576], "src": [96,160], "f": 0, "t": 78, "d": [5035] },
-						{ "px": [1104,576], "src": [64,96], "f": 0, "t": 47, "d": [5037] },
-						{ "px": [1136,576], "src": [32,160], "f": 0, "t": 76, "d": [5039] },
-						{ "px": [1728,576], "src": [32,32], "f": 0, "t": 16, "d": [5076] },
-						{ "px": [128,608], "src": [32,64], "f": 0, "t": 31, "d": [5252] },
-						{ "px": [912,800], "src": [96,64], "f": 0, "t": 33, "d": [6957] },
-						{ "px": [944,800], "src": [128,64], "f": 0, "t": 34, "d": [6959] },
-						{ "px": [976,800], "src": [160,64], "f": 0, "t": 35, "d": [6961] },
-						{ "px": [912,832], "src": [96,96], "f": 0, "t": 48, "d": [7233] },
-						{ "px": [944,832], "src": [128,96], "f": 0, "t": 49, "d": [7235] },
-						{ "px": [976,832], "src": [160,96], "f": 0, "t": 50, "d": [7237] },
-						{ "px": [160,896], "src": [64,64], "f": 0, "t": 32, "d": [7738] },
-						{ "px": [672,1024], "src": [0,0], "f": 0, "t": 0, "d": [8874] }
-					],
+					"gridTiles": [{ "px": [672,1024], "src": [0,0], "f": 0, "t": 0, "d": [8874] }],
 					"entityInstances": []
 				}
 			],
@@ -9006,10 +9052,7 @@
 					"autoLayerTiles": [],
 					"seed": 7010586,
 					"overrideTilesetUid": null,
-					"gridTiles": [
-						{ "px": [528,352], "src": [64,96], "f": 0, "t": 47, "d": [1485] },
-						{ "px": [768,608], "src": [32,0], "f": 0, "t": 1, "d": [2556] }
-					],
+					"gridTiles": [{ "px": [768,608], "src": [32,0], "f": 0, "t": 1, "d": [2556] }],
 					"entityInstances": []
 				}
 			],
@@ -11502,37 +11545,70 @@
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Slime",
+							"__identifier": "GhostSlime",
 							"__grid": [55,21],
 							"__pivot": [0.5,1],
-							"__tile": null,
+							"__tile": { "tilesetUid": 443, "srcRect": [0,0,32,32] },
 							"width": 32,
 							"height": 32,
 							"defUid": 438,
 							"px": [880,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/base/BaseSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/GhostSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Slime",
+							"__identifier": "GhostSlime",
 							"__grid": [62,21],
 							"__pivot": [0.5,1],
-							"__tile": null,
+							"__tile": { "tilesetUid": 443, "srcRect": [0,0,32,32] },
 							"width": 32,
 							"height": 32,
 							"defUid": 438,
 							"px": [992,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/base/BaseSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/GhostSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Slime",
+							"__identifier": "GhostSlime",
 							"__grid": [69,21],
 							"__pivot": [0.5,1],
-							"__tile": null,
+							"__tile": { "tilesetUid": 443, "srcRect": [0,0,32,32] },
 							"width": 32,
 							"height": 32,
 							"defUid": 438,
 							"px": [1104,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/base/BaseSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/GhostSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "IceSlime",
+							"__grid": [76,21],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 443, "srcRect": [32,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 441,
+							"px": [1224,352],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/IceSlime.tscn", "__type": "String", "defUid": 442, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "IceSlime",
+							"__grid": [82,21],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 443, "srcRect": [32,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 441,
+							"px": [1320,352],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/IceSlime.tscn", "__type": "String", "defUid": 442, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "IceSlime",
+							"__grid": [88,21],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 443, "srcRect": [32,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 441,
+							"px": [1416,352],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/IceSlime.tscn", "__type": "String", "defUid": 442, "realEditorValues": [] }]
 						}
 					]
 				},
@@ -11911,35 +11987,7 @@
 					"autoLayerTiles": [],
 					"seed": 9808449,
 					"overrideTilesetUid": null,
-					"gridTiles": [
-						{ "px": [736,512], "src": [96,64], "f": 0, "t": 33, "d": [5678] },
-						{ "px": [768,512], "src": [128,64], "f": 0, "t": 34, "d": [5680] },
-						{ "px": [800,512], "src": [160,64], "f": 0, "t": 35, "d": [5682] },
-						{ "px": [1520,512], "src": [96,64], "f": 0, "t": 33, "d": [5727] },
-						{ "px": [1552,512], "src": [128,64], "f": 0, "t": 34, "d": [5729] },
-						{ "px": [1584,512], "src": [160,64], "f": 0, "t": 35, "d": [5731] },
-						{ "px": [736,544], "src": [96,96], "f": 0, "t": 48, "d": [6030] },
-						{ "px": [768,544], "src": [128,96], "f": 0, "t": 49, "d": [6032] },
-						{ "px": [800,544], "src": [160,96], "f": 0, "t": 50, "d": [6034] },
-						{ "px": [912,544], "src": [0,32], "f": 0, "t": 15, "d": [6041] },
-						{ "px": [944,544], "src": [0,32], "f": 0, "t": 15, "d": [6043] },
-						{ "px": [976,544], "src": [0,32], "f": 0, "t": 15, "d": [6045] },
-						{ "px": [1008,544], "src": [64,96], "f": 0, "t": 47, "d": [6047] },
-						{ "px": [1040,544], "src": [32,128], "f": 0, "t": 61, "d": [6049] },
-						{ "px": [1072,544], "src": [96,160], "f": 0, "t": 78, "d": [6051] },
-						{ "px": [1120,544], "src": [96,128], "f": 0, "t": 63, "d": [6054] },
-						{ "px": [1152,544], "src": [96,160], "f": 0, "t": 78, "d": [6056] },
-						{ "px": [1200,544], "src": [64,96], "f": 0, "t": 47, "d": [6059] },
-						{ "px": [1232,544], "src": [32,192], "f": 0, "t": 91, "d": [6061] },
-						{ "px": [1280,544], "src": [32,160], "f": 0, "t": 76, "d": [6064] },
-						{ "px": [1328,544], "src": [64,96], "f": 0, "t": 47, "d": [6067] },
-						{ "px": [1360,544], "src": [0,32], "f": 0, "t": 15, "d": [6069] },
-						{ "px": [1392,544], "src": [0,32], "f": 0, "t": 15, "d": [6071] },
-						{ "px": [1424,544], "src": [0,32], "f": 0, "t": 15, "d": [6073] },
-						{ "px": [1520,544], "src": [96,96], "f": 0, "t": 48, "d": [6079] },
-						{ "px": [1552,544], "src": [128,96], "f": 0, "t": 49, "d": [6081] },
-						{ "px": [1584,544], "src": [160,96], "f": 0, "t": 50, "d": [6083] }
-					],
+					"gridTiles": [],
 					"entityInstances": []
 				}
 			],

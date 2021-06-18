@@ -145,7 +145,7 @@ radius = 120.0
 
 [sub_resource type="CircleShape2D" id=13]
 
-[node name="Slime" instance=ExtResource( 10 )]
+[node name="BaseSlime" instance=ExtResource( 10 )]
 collision_layer = 2048
 collision_mask = 1
 max_health = 3
@@ -156,13 +156,13 @@ texture = ExtResource( 8 )
 offset = Vector2( 0, -16 )
 hframes = 10
 vframes = 4
-frame = 16
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 1.5, -9.5 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" parent="." index="2"]
+autoplay = "idle"
 anims/death = SubResource( 3 )
 anims/fall = SubResource( 4 )
 anims/hurt = SubResource( 5 )
@@ -184,8 +184,10 @@ host_path = NodePath("../..")
 animation_name = "idle"
 move_speed = 0.0
 move_damping = 1.0
+attack_hitbox_path = NodePath("../../../Slime/Colliders/AttackHitbox")
 move_state_path = NodePath("../MoveState")
 jump_state_path = NodePath("../Jump/UpToJumpState")
+dash_state_path = NodePath("../../../Slime/StateMachine/Move/DashState")
 
 [node name="DeathState" type="Node" parent="StateMachine" index="1"]
 script = ExtResource( 2 )
@@ -204,9 +206,12 @@ host_path = NodePath("../..")
 animation_name = "idle"
 move_speed = 20.0
 move_damping = 0.8
+attack_hitbox_path = NodePath("../../../Slime/Colliders/AttackHitbox")
 idle_state_path = NodePath("../IdleState")
+turn_state_path = NodePath("../../../Slime/StateMachine/TurnState")
 jump_state_path = NodePath("../Jump/JumpState")
 fall_state_path = NodePath("../Jump/FallState")
+dash_state_path = NodePath("../../../Slime/StateMachine/DashState")
 
 [node name="Jump" type="Node" parent="StateMachine" index="3"]
 
@@ -220,6 +225,9 @@ script = ExtResource( 7 )
 animation_name = "jump"
 move_speed = 50.0
 move_damping = 0.8
+attack_hitbox_path = NodePath("../../../../Slime/StateMachine/Colliders/AttackHitbox")
+dash_state_path = NodePath("../../../../Slime/StateMachine/Move/DashState")
+wall_jump_state_path = NodePath("../../../../Slime/StateMachine/Jump/WallJumpState")
 max_jump_height = 90.0
 min_jump_height = 15.0
 
@@ -228,6 +236,9 @@ script = ExtResource( 4 )
 animation_name = "fall"
 move_speed = 50.0
 move_damping = 0.8
+attack_hitbox_path = NodePath("../../../../Slime/StateMachine/Colliders/AttackHitbox")
+dash_state_path = NodePath("../../../../Slime/StateMachine/Move/DashState")
+wall_jump_state_path = NodePath("../../../../Slime/StateMachine/Jump/WallJumpState")
 without_landing = false
 
 [node name="LandState" type="Node" parent="StateMachine/Jump" index="3"]
