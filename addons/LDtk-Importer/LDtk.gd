@@ -118,7 +118,14 @@ func get_entity_size(entity_identifier):
 #create new TileMap from tilemap_data.
 func new_tilemap(tilemap_data, level):
 	var tilemap = TileMap.new()
-	var tileset_data = get_layer_tileset_data(tilemap_data.layerDefUid)
+	
+	var tileset_data
+	if tilemap_data.__tilesetDefUid:
+		for ts_data in map_data.defs.tilesets:
+			if ts_data.uid == tilemap_data.__tilesetDefUid:
+				tileset_data = ts_data
+	else:
+		tileset_data = get_layer_tileset_data(tilemap_data.layerDefUid)
 	if not tileset_data:
 		return
 
