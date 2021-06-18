@@ -25,6 +25,8 @@ func hurt(attacker: Node2D) -> void:
 	
 	Host.move_speed_factor = 0.1
 	
+	Host.on_animation_finished(Host.AnimationPlayer.current_animation)
+	
 	Host.play_animation(hurt_animation_name)
 	
 	if has_animation(hurt_animation_name):
