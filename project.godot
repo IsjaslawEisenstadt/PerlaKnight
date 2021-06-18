@@ -119,11 +119,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/character/hurtfx/HurtPlayer.gd"
 }, {
-"base": "PhysicsState",
-"class": "HurtState",
-"language": "GDScript",
-"path": "res://characters/character/states/Hurtstate.gd"
-}, {
 "base": "AttackState",
 "class": "IdleState",
 "language": "GDScript",
@@ -267,7 +262,7 @@ _global_script_classes=[ {
 "base": "AIController",
 "class": "SlimeController",
 "language": "GDScript",
-"path": "res://characters/slime/SlimeController.gd"
+"path": "res://characters/slimes/base/SlimeController.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "SmartCamera",
@@ -327,7 +322,6 @@ _global_script_class_icons={
 "HealthLootPickup": "",
 "Heart": "",
 "HurtPlayer": "",
-"HurtState": "",
 "IdleState": "",
 "InputController": "",
 "Interaction": "",

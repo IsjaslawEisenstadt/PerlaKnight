@@ -3091,7 +3091,7 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://characters/slime/Slime.tscn"]
+						"params": ["res://characters/slimes/base/BaseSlime.tscn"]
 					},
 					"textLanguageMode": null
 				}
@@ -11510,7 +11510,7 @@
 							"height": 32,
 							"defUid": 438,
 							"px": [880,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slime/Slime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/base/BaseSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "Slime",
@@ -11521,7 +11521,7 @@
 							"height": 32,
 							"defUid": 438,
 							"px": [992,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slime/Slime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/base/BaseSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "Slime",
@@ -11532,7 +11532,7 @@
 							"height": 32,
 							"defUid": 438,
 							"px": [1104,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slime/Slime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/base/BaseSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
 						}
 					]
 				},

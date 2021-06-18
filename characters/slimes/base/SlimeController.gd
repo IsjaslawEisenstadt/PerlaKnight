@@ -11,7 +11,7 @@ func _input_process(_delta: float) -> void:
 	activate_action("jump")
 
 func _input_physics_process(_delta: float) -> void:
-	if Host.Perception.is_on_wall() && can_change_direction:
+	if Host.is_on_wall() && can_change_direction:
 		stop_moving()
 		activate_action("move_left" if Host.look_direction == 1 else "move_right")
 		

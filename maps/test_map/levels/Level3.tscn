@@ -16,7 +16,7 @@
 [ext_resource path="res://environment/platforms/OneWayPlatform1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=15]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=16]
-[ext_resource path="res://characters/slime/Slime.tscn" type="PackedScene" id=17]
+[ext_resource path="res://characters/slimes/base/BaseSlime.tscn" type="PackedScene" id=17]
 [ext_resource path="res://environment/destructibles/Crate.tscn" type="PackedScene" id=18]
 [ext_resource path="res://environment/destructibles/Barrel.tscn" type="PackedScene" id=19]
 

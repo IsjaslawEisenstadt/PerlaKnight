@@ -17,7 +17,7 @@ func hurt(attacker: Node2D) -> void:
 	Host.invincible = makes_invincible
 	
 	var direction := int(sign(attacker.global_position.x - Host.global_position.x))
-	if direction != 0:
+	if direction != 0 && kickback_strength > 0.0:
 		Host.look_direction = direction
 	
 	Host.kickback_velocity.x = kickback_strength * -direction
