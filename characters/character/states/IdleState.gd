@@ -22,8 +22,6 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 		return
 	if check_physics():
 		return
-	
-	#host.velocity.x = 0.0
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://characters/slimes/base/SlimeController.gd" type="Script" id=1]
 [ext_resource path="res://characters/character/states/DeathState.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://environment/hazards/base/Hazard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=10]
 [ext_resource path="res://characters/character/hurtfx/ColorAdd.tres" type="Shader" id=11]
+[ext_resource path="res://characters/character/states/move/MoveState.gd" type="Script" id=12]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -18,7 +19,8 @@ shader = ExtResource( 11 )
 shader_param/ColorAdd = Color( 0, 0, 0, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 18, 15.5 )
+resource_local_to_scene = true
+extents = Vector2( 10.5, 9.5 )
 
 [sub_resource type="Animation" id=3]
 resource_name = "death"
@@ -39,7 +41,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=4]
 resource_name = "fall"
 length = 0.1
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -136,11 +137,11 @@ length = 8.0
 
 [sub_resource type="RayShape2D" id=11]
 resource_local_to_scene = true
-length = 32.0
+length = 16.0
 
 [sub_resource type="CircleShape2D" id=12]
 resource_local_to_scene = true
-radius = 150.0
+radius = 120.0
 
 [sub_resource type="CircleShape2D" id=13]
 
@@ -155,10 +156,10 @@ texture = ExtResource( 8 )
 offset = Vector2( 0, -16 )
 hframes = 10
 vframes = 4
+frame = 16
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = false
-position = Vector2( 0, -15.5 )
+position = Vector2( 1.5, -9.5 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" parent="." index="2"]
@@ -183,6 +184,7 @@ host_path = NodePath("../..")
 animation_name = "idle"
 move_speed = 0.0
 move_damping = 1.0
+move_state_path = NodePath("../MoveState")
 jump_state_path = NodePath("../Jump/UpToJumpState")
 
 [node name="DeathState" type="Node" parent="StateMachine" index="1"]
@@ -196,7 +198,17 @@ time_to_despawn = 0.15
 collision_layer = 0
 collision_mask = 1
 
-[node name="Jump" type="Node" parent="StateMachine" index="2"]
+[node name="MoveState" type="Node" parent="StateMachine" index="2"]
+script = ExtResource( 12 )
+host_path = NodePath("../..")
+animation_name = "idle"
+move_speed = 20.0
+move_damping = 0.8
+idle_state_path = NodePath("../IdleState")
+jump_state_path = NodePath("../Jump/JumpState")
+fall_state_path = NodePath("../Jump/FallState")
+
+[node name="Jump" type="Node" parent="StateMachine" index="3"]
 
 [node name="UpToJumpState" type="Node" parent="StateMachine/Jump" index="0"]
 script = ExtResource( 3 )
@@ -206,7 +218,7 @@ next_state_path = NodePath("../JumpState")
 [node name="JumpState" type="Node" parent="StateMachine/Jump" index="1"]
 script = ExtResource( 7 )
 animation_name = "jump"
-move_speed = 60.0
+move_speed = 50.0
 move_damping = 0.8
 max_jump_height = 90.0
 min_jump_height = 15.0
@@ -214,7 +226,7 @@ min_jump_height = 15.0
 [node name="FallState" type="Node" parent="StateMachine/Jump" index="2"]
 script = ExtResource( 4 )
 animation_name = "fall"
-move_speed = 60.0
+move_speed = 50.0
 move_damping = 0.8
 without_landing = false
 
@@ -229,7 +241,7 @@ visible = false
 
 [node name="Edge" parent="Colliders/Perception" index="0"]
 visible = true
-position = Vector2( 18, 0 )
+position = Vector2( 16, 0 )
 
 [node name="CollisionShape2D" parent="Colliders/Perception/Edge" index="0"]
 shape = SubResource( 10 )
@@ -248,6 +260,7 @@ visible = true
 shape = SubResource( 12 )
 
 [node name="Hazard" parent="Colliders" index="2" instance=ExtResource( 9 )]
+visible = false
 position = Vector2( 0, -8 )
 collision_mask = 1024
 
