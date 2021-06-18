@@ -76,8 +76,8 @@ func apply_velocity(with_snap: bool = true) -> void:
 	var kick_vel = Vector2(sign(host.kickback_velocity.x) * max(speed_diff, abs(host.kickback_velocity.x)), host.kickback_velocity.y)
 	
 	if with_snap:
-		host.velocity = host.move_and_slide_with_snap(host.velocity, SNAP_DISTANCE, FLOOR_DIRECTION, true, MAX_SLIDES, MAX_FLOOR_ANGLE)
 		host.kickback_velocity = host.move_and_slide_with_snap(kick_vel, SNAP_DISTANCE, FLOOR_DIRECTION, true, MAX_SLIDES, MAX_FLOOR_ANGLE)
+		host.velocity = host.move_and_slide_with_snap(host.velocity, SNAP_DISTANCE, FLOOR_DIRECTION, true, MAX_SLIDES, MAX_FLOOR_ANGLE)
 	else:
-		host.velocity = host.move_and_slide(host.velocity, FLOOR_DIRECTION, true)
 		host.kickback_velocity = host.move_and_slide(kick_vel, FLOOR_DIRECTION, true)
+		host.velocity = host.move_and_slide(host.velocity, FLOOR_DIRECTION, true)

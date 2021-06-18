@@ -38,13 +38,12 @@ func _state_process(delta: float) -> void:
 func _state_physics_process(delta: float) -> void:
 	._state_physics_process(delta)
 
+	move(delta)
+	apply_velocity(false)
+
 	if travel_finished && !host.is_on_floor():
 		state_machine._pop_push(FallState)
 
-	#fall(delta, true)
-	move(delta)
-	apply_velocity()
-	
 	if host.is_on_wall():
 		if state_machine._pop_push(WallJumpState):
 			return

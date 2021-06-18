@@ -43,11 +43,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if StateMachine.alive:
 		InputController._input_process(delta)
-		
 		_interaction_process()
-	
-		if double_jump_acquired && !can_double_jump && is_on_floor():
-			can_double_jump = true
 
 	StateMachine._state_machine_process(delta)
 
@@ -64,6 +60,9 @@ func _physics_process(delta: float) -> void:
 	if StateMachine.alive:
 		InputController._input_physics_process(delta)
 	StateMachine._state_machine_physics_process(delta)
+	
+	if double_jump_acquired && !can_double_jump && is_on_floor():
+		can_double_jump = true
 
 func play_animation(animation_name: String, speed: float = 1.0) -> void:
 	if AnimationPlayer.has_animation(animation_name) && !HurtPlayer.is_hurt_anim_playing():

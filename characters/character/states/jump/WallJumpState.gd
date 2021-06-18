@@ -53,10 +53,10 @@ func _state_process(delta: float) -> void:
 func _state_physics_process(delta: float) -> void:
 	._state_physics_process(delta)
 	
+	fall(delta, true, friction)
+	apply_velocity(delta)
+	
 	if host.is_on_floor() || !_can_enter():
 		host.look_direction *= -1
 		state_machine._pop_state()
 		return
-	
-	fall(delta, true, friction)
-	apply_velocity()

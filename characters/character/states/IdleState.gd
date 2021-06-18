@@ -18,17 +18,17 @@ export var dash_state_path: NodePath = "../Move/DashState"
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	
-	check_input()
-	check_physics()
+	if check_input():
+		return
+	if check_physics():
+		return
 	
 	#host.velocity.x = 0.0
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)
-	if check_input():
-		return
-	if check_physics():
-		return
+	
+	check_input()
 
 func _state_physics_process(delta: float) -> void:
 	._state_physics_process(delta)
