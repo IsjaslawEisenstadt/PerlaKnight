@@ -15,6 +15,14 @@ func _is_action_just_activated(_name: String) -> bool:
 func _is_action_just_deactivated(_name: String) -> bool:
 	return false
 
+# used by AI and SequenceControllers
+
+func _input_process(_delta: float) -> void:
+	pass
+
+func _input_physics_process(_delta: float) -> void:
+	pass
+
 # TODO: make these non-virtual
 
 func _is_moving() -> bool:

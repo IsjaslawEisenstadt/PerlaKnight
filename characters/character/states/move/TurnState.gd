@@ -16,7 +16,7 @@ func _state_physics_process(delta: float) -> void:
 
 	fall(delta, true)
 	move(delta)
-	host.velocity = host.move_and_slide_with_snap(host.velocity, SNAP_DISTANCE, FLOOR_DIRECTION, true, MAX_SLIDES, MAX_FLOOR_ANGLE)
+	apply_velocity()
 
 	if host.AnimationPlayer.current_animation != animation_name:
 		if host.velocity.x * current_move_direction > 0:
@@ -28,8 +28,8 @@ func _state_physics_process(delta: float) -> void:
 		if state_machine._push_state(JumpState):
 			return
 
-func _state_exit(next_state: State) -> void:
-	._state_exit(next_state)
+func _state_exit(next_state: State, params: Dictionary = {}) -> void:
+	._state_exit(next_state, params)
 
 	host.velocity.x = 0.0
 	host.look_direction *= -1

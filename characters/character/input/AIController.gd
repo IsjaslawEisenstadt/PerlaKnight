@@ -9,30 +9,19 @@ and the CharacterController retrieves those with the virtual InputController fun
 
 enum action_states {ACTIVE, INACTIVE, ACTIVATED, DEACTIVATED}
 
-onready var host := get_node(host_path) as Character
+onready var Host := get_node(host_path) as Character
 
 export var host_path: NodePath = ".."
-export var start_ai: NodePath = "IdleAI"
 
 var action_map: Dictionary = {}
-var state_machine: AIStateMachine
 
-func _ready() -> void:
-	state_machine = AIStateMachine.new()
-	state_machine.host = host
-	state_machine.input_controller = self
-	if _should_auto_start():
-		state_machine._push_state(get_node(start_ai))
-
-func _process(delta: float) -> void:
+func _input_process(_delta: float) -> void:
 	# every key should be deactivated after a frame
 	for action in action_map.keys():
 		if action_map[action] == action_states.ACTIVATED:
 			action_map[action] = action_states.ACTIVE
 		elif action_map[action] == action_states.DEACTIVATED:
 			action_map[action] = action_states.INACTIVE
-
-	state_machine._state_machine_process(delta)
 
 # action mapping
 
@@ -57,7 +46,3 @@ func _is_action_just_activated(name: String) -> bool:
 
 func _is_action_just_deactivated(name: String) -> bool:
 	return action_map.get(name) == action_states.DEACTIVATED
-
-# meant to be overridden by derived classes that don't want to autostart the machine
-func _should_auto_start() -> bool:
-	return true

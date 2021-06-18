@@ -1,0 +1,281 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://characters/slimes/base/SlimeController.gd" type="Script" id=1]
+[ext_resource path="res://characters/character/states/DeathState.gd" type="Script" id=2]
+[ext_resource path="res://characters/character/states/jump/UpToJumpState.gd" type="Script" id=3]
+[ext_resource path="res://characters/character/states/jump/FallState.gd" type="Script" id=4]
+[ext_resource path="res://characters/character/states/jump/LandState.gd" type="Script" id=5]
+[ext_resource path="res://characters/character/states/IdleState.gd" type="Script" id=6]
+[ext_resource path="res://characters/character/states/jump/JumpState.gd" type="Script" id=7]
+[ext_resource path="res://characters/slimes/textures/mini_ghost_slime.png" type="Texture" id=8]
+[ext_resource path="res://environment/hazards/base/Hazard.tscn" type="PackedScene" id=9]
+[ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=10]
+[ext_resource path="res://characters/character/hurtfx/ColorAdd.tres" type="Shader" id=11]
+[ext_resource path="res://characters/character/states/move/MoveState.gd" type="Script" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 11 )
+shader_param/ColorAdd = Color( 0, 0, 0, 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+resource_local_to_scene = true
+extents = Vector2( 10.5, 9.5 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "death"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 30 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fall"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 16 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 21, 23 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 5 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 14, 15 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 17, 19 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 11, 13 ]
+}
+
+[sub_resource type="RayShape2D" id=10]
+resource_local_to_scene = true
+length = 8.0
+
+[sub_resource type="RayShape2D" id=11]
+resource_local_to_scene = true
+length = 16.0
+
+[sub_resource type="CircleShape2D" id=12]
+resource_local_to_scene = true
+radius = 120.0
+
+[sub_resource type="CircleShape2D" id=13]
+
+[node name="BaseSlime" instance=ExtResource( 10 )]
+collision_layer = 2048
+collision_mask = 1
+max_health = 3
+
+[node name="Sprite" parent="." index="0"]
+material = SubResource( 1 )
+texture = ExtResource( 8 )
+offset = Vector2( 0, -16 )
+hframes = 10
+vframes = 4
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 1.5, -9.5 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "idle"
+anims/death = SubResource( 3 )
+anims/fall = SubResource( 4 )
+anims/hurt = SubResource( 5 )
+anims/idle = SubResource( 6 )
+anims/jump = SubResource( 7 )
+anims/land = SubResource( 8 )
+anims/up_to_jump = SubResource( 9 )
+
+[node name="HurtPlayer" parent="." index="3"]
+kickback_strength = 0.0
+makes_invincible = false
+
+[node name="InputController" parent="." index="4"]
+script = ExtResource( 1 )
+
+[node name="IdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource( 6 )
+host_path = NodePath("../..")
+animation_name = "idle"
+move_speed = 0.0
+move_damping = 1.0
+attack_hitbox_path = NodePath("../../../Slime/Colliders/AttackHitbox")
+move_state_path = NodePath("../MoveState")
+jump_state_path = NodePath("../Jump/UpToJumpState")
+dash_state_path = NodePath("../../../Slime/StateMachine/Move/DashState")
+
+[node name="DeathState" type="Node" parent="StateMachine" index="1"]
+script = ExtResource( 2 )
+host_path = NodePath("../..")
+animation_name = "death"
+move_speed = 0.0
+move_damping = 1.0
+will_despawn = true
+time_to_despawn = 0.15
+collision_layer = 0
+collision_mask = 1
+
+[node name="MoveState" type="Node" parent="StateMachine" index="2"]
+script = ExtResource( 12 )
+host_path = NodePath("../..")
+animation_name = "idle"
+move_speed = 20.0
+move_damping = 0.8
+attack_hitbox_path = NodePath("../../../Slime/Colliders/AttackHitbox")
+idle_state_path = NodePath("../IdleState")
+turn_state_path = NodePath("../../../Slime/StateMachine/TurnState")
+jump_state_path = NodePath("../Jump/JumpState")
+fall_state_path = NodePath("../Jump/FallState")
+dash_state_path = NodePath("../../../Slime/StateMachine/DashState")
+
+[node name="Jump" type="Node" parent="StateMachine" index="3"]
+
+[node name="UpToJumpState" type="Node" parent="StateMachine/Jump" index="0"]
+script = ExtResource( 3 )
+animation_name = "up_to_jump"
+next_state_path = NodePath("../JumpState")
+
+[node name="JumpState" type="Node" parent="StateMachine/Jump" index="1"]
+script = ExtResource( 7 )
+animation_name = "jump"
+move_speed = 50.0
+move_damping = 0.8
+attack_hitbox_path = NodePath("../../../../Slime/StateMachine/Colliders/AttackHitbox")
+dash_state_path = NodePath("../../../../Slime/StateMachine/Move/DashState")
+wall_jump_state_path = NodePath("../../../../Slime/StateMachine/Jump/WallJumpState")
+max_jump_height = 90.0
+min_jump_height = 15.0
+
+[node name="FallState" type="Node" parent="StateMachine/Jump" index="2"]
+script = ExtResource( 4 )
+animation_name = "fall"
+move_speed = 50.0
+move_damping = 0.8
+attack_hitbox_path = NodePath("../../../../Slime/StateMachine/Colliders/AttackHitbox")
+dash_state_path = NodePath("../../../../Slime/StateMachine/Move/DashState")
+wall_jump_state_path = NodePath("../../../../Slime/StateMachine/Jump/WallJumpState")
+without_landing = false
+
+[node name="LandState" type="Node" parent="StateMachine/Jump" index="3"]
+script = ExtResource( 5 )
+animation_name = "land"
+move_speed = 0.0
+move_damping = 1.0
+
+[node name="Perception" parent="Colliders" index="1"]
+visible = false
+
+[node name="Edge" parent="Colliders/Perception" index="0"]
+visible = true
+position = Vector2( 16, 0 )
+
+[node name="CollisionShape2D" parent="Colliders/Perception/Edge" index="0"]
+shape = SubResource( 10 )
+
+[node name="Wall" parent="Colliders/Perception" index="1"]
+visible = true
+
+[node name="CollisionShape2D" parent="Colliders/Perception/Wall" index="0"]
+position = Vector2( 0, -16 )
+shape = SubResource( 11 )
+
+[node name="Sight" parent="Colliders/Perception" index="2"]
+visible = true
+
+[node name="CollisionShape2D" parent="Colliders/Perception/Sight" index="0"]
+shape = SubResource( 12 )
+
+[node name="Hazard" parent="Colliders" index="2" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 0, -8 )
+collision_mask = 1024
+
+[node name="CollisionShape2D" parent="Colliders/Hazard" index="0"]
+shape = SubResource( 13 )
+
+[editable path="Colliders/Hazard"]

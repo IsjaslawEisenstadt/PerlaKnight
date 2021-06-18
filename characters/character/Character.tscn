@@ -1,12 +1,32 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://characters/character/input/InputController.gd" type="Script" id=1]
 [ext_resource path="res://characters/character/Character.gd" type="Script" id=2]
 [ext_resource path="res://characters/character/CharacterStateMachine.gd" type="Script" id=3]
 [ext_resource path="res://utility/interaction/Interactor.gd" type="Script" id=4]
+[ext_resource path="res://characters/character/perception/Perception.gd" type="Script" id=5]
+[ext_resource path="res://characters/character/hurtfx/HurtPlayer.gd" type="Script" id=6]
+[ext_resource path="res://characters/character/hurtfx/ColorAdd.tres" type="Shader" id=7]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/ColorAdd = Color( 0, 0, 0, 1 )
+
+[sub_resource type="CircleShape2D" id=2]
 radius = 32.0
+
+[sub_resource type="RayShape2D" id=3]
+resource_local_to_scene = true
+length = 8.0
+
+[sub_resource type="RayShape2D" id=4]
+resource_local_to_scene = true
+length = 29.922
+
+[sub_resource type="CircleShape2D" id=5]
+resource_local_to_scene = true
+radius = 150.0
 
 [node name="Character" type="KinematicBody2D"]
 collision_layer = 4
@@ -14,10 +34,14 @@ collision_mask = 5
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="HurtPlayer" type="AnimationPlayer" parent="."]
+script = ExtResource( 6 )
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource( 1 )
@@ -28,11 +52,41 @@ script = ExtResource( 3 )
 [node name="Colliders" type="Node2D" parent="."]
 
 [node name="Interactor" type="Area2D" parent="Colliders"]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Interactor"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
+
+[node name="Perception" type="Node2D" parent="Colliders"]
+script = ExtResource( 5 )
+
+[node name="Edge" type="Area2D" parent="Colliders/Perception"]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Perception/Edge"]
+shape = SubResource( 3 )
+
+[node name="Wall" type="Area2D" parent="Colliders/Perception"]
+visible = false
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Perception/Wall"]
+position = Vector2( 0, -18.133 )
+rotation = -1.5708
+shape = SubResource( 4 )
+
+[node name="Sight" type="Area2D" parent="Colliders/Perception"]
+visible = false
+position = Vector2( 0, -2 )
+collision_layer = 0
+collision_mask = 7184
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Perception/Sight"]
+position = Vector2( 0.374573, 0 )
+shape = SubResource( 5 )
 
 [node name="Sounds" type="Node2D" parent="."]

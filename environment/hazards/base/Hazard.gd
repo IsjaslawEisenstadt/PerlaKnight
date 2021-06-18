@@ -3,6 +3,7 @@ class_name Hazard
 
 export var damage: int = 1
 
-func on_body_entered(body):
-	if body is Character:
-		body.current_health -= damage
+func _process(_delta: float) -> void:
+	for body in get_overlapping_bodies():
+		if body is Character:
+			body.hit(self, damage)
