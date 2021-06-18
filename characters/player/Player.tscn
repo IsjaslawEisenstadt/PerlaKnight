@@ -654,7 +654,6 @@ move_speed = 90.0
 move_damping = 0.8
 attack_animations = [ "jump_attack1", "jump_attack2" ]
 attack_hitbox_path = NodePath("../../../Colliders/AttackHitbox")
-max_jump_height = 90.0
 min_jump_height = 15.0
 jump_sound = "Dash"
 

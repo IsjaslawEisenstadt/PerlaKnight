@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 440,
+	"nextUid": 441,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -1851,71 +1851,14 @@
 		},
 		{
 			"__type": "Entities",
-			"identifier": "SpawnTargets",
-			"type": "Entities",
-			"uid": 78,
-			"gridSize": 32,
-			"displayOpacity": 0.5,
-			"pxOffsetX": 0,
-			"pxOffsetY": 0,
-			"requiredTags": ["SpawnTargets"],
-			"excludedTags": [],
-			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
-			"autoTilesetDefUid": null,
-			"autoRuleGroups": [],
-			"autoSourceLayerDefUid": null,
-			"tilesetDefUid": null,
-			"tilePivotX": 0,
-			"tilePivotY": 0
-		},
-		{
-			"__type": "Entities",
-			"identifier": "DecorationEntities",
+			"identifier": "Props",
 			"type": "Entities",
 			"uid": 82,
 			"gridSize": 32,
 			"displayOpacity": 1,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
-			"requiredTags": ["Decoration"],
-			"excludedTags": [],
-			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
-			"autoTilesetDefUid": null,
-			"autoRuleGroups": [],
-			"autoSourceLayerDefUid": null,
-			"tilesetDefUid": null,
-			"tilePivotX": 0,
-			"tilePivotY": 0
-		},
-		{
-			"__type": "Entities",
-			"identifier": "Destructibles",
-			"type": "Entities",
-			"uid": 362,
-			"gridSize": 32,
-			"displayOpacity": 1,
-			"pxOffsetX": 0,
-			"pxOffsetY": 0,
-			"requiredTags": ["Destructibles"],
-			"excludedTags": [],
-			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
-			"autoTilesetDefUid": null,
-			"autoRuleGroups": [],
-			"autoSourceLayerDefUid": null,
-			"tilesetDefUid": null,
-			"tilePivotX": 0,
-			"tilePivotY": 0
-		},
-		{
-			"__type": "Entities",
-			"identifier": "Platforms",
-			"type": "Entities",
-			"uid": 368,
-			"gridSize": 8,
-			"displayOpacity": 1,
-			"pxOffsetX": 0,
-			"pxOffsetY": 0,
-			"requiredTags": ["Platforms"],
+			"requiredTags": [ "Decoration", "Destructibles", "SpawnTargets", "Platforms" ],
 			"excludedTags": [],
 			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
 			"autoTilesetDefUid": null,
@@ -7053,172 +6996,7 @@
 					]
 				},
 				{
-					"__identifier": "SpawnTargets",
-					"__type": "Entities",
-					"__cWid": 69,
-					"__cHei": 36,
-					"__gridSize": 32,
-					"__opacity": 0.5,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 0,
-					"layerDefUid": 78,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 8026424,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": [
-						{
-							"__identifier": "Doorway",
-							"__grid": [67,25],
-							"__pivot": [0,0],
-							"__tile": null,
-							"width": 64,
-							"height": 64,
-							"defUid": 110,
-							"px": [2144,800],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
-								{
-									"__identifier": "next_door",
-									"__value": "Door1",
-									"__type": "String",
-									"defUid": 118,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Door1"]
-									}]
-								},
-								{
-									"__identifier": "name",
-									"__value": "Door1",
-									"__type": "String",
-									"defUid": 119,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Door1"]
-									}]
-								},
-								{
-									"__identifier": "next_level",
-									"__value": "Level2",
-									"__type": "String",
-									"defUid": 122,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Level2"]
-									}]
-								},
-								{
-									"__identifier": "exit_direction",
-									"__value": "Left",
-									"__type": "LocalEnum.ExitDirection",
-									"defUid": 127,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Left"]
-									}]
-								}
-							]
-						},
-						{
-							"__identifier": "Checkpoint",
-							"__grid": [46,26],
-							"__pivot": [0.5,1],
-							"__tile": null,
-							"width": 84,
-							"height": 68,
-							"defUid": 72,
-							"px": [1488,864],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Checkpoint",
-							"__grid": [40,19],
-							"__pivot": [0.5,1],
-							"__tile": null,
-							"width": 84,
-							"height": 68,
-							"defUid": 72,
-							"px": [1296,640],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Doorway",
-							"__grid": [22,34],
-							"__pivot": [0,0],
-							"__tile": null,
-							"width": 96,
-							"height": 64,
-							"defUid": 110,
-							"px": [704,1088],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
-								{
-									"__identifier": "next_door",
-									"__value": "Door2",
-									"__type": "String",
-									"defUid": 118,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Door2"]
-									}]
-								},
-								{
-									"__identifier": "name",
-									"__value": "Door2",
-									"__type": "String",
-									"defUid": 119,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Door2"]
-									}]
-								},
-								{
-									"__identifier": "next_level",
-									"__value": "Level3",
-									"__type": "String",
-									"defUid": 122,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Level3"]
-									}]
-								},
-								{
-									"__identifier": "exit_direction",
-									"__value": "UpLeft",
-									"__type": "LocalEnum.ExitDirection",
-									"defUid": 127,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["UpLeft"]
-									}]
-								}
-							]
-						},
-						{
-							"__identifier": "Checkpoint",
-							"__grid": [61,26],
-							"__pivot": [0.5,1],
-							"__tile": null,
-							"width": 84,
-							"height": 68,
-							"defUid": 72,
-							"px": [1968,864],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
-						}
-					]
-				},
-				{
-					"__identifier": "DecorationEntities",
+					"__identifier": "Props",
 					"__type": "Entities",
 					"__cWid": 69,
 					"__cHei": 36,
@@ -7396,33 +7174,7 @@
 							"defUid": 102,
 							"px": [1456,192],
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/BrokenLamp1.tscn", "__type": "String", "defUid": 103, "realEditorValues": [] }]
-						}
-					]
-				},
-				{
-					"__identifier": "Destructibles",
-					"__type": "Entities",
-					"__cWid": 69,
-					"__cHei": 36,
-					"__gridSize": 32,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 0,
-					"layerDefUid": 362,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 134424,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": [
+						},
 						{
 							"__identifier": "Crate",
 							"__grid": [26,26],
@@ -7435,81 +7187,15 @@
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Crate",
-							"__grid": [13,12],
+							"__identifier": "Barrel",
+							"__grid": [32,26],
 							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
 							"width": 32,
 							"height": 32,
-							"defUid": 361,
-							"px": [432,416],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Crate",
-							"__grid": [48,18],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [1552,608],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Crate",
-							"__grid": [42,26],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [1360,864],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Crate",
-							"__grid": [49,26],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [1584,864],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Crate",
-							"__grid": [52,5],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [1680,192],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Crate",
-							"__grid": [14,28],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [464,928],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Crate",
-							"__grid": [17,5],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [560,192],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+							"defUid": 373,
+							"px": [1040,864],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "Barrel",
@@ -7523,67 +7209,213 @@
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
 						},
 						{
+							"__identifier": "Crate",
+							"__grid": [14,28],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 361,
+							"px": [464,928],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+						},
+						{
 							"__identifier": "Barrel",
-							"__grid": [32,26],
+							"__grid": [13,12],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
 							"width": 32,
 							"height": 32,
 							"defUid": 373,
-							"px": [1040,864],
+							"px": [432,416],
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
-						}
-					]
-				},
-				{
-					"__identifier": "Platforms",
-					"__type": "Entities",
-					"__cWid": 276,
-					"__cHei": 144,
-					"__gridSize": 8,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 0,
-					"layerDefUid": 368,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 3878426,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": [
+						},
 						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [68,116],
+							"__identifier": "Crate",
+							"__grid": [19,5],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 361,
+							"px": [624,192],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Barrel",
+							"__grid": [50,5],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 373,
+							"px": [1616,192],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Barrel",
+							"__grid": [48,18],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 373,
+							"px": [1552,608],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Crate",
+							"__grid": [29,17],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 361,
+							"px": [944,576],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Checkpoint",
+							"__grid": [60,26],
+							"__pivot": [0.5,1],
+							"__tile": null,
+							"width": 84,
+							"height": 68,
+							"defUid": 72,
+							"px": [1936,864],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Checkpoint",
+							"__grid": [44,26],
+							"__pivot": [0.5,1],
+							"__tile": null,
+							"width": 84,
+							"height": 68,
+							"defUid": 72,
+							"px": [1424,864],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Checkpoint",
+							"__grid": [40,19],
+							"__pivot": [0.5,1],
+							"__tile": null,
+							"width": 84,
+							"height": 68,
+							"defUid": 72,
+							"px": [1296,640],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Doorway",
+							"__grid": [22,34],
 							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 256,
-							"height": 8,
-							"defUid": 364,
-							"px": [544,928],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+							"__tile": null,
+							"width": 96,
+							"height": 64,
+							"defUid": 110,
+							"px": [704,1088],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
+								{
+									"__identifier": "next_door",
+									"__value": "Door2",
+									"__type": "String",
+									"defUid": 118,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Door2"]
+									}]
+								},
+								{
+									"__identifier": "name",
+									"__value": "Door2",
+									"__type": "String",
+									"defUid": 119,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Door2"]
+									}]
+								},
+								{
+									"__identifier": "next_level",
+									"__value": "Level3",
+									"__type": "String",
+									"defUid": 122,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Level3"]
+									}]
+								},
+								{
+									"__identifier": "exit_direction",
+									"__value": "UpLeft",
+									"__type": "LocalEnum.ExitDirection",
+									"defUid": 127,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["UpLeft"]
+									}]
+								}
+							]
+						},
+						{
+							"__identifier": "Doorway",
+							"__grid": [67,25],
+							"__pivot": [0,0],
+							"__tile": null,
+							"width": 64,
+							"height": 64,
+							"defUid": 110,
+							"px": [2144,800],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
+								{
+									"__identifier": "next_door",
+									"__value": "Door1",
+									"__type": "String",
+									"defUid": 118,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Door1"]
+									}]
+								},
+								{
+									"__identifier": "name",
+									"__value": "Door1",
+									"__type": "String",
+									"defUid": 119,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Door1"]
+									}]
+								},
+								{
+									"__identifier": "next_level",
+									"__value": "Level2",
+									"__type": "String",
+									"defUid": 122,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Level2"]
+									}]
+								},
+								{
+									"__identifier": "exit_direction",
+									"__value": "Left",
+									"__type": "LocalEnum.ExitDirection",
+									"defUid": 127,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Left"]
+									}]
+								}
+							]
 						},
 						{
 							"__identifier": "OneWayPlatform1",
-							"__grid": [72,124],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 224,
-							"height": 8,
-							"defUid": 364,
-							"px": [576,992],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [88,132],
+							"__grid": [22,33],
 							"__pivot": [0,0],
 							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
 							"width": 96,
@@ -7594,51 +7426,40 @@
 						},
 						{
 							"__identifier": "OneWayPlatform1",
-							"__grid": [252,99],
+							"__grid": [63,24],
 							"__pivot": [0,0],
 							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
 							"width": 64,
 							"height": 8,
 							"defUid": 364,
-							"px": [2016,792],
+							"px": [2016,768],
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "OneWayPlatform1",
-							"__grid": [252,92],
+							"__grid": [63,21],
 							"__pivot": [0,0],
 							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
 							"width": 64,
 							"height": 8,
 							"defUid": 364,
-							"px": [2016,736],
+							"px": [2016,672],
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "OneWayPlatform1",
-							"__grid": [252,85],
+							"__grid": [63,18],
 							"__pivot": [0,0],
 							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
 							"width": 64,
 							"height": 8,
 							"defUid": 364,
-							"px": [2016,680],
+							"px": [2016,576],
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "OneWayPlatform1",
-							"__grid": [252,78],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 64,
-							"height": 8,
-							"defUid": 364,
-							"px": [2016,624],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [220,76],
+							"__grid": [55,19],
 							"__pivot": [0,0],
 							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
 							"width": 64,
@@ -8971,18 +8792,18 @@
 					"entityInstances": []
 				},
 				{
-					"__identifier": "SpawnTargets",
+					"__identifier": "Props",
 					"__type": "Entities",
 					"__cWid": 33,
 					"__cHei": 23,
 					"__gridSize": 32,
-					"__opacity": 0.5,
+					"__opacity": 1,
 					"__pxTotalOffsetX": 0,
 					"__pxTotalOffsetY": 0,
 					"__tilesetDefUid": null,
 					"__tilesetRelPath": null,
 					"levelId": 121,
-					"layerDefUid": 78,
+					"layerDefUid": 82,
 					"pxOffsetX": 0,
 					"pxOffsetY": 0,
 					"visible": true,
@@ -8990,10 +8811,60 @@
 					"intGrid": [],
 					"intGridCsv": [],
 					"autoLayerTiles": [],
-					"seed": 5709479,
+					"seed": 6716217,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
 					"entityInstances": [
+						{
+							"__identifier": "Lamp5",
+							"__grid": [5,13],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,128,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 99,
+							"px": [176,448],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 100, "realEditorValues": [] },
+								{ "__identifier": "type", "__value": 4, "__type": "Int", "defUid": 101, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "BrokenLamp2",
+							"__grid": [15,11],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [32,160,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 105,
+							"px": [496,384],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/BrokenLamp2.tscn", "__type": "String", "defUid": 106, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Lamp2",
+							"__grid": [27,18],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 84, "srcRect": [0,32,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 87,
+							"px": [880,608],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 88, "realEditorValues": [] },
+								{ "__identifier": "type", "__value": 1, "__type": "Int", "defUid": 89, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "Crate",
+							"__grid": [16,18],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 361,
+							"px": [528,608],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+						},
 						{
 							"__identifier": "Checkpoint",
 							"__grid": [25,7],
@@ -9036,7 +8907,16 @@
 										"params": ["Door1"]
 									}]
 								},
-								{ "__identifier": "next_level", "__value": "Level1", "__type": "String", "defUid": 122, "realEditorValues": [] },
+								{
+									"__identifier": "next_level",
+									"__value": "Level1",
+									"__type": "String",
+									"defUid": 122,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Level1"]
+									}]
+								},
 								{
 									"__identifier": "exit_direction",
 									"__value": "Right",
@@ -9103,133 +8983,6 @@
 							]
 						}
 					]
-				},
-				{
-					"__identifier": "DecorationEntities",
-					"__type": "Entities",
-					"__cWid": 33,
-					"__cHei": 23,
-					"__gridSize": 32,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 121,
-					"layerDefUid": 82,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 6716217,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": [
-						{
-							"__identifier": "Lamp5",
-							"__grid": [5,13],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 84, "srcRect": [0,128,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 99,
-							"px": [176,448],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 100, "realEditorValues": [] },
-								{ "__identifier": "type", "__value": 4, "__type": "Int", "defUid": 101, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "BrokenLamp2",
-							"__grid": [15,11],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 84, "srcRect": [32,160,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 105,
-							"px": [496,384],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/BrokenLamp2.tscn", "__type": "String", "defUid": 106, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Lamp2",
-							"__grid": [27,18],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 84, "srcRect": [0,32,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 87,
-							"px": [880,608],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/decoration/lamps/Lamp.tscn", "__type": "String", "defUid": 88, "realEditorValues": [] },
-								{ "__identifier": "type", "__value": 1, "__type": "Int", "defUid": 89, "realEditorValues": [] }
-							]
-						}
-					]
-				},
-				{
-					"__identifier": "Destructibles",
-					"__type": "Entities",
-					"__cWid": 33,
-					"__cHei": 23,
-					"__gridSize": 32,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 121,
-					"layerDefUid": 362,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 9507230,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": [
-						{
-							"__identifier": "Crate",
-							"__grid": [13,17],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [432,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						}
-					]
-				},
-				{
-					"__identifier": "Platforms",
-					"__type": "Entities",
-					"__cWid": 132,
-					"__cHei": 92,
-					"__gridSize": 8,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 121,
-					"layerDefUid": 368,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 7684724,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -11809,18 +11562,18 @@
 					"entityInstances": []
 				},
 				{
-					"__identifier": "SpawnTargets",
+					"__identifier": "Props",
 					"__type": "Entities",
 					"__cWid": 88,
 					"__cHei": 22,
 					"__gridSize": 32,
-					"__opacity": 0.5,
+					"__opacity": 1,
 					"__pxTotalOffsetX": 0,
 					"__pxTotalOffsetY": 0,
 					"__tilesetDefUid": null,
 					"__tilesetRelPath": null,
 					"levelId": 125,
-					"layerDefUid": 78,
+					"layerDefUid": 82,
 					"pxOffsetX": 0,
 					"pxOffsetY": 0,
 					"visible": true,
@@ -11828,10 +11581,173 @@
 					"intGrid": [],
 					"intGridCsv": [],
 					"autoLayerTiles": [],
-					"seed": 5837976,
+					"seed": 920217,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
 					"entityInstances": [
+						{
+							"__identifier": "Crate",
+							"__grid": [14,17],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 361,
+							"px": [464,576],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Barrel",
+							"__grid": [16,17],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 373,
+							"px": [528,576],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Barrel",
+							"__grid": [18,17],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 373,
+							"px": [592,576],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Barrel",
+							"__grid": [58,17],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 373,
+							"px": [1872,576],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Barrel",
+							"__grid": [56,17],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 373,
+							"px": [1808,576],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Crate",
+							"__grid": [80,5],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 361,
+							"px": [2576,192],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Crate",
+							"__grid": [16,8],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
+							"width": 32,
+							"height": 32,
+							"defUid": 361,
+							"px": [528,288],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Doorway",
+							"__grid": [0,9],
+							"__pivot": [0,0],
+							"__tile": null,
+							"width": 64,
+							"height": 64,
+							"defUid": 110,
+							"px": [0,288],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
+								{
+									"__identifier": "next_door",
+									"__value": "Door1",
+									"__type": "String",
+									"defUid": 118,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Door1"]
+									}]
+								},
+								{
+									"__identifier": "name",
+									"__value": "Door3",
+									"__type": "String",
+									"defUid": 119,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Door3"]
+									}]
+								},
+								{
+									"__identifier": "next_level",
+									"__value": "Level4",
+									"__type": "String",
+									"defUid": 122,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Level4"]
+									}]
+								},
+								{
+									"__identifier": "exit_direction",
+									"__value": "Right",
+									"__type": "LocalEnum.ExitDirection",
+									"defUid": 127,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Right"]
+									}]
+								}
+							]
+						},
+						{
+							"__identifier": "Checkpoint",
+							"__grid": [7,15],
+							"__pivot": [0.5,1],
+							"__tile": null,
+							"width": 84,
+							"height": 68,
+							"defUid": 72,
+							"px": [240,512],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Checkpoint",
+							"__grid": [19,8],
+							"__pivot": [0.5,1],
+							"__tile": null,
+							"width": 84,
+							"height": 68,
+							"defUid": 72,
+							"px": [624,288],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "Checkpoint",
+							"__grid": [64,17],
+							"__pivot": [0.5,1],
+							"__tile": null,
+							"width": 84,
+							"height": 68,
+							"defUid": 72,
+							"px": [2064,576],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
+						},
 						{
 							"__identifier": "Doorway",
 							"__grid": [76,0],
@@ -11884,17 +11800,6 @@
 									}]
 								}
 							]
-						},
-						{
-							"__identifier": "Checkpoint",
-							"__grid": [64,17],
-							"__pivot": [0.5,1],
-							"__tile": null,
-							"width": 84,
-							"height": 68,
-							"defUid": 72,
-							"px": [2064,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "Doorway",
@@ -11950,245 +11855,39 @@
 							]
 						},
 						{
-							"__identifier": "Checkpoint",
-							"__grid": [7,15],
-							"__pivot": [0.5,1],
-							"__tile": null,
-							"width": 84,
-							"height": 68,
-							"defUid": 72,
-							"px": [240,512],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Doorway",
-							"__grid": [0,8],
+							"__identifier": "OneWayPlatform1",
+							"__grid": [52,12],
 							"__pivot": [0,0],
-							"__tile": null,
+							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
 							"width": 64,
-							"height": 64,
-							"defUid": 110,
-							"px": [1,287],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
-								{
-									"__identifier": "next_door",
-									"__value": "Door3",
-									"__type": "String",
-									"defUid": 118,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Door3"]
-									}]
-								},
-								{
-									"__identifier": "name",
-									"__value": "Door3",
-									"__type": "String",
-									"defUid": 119,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Door3"]
-									}]
-								},
-								{
-									"__identifier": "next_level",
-									"__value": "Level4",
-									"__type": "String",
-									"defUid": 122,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Level4"]
-									}]
-								},
-								{
-									"__identifier": "exit_direction",
-									"__value": "Right",
-									"__type": "LocalEnum.ExitDirection",
-									"defUid": 127,
-									"realEditorValues": [{
-										"id": "V_String",
-										"params": ["Right"]
-									}]
-								}
-							]
+							"height": 8,
+							"defUid": 364,
+							"px": [1664,384],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "Checkpoint",
-							"__grid": [19,8],
-							"__pivot": [0.5,1],
-							"__tile": null,
-							"width": 84,
-							"height": 68,
-							"defUid": 72,
-							"px": [624,288],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/checkpoint/Checkpoint.tscn", "__type": "String", "defUid": 73, "realEditorValues": [] }]
+							"__identifier": "OneWayPlatform1",
+							"__grid": [52,9],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [1664,288],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+						},
+						{
+							"__identifier": "OneWayPlatform1",
+							"__grid": [4,7],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
+							"width": 96,
+							"height": 8,
+							"defUid": 364,
+							"px": [128,224],
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
 						}
 					]
-				},
-				{
-					"__identifier": "DecorationEntities",
-					"__type": "Entities",
-					"__cWid": 88,
-					"__cHei": 22,
-					"__gridSize": 32,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 125,
-					"layerDefUid": 82,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 920217,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": []
-				},
-				{
-					"__identifier": "Destructibles",
-					"__type": "Entities",
-					"__cWid": 88,
-					"__cHei": 22,
-					"__gridSize": 32,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 125,
-					"layerDefUid": 362,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 8726378,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": [
-						{
-							"__identifier": "Crate",
-							"__grid": [77,15],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [2480,512],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Crate",
-							"__grid": [58,17],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [1872,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Crate",
-							"__grid": [56,17],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [1808,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Crate",
-							"__grid": [15,17],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [496,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Crate",
-							"__grid": [14,17],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [96,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 361,
-							"px": [464,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Barrel",
-							"__grid": [16,8],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 373,
-							"px": [528,288],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Barrel",
-							"__grid": [60,17],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 373,
-							"px": [1936,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
-						},
-						{
-							"__identifier": "Barrel",
-							"__grid": [80,5],
-							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 359, "srcRect": [64,0,32,32] },
-							"width": 32,
-							"height": 32,
-							"defUid": 373,
-							"px": [2576,192],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Barrel.tscn", "__type": "String", "defUid": 374, "realEditorValues": [] }]
-						}
-					]
-				},
-				{
-					"__identifier": "Platforms",
-					"__type": "Entities",
-					"__cWid": 352,
-					"__cHei": 88,
-					"__gridSize": 8,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 125,
-					"layerDefUid": 368,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 3875188,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -13072,32 +12771,7 @@
 					"entityInstances": []
 				},
 				{
-					"__identifier": "SpawnTargets",
-					"__type": "Entities",
-					"__cWid": 36,
-					"__cHei": 28,
-					"__gridSize": 32,
-					"__opacity": 0.5,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 143,
-					"layerDefUid": 78,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 267903,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": []
-				},
-				{
-					"__identifier": "DecorationEntities",
+					"__identifier": "Props",
 					"__type": "Entities",
 					"__cWid": 36,
 					"__cHei": 28,
@@ -13117,56 +12791,6 @@
 					"intGridCsv": [],
 					"autoLayerTiles": [],
 					"seed": 6001245,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": []
-				},
-				{
-					"__identifier": "Destructibles",
-					"__type": "Entities",
-					"__cWid": 36,
-					"__cHei": 28,
-					"__gridSize": 32,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 143,
-					"layerDefUid": 362,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 216530,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": []
-				},
-				{
-					"__identifier": "Platforms",
-					"__type": "Entities",
-					"__cWid": 144,
-					"__cHei": 112,
-					"__gridSize": 8,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 143,
-					"layerDefUid": 368,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 5161287,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
 					"entityInstances": []
@@ -14575,18 +14199,18 @@
 					"entityInstances": []
 				},
 				{
-					"__identifier": "SpawnTargets",
+					"__identifier": "Props",
 					"__type": "Entities",
 					"__cWid": 37,
 					"__cHei": 22,
 					"__gridSize": 32,
-					"__opacity": 0.5,
+					"__opacity": 1,
 					"__pxTotalOffsetX": 0,
 					"__pxTotalOffsetY": 0,
 					"__tilesetDefUid": null,
 					"__tilesetRelPath": null,
 					"levelId": 375,
-					"layerDefUid": 78,
+					"layerDefUid": 82,
 					"pxOffsetX": 0,
 					"pxOffsetY": 0,
 					"visible": true,
@@ -14594,19 +14218,19 @@
 					"intGrid": [],
 					"intGridCsv": [],
 					"autoLayerTiles": [],
-					"seed": 5095086,
+					"seed": 906913,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
 					"entityInstances": [
 						{
 							"__identifier": "Doorway",
-							"__grid": [34,8],
+							"__grid": [35,9],
 							"__pivot": [0,0],
 							"__tile": null,
 							"width": 64,
 							"height": 64,
 							"defUid": 110,
-							"px": [1119,287],
+							"px": [1120,288],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://environment/doors/Doorway.tscn", "__type": "String", "defUid": 111, "realEditorValues": [] },
 								{
@@ -14621,12 +14245,12 @@
 								},
 								{
 									"__identifier": "name",
-									"__value": "Door3",
+									"__value": "Door1",
 									"__type": "String",
 									"defUid": 119,
 									"realEditorValues": [{
 										"id": "V_String",
-										"params": ["Door3"]
+										"params": ["Door1"]
 									}]
 								},
 								{
@@ -14652,81 +14276,6 @@
 							]
 						}
 					]
-				},
-				{
-					"__identifier": "DecorationEntities",
-					"__type": "Entities",
-					"__cWid": 37,
-					"__cHei": 22,
-					"__gridSize": 32,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 375,
-					"layerDefUid": 82,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 906913,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": []
-				},
-				{
-					"__identifier": "Destructibles",
-					"__type": "Entities",
-					"__cWid": 37,
-					"__cHei": 22,
-					"__gridSize": 32,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 375,
-					"layerDefUid": 362,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 571551,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": []
-				},
-				{
-					"__identifier": "Platforms",
-					"__type": "Entities",
-					"__cWid": 148,
-					"__cHei": 88,
-					"__gridSize": 8,
-					"__opacity": 1,
-					"__pxTotalOffsetX": 0,
-					"__pxTotalOffsetY": 0,
-					"__tilesetDefUid": null,
-					"__tilesetRelPath": null,
-					"levelId": 375,
-					"layerDefUid": 368,
-					"pxOffsetX": 0,
-					"pxOffsetY": 0,
-					"visible": true,
-					"optionalRules": [],
-					"intGrid": [],
-					"intGridCsv": [],
-					"autoLayerTiles": [],
-					"seed": 8582477,
-					"overrideTilesetUid": null,
-					"gridTiles": [],
-					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
