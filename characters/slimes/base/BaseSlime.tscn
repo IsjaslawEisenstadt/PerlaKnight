@@ -172,7 +172,7 @@ anims/land = SubResource( 8 )
 anims/up_to_jump = SubResource( 9 )
 
 [node name="HurtPlayer" parent="." index="3"]
-kickback_strength = 0.0
+kickback_strength = 450.0
 makes_invincible = false
 
 [node name="InputController" parent="." index="4"]
