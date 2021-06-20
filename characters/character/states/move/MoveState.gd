@@ -27,16 +27,28 @@ export var dash_state_path: NodePath = "../DashState"
 export var without_turn_state: bool = true
 
 export var move_sound: String = "Move"
+var move_sound_vari: String = move_sound
+var regex = RegEx.new()
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 	if transition_mode & TransitionMode.TRANSITION_IN:
 		play_animation(transition_in_animation)
+	
+	move_sound_vari = move_sound
+	if !host.level_name:
+		host.level_name =  get_parent().get_parent().get_parent().get_parent().get_parent().name
+	regex.compile("^Level")
+	if regex.search(host.level_name):
+		move_sound_vari += "Stone"
+	regex.compile("^TutorialLevel")
+	if regex.search(host.level_name):
+		move_sound_vari += "Gras"
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)
-	if !host.is_playing_sound(move_sound): 
-		host.play_sound(move_sound)
+	if !host.is_playing_sound(move_sound_vari):
+			host.play_sound(move_sound_vari)
 
 	if host.InputController._is_action_just_activated("dash"):
 		if state_machine._push_state(DashState):

@@ -34,6 +34,7 @@ var can_dash: bool = dash_acquired setget set_can_dash
 var can_double_jump: bool = double_jump_acquired setget set_can_double_jump
 
 var audio_player_cache: Dictionary = {}
+var level_name: String 
 
 func _ready() -> void:
 	# warning-ignore:return_value_discarded
