@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://utility/audio_player/AudioPlayer.gd"
 }, {
+"base": "AudioPlayer",
+"class": "ChangeAudioPlayer",
+"language": "GDScript",
+"path": "res://utility/audio_player/ChangeAudioPlayer.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Character",
 "language": "GDScript",
@@ -304,6 +309,7 @@ _global_script_class_icons={
 "AnimationState": "",
 "AttackState": "",
 "AudioPlayer": "",
+"ChangeAudioPlayer": "",
 "Character": "",
 "CharacterState": "",
 "CharacterStateMachine": "",
