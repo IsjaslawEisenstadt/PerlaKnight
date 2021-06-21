@@ -1,25 +1,25 @@
 [gd_scene load_steps=128 format=2]
 
 [ext_resource path="res://maps/test_map/textures/dungeon.png" type="Texture" id=1]
-[ext_resource path="res://environment/destructibles/base/Destructible.gd" type="Script" id=2]
-[ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=3]
+[ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=2]
+[ext_resource path="res://environment/destructibles/base/Destructible.gd" type="Script" id=3]
 [ext_resource path="res://environment/decoration/props.png" type="Texture" id=4]
 [ext_resource path="res://environment/runes/resource/HealthRune.tres" type="Resource" id=5]
 [ext_resource path="res://environment/loot_pickups/health_loot_pickup/HealthLootDrop.tres" type="Resource" id=6]
 [ext_resource path="res://environment/destructibles/Crate.tscn" type="PackedScene" id=7]
-[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=8]
-[ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=9]
-[ext_resource path="res://environment/destructibles/Barrel.tscn" type="PackedScene" id=10]
-[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=11]
-[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=12]
-[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=13]
-[ext_resource path="res://environment/platforms/OneWayPlatform1.tscn" type="PackedScene" id=14]
-[ext_resource path="res://characters/slimes/GhostSlime.tscn" type="PackedScene" id=15]
+[ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=8]
+[ext_resource path="res://environment/platforms/OneWayPlatform1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://characters/slimes/GhostSlime.tscn" type="PackedScene" id=12]
+[ext_resource path="res://environment/destructibles/Barrel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=15]
 [ext_resource path="res://characters/slimes/IceSlime.tscn" type="PackedScene" id=16]
-[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=17]
-[ext_resource path="res://maps/Level.gd" type="Script" id=18]
-[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=19]
-[ext_resource path="res://characters/player/Player.gd" type="Script" id=20]
+[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=17]
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=18]
+[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=19]
+[ext_resource path="res://maps/Level.gd" type="Script" id=20]
 [ext_resource path="res://environment/platforms/OneWayPlatform.gd" type="Script" id=21]
 [ext_resource path="res://characters/character/Character.gd" type="Script" id=22]
 
@@ -1532,10 +1532,10 @@ extents = Vector2( 1408, 16 )
 extents = Vector2( 1408, 16 )
 
 [node name="Level3" type="Node2D"]
-script = ExtResource( 18 )
+script = ExtResource( 20 )
 player_path = NodePath("Characters/Player")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 8 )]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 15 )]
 environment = SubResource( 1 )
 
 [node name="Decoration" type="TileMap" parent="."]
@@ -1552,56 +1552,56 @@ z_index = 2
 position = Vector2( 912, 576 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 possible_drops = [ ExtResource( 6 ) ]
 
-[node name="Barrel" type="Area2D" parent="Props" instance=ExtResource( 10 )]
+[node name="Barrel" type="Area2D" parent="Props" instance=ExtResource( 13 )]
 position = Vector2( 976, 576 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 possible_drops = [ ExtResource( 6 ) ]
 
-[node name="Barrel2" type="Area2D" parent="Props" instance=ExtResource( 10 )]
+[node name="Barrel2" type="Area2D" parent="Props" instance=ExtResource( 13 )]
 position = Vector2( 1040, 576 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 possible_drops = [ ExtResource( 6 ) ]
 
-[node name="Barrel3" type="Area2D" parent="Props" instance=ExtResource( 10 )]
+[node name="Barrel3" type="Area2D" parent="Props" instance=ExtResource( 13 )]
 position = Vector2( 2320, 576 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 possible_drops = [ ExtResource( 6 ) ]
 
-[node name="Barrel4" type="Area2D" parent="Props" instance=ExtResource( 10 )]
+[node name="Barrel4" type="Area2D" parent="Props" instance=ExtResource( 13 )]
 position = Vector2( 2256, 576 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 possible_drops = [ ExtResource( 6 ) ]
 
 [node name="Crate2" type="Area2D" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( 3024, 192 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 possible_drops = [ ExtResource( 6 ) ]
 
 [node name="Crate3" type="Area2D" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( 976, 288 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 possible_drops = [ ExtResource( 6 ) ]
 
-[node name="Door3" type="Area2D" parent="Props" instance=ExtResource( 9 )]
+[node name="Door3" type="Area2D" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 448, 288 )
 collision_layer = 262144
 collision_mask = 262144
-script = ExtResource( 19 )
+script = ExtResource( 17 )
 next_level = "Level4"
 next_door = "Door1"
 exit_direction = "Right"
@@ -1610,69 +1610,78 @@ shape = Vector2( 64, 64 )
 [node name="Checkpoint" type="Area2D" parent="Props" groups=[
 "Checkpoint",
 "Persistent",
-] instance=ExtResource( 11 )]
+] instance=ExtResource( 10 )]
 position = Vector2( 688, 512 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="Checkpoint2" type="Area2D" parent="Props" groups=[
 "Checkpoint",
 "Persistent",
-] instance=ExtResource( 11 )]
+] instance=ExtResource( 10 )]
 position = Vector2( 1072, 288 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
 [node name="Checkpoint3" type="Area2D" parent="Props" groups=[
 "Checkpoint",
 "Persistent",
-] instance=ExtResource( 11 )]
+] instance=ExtResource( 10 )]
 position = Vector2( 2512, 576 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 3 )
+script = ExtResource( 2 )
 
-[node name="Door1" type="Area2D" parent="Props" instance=ExtResource( 9 )]
+[node name="Door1" type="Area2D" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 2880, 0 )
 collision_layer = 262144
 collision_mask = 262144
-script = ExtResource( 19 )
+script = ExtResource( 17 )
 next_level = "Level2"
 next_door = "Door2"
 exit_direction = "Down"
 shape = Vector2( 96, 64 )
 
-[node name="Door2" type="Area2D" parent="Props" instance=ExtResource( 9 )]
+[node name="Door2" type="Area2D" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( 704, 0 )
 collision_layer = 262144
 collision_mask = 262144
-script = ExtResource( 19 )
+script = ExtResource( 17 )
 next_level = "Level1"
 next_door = "Door2"
 exit_direction = "Down"
 shape = Vector2( 96, 64 )
 
-[node name="OneWayPlatform1" type="StaticBody2D" parent="Props" instance=ExtResource( 14 )]
+[node name="OneWayPlatform1" type="StaticBody2D" parent="Props" instance=ExtResource( 9 )]
 position = Vector2( 2112, 384 )
-collision_layer = 7168
+collision_layer = 15360
 collision_mask = 16
 script = ExtResource( 21 )
+__meta__ = {
+"ground_type": "Dirt"
+}
 width = 64
 
-[node name="OneWayPlatform2" type="StaticBody2D" parent="Props" instance=ExtResource( 14 )]
+[node name="OneWayPlatform2" type="StaticBody2D" parent="Props" instance=ExtResource( 9 )]
 position = Vector2( 2112, 288 )
-collision_layer = 7168
+collision_layer = 15360
 collision_mask = 16
 script = ExtResource( 21 )
+__meta__ = {
+"ground_type": "Dirt"
+}
 width = 64
 
-[node name="OneWayPlatform3" type="StaticBody2D" parent="Props" instance=ExtResource( 14 )]
+[node name="OneWayPlatform3" type="StaticBody2D" parent="Props" instance=ExtResource( 9 )]
 position = Vector2( 576, 224 )
-collision_layer = 7168
+collision_layer = 15360
 collision_mask = 16
 script = ExtResource( 21 )
+__meta__ = {
+"ground_type": "Dirt"
+}
 width = 96
 
 [node name="Runes" type="Node2D" parent="."]
@@ -1680,22 +1689,22 @@ z_index = 3
 
 [node name="RuneContainer" type="Area2D" parent="Runes" groups=[
 "Persistent",
-] instance=ExtResource( 13 )]
+] instance=ExtResource( 11 )]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 1048, 376 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 17 )
+script = ExtResource( 19 )
 rune = ExtResource( 5 )
 
 [node name="RuneContainer2" type="Area2D" parent="Runes" groups=[
 "Persistent",
-] instance=ExtResource( 13 )]
+] instance=ExtResource( 11 )]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 1640, 120 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 17 )
+script = ExtResource( 19 )
 rune = ExtResource( 5 )
 
 [node name="Characters" type="Node2D" parent="."]
@@ -1703,25 +1712,25 @@ z_index = 4
 
 [node name="Player" type="KinematicBody2D" parent="Characters" groups=[
 "Persistent",
-] instance=ExtResource( 12 )]
+] instance=ExtResource( 14 )]
 position = Vector2( 2440, 576 )
 collision_layer = 1024
 collision_mask = 1025
-script = ExtResource( 20 )
+script = ExtResource( 18 )
 
-[node name="GhostSlime" type="KinematicBody2D" parent="Characters" instance=ExtResource( 15 )]
+[node name="GhostSlime" type="KinematicBody2D" parent="Characters" instance=ExtResource( 12 )]
 position = Vector2( 1328, 352 )
 collision_layer = 2048
 script = ExtResource( 22 )
 max_health = 3
 
-[node name="GhostSlime2" type="KinematicBody2D" parent="Characters" instance=ExtResource( 15 )]
+[node name="GhostSlime2" type="KinematicBody2D" parent="Characters" instance=ExtResource( 12 )]
 position = Vector2( 1440, 352 )
 collision_layer = 2048
 script = ExtResource( 22 )
 max_health = 3
 
-[node name="GhostSlime3" type="KinematicBody2D" parent="Characters" instance=ExtResource( 15 )]
+[node name="GhostSlime3" type="KinematicBody2D" parent="Characters" instance=ExtResource( 12 )]
 position = Vector2( 1552, 352 )
 collision_layer = 2048
 script = ExtResource( 22 )
@@ -1748,6 +1757,9 @@ max_health = 3
 [node name="Collision_Ground" type="StaticBody2D" parent="."]
 position = Vector2( 448, 0 )
 z_index = 5
+__meta__ = {
+"ground_type": "Stone"
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Ground"]
 position = Vector2( 128, 16 )

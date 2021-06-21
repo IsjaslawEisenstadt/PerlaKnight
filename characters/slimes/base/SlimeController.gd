@@ -25,7 +25,6 @@ func _input_physics_process(delta: float) -> void:
 		
 		stop_moving()
 		if distance_x > backoff_distance:
-			print(distance_x)
 			activate_action("move_left" if direction == -1 else "move_right")
 		
 		if can_jump:

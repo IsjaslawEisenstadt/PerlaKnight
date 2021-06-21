@@ -2,6 +2,7 @@ extends Node2D
 class_name Perception
 
 onready var Sight: Area2D = $Sight
+onready var Ground: Area2D = $Ground
 onready var Host = $"../.."
 
 func get_visible_objects(of_type = Node) -> Array:
@@ -40,3 +41,9 @@ func is_on_wall() -> bool:
 
 func is_on_edge() -> bool:
 	return $Edge.get_overlapping_bodies().empty()
+
+func get_current_ground_type() -> String:
+	for body in Ground.get_overlapping_bodies():
+		if body.has_meta("ground_type"):
+			return body.get_meta("ground_type")
+	return ""

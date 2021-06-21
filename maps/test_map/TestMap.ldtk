@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 447,
+	"nextUid": 451,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -2348,6 +2348,29 @@
 						"params": ["res://environment/platforms/OneWayPlatform1.tscn"]
 					},
 					"textLanguageMode": null
+				},
+				{
+					"identifier": "ground_type",
+					"__type": "String",
+					"uid": 450,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["Dirt"]
+					},
+					"textLanguageMode": null
 				}
 			]
 		},
@@ -2510,8 +2533,8 @@
 			"tileGridSize": 32,
 			"spacing": 0,
 			"padding": 0,
-			"tagsSourceEnumUid": null,
-			"enumTags": [],
+			"tagsSourceEnumUid": 447,
+			"enumTags": [ { "enumValueId": "Stone", "tileIds": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48] }, { "enumValueId": "Dirt", "tileIds": [] } ],
 			"customData": [],
 			"savedSelections": [],
 			"cachedPixelData": {
@@ -2530,8 +2553,8 @@
 			"tileGridSize": 32,
 			"spacing": 0,
 			"padding": 0,
-			"tagsSourceEnumUid": null,
-			"enumTags": [],
+			"tagsSourceEnumUid": 447,
+			"enumTags": [ { "enumValueId": "Stone", "tileIds": [] }, { "enumValueId": "Dirt", "tileIds": [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48] } ],
 			"customData": [],
 			"savedSelections": [],
 			"cachedPixelData": {
@@ -2687,13 +2710,16 @@
 				"averageColors": "58650000386558760000587628760223587600005755034428654765000047542877077758650000576506672865686600005765386502336755000067550ddd8baa36443dde4755175318789989000078661ccc38665a880000487638651eee48770000498719752dcc297508421ba90743198818770000198800003a8748650000576516661643586600005876000038655876000058651766164358650000576517771754587600005765286600005765000057650000265458660000586628660000576500005866078926435765000038761854022228650000296500001a853976000038660323197538650000386505661754386600003865287601023977000038770ccc6ccc27542dee2644166606442754000028650677287618540aaa17540754088828540000386500004867476500005866177719875866000048660000387738661dde7cbb4bbb0eee497700003865188916442baa3eee3baa06660ddd264400004765066728652baa3eee398719871a99275400007bbb2dcd2a984a991eee7ccc3bbb0eee498700003865077728652aa93eef398808781a98275400000000000000000000000000000000000000000000"
 			}
 		}
-	], "enums": [{ "identifier": "ExitDirection", "uid": 126, "values": [
-		{ "id": "UpLeft", "tileId": null, "color": 0, "__tileSrcRect": null },
-		{ "id": "UpRight", "tileId": null, "color": 0, "__tileSrcRect": null },
-		{ "id": "Down", "tileId": null, "color": 0, "__tileSrcRect": null },
-		{ "id": "Left", "tileId": null, "color": 0, "__tileSrcRect": null },
-		{ "id": "Right", "tileId": null, "color": 0, "__tileSrcRect": null }
-	], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }], "externalEnums": [], "levelFields": [] },
+	], "enums": [
+		{ "identifier": "ExitDirection", "uid": 126, "values": [
+			{ "id": "UpLeft", "tileId": null, "color": 0, "__tileSrcRect": null },
+			{ "id": "UpRight", "tileId": null, "color": 0, "__tileSrcRect": null },
+			{ "id": "Down", "tileId": null, "color": 0, "__tileSrcRect": null },
+			{ "id": "Left", "tileId": null, "color": 0, "__tileSrcRect": null },
+			{ "id": "Right", "tileId": null, "color": 0, "__tileSrcRect": null }
+		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
+		{ "identifier": "GroundType", "uid": 447, "values": [ { "id": "Stone", "tileId": null, "color": 5460819, "__tileSrcRect": null }, { "id": "Dirt", "tileId": null, "color": 2957341, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }
+	], "externalEnums": [], "levelFields": [] },
 	"levels": [
 		{
 			"identifier": "Level1",
@@ -6769,7 +6795,10 @@
 							"height": 8,
 							"defUid": 364,
 							"px": [704,1056],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "OneWayPlatform1",
@@ -6780,7 +6809,10 @@
 							"height": 8,
 							"defUid": 364,
 							"px": [2016,768],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "OneWayPlatform1",
@@ -6791,7 +6823,10 @@
 							"height": 8,
 							"defUid": 364,
 							"px": [2016,672],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "OneWayPlatform1",
@@ -6802,7 +6837,10 @@
 							"height": 8,
 							"defUid": 364,
 							"px": [2016,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "OneWayPlatform1",
@@ -6813,7 +6851,10 @@
 							"height": 8,
 							"defUid": 364,
 							"px": [1760,608],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
 						}
 					]
 				},
@@ -11134,7 +11175,10 @@
 							"height": 8,
 							"defUid": 364,
 							"px": [1664,384],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "OneWayPlatform1",
@@ -11145,7 +11189,10 @@
 							"height": 8,
 							"defUid": 364,
 							"px": [1664,288],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "OneWayPlatform1",
@@ -11156,7 +11203,10 @@
 							"height": 8,
 							"defUid": 364,
 							"px": [128,224],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
 						}
 					]
 				},

@@ -159,7 +159,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://maps/Level.gd"
 }, {
-"base": "Control",
+"base": "GameState",
 "class": "LoadingScreen",
 "language": "GDScript",
 "path": "res://ui/game_states/LoadingScreen.gd"
@@ -528,6 +528,7 @@ down={
 2d_physics/layer_11="player"
 2d_physics/layer_12="enemies"
 2d_physics/layer_13="friendlies"
+2d_physics/layer_14="platforms"
 2d_physics/layer_20="camera_bounds"
 
 [network]

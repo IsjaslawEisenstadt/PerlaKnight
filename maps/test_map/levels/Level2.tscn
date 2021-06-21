@@ -1,25 +1,25 @@
 [gd_scene load_steps=109 format=2]
 
 [ext_resource path="res://maps/test_map/textures/dungeon.png" type="Texture" id=1]
-[ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=2]
-[ext_resource path="res://environment/destructibles/base/Destructible.gd" type="Script" id=3]
-[ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=4]
-[ext_resource path="res://environment/decoration/lamps/textures/forest_lamps.png" type="Texture" id=5]
-[ext_resource path="res://environment/decoration/props.png" type="Texture" id=6]
+[ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=2]
+[ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=3]
+[ext_resource path="res://environment/destructibles/base/Destructible.gd" type="Script" id=4]
+[ext_resource path="res://environment/decoration/props.png" type="Texture" id=5]
+[ext_resource path="res://environment/decoration/lamps/textures/forest_lamps.png" type="Texture" id=6]
 [ext_resource path="res://environment/runes/resource/HealthRune.tres" type="Resource" id=7]
 [ext_resource path="res://environment/loot_pickups/health_loot_pickup/HealthLootDrop.tres" type="Resource" id=8]
-[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=9]
-[ext_resource path="res://environment/destructibles/Crate.tscn" type="PackedScene" id=10]
-[ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=11]
-[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=12]
-[ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=13]
-[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=14]
-[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=15]
-[ext_resource path="res://environment/decoration/lamps/BrokenLamp2.tscn" type="PackedScene" id=16]
-[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=17]
-[ext_resource path="res://maps/Level.gd" type="Script" id=18]
-[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=19]
-[ext_resource path="res://characters/player/Player.gd" type="Script" id=20]
+[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=10]
+[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://environment/destructibles/Crate.tscn" type="PackedScene" id=13]
+[ext_resource path="res://environment/decoration/lamps/BrokenLamp2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=15]
+[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=16]
+[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=17]
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=18]
+[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=19]
+[ext_resource path="res://maps/Level.gd" type="Script" id=20]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -31,7 +31,7 @@ glow_intensity = 1.2
 
 [sub_resource type="TileSet" id=2]
 0/name = ""
-0/texture = ExtResource( 6 )
+0/texture = ExtResource( 5 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 32 )
@@ -45,7 +45,7 @@ glow_intensity = 1.2
 0/shapes = [  ]
 0/z_index = 0
 1/name = ""
-1/texture = ExtResource( 6 )
+1/texture = ExtResource( 5 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 32, 0, 32, 32 )
@@ -59,7 +59,7 @@ glow_intensity = 1.2
 1/shapes = [  ]
 1/z_index = 0
 2/name = ""
-2/texture = ExtResource( 6 )
+2/texture = ExtResource( 5 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 64, 0, 32, 32 )
@@ -73,7 +73,7 @@ glow_intensity = 1.2
 2/shapes = [  ]
 2/z_index = 0
 3/name = ""
-3/texture = ExtResource( 6 )
+3/texture = ExtResource( 5 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 96, 0, 32, 32 )
@@ -87,7 +87,7 @@ glow_intensity = 1.2
 3/shapes = [  ]
 3/z_index = 0
 4/name = ""
-4/texture = ExtResource( 6 )
+4/texture = ExtResource( 5 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 128, 0, 32, 32 )
@@ -101,7 +101,7 @@ glow_intensity = 1.2
 4/shapes = [  ]
 4/z_index = 0
 15/name = ""
-15/texture = ExtResource( 6 )
+15/texture = ExtResource( 5 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 0, 32, 32, 32 )
@@ -115,7 +115,7 @@ glow_intensity = 1.2
 15/shapes = [  ]
 15/z_index = 0
 16/name = ""
-16/texture = ExtResource( 6 )
+16/texture = ExtResource( 5 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 32, 32, 32, 32 )
@@ -129,7 +129,7 @@ glow_intensity = 1.2
 16/shapes = [  ]
 16/z_index = 0
 17/name = ""
-17/texture = ExtResource( 6 )
+17/texture = ExtResource( 5 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 64, 32, 32, 32 )
@@ -143,7 +143,7 @@ glow_intensity = 1.2
 17/shapes = [  ]
 17/z_index = 0
 18/name = ""
-18/texture = ExtResource( 6 )
+18/texture = ExtResource( 5 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 96, 32, 32, 32 )
@@ -157,7 +157,7 @@ glow_intensity = 1.2
 18/shapes = [  ]
 18/z_index = 0
 19/name = ""
-19/texture = ExtResource( 6 )
+19/texture = ExtResource( 5 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 128, 32, 32, 32 )
@@ -171,7 +171,7 @@ glow_intensity = 1.2
 19/shapes = [  ]
 19/z_index = 0
 30/name = ""
-30/texture = ExtResource( 6 )
+30/texture = ExtResource( 5 )
 30/tex_offset = Vector2( 0, 0 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 0, 64, 32, 32 )
@@ -185,7 +185,7 @@ glow_intensity = 1.2
 30/shapes = [  ]
 30/z_index = 0
 31/name = ""
-31/texture = ExtResource( 6 )
+31/texture = ExtResource( 5 )
 31/tex_offset = Vector2( 0, 0 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 32, 64, 32, 32 )
@@ -199,7 +199,7 @@ glow_intensity = 1.2
 31/shapes = [  ]
 31/z_index = 0
 32/name = ""
-32/texture = ExtResource( 6 )
+32/texture = ExtResource( 5 )
 32/tex_offset = Vector2( 0, 0 )
 32/modulate = Color( 1, 1, 1, 1 )
 32/region = Rect2( 64, 64, 32, 32 )
@@ -213,7 +213,7 @@ glow_intensity = 1.2
 32/shapes = [  ]
 32/z_index = 0
 33/name = ""
-33/texture = ExtResource( 6 )
+33/texture = ExtResource( 5 )
 33/tex_offset = Vector2( 0, 0 )
 33/modulate = Color( 1, 1, 1, 1 )
 33/region = Rect2( 96, 64, 32, 32 )
@@ -227,7 +227,7 @@ glow_intensity = 1.2
 33/shapes = [  ]
 33/z_index = 0
 34/name = ""
-34/texture = ExtResource( 6 )
+34/texture = ExtResource( 5 )
 34/tex_offset = Vector2( 0, 0 )
 34/modulate = Color( 1, 1, 1, 1 )
 34/region = Rect2( 128, 64, 32, 32 )
@@ -241,7 +241,7 @@ glow_intensity = 1.2
 34/shapes = [  ]
 34/z_index = 0
 35/name = ""
-35/texture = ExtResource( 6 )
+35/texture = ExtResource( 5 )
 35/tex_offset = Vector2( 0, 0 )
 35/modulate = Color( 1, 1, 1, 1 )
 35/region = Rect2( 160, 64, 32, 32 )
@@ -255,7 +255,7 @@ glow_intensity = 1.2
 35/shapes = [  ]
 35/z_index = 0
 45/name = ""
-45/texture = ExtResource( 6 )
+45/texture = ExtResource( 5 )
 45/tex_offset = Vector2( 0, 0 )
 45/modulate = Color( 1, 1, 1, 1 )
 45/region = Rect2( 0, 96, 32, 32 )
@@ -269,7 +269,7 @@ glow_intensity = 1.2
 45/shapes = [  ]
 45/z_index = 0
 46/name = ""
-46/texture = ExtResource( 6 )
+46/texture = ExtResource( 5 )
 46/tex_offset = Vector2( 0, 0 )
 46/modulate = Color( 1, 1, 1, 1 )
 46/region = Rect2( 32, 96, 32, 32 )
@@ -283,7 +283,7 @@ glow_intensity = 1.2
 46/shapes = [  ]
 46/z_index = 0
 47/name = ""
-47/texture = ExtResource( 6 )
+47/texture = ExtResource( 5 )
 47/tex_offset = Vector2( 0, 0 )
 47/modulate = Color( 1, 1, 1, 1 )
 47/region = Rect2( 64, 96, 32, 32 )
@@ -297,7 +297,7 @@ glow_intensity = 1.2
 47/shapes = [  ]
 47/z_index = 0
 48/name = ""
-48/texture = ExtResource( 6 )
+48/texture = ExtResource( 5 )
 48/tex_offset = Vector2( 0, 0 )
 48/modulate = Color( 1, 1, 1, 1 )
 48/region = Rect2( 96, 96, 32, 32 )
@@ -311,7 +311,7 @@ glow_intensity = 1.2
 48/shapes = [  ]
 48/z_index = 0
 49/name = ""
-49/texture = ExtResource( 6 )
+49/texture = ExtResource( 5 )
 49/tex_offset = Vector2( 0, 0 )
 49/modulate = Color( 1, 1, 1, 1 )
 49/region = Rect2( 128, 96, 32, 32 )
@@ -325,7 +325,7 @@ glow_intensity = 1.2
 49/shapes = [  ]
 49/z_index = 0
 50/name = ""
-50/texture = ExtResource( 6 )
+50/texture = ExtResource( 5 )
 50/tex_offset = Vector2( 0, 0 )
 50/modulate = Color( 1, 1, 1, 1 )
 50/region = Rect2( 160, 96, 32, 32 )
@@ -339,7 +339,7 @@ glow_intensity = 1.2
 50/shapes = [  ]
 50/z_index = 0
 60/name = ""
-60/texture = ExtResource( 6 )
+60/texture = ExtResource( 5 )
 60/tex_offset = Vector2( 0, 0 )
 60/modulate = Color( 1, 1, 1, 1 )
 60/region = Rect2( 0, 128, 32, 32 )
@@ -353,7 +353,7 @@ glow_intensity = 1.2
 60/shapes = [  ]
 60/z_index = 0
 61/name = ""
-61/texture = ExtResource( 6 )
+61/texture = ExtResource( 5 )
 61/tex_offset = Vector2( 0, 0 )
 61/modulate = Color( 1, 1, 1, 1 )
 61/region = Rect2( 32, 128, 32, 32 )
@@ -367,7 +367,7 @@ glow_intensity = 1.2
 61/shapes = [  ]
 61/z_index = 0
 62/name = ""
-62/texture = ExtResource( 6 )
+62/texture = ExtResource( 5 )
 62/tex_offset = Vector2( 0, 0 )
 62/modulate = Color( 1, 1, 1, 1 )
 62/region = Rect2( 64, 128, 32, 32 )
@@ -381,7 +381,7 @@ glow_intensity = 1.2
 62/shapes = [  ]
 62/z_index = 0
 63/name = ""
-63/texture = ExtResource( 6 )
+63/texture = ExtResource( 5 )
 63/tex_offset = Vector2( 0, 0 )
 63/modulate = Color( 1, 1, 1, 1 )
 63/region = Rect2( 96, 128, 32, 32 )
@@ -395,7 +395,7 @@ glow_intensity = 1.2
 63/shapes = [  ]
 63/z_index = 0
 64/name = ""
-64/texture = ExtResource( 6 )
+64/texture = ExtResource( 5 )
 64/tex_offset = Vector2( 0, 0 )
 64/modulate = Color( 1, 1, 1, 1 )
 64/region = Rect2( 128, 128, 32, 32 )
@@ -409,7 +409,7 @@ glow_intensity = 1.2
 64/shapes = [  ]
 64/z_index = 0
 65/name = ""
-65/texture = ExtResource( 6 )
+65/texture = ExtResource( 5 )
 65/tex_offset = Vector2( 0, 0 )
 65/modulate = Color( 1, 1, 1, 1 )
 65/region = Rect2( 160, 128, 32, 32 )
@@ -423,7 +423,7 @@ glow_intensity = 1.2
 65/shapes = [  ]
 65/z_index = 0
 75/name = ""
-75/texture = ExtResource( 6 )
+75/texture = ExtResource( 5 )
 75/tex_offset = Vector2( 0, 0 )
 75/modulate = Color( 1, 1, 1, 1 )
 75/region = Rect2( 0, 160, 32, 32 )
@@ -437,7 +437,7 @@ glow_intensity = 1.2
 75/shapes = [  ]
 75/z_index = 0
 76/name = ""
-76/texture = ExtResource( 6 )
+76/texture = ExtResource( 5 )
 76/tex_offset = Vector2( 0, 0 )
 76/modulate = Color( 1, 1, 1, 1 )
 76/region = Rect2( 32, 160, 32, 32 )
@@ -451,7 +451,7 @@ glow_intensity = 1.2
 76/shapes = [  ]
 76/z_index = 0
 77/name = ""
-77/texture = ExtResource( 6 )
+77/texture = ExtResource( 5 )
 77/tex_offset = Vector2( 0, 0 )
 77/modulate = Color( 1, 1, 1, 1 )
 77/region = Rect2( 64, 160, 32, 32 )
@@ -465,7 +465,7 @@ glow_intensity = 1.2
 77/shapes = [  ]
 77/z_index = 0
 78/name = ""
-78/texture = ExtResource( 6 )
+78/texture = ExtResource( 5 )
 78/tex_offset = Vector2( 0, 0 )
 78/modulate = Color( 1, 1, 1, 1 )
 78/region = Rect2( 96, 160, 32, 32 )
@@ -479,7 +479,7 @@ glow_intensity = 1.2
 78/shapes = [  ]
 78/z_index = 0
 79/name = ""
-79/texture = ExtResource( 6 )
+79/texture = ExtResource( 5 )
 79/tex_offset = Vector2( 0, 0 )
 79/modulate = Color( 1, 1, 1, 1 )
 79/region = Rect2( 128, 160, 32, 32 )
@@ -493,7 +493,7 @@ glow_intensity = 1.2
 79/shapes = [  ]
 79/z_index = 0
 80/name = ""
-80/texture = ExtResource( 6 )
+80/texture = ExtResource( 5 )
 80/tex_offset = Vector2( 0, 0 )
 80/modulate = Color( 1, 1, 1, 1 )
 80/region = Rect2( 160, 160, 32, 32 )
@@ -507,7 +507,7 @@ glow_intensity = 1.2
 80/shapes = [  ]
 80/z_index = 0
 90/name = ""
-90/texture = ExtResource( 6 )
+90/texture = ExtResource( 5 )
 90/tex_offset = Vector2( 0, 0 )
 90/modulate = Color( 1, 1, 1, 1 )
 90/region = Rect2( 0, 192, 32, 32 )
@@ -521,7 +521,7 @@ glow_intensity = 1.2
 90/shapes = [  ]
 90/z_index = 0
 91/name = ""
-91/texture = ExtResource( 6 )
+91/texture = ExtResource( 5 )
 91/tex_offset = Vector2( 0, 0 )
 91/modulate = Color( 1, 1, 1, 1 )
 91/region = Rect2( 32, 192, 32, 32 )
@@ -1479,10 +1479,10 @@ extents = Vector2( 336, 16 )
 extents = Vector2( 144, 16 )
 
 [node name="Level2" type="Node2D"]
-script = ExtResource( 18 )
+script = ExtResource( 20 )
 player_path = NodePath("Characters/Player")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 9 )]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 16 )]
 environment = SubResource( 1 )
 
 [node name="Decoration" type="TileMap" parent="."]
@@ -1496,65 +1496,65 @@ tile_data = PoolIntArray( 2490416, 1, 0 )
 [node name="Props" type="Node2D" parent="."]
 z_index = 2
 
-[node name="Lamp" type="Sprite" parent="Props" instance=ExtResource( 11 )]
+[node name="Lamp" type="Sprite" parent="Props" instance=ExtResource( 15 )]
 position = Vector2( 2384, -288 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 1
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 type = 4
 
-[node name="BrokenLamp1" type="Sprite" parent="Props" instance=ExtResource( 16 )]
+[node name="BrokenLamp1" type="Sprite" parent="Props" instance=ExtResource( 14 )]
 position = Vector2( 2704, -352 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 96
 
-[node name="Lamp2" type="Sprite" parent="Props" instance=ExtResource( 11 )]
+[node name="Lamp2" type="Sprite" parent="Props" instance=ExtResource( 15 )]
 position = Vector2( 3088, -128 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 1
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 type = 1
 
-[node name="Crate" type="Area2D" parent="Props" instance=ExtResource( 10 )]
+[node name="Crate" type="Area2D" parent="Props" instance=ExtResource( 13 )]
 position = Vector2( 2736, -128 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 possible_drops = [ ExtResource( 8 ) ]
 
 [node name="Checkpoint" type="Area2D" parent="Props" groups=[
 "Checkpoint",
 "Persistent",
-] instance=ExtResource( 12 )]
+] instance=ExtResource( 9 )]
 position = Vector2( 3024, -480 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 4 )
+script = ExtResource( 2 )
 
-[node name="Door1" type="Area2D" parent="Props" instance=ExtResource( 13 )]
+[node name="Door1" type="Area2D" parent="Props" instance=ExtResource( 10 )]
 position = Vector2( 2208, -352 )
 collision_layer = 262144
 collision_mask = 262144
-script = ExtResource( 19 )
+script = ExtResource( 17 )
 next_level = "Level1"
 next_door = "Door1"
 exit_direction = "Right"
 shape = Vector2( 64, 64 )
 
-[node name="Door2" type="Area2D" parent="Props" instance=ExtResource( 13 )]
+[node name="Door2" type="Area2D" parent="Props" instance=ExtResource( 10 )]
 position = Vector2( 2880, -64 )
 collision_layer = 262144
 collision_mask = 262144
-script = ExtResource( 19 )
+script = ExtResource( 17 )
 next_level = "Level3"
 next_door = "Door1"
 exit_direction = "UpLeft"
@@ -1565,12 +1565,12 @@ z_index = 3
 
 [node name="RuneContainer" type="Area2D" parent="Runes" groups=[
 "Persistent",
-] instance=ExtResource( 14 )]
+] instance=ExtResource( 11 )]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 2360, -584 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 17 )
+script = ExtResource( 19 )
 rune = ExtResource( 7 )
 
 [node name="Characters" type="Node2D" parent="."]
@@ -1578,15 +1578,18 @@ z_index = 4
 
 [node name="Player" type="KinematicBody2D" parent="Characters" groups=[
 "Persistent",
-] instance=ExtResource( 15 )]
+] instance=ExtResource( 12 )]
 position = Vector2( 2968, -480 )
 collision_layer = 1024
 collision_mask = 1025
-script = ExtResource( 20 )
+script = ExtResource( 18 )
 
 [node name="Collision_Ground" type="StaticBody2D" parent="."]
 position = Vector2( 2208, -736 )
 z_index = 5
+__meta__ = {
+"ground_type": "Stone"
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Ground"]
 position = Vector2( 528, 16 )

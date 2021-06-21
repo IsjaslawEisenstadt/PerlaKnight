@@ -243,6 +243,18 @@ func import_collisions(tilemap_data, level, layer_name, layer_mask):
 	layer.position = Vector2(level.worldX, level.worldY)
 	layer.collision_layer = layer_mask
 	layer.collision_mask = layer_mask
+	
+	var ground_type: String = ""
+	if tilemap_data.__tilesetDefUid:
+		for ts_data in map_data.defs.tilesets:
+			if ts_data.uid == tilemap_data.__tilesetDefUid:
+				for tileset_meta in ts_data.enumTags:
+					if !tileset_meta.tileIds.empty():
+						ground_type = tileset_meta.enumValueId
+						break
+	
+	if ground_type != "":
+		layer.set_meta("ground_type", ground_type)
 
 	var layer_width = tilemap_data.__cWid
 	var grid_size = tilemap_data.__gridSize
