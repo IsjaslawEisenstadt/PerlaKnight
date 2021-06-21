@@ -6,9 +6,13 @@ signal max_health_changed(max_health)
 signal character_turned(new_look_direction)
 
 onready var AnimationPlayer := $AnimationPlayer
+onready var HurtPlayer := $HurtPlayer
 onready var InputController: InputController = $InputController setget ,_get_input_controller
 onready var StateMachine := $StateMachine
+onready var Colliders := $Colliders
+onready var Perception := $Colliders/Perception
 onready var Interactor := $Colliders/Interactor
+onready var AttackHitBoxCollider := get_node_or_null("Colliders/AttackHitbox/AttackCollisionShape") as CollisionShape2D
 onready var Sounds := $Sounds
 
 export var max_health: int = 4 setget set_max_health
@@ -18,6 +22,9 @@ export var double_jump_acquired: bool = false
 export var wall_climb_acquired: bool = false
 
 var velocity := Vector2.ZERO
+var kickback_velocity := Vector2.ZERO
+var move_speed_factor: float = 1.0
+
 var look_direction: int = 1 setget set_look_direction
 var current_health: int = max_health setget _set_current_health
 var invincible: bool = false
@@ -33,11 +40,10 @@ func _ready() -> void:
 	AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
 	StateMachine.start()
 
-func _process(delta: float):
-	_interaction_process()
-	
-	if double_jump_acquired && !can_double_jump && is_on_floor():
-		can_double_jump = true
+func _process(delta: float) -> void:
+	if StateMachine.alive:
+		InputController._input_process(delta)
+		_interaction_process()
 
 	StateMachine._state_machine_process(delta)
 
@@ -50,11 +56,16 @@ func _interaction_process() -> void:
 		if closest_interaction:
 			closest_interaction._interact(self)
 
-func _physics_process(delta: float):
+func _physics_process(delta: float) -> void:
+	if StateMachine.alive:
+		InputController._input_physics_process(delta)
 	StateMachine._state_machine_physics_process(delta)
+	
+	if double_jump_acquired && !can_double_jump && is_on_floor():
+		can_double_jump = true
 
 func play_animation(animation_name: String, speed: float = 1.0) -> void:
-	if AnimationPlayer.has_animation(animation_name):
+	if AnimationPlayer.has_animation(animation_name) && !HurtPlayer.is_hurt_anim_playing():
 		# a convention to reset certain tracks before playing a new animation
 		if AnimationPlayer.has_animation("reset_pose"):
 			AnimationPlayer.play("reset_pose")
@@ -83,7 +94,7 @@ func _set_current_health(new_health: int) -> void:
 	
 	current_health = new_health
 	if current_health <= 0:
-		StateMachine.call_deferred("die")
+		StateMachine.die()
 	
 	emit_signal("health_changed", current_health)
 
@@ -95,9 +106,9 @@ func set_max_health(new_max_health: int) -> void:
 	emit_signal("max_health_changed", max_health)
 
 func hit(attacker: Node2D, damage: int) -> void:
-	if !invincible:
+	if !invincible && StateMachine.alive:
 		self.current_health -= damage
-		StateMachine.hurt(attacker)
+		HurtPlayer.hurt(attacker)
 
 # can be overridden to dynamically switch between different input controllers
 func _get_input_controller() -> InputController:
@@ -108,6 +119,10 @@ func set_can_dash(new_can_dash: bool) -> void:
 
 func set_can_double_jump(new_can_double_jump: bool) -> void:
 	can_double_jump = double_jump_acquired && new_can_double_jump
+
+func set_attack_shape_enabled(enabled: bool) -> void:
+	if AttackHitBoxCollider:
+		AttackHitBoxCollider.disabled = !enabled
 
 func play_sound(player_name: String) -> void:
 	if player_name in audio_player_cache:

@@ -4,7 +4,6 @@
 [ext_resource path="res://environment/checkpoint/textures/checkpoint.png" type="Texture" id=2]
 [ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30, 30 )
 
@@ -33,7 +32,7 @@ script = ExtResource( 3 )
 [node name="Sprite" parent="." index="0"]
 position = Vector2( 0, 0.187286 )
 texture = ExtResource( 2 )
-offset = Vector2( 0, -42 )
+offset = Vector2( 0, -41 )
 hframes = 4
 vframes = 3
 
@@ -44,13 +43,13 @@ scale = Vector2( 1.5, 1.5 )
 position = Vector2( -20, -14 )
 
 [node name="IconLeft" parent="Sprite/Icons/IconLeftOffset" index="0"]
-position = Vector2( -15.1955, 0 )
+position = Vector2( -15.8914, 0 )
 
 [node name="IconRightOffset" parent="Sprite/Icons" index="1"]
 position = Vector2( 21, -14 )
 
 [node name="IconRight" parent="Sprite/Icons/IconRightOffset" index="0"]
-position = Vector2( 15.1955, 0 )
+position = Vector2( 15.8914, 0 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, -30 )

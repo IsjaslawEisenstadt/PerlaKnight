@@ -16,7 +16,7 @@ func _state_enter(_previous_state: State, _params: Dictionary = {}) -> void:
 	self.visible = true
 	get_tree().paused = pause_game
 
-func _state_exit(_next_state: State) -> void:
+func _state_exit(_next_state: State, _params: Dictionary = {}) -> void:
 	self.visible = inactive_visibility
 	# not strictly neccessary but good hygiene anyways
 	get_tree().paused = !pause_game

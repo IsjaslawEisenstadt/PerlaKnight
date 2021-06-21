@@ -10,7 +10,7 @@ onready var player := get_node_or_null(player_path) as Player
 onready var SpawnTargets := get_node(spawn_targets_path)
 
 export var player_path: NodePath
-export var spawn_targets_path: NodePath = "SpawnTargets"
+export var spawn_targets_path: NodePath = "Props"
 
 var play_ui: PlayUI
 

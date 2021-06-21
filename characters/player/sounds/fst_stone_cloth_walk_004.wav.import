@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fst_stone_cloth_walk_004.wav-f19877a4884cb14116f55153521f86ba.sample"
+
+[deps]
+
+source_file="res://characters/player/sounds/fst_stone_cloth_walk_004.wav"
+dest_files=[ "res://.import/fst_stone_cloth_walk_004.wav-f19877a4884cb14116f55153521f86ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

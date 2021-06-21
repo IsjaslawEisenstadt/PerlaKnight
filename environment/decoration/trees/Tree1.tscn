@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://environment/decoration/trees/textures/tree1.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "sway"
+length = 7.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 7.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 74 ]
+}
+
+[node name="Tree1" type="Sprite"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -31 )
+hframes = 9
+vframes = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "sway"
+anims/sway = SubResource( 1 )

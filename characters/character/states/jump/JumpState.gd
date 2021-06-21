@@ -45,10 +45,6 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	
 	host.play_sound(jump_sound)
 	
-	if !host.InputController._is_action_just_activated("jump"):
-		state_machine._pop_state()
-		return
-	
 	double_jump_frame_skipped = false
 	
 	if "input_delay" in params:
@@ -92,7 +88,7 @@ func _state_physics_process(delta: float) -> void:
 
 	fall(delta)
 	move(delta)
-	host.velocity = host.move_and_slide(host.velocity, FLOOR_DIRECTION)
+	apply_velocity(false)
 
 	if host.velocity.y >= 0.0:
 		if state_machine._pop_push(FallState):
@@ -102,8 +98,8 @@ func _state_physics_process(delta: float) -> void:
 		if state_machine._pop_push(WallJumpState):
 			return
 
-func _state_exit(next_state: State) -> void:
-	._state_exit(next_state)
+func _state_exit(next_state: State, params: Dictionary = {}) -> void:
+	._state_exit(next_state, params)
 	input_delay_timer.stop()
 
 func _on_animation_finished(finished_animation_name: String) -> void:

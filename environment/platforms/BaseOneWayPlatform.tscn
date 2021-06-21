@@ -7,7 +7,7 @@
 extents = Vector2( 32, 10 )
 
 [node name="OneWayPlatform" type="StaticBody2D"]
-collision_layer = 7168
+collision_layer = 15360
 collision_mask = 16
 script = ExtResource( 1 )
 
