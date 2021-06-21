@@ -28,6 +28,16 @@ var current_move_speed: float
 var current_move_damping: float
 var current_move_direction: int
 
+var max_speed: float = 0.0
+
+func _ready() -> void:
+	var damping = pow(1.0 - move_damping, 1.0 / 6.0)
+	var new_speed: float = move_speed * damping
+	while new_speed - max_speed > 0.1:
+		max_speed = new_speed
+		new_speed = (new_speed + move_speed) * damping
+	max_speed = new_speed
+
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 
@@ -38,6 +48,8 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 func move(delta: float):
 	host.velocity.x += current_move_speed * current_move_direction
 	host.velocity.x *= pow(1.0 - current_move_damping, delta * 10.0)
+	
+	host.kickback_velocity *= pow(1.0 - 0.5, delta * 10.0)
 
 # adds gravity to the host velocity
 # can optionally gravitate towards the floor angle instead of straight down
@@ -58,3 +70,14 @@ func fall(delta: float, gravitate_towards_floor: bool = false, friction: float =
 
 	host.velocity += gravity * (1.0 - friction)
 	host.velocity.y = min(host.velocity.y, TERMINAL_VELOCITY * (1.0 - friction))
+
+func apply_velocity(with_snap: bool = true) -> void:
+	var speed_diff: float = min((max_speed) - abs(host.velocity.x), 0.0)
+	var kick_vel = Vector2(sign(host.kickback_velocity.x) * max(speed_diff, abs(host.kickback_velocity.x)), host.kickback_velocity.y)
+	
+	if with_snap:
+		host.kickback_velocity = host.move_and_slide_with_snap(kick_vel, SNAP_DISTANCE, FLOOR_DIRECTION, true, MAX_SLIDES, MAX_FLOOR_ANGLE)
+		host.velocity = host.move_and_slide_with_snap(host.velocity, SNAP_DISTANCE, FLOOR_DIRECTION, true, MAX_SLIDES, MAX_FLOOR_ANGLE)
+	else:
+		host.kickback_velocity = host.move_and_slide(kick_vel, FLOOR_DIRECTION, true)
+		host.velocity = host.move_and_slide(host.velocity, FLOOR_DIRECTION, true)

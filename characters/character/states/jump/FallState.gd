@@ -15,7 +15,6 @@ export var land_state_path: NodePath = "../LandState"
 export var dash_state_path: NodePath = "../../Move/DashState"
 export var wall_jump_state_path: NodePath = "../WallJumpState"
 
-export var slow_landing_fall_time: float = 0.5
 export var without_landing: bool = true
 
 # a coyote jump is a jump that's allowed even though the character is already falling
@@ -61,11 +60,11 @@ func _state_physics_process(delta: float) -> void:
 	
 	if current_move_direction != 0 && current_move_direction != host.look_direction:
 		host.look_direction = current_move_direction
-
+	
 	fall(delta)
 	move(delta)
-	host.velocity = host.move_and_slide(host.velocity, FLOOR_DIRECTION)
-
+	apply_velocity()
+	
 	if host.is_on_floor():
 		if without_landing:
 			state_machine._pop_state()
@@ -77,6 +76,6 @@ func _state_physics_process(delta: float) -> void:
 		if state_machine._pop_push(WallJumpState):
 			return
 
-func _state_exit(next_state: State) -> void:
-	._state_exit(next_state)
+func _state_exit(next_state: State, params: Dictionary = {}) -> void:
+	._state_exit(next_state, params)
 	coyote_jump_timer.stop()

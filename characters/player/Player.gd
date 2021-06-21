@@ -17,26 +17,26 @@ var closest_interaction: Interaction
 var is_in_sequence: bool = false
 
 func _process(_delta: float) -> void:
+	if StateMachine.alive:
+		if InputController._is_action_just_activated("reset"):
+			# a 'default' transition call, this will infer to use checkpoints
+			emit_signal("transition_requested", null, null)
 
-	if InputController._is_action_just_activated("reset"):
-		# a 'default' transition call, this will infer to use checkpoints
-		emit_signal("transition_requested", null, null)
+		var loot_in_range: Array = LootPicker.get_overlapping_bodies()
+		if !loot_in_range.empty():
+			for loot in loot_in_range:
+				assert(loot is LootPickup)
+				if loot._can_pickup(self):
+					if loot is HealthLootPickup:
+						loot._pickup(self)
 
-	var loot_in_range: Array = LootPicker.get_overlapping_bodies()
-	if !loot_in_range.empty():
-		for loot in loot_in_range:
-			assert(loot is LootPickup)
-			if loot._can_pickup(self):
-				if loot is HealthLootPickup:
-					loot._pickup(self)
-
-	if !is_in_sequence:
-		var doorway: Doorway = DoorCast.get_doorway()
-		if doorway:
-			emit_signal("transition_requested", doorway.next_level, doorway.next_door)
-			set_process(false)
-			yield(get_tree(), "idle_frame")
-			StateMachine.state_stack = []
+		if !is_in_sequence:
+			var doorway: Doorway = DoorCast.get_doorway()
+			if doorway:
+				emit_signal("transition_requested", doorway.next_level, doorway.next_door)
+				set_process(false)
+				yield(get_tree(), "idle_frame")
+				StateMachine.state_stack = []
 
 func _interaction_process() -> void:
 	if closest_interaction && is_instance_valid(closest_interaction):
@@ -78,7 +78,6 @@ func load_game(save_data: Dictionary, level) -> void:
 		global_position = level.SpawnTargets.get_node(save_data.checkpoint_name).global_position
 		# respawn with full health
 		health = max_health
-	
 	self.current_health = health
 
 func _set_current_health(new_health: int) -> void:

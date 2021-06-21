@@ -18,7 +18,7 @@ func _state_process(_delta: float) -> void:
 func _state_physics_process(_delta: float) -> void:
 	pass
 
-func _state_exit(_next_state: State) -> void:
+func _state_exit(_next_state: State, _params: Dictionary = {}) -> void:
 	pass
 
 func _can_enter() -> bool:

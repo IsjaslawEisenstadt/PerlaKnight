@@ -20,7 +20,7 @@ func _push_state(next_state: State, params: Dictionary = {}) -> bool:
 	var current_state: Node
 	if !state_stack.empty():
 		current_state = state_stack.front()
-		current_state._state_exit(next_state)
+		current_state._state_exit(next_state, params)
 	state_stack.push_front(next_state)
 	next_state._state_enter(current_state, params)
 	return true
@@ -31,7 +31,7 @@ func _pop_state(params: Dictionary = {}) -> void:
 
 	var current_state: Node = state_stack.front()
 	state_stack.pop_front()
-	current_state._state_exit(null if state_stack.empty() else state_stack.front())
+	current_state._state_exit(null if state_stack.empty() else state_stack.front(), params)
 	if !state_stack.empty():
 		state_stack.front()._state_enter(current_state, params)
 

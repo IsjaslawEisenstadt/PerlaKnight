@@ -26,8 +26,8 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	if random_animation_wait_timer:
 		random_animation_wait_timer.start(get_random_wait_time())
 
-func _state_exit(next_state: State) -> void:
-	._state_exit(next_state)
+func _state_exit(next_state: State, params: Dictionary = {}) -> void:
+	._state_exit(next_state, params)
 	if random_animation_wait_timer:
 		random_animation_wait_timer.stop()
 
