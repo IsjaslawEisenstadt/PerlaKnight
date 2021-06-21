@@ -3,11 +3,10 @@
 [ext_resource path="res://environment/hazards/spikes_large/textures/static_spike_large.png" type="Texture" id=1]
 [ext_resource path="res://environment/hazards/base/Hazard.tscn" type="PackedScene" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 15.2654, 16.233 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.8266, 16.233 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "idle"
+[sub_resource type="Animation" id=2]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -26,14 +25,14 @@ tracks/0/keys = {
 [node name="SpikesLarge" instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 0.561226, -0.140305 )
-shape = SubResource( 2 )
+position = Vector2( 0, -16.4843 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
+position = Vector2( 0, -16.076 )
 texture = ExtResource( 1 )
 hframes = 11
-frame = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "idle"
-anims/idle = SubResource( 1 )
+anims/idle = SubResource( 2 )

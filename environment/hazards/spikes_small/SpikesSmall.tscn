@@ -23,9 +23,10 @@ tracks/0/keys = {
 [node name="SpikesSmall" instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 0.420921, -0.280609 )
+position = Vector2( 0, -8.446 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
+position = Vector2( 0, -8.138 )
 texture = ExtResource( 1 )
 hframes = 11
 frame = 9

@@ -3,11 +3,10 @@
 [ext_resource path="res://environment/hazards/crystal_spike/textures/Crystal_spike.png" type="Texture" id=1]
 [ext_resource path="res://environment/hazards/base/Hazard.tscn" type="PackedScene" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.9173, 14.2787 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "idle"
+[sub_resource type="Animation" id=2]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -23,17 +22,18 @@ tracks/0/keys = {
 "values": [ 0, 8 ]
 }
 
-[node name="CrystalSpike" instance=ExtResource( 2 )]
+[node name="SpikesCrystal" instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( 0, 2.24493 )
-shape = SubResource( 2 )
+position = Vector2( 0, -14.231 )
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
+position = Vector2( 0, -16.272 )
 texture = ExtResource( 1 )
 hframes = 9
 frame = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "idle"
-anims/idle = SubResource( 1 )
+anims/idle = SubResource( 2 )
