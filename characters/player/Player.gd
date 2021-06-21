@@ -78,7 +78,6 @@ func load_game(save_data: Dictionary, level) -> void:
 		global_position = level.SpawnTargets.get_node(save_data.checkpoint_name).global_position
 		# respawn with full health
 		health = max_health
-	
 	self.current_health = health
 
 func _set_current_health(new_health: int) -> void:

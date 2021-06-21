@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://utility/audio_player/AudioPlayer.gd"
 }, {
+"base": "AudioPlayer",
+"class": "ChangeAudioPlayer",
+"language": "GDScript",
+"path": "res://utility/audio_player/ChangeAudioPlayer.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Character",
 "language": "GDScript",
@@ -154,7 +159,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://maps/Level.gd"
 }, {
-"base": "Control",
+"base": "GameState",
 "class": "LoadingScreen",
 "language": "GDScript",
 "path": "res://ui/game_states/LoadingScreen.gd"
@@ -304,6 +309,7 @@ _global_script_class_icons={
 "AnimationState": "",
 "AttackState": "",
 "AudioPlayer": "",
+"ChangeAudioPlayer": "",
 "Character": "",
 "CharacterState": "",
 "CharacterStateMachine": "",
@@ -522,6 +528,7 @@ down={
 2d_physics/layer_11="player"
 2d_physics/layer_12="enemies"
 2d_physics/layer_13="friendlies"
+2d_physics/layer_14="platforms"
 2d_physics/layer_20="camera_bounds"
 
 [network]

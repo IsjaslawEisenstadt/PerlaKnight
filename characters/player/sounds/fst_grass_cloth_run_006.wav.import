@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fst_grass_cloth_run_006.wav-597289a06620ba459ee8442b0f75b6d1.sample"
+
+[deps]
+
+source_file="res://characters/player/sounds/fst_grass_cloth_run_006.wav"
+dest_files=[ "res://.import/fst_grass_cloth_run_006.wav-597289a06620ba459ee8442b0f75b6d1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

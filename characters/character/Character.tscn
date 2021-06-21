@@ -18,7 +18,7 @@ radius = 32.0
 
 [sub_resource type="RayShape2D" id=3]
 resource_local_to_scene = true
-length = 8.0
+length = 1.0
 
 [sub_resource type="RayShape2D" id=4]
 resource_local_to_scene = true
@@ -66,8 +66,17 @@ script = ExtResource( 5 )
 [node name="Edge" type="Area2D" parent="Colliders/Perception"]
 visible = false
 collision_layer = 0
+collision_mask = 8193
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Perception/Edge"]
+shape = SubResource( 3 )
+
+[node name="Ground" type="Area2D" parent="Colliders/Perception"]
+visible = false
+collision_layer = 0
+collision_mask = 8193
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/Perception/Ground"]
 shape = SubResource( 3 )
 
 [node name="Wall" type="Area2D" parent="Colliders/Perception"]

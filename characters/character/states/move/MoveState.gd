@@ -26,7 +26,10 @@ export var dash_state_path: NodePath = "../DashState"
 
 export var without_turn_state: bool = true
 
-export var move_sound: String = "Move"
+export var move_sounds: Dictionary = {
+	"Dirt": "MoveDirt",
+	"Stone": "MoveStone"
+}
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
@@ -35,9 +38,16 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 
 func _state_process(delta: float) -> void:
 	._state_process(delta)
-	if !host.is_playing_sound(move_sound): 
-		host.play_sound(move_sound)
-
+	
+	var ground_type: String = host.Perception.get_current_ground_type()
+	
+	if ground_type == "Dirt":
+		if !host.is_playing_sound(move_sounds["Dirt"]):
+			host.play_sound(move_sounds["Dirt"])
+	else:
+		if !host.is_playing_sound(move_sounds["Stone"]):
+			host.play_sound(move_sounds["Stone"])
+	
 	if host.InputController._is_action_just_activated("dash"):
 		if state_machine._push_state(DashState):
 			return
