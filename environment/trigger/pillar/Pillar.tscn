@@ -39,7 +39,6 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 hframes = 5
-frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Trigger = SubResource( 1 )
@@ -47,3 +46,4 @@ anims/Trigger = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.793694 )
 shape = SubResource( 2 )
+disabled = true
