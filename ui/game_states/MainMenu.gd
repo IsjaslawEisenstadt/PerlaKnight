@@ -29,7 +29,7 @@ func start_game(enter_play_mode: int = PlayState.EnterPlayMode.NEW_GAME) -> void
 func can_press() -> bool:
 	return !Transition.is_playing()
 
-func on_continue_pressed():
+func on_continue_pressed() -> void:
 	if can_press():
 		start_game(PlayState.EnterPlayMode.LOAD_GAME)
 
