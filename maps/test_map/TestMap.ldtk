@@ -3507,6 +3507,34 @@
 								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 136, "realEditorValues": [] },
 								{ "__identifier": "rune", "__value": "res://environment/runes/resource/HealthRune.tres", "__type": "String", "defUid": 137, "realEditorValues": [] }
 							]
+						},
+						{
+							"__identifier": "DashRune",
+							"__grid": [108,52],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [0,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 128,
+							"px": [1736,840],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 130, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DashRune.tres", "__type": "String", "defUid": 131, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "DoubleJumpRune",
+							"__grid": [105,52],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [16,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 132,
+							"px": [1688,840],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 133, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DoubleJumpRune.tres", "__type": "String", "defUid": 134, "realEditorValues": [] }
+							]
 						}
 					]
 				},
