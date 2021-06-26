@@ -7,19 +7,23 @@
 resource_local_to_scene = true
 extents = Vector2( 32, 4 )
 
-[node name="OneWayPlatform1" instance=ExtResource( 2 )]
+[node name="OneWayPlatform2" instance=ExtResource( 2 )]
+width = 64
 
 [node name="LeftEnd" parent="." index="0"]
 texture = ExtResource( 1 )
-centered = false
+offset = Vector2( 11, 5 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 32, 8 )
+region_rect = Rect2( 0, 96, 42, 16 )
 
 [node name="RightEnd" parent="." index="1"]
 texture = ExtResource( 1 )
-centered = false
+offset = Vector2( 22, 6 )
 region_enabled = true
-region_rect = Rect2( 64, 0, 32, 8 )
+region_rect = Rect2( 74, 97, 43, 15 )
+
+[node name="MidTemplate" parent="." index="2"]
+region_rect = Rect2( 42, 99, 32, 8 )
 
 [node name="CollisionShape2D" parent="." index="4"]
 position = Vector2( 32, 4 )

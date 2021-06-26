@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 490,
+	"nextUid": 492,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -77,7 +77,7 @@
 			"displayOpacity": 1,
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
-			"requiredTags": [ "Decoration", "Destructibles", "SpawnTargets", "Platforms" ],
+			"requiredTags": [ "Decoration", "Destructibles", "SpawnTargets" ],
 			"excludedTags": [],
 			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
 			"autoTilesetDefUid": null,
@@ -1328,6 +1328,25 @@
 			"tilesetDefUid": null,
 			"tilePivotX": 0,
 			"tilePivotY": 0
+		},
+		{
+			"__type": "Entities",
+			"identifier": "Platforms",
+			"type": "Entities",
+			"uid": 491,
+			"gridSize": 16,
+			"displayOpacity": 1,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"requiredTags": ["Platforms"],
+			"excludedTags": [],
+			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
+			"autoTilesetDefUid": null,
+			"autoRuleGroups": [],
+			"autoSourceLayerDefUid": null,
+			"tilesetDefUid": null,
+			"tilePivotX": 0,
+			"tilePivotY": 0
 		}
 	], "entities": [
 		{
@@ -2393,7 +2412,7 @@
 			]
 		},
 		{
-			"identifier": "OneWayPlatform1",
+			"identifier": "PlatformDungeon",
 			"uid": 364,
 			"tags": ["Platforms"],
 			"width": 64,
@@ -2408,7 +2427,7 @@
 			"renderMode": "Tile",
 			"showName": false,
 			"tilesetId": 371,
-			"tileId": 5,
+			"tileId": 1,
 			"tileRenderMode": "Repeat",
 			"maxCount": 0,
 			"limitScope": "PerLevel",
@@ -2435,7 +2454,7 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/platforms/OneWayPlatform1.tscn"]
+						"params": ["res://environment/platforms/OneWayPlatformDungeon.tscn"]
 					},
 					"textLanguageMode": null
 				},
@@ -2458,14 +2477,14 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["Dirt"]
+						"params": ["Stone"]
 					},
 					"textLanguageMode": null
 				}
 			]
 		},
 		{
-			"identifier": "OneWayPlatform2",
+			"identifier": "PlatformForest",
 			"uid": 365,
 			"tags": ["Platforms"],
 			"width": 64,
@@ -2480,7 +2499,7 @@
 			"renderMode": "Tile",
 			"showName": false,
 			"tilesetId": 372,
-			"tileId": 8,
+			"tileId": 9,
 			"tileRenderMode": "Repeat",
 			"maxCount": 0,
 			"limitScope": "PerLevel",
@@ -2507,7 +2526,30 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/platforms/OneWayPlatform2.tscn"]
+						"params": ["res://environment/platforms/OneWayPlatformForest.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "ground_type",
+					"__type": "String",
+					"uid": 490,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["Dirt"]
 					},
 					"textLanguageMode": null
 				}
@@ -3133,41 +3175,38 @@
 			}
 		},
 		{
-			"__cWid": 12,
+			"__cWid": 4,
 			"__cHei": 4,
 			"identifier": "Platforms8x",
 			"uid": 371,
 			"relPath": "../../environment/platforms/platforms.png",
-			"pxWid": 96,
-			"pxHei": 32,
-			"tileGridSize": 8,
+			"pxWid": 128,
+			"pxHei": 128,
+			"tileGridSize": 32,
 			"spacing": 0,
 			"padding": 0,
 			"tagsSourceEnumUid": null,
 			"enumTags": [],
 			"customData": [],
 			"savedSelections": [],
-			"cachedPixelData": {
-				"opaqueTiles": "111111111111000000000000001000100000000000000000",
-				"averageColors": "f766f654f543f543f543f543f543f543f543f543f654f766000000000000000000000000000000000000000000000000e287f186f186d176e186f186f186e186e186f186e186e287e297e186e286c186c186e186c186e186e186e186d176e297"
-			}
+			"cachedPixelData": { "opaqueTiles": "0000000000000000", "averageColors": "4655454346541777465445434654000042864286428600004187318641862187" }
 		},
 		{
-			"__cWid": 6,
-			"__cHei": 2,
+			"__cWid": 4,
+			"__cHei": 4,
 			"identifier": "Platforms16x",
 			"uid": 372,
 			"relPath": "../../environment/platforms/platforms.png",
-			"pxWid": 96,
-			"pxHei": 32,
-			"tileGridSize": 16,
+			"pxWid": 128,
+			"pxHei": 128,
+			"tileGridSize": 32,
 			"spacing": 0,
 			"padding": 0,
 			"tagsSourceEnumUid": null,
 			"enumTags": [],
 			"customData": [],
 			"savedSelections": [],
-			"cachedPixelData": { "opaqueTiles": "000000000000", "averageColors": "766575437543754375437665e287e186e186e186e186e286" }
+			"cachedPixelData": { "opaqueTiles": "0000000000000000", "averageColors": "4655454346541777465445434654000042864286428600004187318641862187" }
 		},
 		{
 			"__cWid": 2,
@@ -3876,76 +3915,6 @@
 										"params": ["Left"]
 									}]
 								}
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [22,33],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 96,
-							"height": 8,
-							"defUid": 364,
-							"px": [704,1056],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [63,24],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 64,
-							"height": 8,
-							"defUid": 364,
-							"px": [2016,768],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [63,21],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 64,
-							"height": 8,
-							"defUid": 364,
-							"px": [2016,672],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [63,18],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 64,
-							"height": 8,
-							"defUid": 364,
-							"px": [2016,576],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [55,19],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 64,
-							"height": 8,
-							"defUid": 364,
-							"px": [1760,608],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
 							]
 						}
 					]
@@ -7495,6 +7464,102 @@
 					"overrideTilesetUid": 377,
 					"gridTiles": [],
 					"entityInstances": []
+				},
+				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 138,
+					"__cHei": 72,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 0,
+					"layerDefUid": 491,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 6780495,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": [
+						{
+							"__identifier": "PlatformDungeon",
+							"__grid": [110,38],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [32,0,32,32] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [1760,608],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformDungeon.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Stone", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformDungeon",
+							"__grid": [126,36],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [32,0,32,32] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [2016,576],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformDungeon.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Stone", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformDungeon",
+							"__grid": [126,42],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [32,0,32,32] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [2016,672],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformDungeon.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Stone", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformDungeon",
+							"__grid": [126,48],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [32,0,32,32] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [2016,768],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformDungeon.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Stone", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformDungeon",
+							"__grid": [44,66],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [32,0,32,32] },
+							"width": 96,
+							"height": 8,
+							"defUid": 364,
+							"px": [704,1056],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformDungeon.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Stone", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
+						}
+					]
 				}
 			],
 			"__neighbours": [ { "levelUid": 121, "dir": "e" }, { "levelUid": 125, "dir": "s" }, { "levelUid": 143, "dir": "w" }, { "levelUid": 375, "dir": "s" } ]
@@ -8956,6 +9021,31 @@
 					"overrideTilesetUid": 377,
 					"gridTiles": [],
 					"entityInstances": []
+				},
+				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 66,
+					"__cHei": 46,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 121,
+					"layerDefUid": 491,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 7296474,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				}
 			],
 			"__neighbours": [ { "levelUid": 0, "dir": "w" }, { "levelUid": 125, "dir": "s" } ]
@@ -9426,48 +9516,6 @@
 										"params": ["Down"]
 									}]
 								}
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [52,12],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 64,
-							"height": 8,
-							"defUid": 364,
-							"px": [1664,384],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [52,9],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 64,
-							"height": 8,
-							"defUid": 364,
-							"px": [1664,288],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [4,7],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 96,
-							"height": 8,
-							"defUid": 364,
-							"px": [128,224],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
 							]
 						}
 					]
@@ -11847,6 +11895,74 @@
 					"overrideTilesetUid": 377,
 					"gridTiles": [],
 					"entityInstances": []
+				},
+				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 176,
+					"__cHei": 44,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 125,
+					"layerDefUid": 491,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 3654758,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": [
+						{
+							"__identifier": "PlatformDungeon",
+							"__grid": [8,14],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [32,0,32,32] },
+							"width": 96,
+							"height": 8,
+							"defUid": 364,
+							"px": [128,224],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformDungeon.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Stone", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformDungeon",
+							"__grid": [104,18],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [32,0,32,32] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [1664,288],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformDungeon.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Stone", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformDungeon",
+							"__grid": [104,24],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 371, "srcRect": [32,0,32,32] },
+							"width": 64,
+							"height": 8,
+							"defUid": 364,
+							"px": [1664,384],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformDungeon.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Stone", "__type": "String", "defUid": 450, "realEditorValues": [] }
+							]
+						}
+					]
 				}
 			],
 			"__neighbours": [ { "levelUid": 0, "dir": "n" }, { "levelUid": 121, "dir": "n" }, { "levelUid": 375, "dir": "w" } ]
@@ -14017,6 +14133,31 @@
 					"overrideTilesetUid": 444,
 					"gridTiles": [],
 					"entityInstances": []
+				},
+				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 136,
+					"__cHei": 56,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 143,
+					"layerDefUid": 491,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 2653137,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				}
 			],
 			"__neighbours": [ { "levelUid": 0, "dir": "e" }, { "levelUid": 375, "dir": "s" } ]
@@ -15501,6 +15642,31 @@
 					"overrideTilesetUid": 377,
 					"gridTiles": [],
 					"entityInstances": []
+				},
+				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 74,
+					"__cHei": 44,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 375,
+					"layerDefUid": 491,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 5359119,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				}
 			],
 			"__neighbours": [ { "levelUid": 0, "dir": "n" }, { "levelUid": 125, "dir": "e" }, { "levelUid": 143, "dir": "n" } ]
@@ -15624,76 +15790,6 @@
 					"overrideTilesetUid": null,
 					"gridTiles": [],
 					"entityInstances": [
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [88,36],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 96,
-							"height": 8,
-							"defUid": 364,
-							"px": [2816,1152],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [65,32],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 64,
-							"height": 8,
-							"defUid": 364,
-							"px": [2080,1024],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [54,20],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 64,
-							"height": 8,
-							"defUid": 364,
-							"px": [1728,640],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [54,14],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 64,
-							"height": 8,
-							"defUid": 364,
-							"px": [1728,448],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [39,35],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 96,
-							"height": 8,
-							"defUid": 364,
-							"px": [1248,1120],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
 						{
 							"__identifier": "Lamp3",
 							"__grid": [31,16],
@@ -23902,6 +23998,102 @@
 					"overrideTilesetUid": 444,
 					"gridTiles": [],
 					"entityInstances": []
+				},
+				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 208,
+					"__cHei": 116,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 459,
+					"layerDefUid": 491,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 5280202,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": [
+						{
+							"__identifier": "PlatformForest",
+							"__grid": [78,70],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 372, "srcRect": [32,64,32,32] },
+							"width": 96,
+							"height": 16,
+							"defUid": 365,
+							"px": [1248,1120],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformForest.tscn", "__type": "String", "defUid": 367, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 490, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformForest",
+							"__grid": [130,64],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 372, "srcRect": [32,64,32,32] },
+							"width": 64,
+							"height": 16,
+							"defUid": 365,
+							"px": [2080,1024],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformForest.tscn", "__type": "String", "defUid": 367, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 490, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformForest",
+							"__grid": [176,72],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 372, "srcRect": [32,64,32,32] },
+							"width": 96,
+							"height": 16,
+							"defUid": 365,
+							"px": [2816,1152],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformForest.tscn", "__type": "String", "defUid": 367, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 490, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformForest",
+							"__grid": [108,40],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 372, "srcRect": [32,64,32,32] },
+							"width": 64,
+							"height": 16,
+							"defUid": 365,
+							"px": [1728,640],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformForest.tscn", "__type": "String", "defUid": 367, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 490, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformForest",
+							"__grid": [108,28],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 372, "srcRect": [32,64,32,32] },
+							"width": 64,
+							"height": 16,
+							"defUid": 365,
+							"px": [1728,448],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformForest.tscn", "__type": "String", "defUid": 367, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 490, "realEditorValues": [] }
+							]
+						}
+					]
 				}
 			],
 			"__neighbours": []
@@ -24025,48 +24217,6 @@
 					"overrideTilesetUid": null,
 					"gridTiles": [],
 					"entityInstances": [
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [62,35],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 96,
-							"height": 8,
-							"defUid": 364,
-							"px": [1984,1120],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [51,28],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 64,
-							"height": 8,
-							"defUid": 364,
-							"px": [1632,896],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
-						{
-							"__identifier": "OneWayPlatform1",
-							"__grid": [62,32],
-							"__pivot": [0,0],
-							"__tile": { "tilesetUid": 371, "srcRect": [40,0,8,8] },
-							"width": 96,
-							"height": 8,
-							"defUid": 364,
-							"px": [1984,1024],
-							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatform1.tscn", "__type": "String", "defUid": 366, "realEditorValues": [] },
-								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 450, "realEditorValues": [] }
-							]
-						},
 						{
 							"__identifier": "BigTree1",
 							"__grid": [19,21],
@@ -32709,6 +32859,74 @@
 					"overrideTilesetUid": 444,
 					"gridTiles": [],
 					"entityInstances": []
+				},
+				{
+					"__identifier": "Platforms",
+					"__type": "Entities",
+					"__cWid": 216,
+					"__cHei": 126,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 460,
+					"layerDefUid": 491,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 3420955,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": [
+						{
+							"__identifier": "PlatformForest",
+							"__grid": [102,56],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 372, "srcRect": [32,64,32,32] },
+							"width": 64,
+							"height": 16,
+							"defUid": 365,
+							"px": [1632,896],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformForest.tscn", "__type": "String", "defUid": 367, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 490, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformForest",
+							"__grid": [124,64],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 372, "srcRect": [32,64,32,32] },
+							"width": 96,
+							"height": 16,
+							"defUid": 365,
+							"px": [1984,1024],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformForest.tscn", "__type": "String", "defUid": 367, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 490, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "PlatformForest",
+							"__grid": [124,70],
+							"__pivot": [0,0],
+							"__tile": { "tilesetUid": 372, "srcRect": [32,64,32,32] },
+							"width": 96,
+							"height": 16,
+							"defUid": 365,
+							"px": [1984,1120],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/platforms/OneWayPlatformForest.tscn", "__type": "String", "defUid": 367, "realEditorValues": [] },
+								{ "__identifier": "ground_type", "__value": "Dirt", "__type": "String", "defUid": 490, "realEditorValues": [] }
+							]
+						}
+					]
 				}
 			],
 			"__neighbours": []

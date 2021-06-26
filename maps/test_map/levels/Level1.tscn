@@ -18,7 +18,7 @@
 [ext_resource path="res://environment/destructibles/Barrel.tscn" type="PackedScene" id=16]
 [ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=17]
 [ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=18]
-[ext_resource path="res://environment/platforms/OneWayPlatform1.tscn" type="PackedScene" id=19]
+[ext_resource path="res://environment/platforms/OneWayPlatformDungeon.tscn" type="PackedScene" id=19]
 [ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=20]
 [ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=21]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=22]
@@ -1874,9 +1874,62 @@ player_path = NodePath("Characters/Player")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 14 )]
 environment = SubResource( 1 )
 
+[node name="Platforms" type="Node2D" parent="."]
+z_index = 1
+
+[node name="OneWayPlatformDungeon" type="StaticBody2D" parent="Platforms" instance=ExtResource( 19 )]
+position = Vector2( 1760, -544 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 23 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon2" type="StaticBody2D" parent="Platforms" instance=ExtResource( 19 )]
+position = Vector2( 2016, -576 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 23 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon3" type="StaticBody2D" parent="Platforms" instance=ExtResource( 19 )]
+position = Vector2( 2016, -480 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 23 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon4" type="StaticBody2D" parent="Platforms" instance=ExtResource( 19 )]
+position = Vector2( 2016, -384 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 23 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon5" type="StaticBody2D" parent="Platforms" instance=ExtResource( 19 )]
+position = Vector2( 704, -96 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 23 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 96
+
 [node name="Collision_Ground" type="StaticBody2D" parent="."]
 position = Vector2( 0, -1152 )
-z_index = 1
+z_index = 2
 __meta__ = {
 "ground_type": "Stone"
 }
@@ -2463,7 +2516,7 @@ shape = SubResource( 146 )
 
 [node name="Ground" type="TileMap" parent="."]
 position = Vector2( 0, -1152 )
-z_index = 1
+z_index = 2
 tile_set = SubResource( 147 )
 cell_size = Vector2( 32, 32 )
 format = 1
@@ -2471,7 +2524,7 @@ tile_data = PoolIntArray( 0, 8, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 8, 0, 
 
 [node name="Collision_Camera" type="StaticBody2D" parent="."]
 position = Vector2( 0, -1152 )
-z_index = 2
+z_index = 3
 collision_layer = 524288
 collision_mask = 524288
 
@@ -2749,14 +2802,14 @@ shape = SubResource( 215 )
 
 [node name="Decoration" type="TileMap" parent="."]
 position = Vector2( 0, -1152 )
-z_index = 3
+z_index = 4
 tile_set = SubResource( 216 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 4194346, 0, 0 )
 
 [node name="Props" type="Node2D" parent="."]
-z_index = 4
+z_index = 5
 
 [node name="Lamp" type="Sprite" parent="Props" instance=ExtResource( 20 )]
 position = Vector2( 1232, -352 )
@@ -2970,58 +3023,8 @@ next_door = "Door1"
 exit_direction = "Left"
 shape = Vector2( 64, 64 )
 
-[node name="OneWayPlatform1" type="StaticBody2D" parent="Props" instance=ExtResource( 19 )]
-position = Vector2( 704, -96 )
-collision_layer = 15360
-collision_mask = 16
-script = ExtResource( 23 )
-__meta__ = {
-"ground_type": "Dirt"
-}
-width = 96
-
-[node name="OneWayPlatform2" type="StaticBody2D" parent="Props" instance=ExtResource( 19 )]
-position = Vector2( 2016, -384 )
-collision_layer = 15360
-collision_mask = 16
-script = ExtResource( 23 )
-__meta__ = {
-"ground_type": "Dirt"
-}
-width = 64
-
-[node name="OneWayPlatform3" type="StaticBody2D" parent="Props" instance=ExtResource( 19 )]
-position = Vector2( 2016, -480 )
-collision_layer = 15360
-collision_mask = 16
-script = ExtResource( 23 )
-__meta__ = {
-"ground_type": "Dirt"
-}
-width = 64
-
-[node name="OneWayPlatform4" type="StaticBody2D" parent="Props" instance=ExtResource( 19 )]
-position = Vector2( 2016, -576 )
-collision_layer = 15360
-collision_mask = 16
-script = ExtResource( 23 )
-__meta__ = {
-"ground_type": "Dirt"
-}
-width = 64
-
-[node name="OneWayPlatform5" type="StaticBody2D" parent="Props" instance=ExtResource( 19 )]
-position = Vector2( 1760, -544 )
-collision_layer = 15360
-collision_mask = 16
-script = ExtResource( 23 )
-__meta__ = {
-"ground_type": "Dirt"
-}
-width = 64
-
 [node name="Runes" type="Node2D" parent="."]
-z_index = 5
+z_index = 6
 
 [node name="RuneContainer" type="Area2D" parent="Runes" groups=[
 "Persistent",
@@ -3044,7 +3047,7 @@ script = ExtResource( 25 )
 rune = ExtResource( 5 )
 
 [node name="Characters" type="Node2D" parent="."]
-z_index = 6
+z_index = 7
 
 [node name="Player" type="KinematicBody2D" parent="Characters" groups=[
 "Persistent",

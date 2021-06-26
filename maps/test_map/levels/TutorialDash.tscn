@@ -13,7 +13,7 @@
 [ext_resource path="res://environment/decoration/trees/Wind.gd" type="Script" id=11]
 [ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=12]
 [ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=13]
-[ext_resource path="res://environment/platforms/OneWayPlatform1.tscn" type="PackedScene" id=14]
+[ext_resource path="res://environment/platforms/OneWayPlatformForest.tscn" type="PackedScene" id=14]
 [ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=15]
 [ext_resource path="res://environment/decoration/trees/BigTree1.tscn" type="PackedScene" id=16]
 [ext_resource path="res://environment/decoration/flowers/Flower1.tscn" type="PackedScene" id=17]
@@ -2523,9 +2523,42 @@ level_type = 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 15 )]
 environment = SubResource( 1 )
 
+[node name="Platforms" type="Node2D" parent="."]
+z_index = 1
+
+[node name="OneWayPlatform2" type="StaticBody2D" parent="Platforms" instance=ExtResource( 14 )]
+position = Vector2( 2656, 2240 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 22 )
+__meta__ = {
+"ground_type": "Dirt"
+}
+width = 64
+
+[node name="OneWayPlatform3" type="StaticBody2D" parent="Platforms" instance=ExtResource( 14 )]
+position = Vector2( 3008, 2368 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 22 )
+__meta__ = {
+"ground_type": "Dirt"
+}
+width = 96
+
+[node name="OneWayPlatform4" type="StaticBody2D" parent="Platforms" instance=ExtResource( 14 )]
+position = Vector2( 3008, 2464 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 22 )
+__meta__ = {
+"ground_type": "Dirt"
+}
+width = 96
+
 [node name="Collision_Ground" type="StaticBody2D" parent="."]
 position = Vector2( 1024, 1344 )
-z_index = 1
+z_index = 2
 __meta__ = {
 "ground_type": "Dirt"
 }
@@ -3460,7 +3493,7 @@ shape = SubResource( 233 )
 
 [node name="Ground" type="TileMap" parent="."]
 position = Vector2( 1024, 1344 )
-z_index = 1
+z_index = 2
 tile_set = SubResource( 234 )
 cell_size = Vector2( 32, 32 )
 format = 1
@@ -3468,7 +3501,7 @@ tile_data = PoolIntArray( 0, 8, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 9, 0, 103, 7, 0
 
 [node name="Collision_Camera" type="StaticBody2D" parent="."]
 position = Vector2( 1024, 1344 )
-z_index = 2
+z_index = 3
 collision_layer = 524288
 collision_mask = 524288
 
@@ -3970,44 +4003,14 @@ shape = SubResource( 358 )
 
 [node name="Decoration" type="TileMap" parent="."]
 position = Vector2( 1024, 1344 )
-z_index = 3
+z_index = 4
 tile_set = SubResource( 359 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 4063312, 1, 0, 4718666, 1, 0, 4980842, 0, 0, 6422638, 0, 0, 6946880, 1, 0 )
 
 [node name="Props" type="Node2D" parent="."]
-z_index = 4
-
-[node name="OneWayPlatform1" type="StaticBody2D" parent="Props" instance=ExtResource( 14 )]
-position = Vector2( 3008, 2464 )
-collision_layer = 15360
-collision_mask = 16
-script = ExtResource( 22 )
-__meta__ = {
-"ground_type": "Dirt"
-}
-width = 96
-
-[node name="OneWayPlatform2" type="StaticBody2D" parent="Props" instance=ExtResource( 14 )]
-position = Vector2( 2656, 2240 )
-collision_layer = 15360
-collision_mask = 16
-script = ExtResource( 22 )
-__meta__ = {
-"ground_type": "Dirt"
-}
-width = 64
-
-[node name="OneWayPlatform3" type="StaticBody2D" parent="Props" instance=ExtResource( 14 )]
-position = Vector2( 3008, 2368 )
-collision_layer = 15360
-collision_mask = 16
-script = ExtResource( 22 )
-__meta__ = {
-"ground_type": "Dirt"
-}
-width = 96
+z_index = 5
 
 [node name="BigTree1" type="Sprite" parent="Props" instance=ExtResource( 16 )]
 material = SubResource( 360 )
@@ -4076,7 +4079,7 @@ script = ExtResource( 12 )
 type = 4
 
 [node name="Runes" type="Node2D" parent="."]
-z_index = 5
+z_index = 6
 
 [node name="RuneContainer" type="Area2D" parent="Runes" groups=[
 "Persistent",
@@ -4089,7 +4092,7 @@ script = ExtResource( 23 )
 rune = ExtResource( 3 )
 
 [node name="Characters" type="Node2D" parent="."]
-z_index = 6
+z_index = 7
 
 [node name="Player" type="KinematicBody2D" parent="Characters" groups=[
 "Persistent",
