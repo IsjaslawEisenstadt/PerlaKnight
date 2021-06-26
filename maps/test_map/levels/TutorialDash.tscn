@@ -1,4 +1,4 @@
-[gd_scene load_steps=376 format=2]
+[gd_scene load_steps=386 format=2]
 
 [ext_resource path="res://environment/decoration/props.png" type="Texture" id=1]
 [ext_resource path="res://environment/runes/resource/HealthRune.tres" type="Resource" id=2]
@@ -6,8 +6,18 @@
 [ext_resource path="res://environment/platforms/OneWayPlatform1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=5]
 [ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=7]
+[ext_resource path="res://environment/decoration/trees/Wind.gd" type="Script" id=8]
 [ext_resource path="res://maps/Level.gd" type="Script" id=9]
+[ext_resource path="res://environment/decoration/flowers/textures/flower1.png" type="Texture" id=10]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://environment/decoration/lamps/textures/forest_lamps.png" type="Texture" id=12]
+[ext_resource path="res://environment/decoration/trees/textures/big_tree1.png" type="Texture" id=13]
+[ext_resource path="res://environment/decoration/flowers/textures/flower2.png" type="Texture" id=14]
+[ext_resource path="res://environment/decoration/flowers/textures/flower3.png" type="Texture" id=15]
+[ext_resource path="res://environment/platforms/OneWayPlatform.gd" type="Script" id=16]
+[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=17]
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=18]
 [ext_resource path="res://environment/decoration/trees/Wind.shader" type="Shader" id=19]
 [ext_resource path="res://environment/decoration/trees/BigTree1.tscn" type="PackedScene" id=20]
 [ext_resource path="res://environment/decoration/flowers/Flower1.tscn" type="PackedScene" id=21]
@@ -2284,8 +2294,9 @@ shader_param/offset = 0.0
 [node name="TutorialDash" type="Node2D"]
 script = ExtResource( 9 )
 player_path = NodePath("Characters/Player")
+level_type = 1
 
-[node name="WorldEnvironment" parent="." instance=ExtResource( 5 )]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 5 )]
 environment = SubResource( 1 )
 
 [node name="Collision_Ground" type="StaticBody2D" parent="."]
@@ -3744,60 +3755,128 @@ tile_data = PoolIntArray( 4063312, 1, 0, 4718666, 1, 0, 4980842, 0, 0, 6422638, 
 [node name="Props" type="Node2D" parent="."]
 z_index = 4
 
-[node name="OneWayPlatform1" parent="Props" instance=ExtResource( 4 )]
+[node name="OneWayPlatform1" type="StaticBody2D" parent="Props" instance=ExtResource( 4 )]
 position = Vector2( 5024, 4608 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 16 )
+__meta__ = {
+"ground_type": "Dirt"
+}
 width = 96
 
-[node name="OneWayPlatform2" parent="Props" instance=ExtResource( 4 )]
+[node name="OneWayPlatform2" type="StaticBody2D" parent="Props" instance=ExtResource( 4 )]
 position = Vector2( 4672, 4384 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 16 )
+__meta__ = {
+"ground_type": "Dirt"
+}
 width = 64
 
-[node name="OneWayPlatform3" parent="Props" instance=ExtResource( 4 )]
+[node name="OneWayPlatform3" type="StaticBody2D" parent="Props" instance=ExtResource( 4 )]
 position = Vector2( 5024, 4512 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 16 )
+__meta__ = {
+"ground_type": "Dirt"
+}
 width = 96
 
-[node name="BigTree1" parent="Props" instance=ExtResource( 20 )]
+[node name="BigTree1" type="Sprite" parent="Props" instance=ExtResource( 20 )]
 material = SubResource( 360 )
 position = Vector2( 3664, 4192 )
+texture = ExtResource( 13 )
+offset = Vector2( 0, -64 )
+script = ExtResource( 8 )
 
-[node name="BigTree2" parent="Props" instance=ExtResource( 20 )]
+[node name="BigTree2" type="Sprite" parent="Props" instance=ExtResource( 20 )]
 material = SubResource( 361 )
 position = Vector2( 3888, 4192 )
+texture = ExtResource( 13 )
+offset = Vector2( 0, -64 )
+script = ExtResource( 8 )
 
-[node name="Flower1" parent="Props" instance=ExtResource( 21 )]
+[node name="Flower1" type="Sprite" parent="Props" instance=ExtResource( 21 )]
 position = Vector2( 3728, 4192 )
+texture = ExtResource( 10 )
+offset = Vector2( 0, -16 )
+hframes = 6
+vframes = 5
 
-[node name="Flower3" parent="Props" instance=ExtResource( 24 )]
+[node name="Flower3" type="Sprite" parent="Props" instance=ExtResource( 24 )]
 position = Vector2( 3824, 4192 )
+texture = ExtResource( 15 )
+offset = Vector2( 0, -16 )
+hframes = 8
+vframes = 7
 
-[node name="Flower2" parent="Props" instance=ExtResource( 23 )]
+[node name="Flower2" type="Sprite" parent="Props" instance=ExtResource( 23 )]
 position = Vector2( 3952, 4192 )
+texture = ExtResource( 14 )
+offset = Vector2( 0, -16 )
+hframes = 6
+vframes = 5
 
-[node name="Flower4" parent="Props" instance=ExtResource( 23 )]
+[node name="Flower4" type="Sprite" parent="Props" instance=ExtResource( 23 )]
 position = Vector2( 3696, 4544 )
+texture = ExtResource( 14 )
+offset = Vector2( 0, -16 )
+hframes = 6
+vframes = 5
 
-[node name="Flower5" parent="Props" instance=ExtResource( 21 )]
+[node name="Flower5" type="Sprite" parent="Props" instance=ExtResource( 21 )]
 position = Vector2( 3824, 4544 )
+texture = ExtResource( 10 )
+offset = Vector2( 0, -16 )
+hframes = 6
+vframes = 5
 
-[node name="Flower6" parent="Props" instance=ExtResource( 21 )]
+[node name="Flower6" type="Sprite" parent="Props" instance=ExtResource( 21 )]
 position = Vector2( 3504, 4352 )
+texture = ExtResource( 10 )
+offset = Vector2( 0, -16 )
+hframes = 6
+vframes = 5
 
-[node name="Lamp" parent="Props" instance=ExtResource( 22 )]
+[node name="Lamp" type="Sprite" parent="Props" instance=ExtResource( 22 )]
 position = Vector2( 3440, 4352 )
+texture = ExtResource( 12 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 7 )
 type = 4
 
 [node name="Runes" type="Node2D" parent="."]
 z_index = 5
 
-[node name="RuneContainer" parent="Runes" instance=ExtResource( 6 )]
+[node name="RuneContainer" type="Area2D" parent="Runes" groups=[
+"Persistent",
+] instance=ExtResource( 6 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 5550, 4547 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 17 )
 rune = ExtResource( 2 )
 
 [node name="Characters" type="Node2D" parent="."]
 z_index = 6
 
-[node name="Player" parent="Characters" instance=ExtResource( 11 )]
+[node name="Player" type="KinematicBody2D" parent="Characters" groups=[
+"Persistent",
+] instance=ExtResource( 11 )]
 position = Vector2( 6184, 4352 )
+collision_layer = 1024
+collision_mask = 1025
+script = ExtResource( 18 )
+dash_acquired = true
+double_jump_acquired = true
+wall_climb_acquired = true
 
 [connection signal="save_requested" from="Characters/Player" to="." method="on_save_requested"]
 [connection signal="transition_requested" from="Characters/Player" to="." method="on_transition_requested"]

@@ -2,6 +2,10 @@ tool
 extends Node2D
 class_name Level
 
+enum LevelTypes {
+	DUNGEON, FOREST
+}
+
 # warning-ignore:unused_signal
 signal save_requested()
 signal transition_requested(level_name, target_name)
@@ -11,6 +15,8 @@ onready var SpawnTargets := get_node(spawn_targets_path)
 
 export var player_path: NodePath
 export var spawn_targets_path: NodePath = "Props"
+
+export(LevelTypes) var level_type: int = LevelTypes.DUNGEON
 
 var play_ui: PlayUI
 

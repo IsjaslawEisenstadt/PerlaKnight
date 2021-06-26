@@ -22,7 +22,9 @@ onready var LoadingScreen := $".."/UI/LoadingScreen
 
 export(String, DIR) var levels_dir: String = "res://maps/test_map/levels"
 export var new_game_level_name: String = "Level1"
-export var background_scene: PackedScene = preload("res://maps/background/Background.tscn")
+
+export var dungeon_background_scene: PackedScene = preload("res://maps/backgrounds/dungeon/DungeonBackground.tscn")
+export var forest_background_scene: PackedScene = preload("res://maps/backgrounds/forest/ForestBackground.tscn")
 
 var current_level: Level
 var save_data: Dictionary = {}
@@ -57,6 +59,15 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 		assert(current_level && current_level is Level)
 		
 		add_child(current_level)
+		
+		var background_scene: PackedScene
+		
+		match current_level.level_type:
+			Level.LevelTypes.FOREST:
+				background_scene = forest_background_scene
+			_:
+				background_scene = dungeon_background_scene
+		
 		current_level.add_child(background_scene.instance(), true)
 		current_level.connect("save_requested", self, "save_game")
 		current_level.connect("transition_requested", self, "on_transition_requested")
