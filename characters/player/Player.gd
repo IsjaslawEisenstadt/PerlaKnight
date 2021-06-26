@@ -106,3 +106,8 @@ func add_rune(rune: Rune) -> void:
 	
 	emit_signal("rune_added", rune)
 	emit_signal("save_requested")
+
+func _die() -> void:
+	._die()
+	yield(StateMachine.DeathState, "death_animation_finished")
+	emit_signal("transition_requested", null, null)

@@ -2,6 +2,8 @@ tool
 extends PhysicsState
 class_name DeathState
 
+signal death_animation_finished()
+
 export var will_despawn: bool = false
 export var time_to_despawn: float = 3.0
 
@@ -31,9 +33,11 @@ func _state_physics_process(delta: float) -> void:
 	apply_velocity()
 
 func _on_animation_finished(finished_animation_name: String) -> void:
-	if finished_animation_name == animation_name && will_despawn:
-		yield(get_tree().create_timer(time_to_despawn, false), "timeout")
-		host.queue_free()
+	if finished_animation_name == animation_name: 
+		emit_signal("death_animation_finished")
+		if will_despawn:
+			yield(get_tree().create_timer(time_to_despawn, false), "timeout")
+			host.queue_free()
 
 func _state_exit(_next_state: State, _params: Dictionary = {}) -> void:
 	assert(false, "Can't leave a DeathState")

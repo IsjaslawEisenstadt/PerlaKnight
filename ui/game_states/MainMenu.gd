@@ -22,7 +22,7 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 		ContinueButton.visible = false
 
 func start_game(enter_play_mode: int = PlayState.EnterPlayMode.NEW_GAME) -> void:
-	Transition.start("fade_out")
+	Transition.start("fade")
 	yield(Transition, "transition_finished")
 	state_machine._pop_push(PlayState, {"enter_play_mode": enter_play_mode})
 

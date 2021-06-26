@@ -24,7 +24,7 @@ func _state_enter(_previous_state: State, params: Dictionary = {}) -> void:
 	
 	match params.object.exit_direction:
 		"UpLeft", "UpRight":
-			host.velocity.y = -450
+			host.velocity.y = -455
 			input_wait_time = 0.35
 			input_delay_timer.start(0.15)
 			continue # fallthrough

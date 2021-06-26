@@ -74,7 +74,7 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 		current_level.set_ui(PlayUI)
 		load_game()
 		._state_enter(previous_state, params)
-		Transition.start("fade_in")
+		Transition.end()
 	else:
 		assert(current_level, "entered PlayState without enter_play_mode param or previously active level")
 		._state_enter(previous_state, params)
@@ -132,19 +132,27 @@ func load_game() -> void:
 func on_transition_requested(level_name, target_name) -> void:
 	var params: Dictionary = {}
 
+	var transition_name: String = "alpha"
+	var pause_before_transition: bool = false
 	if level_name:
 		assert(target_name)
 		
 		params["enter_play_mode"] = EnterPlayMode.LOAD_LEVEL
 		params["next_level_name"] = level_name
 		save_data["spawn_target"] = target_name
+		
+		transition_name = "fade"
+		pause_before_transition = true
 	elif "checkpoint_level" in save_data:
 		params["enter_play_mode"] = EnterPlayMode.LOAD_GAME
 	else:
 		params["enter_play_mode"] = EnterPlayMode.NEW_GAME
 	
-	get_tree().paused = true
-	Transition.start("fade_out")
+	get_tree().paused = pause_before_transition
+	Transition.start(transition_name)
 	yield(Transition, "transition_finished")
+	
+	if !pause_before_transition:
+		yield(get_tree().create_timer(0.4), "timeout")
 	
 	state_machine._pop_push(self, params)
