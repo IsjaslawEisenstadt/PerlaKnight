@@ -9,8 +9,8 @@ func _ready():
 
 func on_body_entered(_body):
 	$AnimationPlayer.play("press")
-	emit_signal("switch_triggered", true)
+	$Switch.trigger(true)
 
 func on_body_exited(_body):
 	$AnimationPlayer.play_backwards("press")
-	emit_signal("switch_triggered", false)
+	$Switch.trigger(false)
