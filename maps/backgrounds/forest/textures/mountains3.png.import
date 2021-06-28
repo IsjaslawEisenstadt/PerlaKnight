@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mountain1.png-c21c35e725ee6288d32e0321c7c72b41.stex"
+path="res://.import/mountains3.png-977fe5fa3a0e43b4eee0783cf767b9ae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://maps/background/textures/mountain1.png"
-dest_files=[ "res://.import/mountain1.png-c21c35e725ee6288d32e0321c7c72b41.stex" ]
+source_file="res://maps/backgrounds/forest/textures/mountains3.png"
+dest_files=[ "res://.import/mountains3.png-977fe5fa3a0e43b4eee0783cf767b9ae.stex" ]
 
 [params]
 

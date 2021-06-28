@@ -94,7 +94,7 @@ func _set_current_health(new_health: int) -> void:
 	
 	current_health = new_health
 	if current_health <= 0:
-		StateMachine.die()
+		_die()
 	
 	emit_signal("health_changed", current_health)
 
@@ -143,3 +143,6 @@ func is_playing_sound(player_name: String) -> bool:
 		return player.playing
 	
 	return false
+
+func _die() -> void:
+	StateMachine.die()

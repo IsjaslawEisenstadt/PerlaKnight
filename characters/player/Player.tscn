@@ -546,7 +546,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 12, -20 ) ]
+"values": [ Vector2( 12.5, -20 ) ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -622,6 +622,7 @@ hframes = 6
 vframes = 21
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 position = Vector2( 0, -16.5 )
 shape = SubResource( 2 )
 
@@ -721,7 +722,6 @@ collision_mask = 1
 position = Vector2( 0, -16 )
 
 [node name="Edge" parent="Colliders/Perception" index="0"]
-visible = true
 position = Vector2( 8, 0 )
 
 [node name="CollisionShape2D" parent="Colliders/Perception/Edge" index="0"]

@@ -77,6 +77,9 @@ func import(source_file, save_path, options, platform_v, r_gen_files):
 		var new_level = Level.new()
 		new_level.name = level.identifier
 		
+		if level.identifier.begins_with("Tutorial"):
+			new_level.level_type = new_level.LevelTypes.FOREST
+		
 		var world_env = world_env_scene.instance()
 		new_level.add_child(world_env, true)
 		world_env.set_owner(new_level)

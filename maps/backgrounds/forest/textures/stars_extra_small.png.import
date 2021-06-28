@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tree1.png-617c9f2d01a9bb9c36cb64f264890abf.stex"
+path="res://.import/stars_extra_small.png-27b56983f54593d3ee10cad9a6b05f75.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/decoration/trees/textures/tree1.png"
-dest_files=[ "res://.import/tree1.png-617c9f2d01a9bb9c36cb64f264890abf.stex" ]
+source_file="res://maps/backgrounds/forest/textures/stars_extra_small.png"
+dest_files=[ "res://.import/stars_extra_small.png-27b56983f54593d3ee10cad9a6b05f75.stex" ]
 
 [params]
 

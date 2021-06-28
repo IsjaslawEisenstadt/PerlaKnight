@@ -22,7 +22,9 @@ onready var LoadingScreen := $".."/UI/LoadingScreen
 
 export(String, DIR) var levels_dir: String = "res://maps/test_map/levels"
 export var new_game_level_name: String = "Level1"
-export var background_scene: PackedScene = preload("res://maps/background/Background.tscn")
+
+export var dungeon_background_scene: PackedScene = preload("res://maps/backgrounds/dungeon/DungeonBackground.tscn")
+export var forest_background_scene: PackedScene = preload("res://maps/backgrounds/forest/ForestBackground.tscn")
 
 var current_level: Level
 var save_data: Dictionary = {}
@@ -57,13 +59,22 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 		assert(current_level && current_level is Level)
 		
 		add_child(current_level)
+		
+		var background_scene: PackedScene
+		
+		match current_level.level_type:
+			Level.LevelTypes.FOREST:
+				background_scene = forest_background_scene
+			_:
+				background_scene = dungeon_background_scene
+		
 		current_level.add_child(background_scene.instance(), true)
 		current_level.connect("save_requested", self, "save_game")
 		current_level.connect("transition_requested", self, "on_transition_requested")
 		current_level.set_ui(PlayUI)
 		load_game()
 		._state_enter(previous_state, params)
-		Transition.start("fade_in")
+		Transition.end()
 	else:
 		assert(current_level, "entered PlayState without enter_play_mode param or previously active level")
 		._state_enter(previous_state, params)
@@ -121,19 +132,27 @@ func load_game() -> void:
 func on_transition_requested(level_name, target_name) -> void:
 	var params: Dictionary = {}
 
+	var transition_name: String = "alpha"
+	var pause_before_transition: bool = false
 	if level_name:
 		assert(target_name)
 		
 		params["enter_play_mode"] = EnterPlayMode.LOAD_LEVEL
 		params["next_level_name"] = level_name
 		save_data["spawn_target"] = target_name
+		
+		transition_name = "fade"
+		pause_before_transition = true
 	elif "checkpoint_level" in save_data:
 		params["enter_play_mode"] = EnterPlayMode.LOAD_GAME
 	else:
 		params["enter_play_mode"] = EnterPlayMode.NEW_GAME
 	
-	get_tree().paused = true
-	Transition.start("fade_out")
+	get_tree().paused = pause_before_transition
+	Transition.start(transition_name)
 	yield(Transition, "transition_finished")
+	
+	if !pause_before_transition:
+		yield(get_tree().create_timer(0.4), "timeout")
 	
 	state_machine._pop_push(self, params)
