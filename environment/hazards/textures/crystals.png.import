@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/static_spike_large.png-73fb1e781b289bb7ee07a6368c5655c0.stex"
+path="res://.import/crystals.png-ef4ea5123b1f2ffa57d81ccf98fefe9a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/hazards/spikes_large/textures/static_spike_large.png"
-dest_files=[ "res://.import/static_spike_large.png-73fb1e781b289bb7ee07a6368c5655c0.stex" ]
+source_file="res://environment/hazards/textures/crystals.png"
+dest_files=[ "res://.import/crystals.png-ef4ea5123b1f2ffa57d81ccf98fefe9a.stex" ]
 
 [params]
 

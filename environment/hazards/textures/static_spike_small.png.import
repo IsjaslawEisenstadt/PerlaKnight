@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lever_sheet-sheet.png-df74e7c1f191c6da71c7b9163d30f24d.stex"
+path="res://.import/static_spike_small.png-faf1773331ea05ee5541b553a29c1b81.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/switches/lever_switch/textures/lever_sheet-sheet.png"
-dest_files=[ "res://.import/lever_sheet-sheet.png-df74e7c1f191c6da71c7b9163d30f24d.stex" ]
+source_file="res://environment/hazards/textures/static_spike_small.png"
+dest_files=[ "res://.import/static_spike_small.png-faf1773331ea05ee5541b553a29c1b81.stex" ]
 
 [params]
 

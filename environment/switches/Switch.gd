@@ -1,4 +1,5 @@
-extends Node2D
+extends Node
+class_name Switch
 
 signal switch_triggered(activated)
 

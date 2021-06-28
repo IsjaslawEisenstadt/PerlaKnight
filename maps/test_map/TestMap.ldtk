@@ -3077,7 +3077,7 @@
 			]
 		},
 		{
-			"identifier": "SpikesLarge",
+			"identifier": "StaticSpikesLarge",
 			"uid": 510,
 			"tags": ["Hazards"],
 			"width": 32,
@@ -3119,14 +3119,14 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/hazards/spikes_large/SpikeLarge.tscn"]
+						"params": ["res://environment/hazards/StaticSpikesLarge.tscn"]
 					},
 					"textLanguageMode": null
 				}
 			]
 		},
 		{
-			"identifier": "SpikesSmall",
+			"identifier": "StaticSpikesSmall",
 			"uid": 513,
 			"tags": ["Hazards"],
 			"width": 32,
@@ -3168,7 +3168,7 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/hazards/spikes_small/SpikesSmall.tscn"]
+						"params": ["res://environment/hazards/StaticSpikesSmall.tscn"]
 					},
 					"textLanguageMode": null
 				}
@@ -3217,7 +3217,7 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/hazards/crystal_spike/SpikesCrystal.tscn"]
+						"params": ["res://environment/hazards/Crystals.tscn"]
 					},
 					"textLanguageMode": null
 				}
@@ -3239,8 +3239,8 @@
 			"renderMode": "Tile",
 			"showName": true,
 			"tilesetId": 495,
-			"tileId": 3,
-			"tileRenderMode": "Repeat",
+			"tileId": 2,
+			"tileRenderMode": "Stretch",
 			"maxCount": 0,
 			"limitScope": "PerLevel",
 			"limitBehavior": "MoveLastOne",
@@ -3266,7 +3266,7 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/hazards/pillar_trap/PillarTrap.tscn"]
+						"params": ["res://environment/hazards/PillarTrap.tscn"]
 					},
 					"textLanguageMode": null
 				},
@@ -3293,7 +3293,7 @@
 			]
 		},
 		{
-			"identifier": "SpikeTrapSmall2",
+			"identifier": "SpikeTrapSmall",
 			"uid": 503,
 			"tags": ["Trap"],
 			"width": 32,
@@ -3335,7 +3335,7 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/hazards/spike_trap/spike_trap_small/SpikeTrapSmall.tscn"]
+						"params": ["res://environment/hazards/SpikeTrapSmall.tscn"]
 					},
 					"textLanguageMode": null
 				},
@@ -3362,7 +3362,7 @@
 			]
 		},
 		{
-			"identifier": "SpikeTrapLarge2",
+			"identifier": "SpikeTrapLarge",
 			"uid": 506,
 			"tags": ["Trap"],
 			"width": 32,
@@ -3404,7 +3404,7 @@
 					"acceptFileTypes": null,
 					"defaultOverride": {
 						"id": "V_String",
-						"params": ["res://environment/hazards/spike_trap/spike_trap_large/SpikeTrapLarge.tscn"]
+						"params": ["res://environment/hazards/SpikeTrapLarge.tscn"]
 					},
 					"textLanguageMode": null
 				},
@@ -3747,9 +3747,9 @@
 		{
 			"__cWid": 9,
 			"__cHei": 1,
-			"identifier": "Crystal_spike",
+			"identifier": "Crystals",
 			"uid": 492,
-			"relPath": "../../environment/hazards/crystal_spike/textures/Crystal_spike.png",
+			"relPath": "../../environment/hazards/textures/crystals.png",
 			"pxWid": 288,
 			"pxHei": 32,
 			"tileGridSize": 32,
@@ -3764,9 +3764,9 @@
 		{
 			"__cWid": 28,
 			"__cHei": 1,
-			"identifier": "Spike_Trap_small",
+			"identifier": "Spike_small",
 			"uid": 493,
-			"relPath": "../../environment/hazards/spike_trap/spike_trap_small/textures/Spike_Trap_small.png",
+			"relPath": "../../environment/hazards/textures/spike_small.png",
 			"pxWid": 896,
 			"pxHei": 32,
 			"tileGridSize": 32,
@@ -3784,9 +3784,9 @@
 		{
 			"__cWid": 28,
 			"__cHei": 1,
-			"identifier": "Spike_Trap_large",
+			"identifier": "Spike_large",
 			"uid": 499,
-			"relPath": "../../environment/hazards/spike_trap/spike_trap_large/textures/Spike_Trap_large.png",
+			"relPath": "../../environment/hazards/textures/spike_large.png",
 			"pxWid": 896,
 			"pxHei": 32,
 			"tileGridSize": 32,
@@ -3804,9 +3804,9 @@
 		{
 			"__cWid": 5,
 			"__cHei": 2,
-			"identifier": "Pillar_trap",
+			"identifier": "Pillar",
 			"uid": 495,
-			"relPath": "../../environment/trigger/pillar/textures/Pillar_trap.png",
+			"relPath": "../../environment/trigger/pillar/textures/pillar.png",
 			"pxWid": 160,
 			"pxHei": 64,
 			"tileGridSize": 32,
@@ -3819,28 +3819,11 @@
 			"cachedPixelData": { "opaqueTiles": "0000000000", "averageColors": "544544454445b445b4450000000000006446b446" }
 		},
 		{
-			"__cWid": 0,
-			"__cHei": 0,
-			"identifier": "Tileset",
-			"uid": 496,
-			"relPath": null,
-			"pxWid": 0,
-			"pxHei": 0,
-			"tileGridSize": 16,
-			"spacing": 0,
-			"padding": 0,
-			"tagsSourceEnumUid": null,
-			"enumTags": [],
-			"customData": [],
-			"savedSelections": [],
-			"cachedPixelData": null
-		},
-		{
 			"__cWid": 11,
 			"__cHei": 1,
 			"identifier": "Static_spike_large",
 			"uid": 494,
-			"relPath": "../../environment/hazards/spikes_large/textures/static_spike_large.png",
+			"relPath": "../../environment/hazards/textures/static_spike_large.png",
 			"pxWid": 352,
 			"pxHei": 32,
 			"tileGridSize": 32,
@@ -3857,7 +3840,7 @@
 			"__cHei": 1,
 			"identifier": "Static_spike_small",
 			"uid": 498,
-			"relPath": "../../environment/hazards/spikes_small/textures/static_spike_small.png",
+			"relPath": "../../environment/hazards/textures/static_spike_small.png",
 			"pxWid": 352,
 			"pxHei": 32,
 			"tileGridSize": 32,
@@ -4428,13 +4411,13 @@
 							"__identifier": "PillarTrap",
 							"__grid": [34,18],
 							"__pivot": [0.5,1],
-							"__tile": { "tilesetUid": 495, "srcRect": [96,0,32,32] },
+							"__tile": { "tilesetUid": 495, "srcRect": [64,0,32,32] },
 							"width": 32,
 							"height": 64,
 							"defUid": 500,
 							"px": [1106,607],
 							"fieldInstances": [
-								{ "__identifier": "NodeType", "__value": "res://environment/hazards/pillar_trap/PillarTrap.tscn", "__type": "String", "defUid": 501, "realEditorValues": [] },
+								{ "__identifier": "NodeType", "__value": "res://environment/hazards/PillarTrap.tscn", "__type": "String", "defUid": 501, "realEditorValues": [] },
 								{ "__identifier": "interval", "__value": 3, "__type": "Int", "defUid": 502, "realEditorValues": [] }
 							]
 						},
@@ -4447,7 +4430,7 @@
 							"height": 32,
 							"defUid": 515,
 							"px": [1456,640],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/hazards/crystal_spike/SpikesCrystal.tscn", "__type": "String", "defUid": 516, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/hazards/Crystals.tscn", "__type": "String", "defUid": 516, "realEditorValues": [] }]
 						},
 						{
 							"__identifier": "SpikesCrystal",
@@ -4458,10 +4441,10 @@
 							"height": 32,
 							"defUid": 515,
 							"px": [1488,640],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/hazards/crystal_spike/SpikesCrystal.tscn", "__type": "String", "defUid": 516, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/hazards/Crystals.tscn", "__type": "String", "defUid": 516, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "SpikesSmall",
+							"__identifier": "StaticSpikesSmall",
 							"__grid": [54,18],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 498, "srcRect": [128,0,32,32] },
@@ -4469,10 +4452,10 @@
 							"height": 32,
 							"defUid": 513,
 							"px": [1743,608],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/hazards/spikes_small/SpikesSmall.tscn", "__type": "String", "defUid": 514, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/hazards/StaticSpikesSmall.tscn", "__type": "String", "defUid": 514, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "SpikesSmall",
+							"__identifier": "StaticSpikesSmall",
 							"__grid": [53,18],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 498, "srcRect": [128,0,32,32] },
@@ -4480,10 +4463,10 @@
 							"height": 32,
 							"defUid": 513,
 							"px": [1711,608],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/hazards/spikes_small/SpikesSmall.tscn", "__type": "String", "defUid": 514, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/hazards/StaticSpikesSmall.tscn", "__type": "String", "defUid": 514, "realEditorValues": [] }]
 						},
 						{
-							"__identifier": "SpikesLarge",
+							"__identifier": "StaticSpikesLarge",
 							"__grid": [41,12],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 494, "srcRect": [96,0,32,32] },
@@ -4491,7 +4474,7 @@
 							"height": 32,
 							"defUid": 510,
 							"px": [1329,416],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/hazards/spikes_large/SpikeLarge.tscn", "__type": "String", "defUid": 511, "realEditorValues": [] }]
+							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/hazards/StaticSpikesLarge.tscn", "__type": "String", "defUid": 511, "realEditorValues": [] }]
 						}
 					]
 				},
@@ -10097,7 +10080,7 @@
 							]
 						},
 						{
-							"__identifier": "SpikeTrapSmall2",
+							"__identifier": "SpikeTrapSmall",
 							"__grid": [26,17],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 493, "srcRect": [672,0,32,32] },
@@ -10106,18 +10089,12 @@
 							"defUid": 503,
 							"px": [843,576],
 							"fieldInstances": [
-								{
-									"__identifier": "NodeType",
-									"__value": "res://environment/hazards/spike_trap/spike_trap_small/SpikeTrapSmall.tscn",
-									"__type": "String",
-									"defUid": 504,
-									"realEditorValues": []
-								},
+								{ "__identifier": "NodeType", "__value": "res://environment/hazards/SpikeTrapSmall.tscn", "__type": "String", "defUid": 504, "realEditorValues": [] },
 								{ "__identifier": "interval", "__value": 3, "__type": "Int", "defUid": 505, "realEditorValues": [] }
 							]
 						},
 						{
-							"__identifier": "SpikeTrapSmall2",
+							"__identifier": "SpikeTrapSmall",
 							"__grid": [27,17],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 493, "srcRect": [672,0,32,32] },
@@ -10126,18 +10103,12 @@
 							"defUid": 503,
 							"px": [875,576],
 							"fieldInstances": [
-								{
-									"__identifier": "NodeType",
-									"__value": "res://environment/hazards/spike_trap/spike_trap_small/SpikeTrapSmall.tscn",
-									"__type": "String",
-									"defUid": 504,
-									"realEditorValues": []
-								},
+								{ "__identifier": "NodeType", "__value": "res://environment/hazards/SpikeTrapSmall.tscn", "__type": "String", "defUid": 504, "realEditorValues": [] },
 								{ "__identifier": "interval", "__value": 3, "__type": "Int", "defUid": 505, "realEditorValues": [] }
 							]
 						},
 						{
-							"__identifier": "SpikeTrapLarge2",
+							"__identifier": "SpikeTrapLarge",
 							"__grid": [29,17],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 499, "srcRect": [672,0,32,32] },
@@ -10146,18 +10117,12 @@
 							"defUid": 506,
 							"px": [939,576],
 							"fieldInstances": [
-								{
-									"__identifier": "NodeType",
-									"__value": "res://environment/hazards/spike_trap/spike_trap_large/SpikeTrapLarge.tscn",
-									"__type": "String",
-									"defUid": 507,
-									"realEditorValues": []
-								},
+								{ "__identifier": "NodeType", "__value": "res://environment/hazards/SpikeTrapLarge.tscn", "__type": "String", "defUid": 507, "realEditorValues": [] },
 								{ "__identifier": "interval", "__value": 3, "__type": "Int", "defUid": 508, "realEditorValues": [] }
 							]
 						},
 						{
-							"__identifier": "SpikeTrapLarge2",
+							"__identifier": "SpikeTrapLarge",
 							"__grid": [30,17],
 							"__pivot": [0.5,1],
 							"__tile": { "tilesetUid": 499, "srcRect": [672,0,32,32] },
@@ -10166,13 +10131,7 @@
 							"defUid": 506,
 							"px": [971,576],
 							"fieldInstances": [
-								{
-									"__identifier": "NodeType",
-									"__value": "res://environment/hazards/spike_trap/spike_trap_large/SpikeTrapLarge.tscn",
-									"__type": "String",
-									"defUid": 507,
-									"realEditorValues": []
-								},
+								{ "__identifier": "NodeType", "__value": "res://environment/hazards/SpikeTrapLarge.tscn", "__type": "String", "defUid": 507, "realEditorValues": [] },
 								{ "__identifier": "interval", "__value": 3, "__type": "Int", "defUid": 508, "realEditorValues": [] }
 							]
 						}

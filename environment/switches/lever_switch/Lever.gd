@@ -1,14 +1,14 @@
+tool
 extends Interaction
 class_name Lever
 
-func _ready():
-	$AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
+export var oneway: bool = false
 
 func _interact(_character) -> void:
 	if !$Switch.activated:
 		$AnimationPlayer.play("trigger")
 		$Switch.trigger(true)
-	else: 
+	elif !oneway: 
 		$AnimationPlayer.play_backwards("trigger")
 		$Switch.trigger(false)
 

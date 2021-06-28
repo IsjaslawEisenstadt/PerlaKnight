@@ -1,13 +1,14 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://environment/hazards/spike_trap/spike_trap_large/textures/Spike_Trap_large.png" type="Texture" id=1]
+[ext_resource path="res://environment/hazards/textures/spike_large.png" type="Texture" id=1]
 [ext_resource path="res://environment/hazards/base/Hazard.tscn" type="PackedScene" id=2]
-[ext_resource path="res://environment/hazards/spike_trap/Trap.gd" type="Script" id=3]
+[ext_resource path="res://environment/hazards/base/Trap.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.8441, 16.2443 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="Animation" id=2]
+resource_name = "trigger"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -48,4 +49,4 @@ texture = ExtResource( 1 )
 hframes = 28
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-anims/Trigger = SubResource( 2 )
+anims/trigger = SubResource( 2 )

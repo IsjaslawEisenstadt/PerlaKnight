@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://environment/trigger/pillar/textures/Pillar_trap.png" type="Texture" id=1]
+[ext_resource path="res://environment/trigger/pillar/textures/pillar.png" type="Texture" id=1]
 [ext_resource path="res://environment/trigger/pillar/Pillar.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]

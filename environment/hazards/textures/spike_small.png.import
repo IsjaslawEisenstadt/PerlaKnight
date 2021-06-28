@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Pressureplate.png-20207f7e73e18e61edc23f7ef8a40e12.stex"
+path="res://.import/spike_small.png-29c62123a9aa1ff8f5f20515a76d63e7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://environment/switches/pressure_plate_switch/textures/Pressureplate.png"
-dest_files=[ "res://.import/Pressureplate.png-20207f7e73e18e61edc23f7ef8a40e12.stex" ]
+source_file="res://environment/hazards/textures/spike_small.png"
+dest_files=[ "res://.import/spike_small.png-29c62123a9aa1ff8f5f20515a76d63e7.stex" ]
 
 [params]
 
