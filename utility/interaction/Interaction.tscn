@@ -49,13 +49,13 @@ visible = false
 [node name="IconLeftOffset" type="Node2D" parent="Sprite/Icons"]
 
 [node name="IconLeft" type="Sprite" parent="Sprite/Icons/IconLeftOffset"]
-position = Vector2( -13.8265, 0 )
+position = Vector2( -12, 0 )
 texture = ExtResource( 3 )
 
 [node name="IconRightOffset" type="Node2D" parent="Sprite/Icons"]
 
 [node name="IconRight" type="Sprite" parent="Sprite/Icons/IconRightOffset"]
-position = Vector2( 13.8265, 0 )
+position = Vector2( 12, 0 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
