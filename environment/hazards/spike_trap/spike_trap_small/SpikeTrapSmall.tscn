@@ -43,7 +43,7 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -15.621 )
 texture = ExtResource( 1 )
 hframes = 28
 
