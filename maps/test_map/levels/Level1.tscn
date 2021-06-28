@@ -1,4 +1,4 @@
-[gd_scene load_steps=244 format=2]
+[gd_scene load_steps=252 format=2]
 
 [ext_resource path="res://environment/destructibles/Barrel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/decoration/lamps/BrokenLamp1.tscn" type="PackedScene" id=2]
@@ -27,6 +27,12 @@
 [ext_resource path="res://environment/platforms/OneWayPlatform.gd" type="Script" id=25]
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=26]
 [ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=27]
+[ext_resource path="res://environment/hazards/spikes_large/SpikeLarge.tscn" type="PackedScene" id=28]
+[ext_resource path="res://environment/hazards/pillar_trap/PillarTrap.tscn" type="PackedScene" id=29]
+[ext_resource path="res://environment/hazards/spikes_small/SpikesSmall.tscn" type="PackedScene" id=30]
+[ext_resource path="res://environment/hazards/crystal_spike/SpikesCrystal.tscn" type="PackedScene" id=31]
+[ext_resource path="res://environment/hazards/spike_trap/Trap.gd" type="Script" id=36]
+[ext_resource path="res://environment/hazards/base/Hazard.gd" type="Script" id=37]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -1247,7 +1253,7 @@ extents = Vector2( 32, 16 )
 extents = Vector2( 32, 16 )
 
 [sub_resource type="RectangleShape2D" id=177]
-extents = Vector2( 32, 16 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=178]
 extents = Vector2( 32, 16 )
@@ -1256,7 +1262,7 @@ extents = Vector2( 32, 16 )
 extents = Vector2( 32, 16 )
 
 [sub_resource type="RectangleShape2D" id=180]
-extents = Vector2( 32, 16 )
+extents = Vector2( 16, 16 )
 
 [sub_resource type="RectangleShape2D" id=181]
 extents = Vector2( 32, 16 )
@@ -1352,10 +1358,10 @@ extents = Vector2( 32, 16 )
 extents = Vector2( 32, 16 )
 
 [sub_resource type="RectangleShape2D" id=212]
-extents = Vector2( 352, 16 )
+extents = Vector2( 32, 16 )
 
 [sub_resource type="RectangleShape2D" id=213]
-extents = Vector2( 704, 16 )
+extents = Vector2( 32, 16 )
 
 [sub_resource type="RectangleShape2D" id=214]
 extents = Vector2( 352, 16 )
@@ -1363,7 +1369,13 @@ extents = Vector2( 352, 16 )
 [sub_resource type="RectangleShape2D" id=215]
 extents = Vector2( 704, 16 )
 
-[sub_resource type="TileSet" id=216]
+[sub_resource type="RectangleShape2D" id=216]
+extents = Vector2( 352, 16 )
+
+[sub_resource type="RectangleShape2D" id=217]
+extents = Vector2( 704, 16 )
+
+[sub_resource type="TileSet" id=218]
 0/name = ""
 0/texture = ExtResource( 17 )
 0/tex_offset = Vector2( 0, 0 )
@@ -2647,165 +2659,173 @@ position = Vector2( 32, 496 )
 shape = SubResource( 176 )
 
 [node name="CollisionShape2D30" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 496 )
+position = Vector2( 496, 496 )
 shape = SubResource( 177 )
 
 [node name="CollisionShape2D31" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 528 )
+position = Vector2( 2176, 496 )
 shape = SubResource( 178 )
 
 [node name="CollisionShape2D32" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 528 )
+position = Vector2( 32, 528 )
 shape = SubResource( 179 )
 
 [node name="CollisionShape2D33" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 560 )
+position = Vector2( 496, 528 )
 shape = SubResource( 180 )
 
 [node name="CollisionShape2D34" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 560 )
+position = Vector2( 2176, 528 )
 shape = SubResource( 181 )
 
 [node name="CollisionShape2D35" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 592 )
+position = Vector2( 32, 560 )
 shape = SubResource( 182 )
 
 [node name="CollisionShape2D36" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 592 )
+position = Vector2( 2176, 560 )
 shape = SubResource( 183 )
 
 [node name="CollisionShape2D37" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 624 )
+position = Vector2( 32, 592 )
 shape = SubResource( 184 )
 
 [node name="CollisionShape2D38" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 624 )
+position = Vector2( 2176, 592 )
 shape = SubResource( 185 )
 
 [node name="CollisionShape2D39" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 656 )
+position = Vector2( 32, 624 )
 shape = SubResource( 186 )
 
 [node name="CollisionShape2D40" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 656 )
+position = Vector2( 2176, 624 )
 shape = SubResource( 187 )
 
 [node name="CollisionShape2D41" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 688 )
+position = Vector2( 32, 656 )
 shape = SubResource( 188 )
 
 [node name="CollisionShape2D42" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 688 )
+position = Vector2( 2176, 656 )
 shape = SubResource( 189 )
 
 [node name="CollisionShape2D43" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 720 )
+position = Vector2( 32, 688 )
 shape = SubResource( 190 )
 
 [node name="CollisionShape2D44" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 720 )
+position = Vector2( 2176, 688 )
 shape = SubResource( 191 )
 
 [node name="CollisionShape2D45" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 752 )
+position = Vector2( 32, 720 )
 shape = SubResource( 192 )
 
 [node name="CollisionShape2D46" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 752 )
+position = Vector2( 2176, 720 )
 shape = SubResource( 193 )
 
 [node name="CollisionShape2D47" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 784 )
+position = Vector2( 32, 752 )
 shape = SubResource( 194 )
 
 [node name="CollisionShape2D48" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 784 )
+position = Vector2( 2176, 752 )
 shape = SubResource( 195 )
 
 [node name="CollisionShape2D49" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 816 )
+position = Vector2( 32, 784 )
 shape = SubResource( 196 )
 
 [node name="CollisionShape2D50" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 848 )
+position = Vector2( 2176, 784 )
 shape = SubResource( 197 )
 
 [node name="CollisionShape2D51" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 880 )
+position = Vector2( 32, 816 )
 shape = SubResource( 198 )
 
 [node name="CollisionShape2D52" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 880 )
+position = Vector2( 32, 848 )
 shape = SubResource( 199 )
 
 [node name="CollisionShape2D53" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 912 )
+position = Vector2( 32, 880 )
 shape = SubResource( 200 )
 
 [node name="CollisionShape2D54" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 912 )
+position = Vector2( 2176, 880 )
 shape = SubResource( 201 )
 
 [node name="CollisionShape2D55" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 944 )
+position = Vector2( 32, 912 )
 shape = SubResource( 202 )
 
 [node name="CollisionShape2D56" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 944 )
+position = Vector2( 2176, 912 )
 shape = SubResource( 203 )
 
 [node name="CollisionShape2D57" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 976 )
+position = Vector2( 32, 944 )
 shape = SubResource( 204 )
 
 [node name="CollisionShape2D58" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 976 )
+position = Vector2( 2176, 944 )
 shape = SubResource( 205 )
 
 [node name="CollisionShape2D59" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 1008 )
+position = Vector2( 32, 976 )
 shape = SubResource( 206 )
 
 [node name="CollisionShape2D60" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 1008 )
+position = Vector2( 2176, 976 )
 shape = SubResource( 207 )
 
 [node name="CollisionShape2D61" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 1040 )
+position = Vector2( 32, 1008 )
 shape = SubResource( 208 )
 
 [node name="CollisionShape2D62" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 1040 )
+position = Vector2( 2176, 1008 )
 shape = SubResource( 209 )
 
 [node name="CollisionShape2D63" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 32, 1072 )
+position = Vector2( 32, 1040 )
 shape = SubResource( 210 )
 
 [node name="CollisionShape2D64" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 2176, 1072 )
+position = Vector2( 2176, 1040 )
 shape = SubResource( 211 )
 
 [node name="CollisionShape2D65" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 352, 1104 )
+position = Vector2( 32, 1072 )
 shape = SubResource( 212 )
 
 [node name="CollisionShape2D66" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 1504, 1104 )
+position = Vector2( 2176, 1072 )
 shape = SubResource( 213 )
 
 [node name="CollisionShape2D67" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 352, 1136 )
+position = Vector2( 352, 1104 )
 shape = SubResource( 214 )
 
 [node name="CollisionShape2D68" type="CollisionShape2D" parent="Collision_Camera"]
-position = Vector2( 1504, 1136 )
+position = Vector2( 1504, 1104 )
 shape = SubResource( 215 )
+
+[node name="CollisionShape2D69" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 352, 1136 )
+shape = SubResource( 216 )
+
+[node name="CollisionShape2D70" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1504, 1136 )
+shape = SubResource( 217 )
 
 [node name="Decoration" type="TileMap" parent="."]
 position = Vector2( 0, -1152 )
 z_index = 4
-tile_set = SubResource( 216 )
+tile_set = SubResource( 218 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 4194346, 0, 0 )
@@ -3024,6 +3044,43 @@ next_level = "Level2"
 next_door = "Door1"
 exit_direction = "Left"
 shape = Vector2( 64, 64 )
+
+[node name="PillarTrap" type="Area2D" parent="Props" instance=ExtResource( 29 )]
+position = Vector2( 1106, -545 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 36 )
+interval = 3.0
+
+[node name="SpikesCrystal" type="Area2D" parent="Props" instance=ExtResource( 31 )]
+position = Vector2( 1456, -512 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 37 )
+
+[node name="SpikesCrystal2" type="Area2D" parent="Props" instance=ExtResource( 31 )]
+position = Vector2( 1488, -512 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 37 )
+
+[node name="SpikesSmall" type="Area2D" parent="Props" instance=ExtResource( 30 )]
+position = Vector2( 1743, -544 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 37 )
+
+[node name="SpikesSmall2" type="Area2D" parent="Props" instance=ExtResource( 30 )]
+position = Vector2( 1711, -544 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 37 )
+
+[node name="SpikesLarge" type="Area2D" parent="Props" instance=ExtResource( 28 )]
+position = Vector2( 1329, -736 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 37 )
 
 [node name="Runes" type="Node2D" parent="."]
 z_index = 6
