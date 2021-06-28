@@ -149,6 +149,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/character/states/jump/JumpState.gd"
 }, {
+"base": "GameState",
+"class": "KeyMap",
+"language": "GDScript",
+"path": "res://ui/game_states/KeyMap.gd"
+}, {
+"base": "Container",
+"class": "KeyMapListEntry",
+"language": "GDScript",
+"path": "res://ui/general/keymap/KeyMapListEntry.gd"
+}, {
 "base": "PhysicsState",
 "class": "LandState",
 "language": "GDScript",
@@ -159,7 +169,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://maps/Level.gd"
 }, {
-"base": "GameState",
+"base": "Control",
 "class": "LoadingScreen",
 "language": "GDScript",
 "path": "res://ui/game_states/LoadingScreen.gd"
@@ -333,6 +343,8 @@ _global_script_class_icons={
 "Interaction": "",
 "Interactor": "",
 "JumpState": "",
+"KeyMap": "",
+"KeyMapListEntry": "",
 "LandState": "",
 "Level": "",
 "LoadingScreen": "",

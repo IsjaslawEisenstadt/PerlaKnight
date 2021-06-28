@@ -1,6 +1,8 @@
 extends GameState
 class_name PauseMenu
 
+onready var KeyMap := $".."/KeyMap
+
 var popup_open: bool = false
 
 func _ready() -> void:
@@ -44,6 +46,10 @@ func on_new_game_pressed() -> void:
 		Input.action_release("pause")
 		Input.action_release("ui_cancel")
 		popup_open = false
+		
+func on_keymap_pressed() -> void:
+	if can_press():
+		state_machine._push_state(KeyMap)
 
 func on_exit_pressed() -> void:
 	if can_press():
@@ -56,3 +62,4 @@ func on_exit_pressed() -> void:
 		Input.action_release("pause")
 		Input.action_release("ui_cancel")
 		popup_open = false
+
