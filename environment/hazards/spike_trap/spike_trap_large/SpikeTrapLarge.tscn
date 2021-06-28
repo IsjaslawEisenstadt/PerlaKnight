@@ -2,7 +2,7 @@
 
 [ext_resource path="res://environment/hazards/spike_trap/spike_trap_large/textures/Spike_Trap_large.png" type="Texture" id=1]
 [ext_resource path="res://environment/hazards/base/Hazard.tscn" type="PackedScene" id=2]
-[ext_resource path="res://environment/hazards/spike_trap/SpikeTrap.gd" type="Script" id=3]
+[ext_resource path="res://environment/hazards/spike_trap/Trap.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15.8441, 16.2443 )
@@ -46,7 +46,6 @@ disabled = true
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 28
-frame = 27
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 anims/Trigger = SubResource( 2 )
