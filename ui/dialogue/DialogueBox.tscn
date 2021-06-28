@@ -1,0 +1,95 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ui/dialogue/DialogueBox.gd" type="Script" id=1]
+[ext_resource path="res://ui/dialogue/speechbubble.tres" type="Texture" id=2]
+[ext_resource path="res://ui/general/fonts/HeartbitXX.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 60, 49 )
+margin_left = 38.0
+margin_right = 21.0
+margin_top = 20.0
+margin_bottom = 27.0
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_top = -3
+extra_spacing_bottom = -2
+extra_spacing_char = 1
+font_data = ExtResource( 3 )
+
+[node name="DialogueBox" type="Control"]
+mouse_filter = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+text = "Lorem ipsum dolor sit amet, 
+consectetur adipiscing elit.[0.5]
+Cras sit amet nulla sit amet diam 
+gravida efficitur.[0.5]
+Sed dapibus orci nec sem auctor,
+eu tincidunt lectus posuere."
+scroll_time = 0.04
+
+[node name="ScrollTimer" type="Timer" parent="."]
+wait_time = 0.04
+one_shot = true
+
+[node name="Offset" type="Control" parent="."]
+margin_left = -10.0
+margin_top = -58.0
+margin_right = -10.0
+margin_bottom = -58.0
+rect_pivot_offset = Vector2( 10, 58 )
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="Offset"]
+margin_top = -43.0
+margin_right = 211.0
+margin_bottom = 60.0
+grow_vertical = 0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="Offset/Panel"]
+margin_right = 211.0
+margin_bottom = 103.0
+grow_vertical = 0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 15
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 25
+
+[node name="Label" type="Label" parent="Offset/Panel/Margin"]
+margin_left = 10.0
+margin_top = 15.0
+margin_right = 201.0
+margin_bottom = 78.0
+grow_vertical = 0
+rect_min_size = Vector2( 80, 20 )
+mouse_filter = 1
+custom_fonts/font = SubResource( 2 )
+text = "Lorem ipsum dolor sit amet, 
+consectetur adipiscing elit.
+Cras sit amet nulla sit amet diam 
+gravida efficitur.
+Sed dapibus orci nec sem auctor,
+eu tincidunt lectus posuere."
+
+[connection signal="timeout" from="ScrollTimer" to="." method="on_scroll_timeout"]
