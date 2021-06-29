@@ -1,38 +1,38 @@
 [gd_scene load_steps=250 format=2]
 
-[ext_resource path="res://environment/decoration/lamps/BrokenLamp1.tscn" type="PackedScene" id=1]
-[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=3]
-[ext_resource path="res://environment/platforms/OneWayPlatformDungeon.tscn" type="PackedScene" id=4]
-[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=6]
-[ext_resource path="res://environment/destructibles/Crate.tscn" type="PackedScene" id=7]
-[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=8]
-[ext_resource path="res://environment/hazards/Crystals.tscn" type="PackedScene" id=9]
-[ext_resource path="res://environment/destructibles/Barrel.tscn" type="PackedScene" id=10]
-[ext_resource path="res://environment/hazards/StaticSpikesLarge.tscn" type="PackedScene" id=11]
-[ext_resource path="res://environment/hazards/PillarTrap.tscn" type="PackedScene" id=12]
-[ext_resource path="res://environment/decoration/lamps/BrokenLamp2.tscn" type="PackedScene" id=13]
-[ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=14]
-[ext_resource path="res://environment/hazards/StaticSpikesSmall.tscn" type="PackedScene" id=15]
-[ext_resource path="res://environment/decoration/props.png" type="Texture" id=16]
-[ext_resource path="res://environment/decoration/lamps/textures/forest_lamps.png" type="Texture" id=17]
-[ext_resource path="res://maps/test_map/textures/dungeon.png" type="Texture" id=18]
-[ext_resource path="res://environment/hazards/base/Hazard.gd" type="Script" id=19]
-[ext_resource path="res://environment/hazards/base/Trap.gd" type="Script" id=20]
-[ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=21]
-[ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=22]
-[ext_resource path="res://environment/destructibles/base/Destructible.gd" type="Script" id=23]
-[ext_resource path="res://environment/runes/resource/DoubleJumpRune.tres" type="Resource" id=24]
-[ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=25]
-[ext_resource path="res://environment/runes/resource/HealthRune.tres" type="Resource" id=26]
-[ext_resource path="res://environment/runes/resource/DashRune.tres" type="Resource" id=27]
-[ext_resource path="res://environment/loot_pickups/health_loot_pickup/HealthLootDrop.tres" type="Resource" id=28]
-[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=29]
-[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=30]
-[ext_resource path="res://maps/Level.gd" type="Script" id=31]
-[ext_resource path="res://characters/player/Player.gd" type="Script" id=32]
-[ext_resource path="res://environment/platforms/OneWayPlatform.gd" type="Script" id=33]
+[ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=1]
+[ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=2]
+[ext_resource path="res://environment/hazards/base/Hazard.gd" type="Script" id=3]
+[ext_resource path="res://environment/destructibles/base/Destructible.gd" type="Script" id=4]
+[ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=5]
+[ext_resource path="res://environment/hazards/base/Trap.gd" type="Script" id=6]
+[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=7]
+[ext_resource path="res://maps/Level.gd" type="Script" id=8]
+[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=9]
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=10]
+[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=11]
+[ext_resource path="res://environment/platforms/OneWayPlatform.gd" type="Script" id=12]
+[ext_resource path="res://environment/decoration/props.png" type="Texture" id=13]
+[ext_resource path="res://environment/decoration/lamps/textures/forest_lamps.png" type="Texture" id=14]
+[ext_resource path="res://maps/test_map/textures/dungeon.png" type="Texture" id=15]
+[ext_resource path="res://environment/runes/resource/DashRune.tres" type="Resource" id=16]
+[ext_resource path="res://environment/runes/resource/HealthRune.tres" type="Resource" id=17]
+[ext_resource path="res://environment/loot_pickups/health_loot_pickup/HealthLootDrop.tres" type="Resource" id=18]
+[ext_resource path="res://environment/runes/resource/DoubleJumpRune.tres" type="Resource" id=19]
+[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=20]
+[ext_resource path="res://environment/hazards/StaticSpikesSmall.tscn" type="PackedScene" id=21]
+[ext_resource path="res://environment/hazards/Crystals.tscn" type="PackedScene" id=22]
+[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=23]
+[ext_resource path="res://environment/hazards/StaticSpikesLarge.tscn" type="PackedScene" id=24]
+[ext_resource path="res://environment/platforms/OneWayPlatformDungeon.tscn" type="PackedScene" id=25]
+[ext_resource path="res://environment/destructibles/Crate.tscn" type="PackedScene" id=26]
+[ext_resource path="res://environment/hazards/PillarTrap.tscn" type="PackedScene" id=27]
+[ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=28]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=29]
+[ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=30]
+[ext_resource path="res://environment/decoration/lamps/BrokenLamp2.tscn" type="PackedScene" id=31]
+[ext_resource path="res://environment/decoration/lamps/BrokenLamp1.tscn" type="PackedScene" id=32]
+[ext_resource path="res://environment/destructibles/Barrel.tscn" type="PackedScene" id=33]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -479,7 +479,7 @@ extents = Vector2( 704, 16 )
 
 [sub_resource type="TileSet" id=147]
 0/name = ""
-0/texture = ExtResource( 18 )
+0/texture = ExtResource( 15 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 32 )
@@ -493,7 +493,7 @@ extents = Vector2( 704, 16 )
 0/shapes = [  ]
 0/z_index = 0
 1/name = ""
-1/texture = ExtResource( 18 )
+1/texture = ExtResource( 15 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 32, 0, 32, 32 )
@@ -507,7 +507,7 @@ extents = Vector2( 704, 16 )
 1/shapes = [  ]
 1/z_index = 0
 2/name = ""
-2/texture = ExtResource( 18 )
+2/texture = ExtResource( 15 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 64, 0, 32, 32 )
@@ -521,7 +521,7 @@ extents = Vector2( 704, 16 )
 2/shapes = [  ]
 2/z_index = 0
 3/name = ""
-3/texture = ExtResource( 18 )
+3/texture = ExtResource( 15 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 96, 0, 32, 32 )
@@ -535,7 +535,7 @@ extents = Vector2( 704, 16 )
 3/shapes = [  ]
 3/z_index = 0
 4/name = ""
-4/texture = ExtResource( 18 )
+4/texture = ExtResource( 15 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 128, 0, 32, 32 )
@@ -549,7 +549,7 @@ extents = Vector2( 704, 16 )
 4/shapes = [  ]
 4/z_index = 0
 5/name = ""
-5/texture = ExtResource( 18 )
+5/texture = ExtResource( 15 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 160, 0, 32, 32 )
@@ -563,7 +563,7 @@ extents = Vector2( 704, 16 )
 5/shapes = [  ]
 5/z_index = 0
 6/name = ""
-6/texture = ExtResource( 18 )
+6/texture = ExtResource( 15 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 192, 0, 32, 32 )
@@ -577,7 +577,7 @@ extents = Vector2( 704, 16 )
 6/shapes = [  ]
 6/z_index = 0
 7/name = ""
-7/texture = ExtResource( 18 )
+7/texture = ExtResource( 15 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 32, 32, 32 )
@@ -591,7 +591,7 @@ extents = Vector2( 704, 16 )
 7/shapes = [  ]
 7/z_index = 0
 8/name = ""
-8/texture = ExtResource( 18 )
+8/texture = ExtResource( 15 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 32, 32, 32, 32 )
@@ -605,7 +605,7 @@ extents = Vector2( 704, 16 )
 8/shapes = [  ]
 8/z_index = 0
 9/name = ""
-9/texture = ExtResource( 18 )
+9/texture = ExtResource( 15 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 64, 32, 32, 32 )
@@ -619,7 +619,7 @@ extents = Vector2( 704, 16 )
 9/shapes = [  ]
 9/z_index = 0
 10/name = ""
-10/texture = ExtResource( 18 )
+10/texture = ExtResource( 15 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 96, 32, 32, 32 )
@@ -633,7 +633,7 @@ extents = Vector2( 704, 16 )
 10/shapes = [  ]
 10/z_index = 0
 11/name = ""
-11/texture = ExtResource( 18 )
+11/texture = ExtResource( 15 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 128, 32, 32, 32 )
@@ -647,7 +647,7 @@ extents = Vector2( 704, 16 )
 11/shapes = [  ]
 11/z_index = 0
 12/name = ""
-12/texture = ExtResource( 18 )
+12/texture = ExtResource( 15 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 160, 32, 32, 32 )
@@ -661,7 +661,7 @@ extents = Vector2( 704, 16 )
 12/shapes = [  ]
 12/z_index = 0
 13/name = ""
-13/texture = ExtResource( 18 )
+13/texture = ExtResource( 15 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 192, 32, 32, 32 )
@@ -675,7 +675,7 @@ extents = Vector2( 704, 16 )
 13/shapes = [  ]
 13/z_index = 0
 14/name = ""
-14/texture = ExtResource( 18 )
+14/texture = ExtResource( 15 )
 14/tex_offset = Vector2( 0, 0 )
 14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 0, 64, 32, 32 )
@@ -689,7 +689,7 @@ extents = Vector2( 704, 16 )
 14/shapes = [  ]
 14/z_index = 0
 15/name = ""
-15/texture = ExtResource( 18 )
+15/texture = ExtResource( 15 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 32, 64, 32, 32 )
@@ -703,7 +703,7 @@ extents = Vector2( 704, 16 )
 15/shapes = [  ]
 15/z_index = 0
 16/name = ""
-16/texture = ExtResource( 18 )
+16/texture = ExtResource( 15 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 64, 64, 32, 32 )
@@ -717,7 +717,7 @@ extents = Vector2( 704, 16 )
 16/shapes = [  ]
 16/z_index = 0
 17/name = ""
-17/texture = ExtResource( 18 )
+17/texture = ExtResource( 15 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 96, 64, 32, 32 )
@@ -731,7 +731,7 @@ extents = Vector2( 704, 16 )
 17/shapes = [  ]
 17/z_index = 0
 18/name = ""
-18/texture = ExtResource( 18 )
+18/texture = ExtResource( 15 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 128, 64, 32, 32 )
@@ -745,7 +745,7 @@ extents = Vector2( 704, 16 )
 18/shapes = [  ]
 18/z_index = 0
 19/name = ""
-19/texture = ExtResource( 18 )
+19/texture = ExtResource( 15 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 160, 64, 32, 32 )
@@ -759,7 +759,7 @@ extents = Vector2( 704, 16 )
 19/shapes = [  ]
 19/z_index = 0
 20/name = ""
-20/texture = ExtResource( 18 )
+20/texture = ExtResource( 15 )
 20/tex_offset = Vector2( 0, 0 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 192, 64, 32, 32 )
@@ -773,7 +773,7 @@ extents = Vector2( 704, 16 )
 20/shapes = [  ]
 20/z_index = 0
 21/name = ""
-21/texture = ExtResource( 18 )
+21/texture = ExtResource( 15 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 0, 96, 32, 32 )
@@ -787,7 +787,7 @@ extents = Vector2( 704, 16 )
 21/shapes = [  ]
 21/z_index = 0
 22/name = ""
-22/texture = ExtResource( 18 )
+22/texture = ExtResource( 15 )
 22/tex_offset = Vector2( 0, 0 )
 22/modulate = Color( 1, 1, 1, 1 )
 22/region = Rect2( 32, 96, 32, 32 )
@@ -801,7 +801,7 @@ extents = Vector2( 704, 16 )
 22/shapes = [  ]
 22/z_index = 0
 23/name = ""
-23/texture = ExtResource( 18 )
+23/texture = ExtResource( 15 )
 23/tex_offset = Vector2( 0, 0 )
 23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 64, 96, 32, 32 )
@@ -815,7 +815,7 @@ extents = Vector2( 704, 16 )
 23/shapes = [  ]
 23/z_index = 0
 24/name = ""
-24/texture = ExtResource( 18 )
+24/texture = ExtResource( 15 )
 24/tex_offset = Vector2( 0, 0 )
 24/modulate = Color( 1, 1, 1, 1 )
 24/region = Rect2( 96, 96, 32, 32 )
@@ -829,7 +829,7 @@ extents = Vector2( 704, 16 )
 24/shapes = [  ]
 24/z_index = 0
 25/name = ""
-25/texture = ExtResource( 18 )
+25/texture = ExtResource( 15 )
 25/tex_offset = Vector2( 0, 0 )
 25/modulate = Color( 1, 1, 1, 1 )
 25/region = Rect2( 128, 96, 32, 32 )
@@ -843,7 +843,7 @@ extents = Vector2( 704, 16 )
 25/shapes = [  ]
 25/z_index = 0
 26/name = ""
-26/texture = ExtResource( 18 )
+26/texture = ExtResource( 15 )
 26/tex_offset = Vector2( 0, 0 )
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 160, 96, 32, 32 )
@@ -857,7 +857,7 @@ extents = Vector2( 704, 16 )
 26/shapes = [  ]
 26/z_index = 0
 27/name = ""
-27/texture = ExtResource( 18 )
+27/texture = ExtResource( 15 )
 27/tex_offset = Vector2( 0, 0 )
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 192, 96, 32, 32 )
@@ -871,7 +871,7 @@ extents = Vector2( 704, 16 )
 27/shapes = [  ]
 27/z_index = 0
 28/name = ""
-28/texture = ExtResource( 18 )
+28/texture = ExtResource( 15 )
 28/tex_offset = Vector2( 0, 0 )
 28/modulate = Color( 1, 1, 1, 1 )
 28/region = Rect2( 0, 128, 32, 32 )
@@ -885,7 +885,7 @@ extents = Vector2( 704, 16 )
 28/shapes = [  ]
 28/z_index = 0
 29/name = ""
-29/texture = ExtResource( 18 )
+29/texture = ExtResource( 15 )
 29/tex_offset = Vector2( 0, 0 )
 29/modulate = Color( 1, 1, 1, 1 )
 29/region = Rect2( 32, 128, 32, 32 )
@@ -899,7 +899,7 @@ extents = Vector2( 704, 16 )
 29/shapes = [  ]
 29/z_index = 0
 30/name = ""
-30/texture = ExtResource( 18 )
+30/texture = ExtResource( 15 )
 30/tex_offset = Vector2( 0, 0 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 64, 128, 32, 32 )
@@ -913,7 +913,7 @@ extents = Vector2( 704, 16 )
 30/shapes = [  ]
 30/z_index = 0
 31/name = ""
-31/texture = ExtResource( 18 )
+31/texture = ExtResource( 15 )
 31/tex_offset = Vector2( 0, 0 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 96, 128, 32, 32 )
@@ -927,7 +927,7 @@ extents = Vector2( 704, 16 )
 31/shapes = [  ]
 31/z_index = 0
 32/name = ""
-32/texture = ExtResource( 18 )
+32/texture = ExtResource( 15 )
 32/tex_offset = Vector2( 0, 0 )
 32/modulate = Color( 1, 1, 1, 1 )
 32/region = Rect2( 128, 128, 32, 32 )
@@ -941,7 +941,7 @@ extents = Vector2( 704, 16 )
 32/shapes = [  ]
 32/z_index = 0
 33/name = ""
-33/texture = ExtResource( 18 )
+33/texture = ExtResource( 15 )
 33/tex_offset = Vector2( 0, 0 )
 33/modulate = Color( 1, 1, 1, 1 )
 33/region = Rect2( 160, 128, 32, 32 )
@@ -955,7 +955,7 @@ extents = Vector2( 704, 16 )
 33/shapes = [  ]
 33/z_index = 0
 34/name = ""
-34/texture = ExtResource( 18 )
+34/texture = ExtResource( 15 )
 34/tex_offset = Vector2( 0, 0 )
 34/modulate = Color( 1, 1, 1, 1 )
 34/region = Rect2( 192, 128, 32, 32 )
@@ -969,7 +969,7 @@ extents = Vector2( 704, 16 )
 34/shapes = [  ]
 34/z_index = 0
 35/name = ""
-35/texture = ExtResource( 18 )
+35/texture = ExtResource( 15 )
 35/tex_offset = Vector2( 0, 0 )
 35/modulate = Color( 1, 1, 1, 1 )
 35/region = Rect2( 0, 160, 32, 32 )
@@ -983,7 +983,7 @@ extents = Vector2( 704, 16 )
 35/shapes = [  ]
 35/z_index = 0
 36/name = ""
-36/texture = ExtResource( 18 )
+36/texture = ExtResource( 15 )
 36/tex_offset = Vector2( 0, 0 )
 36/modulate = Color( 1, 1, 1, 1 )
 36/region = Rect2( 32, 160, 32, 32 )
@@ -997,7 +997,7 @@ extents = Vector2( 704, 16 )
 36/shapes = [  ]
 36/z_index = 0
 37/name = ""
-37/texture = ExtResource( 18 )
+37/texture = ExtResource( 15 )
 37/tex_offset = Vector2( 0, 0 )
 37/modulate = Color( 1, 1, 1, 1 )
 37/region = Rect2( 64, 160, 32, 32 )
@@ -1011,7 +1011,7 @@ extents = Vector2( 704, 16 )
 37/shapes = [  ]
 37/z_index = 0
 38/name = ""
-38/texture = ExtResource( 18 )
+38/texture = ExtResource( 15 )
 38/tex_offset = Vector2( 0, 0 )
 38/modulate = Color( 1, 1, 1, 1 )
 38/region = Rect2( 96, 160, 32, 32 )
@@ -1025,7 +1025,7 @@ extents = Vector2( 704, 16 )
 38/shapes = [  ]
 38/z_index = 0
 39/name = ""
-39/texture = ExtResource( 18 )
+39/texture = ExtResource( 15 )
 39/tex_offset = Vector2( 0, 0 )
 39/modulate = Color( 1, 1, 1, 1 )
 39/region = Rect2( 128, 160, 32, 32 )
@@ -1039,7 +1039,7 @@ extents = Vector2( 704, 16 )
 39/shapes = [  ]
 39/z_index = 0
 40/name = ""
-40/texture = ExtResource( 18 )
+40/texture = ExtResource( 15 )
 40/tex_offset = Vector2( 0, 0 )
 40/modulate = Color( 1, 1, 1, 1 )
 40/region = Rect2( 160, 160, 32, 32 )
@@ -1053,7 +1053,7 @@ extents = Vector2( 704, 16 )
 40/shapes = [  ]
 40/z_index = 0
 41/name = ""
-41/texture = ExtResource( 18 )
+41/texture = ExtResource( 15 )
 41/tex_offset = Vector2( 0, 0 )
 41/modulate = Color( 1, 1, 1, 1 )
 41/region = Rect2( 192, 160, 32, 32 )
@@ -1067,7 +1067,7 @@ extents = Vector2( 704, 16 )
 41/shapes = [  ]
 41/z_index = 0
 42/name = ""
-42/texture = ExtResource( 18 )
+42/texture = ExtResource( 15 )
 42/tex_offset = Vector2( 0, 0 )
 42/modulate = Color( 1, 1, 1, 1 )
 42/region = Rect2( 0, 192, 32, 32 )
@@ -1081,7 +1081,7 @@ extents = Vector2( 704, 16 )
 42/shapes = [  ]
 42/z_index = 0
 43/name = ""
-43/texture = ExtResource( 18 )
+43/texture = ExtResource( 15 )
 43/tex_offset = Vector2( 0, 0 )
 43/modulate = Color( 1, 1, 1, 1 )
 43/region = Rect2( 32, 192, 32, 32 )
@@ -1095,7 +1095,7 @@ extents = Vector2( 704, 16 )
 43/shapes = [  ]
 43/z_index = 0
 44/name = ""
-44/texture = ExtResource( 18 )
+44/texture = ExtResource( 15 )
 44/tex_offset = Vector2( 0, 0 )
 44/modulate = Color( 1, 1, 1, 1 )
 44/region = Rect2( 64, 192, 32, 32 )
@@ -1109,7 +1109,7 @@ extents = Vector2( 704, 16 )
 44/shapes = [  ]
 44/z_index = 0
 45/name = ""
-45/texture = ExtResource( 18 )
+45/texture = ExtResource( 15 )
 45/tex_offset = Vector2( 0, 0 )
 45/modulate = Color( 1, 1, 1, 1 )
 45/region = Rect2( 96, 192, 32, 32 )
@@ -1123,7 +1123,7 @@ extents = Vector2( 704, 16 )
 45/shapes = [  ]
 45/z_index = 0
 46/name = ""
-46/texture = ExtResource( 18 )
+46/texture = ExtResource( 15 )
 46/tex_offset = Vector2( 0, 0 )
 46/modulate = Color( 1, 1, 1, 1 )
 46/region = Rect2( 128, 192, 32, 32 )
@@ -1137,7 +1137,7 @@ extents = Vector2( 704, 16 )
 46/shapes = [  ]
 46/z_index = 0
 47/name = ""
-47/texture = ExtResource( 18 )
+47/texture = ExtResource( 15 )
 47/tex_offset = Vector2( 0, 0 )
 47/modulate = Color( 1, 1, 1, 1 )
 47/region = Rect2( 160, 192, 32, 32 )
@@ -1151,7 +1151,7 @@ extents = Vector2( 704, 16 )
 47/shapes = [  ]
 47/z_index = 0
 48/name = ""
-48/texture = ExtResource( 18 )
+48/texture = ExtResource( 15 )
 48/tex_offset = Vector2( 0, 0 )
 48/modulate = Color( 1, 1, 1, 1 )
 48/region = Rect2( 192, 192, 32, 32 )
@@ -1371,7 +1371,7 @@ extents = Vector2( 704, 16 )
 
 [sub_resource type="TileSet" id=216]
 0/name = ""
-0/texture = ExtResource( 16 )
+0/texture = ExtResource( 13 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 32 )
@@ -1385,7 +1385,7 @@ extents = Vector2( 704, 16 )
 0/shapes = [  ]
 0/z_index = 0
 1/name = ""
-1/texture = ExtResource( 16 )
+1/texture = ExtResource( 13 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 32, 0, 32, 32 )
@@ -1399,7 +1399,7 @@ extents = Vector2( 704, 16 )
 1/shapes = [  ]
 1/z_index = 0
 2/name = ""
-2/texture = ExtResource( 16 )
+2/texture = ExtResource( 13 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 64, 0, 32, 32 )
@@ -1413,7 +1413,7 @@ extents = Vector2( 704, 16 )
 2/shapes = [  ]
 2/z_index = 0
 3/name = ""
-3/texture = ExtResource( 16 )
+3/texture = ExtResource( 13 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 96, 0, 32, 32 )
@@ -1427,7 +1427,7 @@ extents = Vector2( 704, 16 )
 3/shapes = [  ]
 3/z_index = 0
 4/name = ""
-4/texture = ExtResource( 16 )
+4/texture = ExtResource( 13 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 128, 0, 32, 32 )
@@ -1441,7 +1441,7 @@ extents = Vector2( 704, 16 )
 4/shapes = [  ]
 4/z_index = 0
 15/name = ""
-15/texture = ExtResource( 16 )
+15/texture = ExtResource( 13 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 0, 32, 32, 32 )
@@ -1455,7 +1455,7 @@ extents = Vector2( 704, 16 )
 15/shapes = [  ]
 15/z_index = 0
 16/name = ""
-16/texture = ExtResource( 16 )
+16/texture = ExtResource( 13 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 32, 32, 32, 32 )
@@ -1469,7 +1469,7 @@ extents = Vector2( 704, 16 )
 16/shapes = [  ]
 16/z_index = 0
 17/name = ""
-17/texture = ExtResource( 16 )
+17/texture = ExtResource( 13 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 64, 32, 32, 32 )
@@ -1483,7 +1483,7 @@ extents = Vector2( 704, 16 )
 17/shapes = [  ]
 17/z_index = 0
 18/name = ""
-18/texture = ExtResource( 16 )
+18/texture = ExtResource( 13 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 96, 32, 32, 32 )
@@ -1497,7 +1497,7 @@ extents = Vector2( 704, 16 )
 18/shapes = [  ]
 18/z_index = 0
 19/name = ""
-19/texture = ExtResource( 16 )
+19/texture = ExtResource( 13 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 128, 32, 32, 32 )
@@ -1511,7 +1511,7 @@ extents = Vector2( 704, 16 )
 19/shapes = [  ]
 19/z_index = 0
 30/name = ""
-30/texture = ExtResource( 16 )
+30/texture = ExtResource( 13 )
 30/tex_offset = Vector2( 0, 0 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 0, 64, 32, 32 )
@@ -1525,7 +1525,7 @@ extents = Vector2( 704, 16 )
 30/shapes = [  ]
 30/z_index = 0
 31/name = ""
-31/texture = ExtResource( 16 )
+31/texture = ExtResource( 13 )
 31/tex_offset = Vector2( 0, 0 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 32, 64, 32, 32 )
@@ -1539,7 +1539,7 @@ extents = Vector2( 704, 16 )
 31/shapes = [  ]
 31/z_index = 0
 32/name = ""
-32/texture = ExtResource( 16 )
+32/texture = ExtResource( 13 )
 32/tex_offset = Vector2( 0, 0 )
 32/modulate = Color( 1, 1, 1, 1 )
 32/region = Rect2( 64, 64, 32, 32 )
@@ -1553,7 +1553,7 @@ extents = Vector2( 704, 16 )
 32/shapes = [  ]
 32/z_index = 0
 33/name = ""
-33/texture = ExtResource( 16 )
+33/texture = ExtResource( 13 )
 33/tex_offset = Vector2( 0, 0 )
 33/modulate = Color( 1, 1, 1, 1 )
 33/region = Rect2( 96, 64, 32, 32 )
@@ -1567,7 +1567,7 @@ extents = Vector2( 704, 16 )
 33/shapes = [  ]
 33/z_index = 0
 34/name = ""
-34/texture = ExtResource( 16 )
+34/texture = ExtResource( 13 )
 34/tex_offset = Vector2( 0, 0 )
 34/modulate = Color( 1, 1, 1, 1 )
 34/region = Rect2( 128, 64, 32, 32 )
@@ -1581,7 +1581,7 @@ extents = Vector2( 704, 16 )
 34/shapes = [  ]
 34/z_index = 0
 35/name = ""
-35/texture = ExtResource( 16 )
+35/texture = ExtResource( 13 )
 35/tex_offset = Vector2( 0, 0 )
 35/modulate = Color( 1, 1, 1, 1 )
 35/region = Rect2( 160, 64, 32, 32 )
@@ -1595,7 +1595,7 @@ extents = Vector2( 704, 16 )
 35/shapes = [  ]
 35/z_index = 0
 45/name = ""
-45/texture = ExtResource( 16 )
+45/texture = ExtResource( 13 )
 45/tex_offset = Vector2( 0, 0 )
 45/modulate = Color( 1, 1, 1, 1 )
 45/region = Rect2( 0, 96, 32, 32 )
@@ -1609,7 +1609,7 @@ extents = Vector2( 704, 16 )
 45/shapes = [  ]
 45/z_index = 0
 46/name = ""
-46/texture = ExtResource( 16 )
+46/texture = ExtResource( 13 )
 46/tex_offset = Vector2( 0, 0 )
 46/modulate = Color( 1, 1, 1, 1 )
 46/region = Rect2( 32, 96, 32, 32 )
@@ -1623,7 +1623,7 @@ extents = Vector2( 704, 16 )
 46/shapes = [  ]
 46/z_index = 0
 47/name = ""
-47/texture = ExtResource( 16 )
+47/texture = ExtResource( 13 )
 47/tex_offset = Vector2( 0, 0 )
 47/modulate = Color( 1, 1, 1, 1 )
 47/region = Rect2( 64, 96, 32, 32 )
@@ -1637,7 +1637,7 @@ extents = Vector2( 704, 16 )
 47/shapes = [  ]
 47/z_index = 0
 48/name = ""
-48/texture = ExtResource( 16 )
+48/texture = ExtResource( 13 )
 48/tex_offset = Vector2( 0, 0 )
 48/modulate = Color( 1, 1, 1, 1 )
 48/region = Rect2( 96, 96, 32, 32 )
@@ -1651,7 +1651,7 @@ extents = Vector2( 704, 16 )
 48/shapes = [  ]
 48/z_index = 0
 49/name = ""
-49/texture = ExtResource( 16 )
+49/texture = ExtResource( 13 )
 49/tex_offset = Vector2( 0, 0 )
 49/modulate = Color( 1, 1, 1, 1 )
 49/region = Rect2( 128, 96, 32, 32 )
@@ -1665,7 +1665,7 @@ extents = Vector2( 704, 16 )
 49/shapes = [  ]
 49/z_index = 0
 50/name = ""
-50/texture = ExtResource( 16 )
+50/texture = ExtResource( 13 )
 50/tex_offset = Vector2( 0, 0 )
 50/modulate = Color( 1, 1, 1, 1 )
 50/region = Rect2( 160, 96, 32, 32 )
@@ -1679,7 +1679,7 @@ extents = Vector2( 704, 16 )
 50/shapes = [  ]
 50/z_index = 0
 60/name = ""
-60/texture = ExtResource( 16 )
+60/texture = ExtResource( 13 )
 60/tex_offset = Vector2( 0, 0 )
 60/modulate = Color( 1, 1, 1, 1 )
 60/region = Rect2( 0, 128, 32, 32 )
@@ -1693,7 +1693,7 @@ extents = Vector2( 704, 16 )
 60/shapes = [  ]
 60/z_index = 0
 61/name = ""
-61/texture = ExtResource( 16 )
+61/texture = ExtResource( 13 )
 61/tex_offset = Vector2( 0, 0 )
 61/modulate = Color( 1, 1, 1, 1 )
 61/region = Rect2( 32, 128, 32, 32 )
@@ -1707,7 +1707,7 @@ extents = Vector2( 704, 16 )
 61/shapes = [  ]
 61/z_index = 0
 62/name = ""
-62/texture = ExtResource( 16 )
+62/texture = ExtResource( 13 )
 62/tex_offset = Vector2( 0, 0 )
 62/modulate = Color( 1, 1, 1, 1 )
 62/region = Rect2( 64, 128, 32, 32 )
@@ -1721,7 +1721,7 @@ extents = Vector2( 704, 16 )
 62/shapes = [  ]
 62/z_index = 0
 63/name = ""
-63/texture = ExtResource( 16 )
+63/texture = ExtResource( 13 )
 63/tex_offset = Vector2( 0, 0 )
 63/modulate = Color( 1, 1, 1, 1 )
 63/region = Rect2( 96, 128, 32, 32 )
@@ -1735,7 +1735,7 @@ extents = Vector2( 704, 16 )
 63/shapes = [  ]
 63/z_index = 0
 64/name = ""
-64/texture = ExtResource( 16 )
+64/texture = ExtResource( 13 )
 64/tex_offset = Vector2( 0, 0 )
 64/modulate = Color( 1, 1, 1, 1 )
 64/region = Rect2( 128, 128, 32, 32 )
@@ -1749,7 +1749,7 @@ extents = Vector2( 704, 16 )
 64/shapes = [  ]
 64/z_index = 0
 65/name = ""
-65/texture = ExtResource( 16 )
+65/texture = ExtResource( 13 )
 65/tex_offset = Vector2( 0, 0 )
 65/modulate = Color( 1, 1, 1, 1 )
 65/region = Rect2( 160, 128, 32, 32 )
@@ -1763,7 +1763,7 @@ extents = Vector2( 704, 16 )
 65/shapes = [  ]
 65/z_index = 0
 75/name = ""
-75/texture = ExtResource( 16 )
+75/texture = ExtResource( 13 )
 75/tex_offset = Vector2( 0, 0 )
 75/modulate = Color( 1, 1, 1, 1 )
 75/region = Rect2( 0, 160, 32, 32 )
@@ -1777,7 +1777,7 @@ extents = Vector2( 704, 16 )
 75/shapes = [  ]
 75/z_index = 0
 76/name = ""
-76/texture = ExtResource( 16 )
+76/texture = ExtResource( 13 )
 76/tex_offset = Vector2( 0, 0 )
 76/modulate = Color( 1, 1, 1, 1 )
 76/region = Rect2( 32, 160, 32, 32 )
@@ -1791,7 +1791,7 @@ extents = Vector2( 704, 16 )
 76/shapes = [  ]
 76/z_index = 0
 77/name = ""
-77/texture = ExtResource( 16 )
+77/texture = ExtResource( 13 )
 77/tex_offset = Vector2( 0, 0 )
 77/modulate = Color( 1, 1, 1, 1 )
 77/region = Rect2( 64, 160, 32, 32 )
@@ -1805,7 +1805,7 @@ extents = Vector2( 704, 16 )
 77/shapes = [  ]
 77/z_index = 0
 78/name = ""
-78/texture = ExtResource( 16 )
+78/texture = ExtResource( 13 )
 78/tex_offset = Vector2( 0, 0 )
 78/modulate = Color( 1, 1, 1, 1 )
 78/region = Rect2( 96, 160, 32, 32 )
@@ -1819,7 +1819,7 @@ extents = Vector2( 704, 16 )
 78/shapes = [  ]
 78/z_index = 0
 79/name = ""
-79/texture = ExtResource( 16 )
+79/texture = ExtResource( 13 )
 79/tex_offset = Vector2( 0, 0 )
 79/modulate = Color( 1, 1, 1, 1 )
 79/region = Rect2( 128, 160, 32, 32 )
@@ -1833,7 +1833,7 @@ extents = Vector2( 704, 16 )
 79/shapes = [  ]
 79/z_index = 0
 80/name = ""
-80/texture = ExtResource( 16 )
+80/texture = ExtResource( 13 )
 80/tex_offset = Vector2( 0, 0 )
 80/modulate = Color( 1, 1, 1, 1 )
 80/region = Rect2( 160, 160, 32, 32 )
@@ -1847,7 +1847,7 @@ extents = Vector2( 704, 16 )
 80/shapes = [  ]
 80/z_index = 0
 90/name = ""
-90/texture = ExtResource( 16 )
+90/texture = ExtResource( 13 )
 90/tex_offset = Vector2( 0, 0 )
 90/modulate = Color( 1, 1, 1, 1 )
 90/region = Rect2( 0, 192, 32, 32 )
@@ -1861,7 +1861,7 @@ extents = Vector2( 704, 16 )
 90/shapes = [  ]
 90/z_index = 0
 91/name = ""
-91/texture = ExtResource( 16 )
+91/texture = ExtResource( 13 )
 91/tex_offset = Vector2( 0, 0 )
 91/modulate = Color( 1, 1, 1, 1 )
 91/region = Rect2( 32, 192, 32, 32 )
@@ -1876,10 +1876,10 @@ extents = Vector2( 704, 16 )
 91/z_index = 0
 
 [node name="Level1" type="Node2D"]
-script = ExtResource( 31 )
+script = ExtResource( 8 )
 player_path = NodePath("Characters/Player")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 8 )]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 7 )]
 environment = SubResource( 1 )
 
 [node name="Collision_Ground" type="StaticBody2D" parent="."]
@@ -2769,346 +2769,346 @@ z_index = 4
 [node name="Props" type="Node2D" parent="."]
 z_index = 5
 
-[node name="Lamp" type="Sprite" parent="Props" instance=ExtResource( 3 )]
+[node name="Lamp" type="Sprite" parent="Props" instance=ExtResource( 30 )]
 position = Vector2( 7632, 4512 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 1
-script = ExtResource( 22 )
+script = ExtResource( 5 )
 
-[node name="Lamp2" type="Sprite" parent="Props" instance=ExtResource( 3 )]
+[node name="Lamp2" type="Sprite" parent="Props" instance=ExtResource( 30 )]
 position = Vector2( 7408, 4320 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 1
-script = ExtResource( 22 )
+script = ExtResource( 5 )
 
-[node name="Lamp3" type="Sprite" parent="Props" instance=ExtResource( 3 )]
+[node name="Lamp3" type="Sprite" parent="Props" instance=ExtResource( 30 )]
 position = Vector2( 6640, 4416 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 1
-script = ExtResource( 22 )
+script = ExtResource( 5 )
 
-[node name="Lamp4" type="Sprite" parent="Props" instance=ExtResource( 3 )]
+[node name="Lamp4" type="Sprite" parent="Props" instance=ExtResource( 30 )]
 position = Vector2( 6640, 3904 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 1
-script = ExtResource( 22 )
+script = ExtResource( 5 )
 type = 1
 
-[node name="Lamp5" type="Sprite" parent="Props" instance=ExtResource( 3 )]
+[node name="Lamp5" type="Sprite" parent="Props" instance=ExtResource( 30 )]
 position = Vector2( 7952, 4064 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 1
-script = ExtResource( 22 )
+script = ExtResource( 5 )
 type = 2
 
-[node name="Lamp6" type="Sprite" parent="Props" instance=ExtResource( 3 )]
+[node name="Lamp6" type="Sprite" parent="Props" instance=ExtResource( 30 )]
 position = Vector2( 6928, 4128 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 1
-script = ExtResource( 22 )
+script = ExtResource( 5 )
 type = 2
 
-[node name="Lamp7" type="Sprite" parent="Props" instance=ExtResource( 3 )]
+[node name="Lamp7" type="Sprite" parent="Props" instance=ExtResource( 30 )]
 position = Vector2( 7280, 3904 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 1
-script = ExtResource( 22 )
+script = ExtResource( 5 )
 type = 3
 
-[node name="Lamp8" type="Sprite" parent="Props" instance=ExtResource( 3 )]
+[node name="Lamp8" type="Sprite" parent="Props" instance=ExtResource( 30 )]
 position = Vector2( 8016, 4320 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 1
-script = ExtResource( 22 )
+script = ExtResource( 5 )
 type = 4
 
-[node name="BrokenLamp1" type="Sprite" parent="Props" instance=ExtResource( 1 )]
+[node name="BrokenLamp1" type="Sprite" parent="Props" instance=ExtResource( 32 )]
 position = Vector2( 7472, 4192 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 95
 
-[node name="BrokenLamp2" type="Sprite" parent="Props" instance=ExtResource( 13 )]
+[node name="BrokenLamp2" type="Sprite" parent="Props" instance=ExtResource( 31 )]
 position = Vector2( 6768, 4288 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 96
 
-[node name="BrokenLamp3" type="Sprite" parent="Props" instance=ExtResource( 13 )]
+[node name="BrokenLamp3" type="Sprite" parent="Props" instance=ExtResource( 31 )]
 position = Vector2( 6672, 4704 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 96
 
-[node name="BrokenLamp4" type="Sprite" parent="Props" instance=ExtResource( 1 )]
+[node name="BrokenLamp4" type="Sprite" parent="Props" instance=ExtResource( 32 )]
 position = Vector2( 7856, 3904 )
-texture = ExtResource( 17 )
+texture = ExtResource( 14 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 95
 
-[node name="Crate" type="Area2D" parent="Props" instance=ExtResource( 7 )]
+[node name="Crate" type="Area2D" parent="Props" instance=ExtResource( 26 )]
 position = Vector2( 7248, 4576 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 23 )
-possible_drops = [ ExtResource( 28 ) ]
+script = ExtResource( 4 )
+possible_drops = [ ExtResource( 18 ) ]
 
-[node name="Barrel" type="Area2D" parent="Props" instance=ExtResource( 10 )]
+[node name="Barrel" type="Area2D" parent="Props" instance=ExtResource( 33 )]
 position = Vector2( 7440, 4576 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 23 )
-possible_drops = [ ExtResource( 28 ) ]
+script = ExtResource( 4 )
+possible_drops = [ ExtResource( 18 ) ]
 
-[node name="Barrel2" type="Area2D" parent="Props" instance=ExtResource( 10 )]
+[node name="Barrel2" type="Area2D" parent="Props" instance=ExtResource( 33 )]
 position = Vector2( 7472, 4576 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 23 )
-possible_drops = [ ExtResource( 28 ) ]
+script = ExtResource( 4 )
+possible_drops = [ ExtResource( 18 ) ]
 
-[node name="Crate2" type="Area2D" parent="Props" instance=ExtResource( 7 )]
+[node name="Crate2" type="Area2D" parent="Props" instance=ExtResource( 26 )]
 position = Vector2( 6864, 4640 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 23 )
-possible_drops = [ ExtResource( 28 ) ]
+script = ExtResource( 4 )
+possible_drops = [ ExtResource( 18 ) ]
 
-[node name="Crate3" type="Area2D" parent="Props" instance=ExtResource( 7 )]
+[node name="Crate3" type="Area2D" parent="Props" instance=ExtResource( 26 )]
 position = Vector2( 7024, 3904 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 23 )
-possible_drops = [ ExtResource( 28 ) ]
+script = ExtResource( 4 )
+possible_drops = [ ExtResource( 18 ) ]
 
-[node name="Barrel3" type="Area2D" parent="Props" instance=ExtResource( 10 )]
+[node name="Barrel3" type="Area2D" parent="Props" instance=ExtResource( 33 )]
 position = Vector2( 8016, 3904 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 23 )
-possible_drops = [ ExtResource( 28 ) ]
+script = ExtResource( 4 )
+possible_drops = [ ExtResource( 18 ) ]
 
-[node name="Barrel4" type="Area2D" parent="Props" instance=ExtResource( 10 )]
+[node name="Barrel4" type="Area2D" parent="Props" instance=ExtResource( 33 )]
 position = Vector2( 7952, 4320 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 23 )
-possible_drops = [ ExtResource( 28 ) ]
+script = ExtResource( 4 )
+possible_drops = [ ExtResource( 18 ) ]
 
-[node name="Crate4" type="Area2D" parent="Props" instance=ExtResource( 7 )]
+[node name="Crate4" type="Area2D" parent="Props" instance=ExtResource( 26 )]
 position = Vector2( 7344, 4288 )
 collision_layer = 8
 collision_mask = 0
-script = ExtResource( 23 )
-possible_drops = [ ExtResource( 28 ) ]
+script = ExtResource( 4 )
+possible_drops = [ ExtResource( 18 ) ]
 
 [node name="Checkpoint" type="Area2D" parent="Props" groups=[
 "Checkpoint",
 "Persistent",
-] instance=ExtResource( 6 )]
+] instance=ExtResource( 23 )]
 position = Vector2( 8336, 4576 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 21 )
+script = ExtResource( 2 )
 
 [node name="Checkpoint2" type="Area2D" parent="Props" groups=[
 "Checkpoint",
 "Persistent",
-] instance=ExtResource( 6 )]
+] instance=ExtResource( 23 )]
 position = Vector2( 7824, 4576 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 21 )
+script = ExtResource( 2 )
 
 [node name="Checkpoint3" type="Area2D" parent="Props" groups=[
 "Checkpoint",
 "Persistent",
-] instance=ExtResource( 6 )]
+] instance=ExtResource( 23 )]
 position = Vector2( 7696, 4352 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 21 )
+script = ExtResource( 2 )
 
-[node name="Door2" type="Area2D" parent="Props" instance=ExtResource( 14 )]
+[node name="Door2" type="Area2D" parent="Props" instance=ExtResource( 28 )]
 position = Vector2( 7104, 4800 )
 collision_layer = 262144
 collision_mask = 262144
-script = ExtResource( 30 )
+script = ExtResource( 9 )
 next_level = "Level3"
 next_door = "Door2"
 exit_direction = "UpLeft"
 shape = Vector2( 96, 64 )
 
-[node name="Door1" type="Area2D" parent="Props" instance=ExtResource( 14 )]
+[node name="Door1" type="Area2D" parent="Props" instance=ExtResource( 28 )]
 position = Vector2( 8544, 4512 )
 collision_layer = 262144
 collision_mask = 262144
-script = ExtResource( 30 )
+script = ExtResource( 9 )
 next_level = "Level2"
 next_door = "Door1"
 exit_direction = "Left"
 shape = Vector2( 64, 64 )
 
-[node name="PillarTrap" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+[node name="PillarTrap" type="Area2D" parent="Props" instance=ExtResource( 27 )]
 position = Vector2( 7506, 4319 )
 collision_layer = 0
 collision_mask = 7168
-script = ExtResource( 20 )
+script = ExtResource( 6 )
 interval = 3.0
 
-[node name="SpikesCrystal" type="Area2D" parent="Props" instance=ExtResource( 9 )]
+[node name="SpikesCrystal" type="Area2D" parent="Props" instance=ExtResource( 22 )]
 position = Vector2( 7856, 4352 )
 collision_layer = 0
 collision_mask = 7168
-script = ExtResource( 19 )
+script = ExtResource( 3 )
 
-[node name="SpikesCrystal2" type="Area2D" parent="Props" instance=ExtResource( 9 )]
+[node name="SpikesCrystal2" type="Area2D" parent="Props" instance=ExtResource( 22 )]
 position = Vector2( 7888, 4352 )
 collision_layer = 0
 collision_mask = 7168
-script = ExtResource( 19 )
+script = ExtResource( 3 )
 
-[node name="StaticSpikesSmall" type="Area2D" parent="Props" instance=ExtResource( 15 )]
+[node name="StaticSpikesSmall" type="Area2D" parent="Props" instance=ExtResource( 21 )]
 position = Vector2( 8143, 4320 )
 collision_layer = 0
 collision_mask = 7168
-script = ExtResource( 19 )
+script = ExtResource( 3 )
 
-[node name="StaticSpikesSmall2" type="Area2D" parent="Props" instance=ExtResource( 15 )]
+[node name="StaticSpikesSmall2" type="Area2D" parent="Props" instance=ExtResource( 21 )]
 position = Vector2( 8111, 4320 )
 collision_layer = 0
 collision_mask = 7168
-script = ExtResource( 19 )
+script = ExtResource( 3 )
 
-[node name="StaticSpikesLarge" type="Area2D" parent="Props" instance=ExtResource( 11 )]
+[node name="StaticSpikesLarge" type="Area2D" parent="Props" instance=ExtResource( 24 )]
 position = Vector2( 7729, 4128 )
 collision_layer = 0
 collision_mask = 7168
-script = ExtResource( 19 )
+script = ExtResource( 3 )
 
 [node name="Runes" type="Node2D" parent="."]
 z_index = 6
 
 [node name="RuneContainer" type="Area2D" parent="Runes" groups=[
 "Persistent",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 20 )]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 8184, 4552 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 29 )
-rune = ExtResource( 25 )
+script = ExtResource( 11 )
+rune = ExtResource( 1 )
 
 [node name="RuneContainer2" type="Area2D" parent="Runes" groups=[
 "Persistent",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 20 )]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 6856, 4104 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 29 )
-rune = ExtResource( 26 )
+script = ExtResource( 11 )
+rune = ExtResource( 17 )
 
 [node name="RuneContainer3" type="Area2D" parent="Runes" groups=[
 "Persistent",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 20 )]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 8136, 4552 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 29 )
-rune = ExtResource( 27 )
+script = ExtResource( 11 )
+rune = ExtResource( 16 )
 
 [node name="RuneContainer4" type="Area2D" parent="Runes" groups=[
 "Persistent",
-] instance=ExtResource( 5 )]
+] instance=ExtResource( 20 )]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( 8088, 4552 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 29 )
-rune = ExtResource( 24 )
+script = ExtResource( 11 )
+rune = ExtResource( 19 )
 
 [node name="Platforms" type="Node2D" parent="."]
 z_index = 7
 
-[node name="OneWayPlatformDungeon" type="StaticBody2D" parent="Platforms" instance=ExtResource( 4 )]
+[node name="OneWayPlatformDungeon" type="StaticBody2D" parent="Platforms" instance=ExtResource( 25 )]
 position = Vector2( 8160, 4320 )
 collision_layer = 15360
 collision_mask = 16
-script = ExtResource( 33 )
+script = ExtResource( 12 )
 __meta__ = {
 "ground_type": "Stone"
 }
 width = 64
 
-[node name="OneWayPlatformDungeon2" type="StaticBody2D" parent="Platforms" instance=ExtResource( 4 )]
+[node name="OneWayPlatformDungeon2" type="StaticBody2D" parent="Platforms" instance=ExtResource( 25 )]
 position = Vector2( 8416, 4288 )
 collision_layer = 15360
 collision_mask = 16
-script = ExtResource( 33 )
+script = ExtResource( 12 )
 __meta__ = {
 "ground_type": "Stone"
 }
 width = 64
 
-[node name="OneWayPlatformDungeon3" type="StaticBody2D" parent="Platforms" instance=ExtResource( 4 )]
+[node name="OneWayPlatformDungeon3" type="StaticBody2D" parent="Platforms" instance=ExtResource( 25 )]
 position = Vector2( 8416, 4384 )
 collision_layer = 15360
 collision_mask = 16
-script = ExtResource( 33 )
+script = ExtResource( 12 )
 __meta__ = {
 "ground_type": "Stone"
 }
 width = 64
 
-[node name="OneWayPlatformDungeon4" type="StaticBody2D" parent="Platforms" instance=ExtResource( 4 )]
+[node name="OneWayPlatformDungeon4" type="StaticBody2D" parent="Platforms" instance=ExtResource( 25 )]
 position = Vector2( 8416, 4480 )
 collision_layer = 15360
 collision_mask = 16
-script = ExtResource( 33 )
+script = ExtResource( 12 )
 __meta__ = {
 "ground_type": "Stone"
 }
 width = 64
 
-[node name="OneWayPlatformDungeon5" type="StaticBody2D" parent="Platforms" instance=ExtResource( 4 )]
+[node name="OneWayPlatformDungeon5" type="StaticBody2D" parent="Platforms" instance=ExtResource( 25 )]
 position = Vector2( 7104, 4768 )
 collision_layer = 15360
 collision_mask = 16
-script = ExtResource( 33 )
+script = ExtResource( 12 )
 __meta__ = {
 "ground_type": "Stone"
 }
@@ -3119,11 +3119,11 @@ z_index = 8
 
 [node name="Player" type="KinematicBody2D" parent="Characters" groups=[
 "Persistent",
-] instance=ExtResource( 2 )]
+] instance=ExtResource( 29 )]
 position = Vector2( 7670, 4511 )
 collision_layer = 1024
 collision_mask = 1025
-script = ExtResource( 32 )
+script = ExtResource( 10 )
 
 [connection signal="save_requested" from="Props/Checkpoint" to="." method="on_save_requested"]
 [connection signal="save_requested" from="Props/Checkpoint2" to="." method="on_save_requested"]

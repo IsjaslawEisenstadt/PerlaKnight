@@ -16,6 +16,8 @@ var closest_interaction: Interaction
 
 var is_in_sequence: bool = false
 
+var camera: Node2D
+
 func _process(_delta: float) -> void:
 	if StateMachine.alive:
 		var loot_in_range: Array = LootPicker.get_overlapping_bodies()

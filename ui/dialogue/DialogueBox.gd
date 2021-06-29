@@ -45,6 +45,10 @@ func start_scroll() -> void:
 		$Offset/Panel.rect_position = Vector2.ZERO
 		on_scroll_timeout()
 
+func show_icons() -> void:
+	$Icons.visible = true
+	$IconAnimator.play("bounce")
+
 func is_char_in_bounds(index: int) -> bool:
 	return index < text.length()
 
@@ -64,8 +68,7 @@ func force_finish() -> void:
 			else:
 				$Offset/Panel/Margin/Label.text += c
 		current_character += 1
-	
-	$Icons.visible = true
+	show_icons()
 
 func on_scroll_timeout() -> void:
 	
@@ -73,7 +76,7 @@ func on_scroll_timeout() -> void:
 		return
 	
 	if !is_char_in_bounds(current_character):
-		$Icons.visible = true
+		show_icons()
 		return
 	
 	var pause_time: float = scroll_time
@@ -86,7 +89,7 @@ func on_scroll_timeout() -> void:
 			i += 1
 		
 		if !is_char_in_bounds(i):
-			$Icons.visible = true
+			show_icons()
 			return
 		
 		current_character = i + 1
