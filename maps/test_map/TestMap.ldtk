@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 523,
+	"nextUid": 536,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -97,6 +97,25 @@
 			"pxOffsetX": 0,
 			"pxOffsetY": 0,
 			"requiredTags": [ "Decoration", "Destructibles", "SpawnTargets", "Trap", "Hazards" ],
+			"excludedTags": [],
+			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
+			"autoTilesetDefUid": null,
+			"autoRuleGroups": [],
+			"autoSourceLayerDefUid": null,
+			"tilesetDefUid": null,
+			"tilePivotX": 0,
+			"tilePivotY": 0
+		},
+		{
+			"__type": "Entities",
+			"identifier": "Triggers",
+			"type": "Entities",
+			"uid": 527,
+			"gridSize": 16,
+			"displayOpacity": 1,
+			"pxOffsetX": 0,
+			"pxOffsetY": 0,
+			"requiredTags": ["Trigger"],
 			"excludedTags": [],
 			"intGridValues": [{ "value": 1, "identifier": null, "color": "#000000" }],
 			"autoTilesetDefUid": null,
@@ -1395,6 +1414,26 @@
 						"params": ["res://characters/player/Player.tscn"]
 					},
 					"textLanguageMode": null
+				},
+				{
+					"identifier": "initial_look_direction",
+					"__type": "LocalEnum.Initial_look_direction",
+					"uid": 533,
+					"type": { "id": "F_Enum", "params": [531] },
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
 				}
 			]
 		},
@@ -2601,6 +2640,26 @@
 						"params": ["res://characters/slimes/GhostSlime.tscn"]
 					},
 					"textLanguageMode": null
+				},
+				{
+					"identifier": "initial_look_direction",
+					"__type": "LocalEnum.Initial_look_direction",
+					"uid": 534,
+					"type": { "id": "F_Enum", "params": [531] },
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
 				}
 			]
 		},
@@ -2649,6 +2708,26 @@
 						"id": "V_String",
 						"params": ["res://characters/slimes/IceSlime.tscn"]
 					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "initial_look_direction",
+					"__type": "LocalEnum.Initial_look_direction",
+					"uid": 535,
+					"type": { "id": "F_Enum", "params": [531] },
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
 					"textLanguageMode": null
 				}
 			]
@@ -3429,6 +3508,144 @@
 					"textLanguageMode": null
 				}
 			]
+		},
+		{
+			"identifier": "DialogueSequenceTrigger",
+			"uid": 524,
+			"tags": ["Trigger"],
+			"width": 16,
+			"height": 16,
+			"resizableX": true,
+			"resizableY": true,
+			"keepAspectRatio": false,
+			"fillOpacity": 0.1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#D790F0",
+			"renderMode": "Rectangle",
+			"showName": true,
+			"tilesetId": null,
+			"tileId": null,
+			"tileRenderMode": "FitInside",
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0,
+			"pivotY": 0,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 525,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://characters/character/sequences/trigger/DialogueSequenceTrigger.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "player_waypoint",
+					"__type": "Point",
+					"uid": 526,
+					"type": "F_Point",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				}
+			]
+		},
+		{
+			"identifier": "Deer",
+			"uid": 528,
+			"tags": ["Characters"],
+			"width": 64,
+			"height": 64,
+			"resizableX": false,
+			"resizableY": false,
+			"keepAspectRatio": false,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#B6D6C4",
+			"renderMode": "Tile",
+			"showName": false,
+			"tilesetId": 529,
+			"tileId": 0,
+			"tileRenderMode": "FitInside",
+			"maxCount": 1,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": [
+				{
+					"identifier": "NodeType",
+					"__type": "String",
+					"uid": 530,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": {
+						"id": "V_String",
+						"params": ["res://characters/deer/Deer.tscn"]
+					},
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "initial_look_direction",
+					"__type": "LocalEnum.Initial_look_direction",
+					"uid": 532,
+					"type": { "id": "F_Enum", "params": [531] },
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				}
+			]
 		}
 	], "tilesets": [
 		{
@@ -3851,6 +4068,26 @@
 			"customData": [],
 			"savedSelections": [],
 			"cachedPixelData": { "opaqueTiles": "00000000000", "averageColors": "368936893689378a378a378a379a379a378a36893689" }
+		},
+		{
+			"__cWid": 16,
+			"__cHei": 4,
+			"identifier": "Deer",
+			"uid": 529,
+			"relPath": "../../characters/deer/textures/deer.png",
+			"pxWid": 1024,
+			"pxHei": 240,
+			"tileGridSize": 64,
+			"spacing": 0,
+			"padding": 0,
+			"tagsSourceEnumUid": null,
+			"enumTags": [],
+			"customData": [],
+			"savedSelections": [],
+			"cachedPixelData": {
+				"opaqueTiles": "0000000000000000000000000000000000000000000000001111111111111111",
+				"averageColors": "2cdc2cdc2cdc2cdc2cdc2cdc2cdc2cdc2cdc2cdc2cdc2cdc2cdc2cdc2cdc2cdc1cdc1cdc1cdc1cdc1cdc1cdc1cdc1cdc000000000000000000000000000000001ccc1ccc1ccc1ccc1ccc1ccc1cdd1cdd000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+			}
 		}
 	], "enums": [
 		{ "identifier": "ExitDirection", "uid": 126, "values": [
@@ -3860,7 +4097,8 @@
 			{ "id": "Left", "tileId": null, "color": 0, "__tileSrcRect": null },
 			{ "id": "Right", "tileId": null, "color": 0, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
-		{ "identifier": "GroundType", "uid": 447, "values": [ { "id": "Stone", "tileId": null, "color": 5460819, "__tileSrcRect": null }, { "id": "Dirt", "tileId": null, "color": 2957341, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }
+		{ "identifier": "GroundType", "uid": 447, "values": [ { "id": "Stone", "tileId": null, "color": 5460819, "__tileSrcRect": null }, { "id": "Dirt", "tileId": null, "color": 2957341, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
+		{ "identifier": "Initial_look_direction", "uid": 531, "values": [ { "id": "Left", "tileId": null, "color": 0, "__tileSrcRect": null }, { "id": "Right", "tileId": null, "color": 0, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }
 	], "externalEnums": [], "levelFields": [] },
 	"levels": [
 		{
@@ -3914,7 +4152,10 @@
 							"height": 32,
 							"defUid": 23,
 							"px": [1270,799],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+							]
 						}
 					]
 				},
@@ -4573,6 +4814,31 @@
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/hazards/StaticSpikesLarge.tscn", "__type": "String", "defUid": 511, "realEditorValues": [] }]
 						}
 					]
+				},
+				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 138,
+					"__cHei": 72,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 0,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 1173722,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -8174,7 +8440,10 @@
 							"height": 32,
 							"defUid": 23,
 							"px": [760,256],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+							]
 						}
 					]
 				},
@@ -8435,6 +8704,31 @@
 							]
 						}
 					]
+				},
+				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 66,
+					"__cHei": 46,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 121,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 7487962,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -9660,7 +9954,10 @@
 							"height": 32,
 							"defUid": 23,
 							"px": [1992,576],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "GhostSlime",
@@ -9671,7 +9968,10 @@
 							"height": 32,
 							"defUid": 438,
 							"px": [880,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/GhostSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/slimes/GhostSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 534, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "GhostSlime",
@@ -9682,7 +9982,10 @@
 							"height": 32,
 							"defUid": 438,
 							"px": [992,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/GhostSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/slimes/GhostSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 534, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "GhostSlime",
@@ -9693,7 +9996,10 @@
 							"height": 32,
 							"defUid": 438,
 							"px": [1104,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/GhostSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/slimes/GhostSlime.tscn", "__type": "String", "defUid": 439, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 534, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "IceSlime",
@@ -9704,7 +10010,10 @@
 							"height": 32,
 							"defUid": 441,
 							"px": [1224,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/IceSlime.tscn", "__type": "String", "defUid": 442, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/slimes/IceSlime.tscn", "__type": "String", "defUid": 442, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 535, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "IceSlime",
@@ -9715,7 +10024,10 @@
 							"height": 32,
 							"defUid": 441,
 							"px": [1320,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/IceSlime.tscn", "__type": "String", "defUid": 442, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/slimes/IceSlime.tscn", "__type": "String", "defUid": 442, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 535, "realEditorValues": [] }
+							]
 						},
 						{
 							"__identifier": "IceSlime",
@@ -9726,7 +10038,10 @@
 							"height": 32,
 							"defUid": 441,
 							"px": [1416,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/slimes/IceSlime.tscn", "__type": "String", "defUid": 442, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/slimes/IceSlime.tscn", "__type": "String", "defUid": 442, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 535, "realEditorValues": [] }
+							]
 						}
 					]
 				},
@@ -10202,6 +10517,31 @@
 							]
 						}
 					]
+				},
+				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 176,
+					"__cHei": 44,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 125,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 7936738,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -12633,7 +12973,10 @@
 							"height": 32,
 							"defUid": 23,
 							"px": [1736,800],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+							]
 						}
 					]
 				},
@@ -12963,6 +13306,31 @@
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/decoration/flowers/Flower1.tscn", "__type": "String", "defUid": 452, "realEditorValues": [] }]
 						}
 					]
+				},
+				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 136,
+					"__cHei": 56,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 143,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 9381752,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -14828,7 +15196,10 @@
 							"height": 32,
 							"defUid": 23,
 							"px": [168,352],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+							]
 						}
 					]
 				},
@@ -15028,6 +15399,31 @@
 							]
 						}
 					]
+				},
+				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 74,
+					"__cHei": 44,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 375,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 4074751,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -16337,7 +16733,42 @@
 							"height": 32,
 							"defUid": 23,
 							"px": [280,1216],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
+								{
+									"__identifier": "initial_look_direction",
+									"__value": "Right",
+									"__type": "LocalEnum.Initial_look_direction",
+									"defUid": 533,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Right"]
+									}]
+								}
+							]
+						},
+						{
+							"__identifier": "Deer",
+							"__grid": [42,75],
+							"__pivot": [0.5,1],
+							"__tile": { "tilesetUid": 529, "srcRect": [0,0,64,64] },
+							"width": 64,
+							"height": 64,
+							"defUid": 528,
+							"px": [680,1216],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/deer/Deer.tscn", "__type": "String", "defUid": 530, "realEditorValues": [] },
+								{
+									"__identifier": "initial_look_direction",
+									"__value": "Left",
+									"__type": "LocalEnum.Initial_look_direction",
+									"defUid": 532,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Left"]
+									}]
+								}
+							]
 						}
 					]
 				},
@@ -17092,6 +17523,61 @@
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://environment/decoration/trees/Bush1.tscn", "__type": "String", "defUid": 472, "realEditorValues": [] },
 								{ "__identifier": "flip_h", "__value": false, "__type": "Bool", "defUid": 473, "realEditorValues": [] }
+							]
+						}
+					]
+				},
+				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 208,
+					"__cHei": 116,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 459,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 7951181,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": [
+						{
+							"__identifier": "DialogueSequenceTrigger",
+							"__grid": [29,56],
+							"__pivot": [0,0],
+							"__tile": null,
+							"width": 224,
+							"height": 304,
+							"defUid": 524,
+							"px": [464,896],
+							"fieldInstances": [
+								{
+									"__identifier": "NodeType",
+									"__value": "res://characters/character/sequences/trigger/DialogueSequenceTrigger.tscn",
+									"__type": "String",
+									"defUid": 525,
+									"realEditorValues": []
+								},
+								{
+									"__identifier": "player_waypoint",
+									"__value": { "cx": 33, "cy": 75 },
+									"__type": "Point",
+									"defUid": 526,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["33,75"]
+									}]
+								}
 							]
 						}
 					]
@@ -24764,7 +25250,10 @@
 							"height": 32,
 							"defUid": 23,
 							"px": [3144,864],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+							]
 						}
 					]
 				},
@@ -25009,6 +25498,31 @@
 							]
 						}
 					]
+				},
+				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 216,
+					"__cHei": 126,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 460,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 9148377,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -33597,7 +34111,10 @@
 							"height": 32,
 							"defUid": 23,
 							"px": [312,1856],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+							]
 						}
 					]
 				},
@@ -34053,6 +34570,31 @@
 							]
 						}
 					]
+				},
+				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 252,
+					"__cHei": 126,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 493,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 2754286,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -44247,7 +44789,10 @@
 							"height": 32,
 							"defUid": 23,
 							"px": [760,544],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+							]
 						}
 					]
 				},
@@ -44497,6 +45042,31 @@
 							]
 						}
 					]
+				},
+				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 90,
+					"__cHei": 42,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 517,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 4279140,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -46246,7 +46816,10 @@
 							"height": 32,
 							"defUid": 23,
 							"px": [1384,544],
-							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] }]
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+							]
 						}
 					]
 				},
@@ -46553,6 +47126,31 @@
 							"fieldInstances": [{ "__identifier": "NodeType", "__value": "res://environment/destructibles/Crate.tscn", "__type": "String", "defUid": 363, "realEditorValues": [] }]
 						}
 					]
+				},
+				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 96,
+					"__cHei": 104,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 518,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 5364264,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
 				},
 				{
 					"__identifier": "Decoration",
@@ -48532,6 +49130,31 @@
 					]
 				},
 				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 70,
+					"__cHei": 30,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 519,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 3051816,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
 					"__identifier": "Decoration",
 					"__type": "Tiles",
 					"__cWid": 70,
@@ -49518,6 +50141,31 @@
 					]
 				},
 				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 30,
+					"__cHei": 56,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 520,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 3787483,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
 					"__identifier": "Decoration",
 					"__type": "Tiles",
 					"__cWid": 30,
@@ -50313,6 +50961,31 @@
 					"entityInstances": []
 				},
 				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 70,
+					"__cHei": 98,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 521,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 4981734,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
 					"__identifier": "Decoration",
 					"__type": "Tiles",
 					"__cWid": 70,
@@ -50606,6 +51279,31 @@
 					"intGridCsv": [],
 					"autoLayerTiles": [],
 					"seed": 3553787,
+					"overrideTilesetUid": null,
+					"gridTiles": [],
+					"entityInstances": []
+				},
+				{
+					"__identifier": "Triggers",
+					"__type": "Entities",
+					"__cWid": 82,
+					"__cHei": 24,
+					"__gridSize": 16,
+					"__opacity": 1,
+					"__pxTotalOffsetX": 0,
+					"__pxTotalOffsetY": 0,
+					"__tilesetDefUid": null,
+					"__tilesetRelPath": null,
+					"levelId": 522,
+					"layerDefUid": 527,
+					"pxOffsetX": 0,
+					"pxOffsetY": 0,
+					"visible": true,
+					"optionalRules": [],
+					"intGrid": [],
+					"intGridCsv": [],
+					"autoLayerTiles": [],
+					"seed": 9712634,
 					"overrideTilesetUid": null,
 					"gridTiles": [],
 					"entityInstances": []

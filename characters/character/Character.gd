@@ -21,6 +21,8 @@ export var dash_acquired: bool = false
 export var double_jump_acquired: bool = false
 export var wall_climb_acquired: bool = false
 
+export(String, "Left", "Right") var initial_look_direction: String = "Right"
+
 var velocity := Vector2.ZERO
 var kickback_velocity := Vector2.ZERO
 var move_speed_factor: float = 1.0
@@ -36,6 +38,7 @@ var can_double_jump: bool = double_jump_acquired setget set_can_double_jump
 var audio_player_cache: Dictionary = {}
 
 func _ready() -> void:
+	self.look_direction = -1 if initial_look_direction == "Left" else 1
 	# warning-ignore:return_value_discarded
 	AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
 	StateMachine.start()

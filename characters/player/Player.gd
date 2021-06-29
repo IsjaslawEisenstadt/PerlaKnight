@@ -18,10 +18,6 @@ var is_in_sequence: bool = false
 
 func _process(_delta: float) -> void:
 	if StateMachine.alive:
-		if InputController._is_action_just_activated("reset"):
-			# a 'default' transition call, this will infer to use checkpoints
-			emit_signal("transition_requested", null, null)
-
 		var loot_in_range: Array = LootPicker.get_overlapping_bodies()
 		if !loot_in_range.empty():
 			for loot in loot_in_range:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/character/input/PlayerController.gd" type="Script" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://characters/player/sounds/attack.wav" type="AudioStream" id=18]
 [ext_resource path="res://characters/player/sounds/fst_grass_cloth_run_006.wav" type="AudioStream" id=19]
 [ext_resource path="res://characters/player/sounds/hurt.wav" type="AudioStream" id=20]
+[ext_resource path="res://characters/character/sequences/PlayerDialogueSequence.gd" type="Script" id=21]
 [ext_resource path="res://characters/player/sounds/dash.wav" type="AudioStream" id=22]
 [ext_resource path="res://characters/player/sounds/move_short.wav" type="AudioStream" id=23]
 [ext_resource path="res://characters/player/sounds/fst_grass_cloth_run_004.wav" type="AudioStream" id=24]
@@ -656,6 +657,9 @@ script = ExtResource( 13 )
 
 [node name="DoorSequence" type="Node" parent="SequenceController" index="0"]
 script = ExtResource( 14 )
+
+[node name="PlayerDialogueSequence" type="Node" parent="SequenceController" index="1"]
+script = ExtResource( 21 )
 
 [node name="InputController" parent="." index="5"]
 script = ExtResource( 2 )
