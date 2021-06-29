@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://environment/switches/lever_switch/textures/lever.png" type="Texture" id=1]
+[ext_resource path="res://utility/interaction/Interaction.tscn" type="PackedScene" id=2]
+[ext_resource path="res://environment/switches/lever_switch/Lever.gd" type="Script" id=3]
+[ext_resource path="res://environment/switches/Switch.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "trigger"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 11 ]
+}
+
+[node name="Lever" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -16 )
+hframes = 12
+
+[node name="Icons" parent="Sprite" index="0"]
+visible = true
+position = Vector2( 0, -6 )
+
+[node name="IconLeftOffset" parent="Sprite/Icons" index="0"]
+position = Vector2( -6, 0 )
+
+[node name="IconRightOffset" parent="Sprite/Icons" index="1"]
+position = Vector2( 6, 0 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+anims/trigger = SubResource( 1 )
+
+[node name="Switch" parent="." index="4" instance=ExtResource( 4 )]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="on_animation_finished"]
