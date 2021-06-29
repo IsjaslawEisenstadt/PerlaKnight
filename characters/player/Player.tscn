@@ -862,3 +862,6 @@ stream = ExtResource( 20 )
 volume_db = -8.0
 bus = "Sound"
 script = ExtResource( 17 )
+
+[node name="DialogueBoxPosition" parent="." index="9"]
+position = Vector2( 0, -44 )

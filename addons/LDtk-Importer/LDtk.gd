@@ -81,7 +81,7 @@ func new_entity(entity_data, level, options, layer):
 
 	for data in metadata:
 		if data['name'] in new_entity:
-			if new_entity is RuneContainer && data['name'] == 'rune':
+			if (new_entity is RuneContainer && data['name'] == 'rune') || (new_entity is DialogueSequenceTrigger && data['name'] == 'dialogue'):
 				new_entity[data['name']] = load(data['value'])
 			elif data['type'] == 'Point':
 				var halfgrid = layer.__gridSize / 2

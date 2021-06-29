@@ -14,6 +14,7 @@ onready var Perception := $Colliders/Perception
 onready var Interactor := $Colliders/Interactor
 onready var AttackHitBoxCollider := get_node_or_null("Colliders/AttackHitbox/AttackCollisionShape") as CollisionShape2D
 onready var Sounds := $Sounds
+onready var DialogueBoxPosition := $DialogueBoxPosition
 
 export var max_health: int = 4 setget set_max_health
 
@@ -88,7 +89,7 @@ func set_look_direction(new_look_direction: int) -> void:
 	if look_direction != new_look_direction:
 		look_direction = new_look_direction
 		for child in get_children():
-			if child is Node2D:
+			if child is Node2D && !child.is_in_group("NoFlip"):
 				child.scale.x = sign(look_direction)
 		emit_signal("character_turned")
 

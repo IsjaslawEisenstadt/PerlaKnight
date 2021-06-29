@@ -8,6 +8,8 @@ enum DialogueState {
 	TALKING,
 }
 
+const DialogueBox := preload("res://ui/dialogue/DialogueBox.tscn")
+
 export var waypoint_distance_epsilon: float = 5.0
 export var ready_to_talk_delay: float = 1.0
 
@@ -15,11 +17,12 @@ var sequence_trigger: DialogueSequenceTrigger
 
 var dialogue_state: int
 
-func _ready() -> void:
-	pass
+var current_line_index: int
 
 func _state_enter(_previous_state: State, params: Dictionary = {}) -> void:
 	sequence_trigger = params.object
+	
+	current_line_index = -1
 	
 	input_controller.deactivate_actions()
 	
@@ -40,6 +43,32 @@ func _state_physics_process(_delta: float) -> void:
 		dialogue_state = DialogueState.TALK_DELAY
 		yield(get_tree().create_timer(ready_to_talk_delay, false), "timeout")
 		dialogue_state = DialogueState.TALKING
+		
+		on_line_finished(null)
+
+func on_line_finished(dialogue_box: DialogueBox) -> void:
+	
+	if dialogue_box:
+		dialogue_box.get_parent().remove_child(dialogue_box)
+		dialogue_box.queue_free()
+	
+	current_line_index += 1
+	if current_line_index < sequence_trigger.dialogue.lines.size():
+		
+		var current_line: String = sequence_trigger.dialogue.lines[current_line_index]
+		
+		assert(current_line[0] == '[' && current_line[2] == ']')
+		assert(current_line[1] == 'D' || current_line[1] == 'P')
+		
+		dialogue_box = DialogueBox.instance()
+		var character = current_line[1]
+		if character == 'P':
+			host.DialogueBoxPosition.add_child(dialogue_box)
+		else:
+			sequence_trigger.deer.DialogueBoxPosition.add_child(dialogue_box)
+		
+		dialogue_box.connect("line_finished", self, "on_line_finished", [dialogue_box])
+		dialogue_box.text = current_line
 
 func _state_exit(_next_state: State, _params: Dictionary = {}) -> void:
 	pass

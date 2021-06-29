@@ -4,7 +4,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 0, 0 )
+extents = Vector2( 112, 152 )
 
 [node name="SequenceTrigger" type="Area2D"]
 collision_layer = 0

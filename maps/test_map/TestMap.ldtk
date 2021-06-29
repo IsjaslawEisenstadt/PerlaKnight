@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 536,
+	"nextUid": 537,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -3563,6 +3563,26 @@
 					"type": "F_Point",
 					"isArray": false,
 					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "dialogue",
+					"__type": "String",
+					"uid": 536,
+					"type": "F_String",
+					"isArray": false,
+					"canBeNull": false,
 					"arrayMinLength": null,
 					"arrayMaxLength": null,
 					"editorDisplayMode": "Hidden",
@@ -17576,6 +17596,16 @@
 									"realEditorValues": [{
 										"id": "V_String",
 										"params": ["33,75"]
+									}]
+								},
+								{
+									"__identifier": "dialogue",
+									"__value": "res://utility/dialogue/resources/intro.tres",
+									"__type": "String",
+									"defUid": 536,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["res://utility/dialogue/resources/intro.tres"]
 									}]
 								}
 							]

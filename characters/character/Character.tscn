@@ -99,3 +99,11 @@ position = Vector2( 0.374573, 0 )
 shape = SubResource( 5 )
 
 [node name="Sounds" type="Node2D" parent="."]
+
+[node name="DialogueBoxPosition" type="Position2D" parent="." groups=[
+"NoFlip",
+]]
+z_index = 4096
+__meta__ = {
+"_gizmo_extents_": 3.0
+}

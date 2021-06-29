@@ -174,3 +174,6 @@ shape = SubResource( 10 )
 
 [node name="CollisionShape2D" parent="Colliders/Perception/Sight" index="0"]
 shape = SubResource( 11 )
+
+[node name="DialogueBoxPosition" parent="." index="8"]
+position = Vector2( 0, -64 )
