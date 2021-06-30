@@ -12,7 +12,6 @@
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=10]
 [ext_resource path="res://characters/character/states/DeathState.gd" type="Script" id=11]
 [ext_resource path="res://characters/character/hurtfx/ColorAdd.tres" type="Shader" id=12]
-[ext_resource path="res://characters/character/input/SequenceController.gd" type="Script" id=13]
 [ext_resource path="res://characters/character/sequences/DoorSequence.gd" type="Script" id=14]
 [ext_resource path="res://characters/player/DoorCast.gd" type="Script" id=15]
 [ext_resource path="res://utility/audio_player/RandomAudioPlayer.gd" type="Script" id=16]
@@ -20,6 +19,7 @@
 [ext_resource path="res://characters/player/sounds/attack.wav" type="AudioStream" id=18]
 [ext_resource path="res://characters/player/sounds/fst_grass_cloth_run_006.wav" type="AudioStream" id=19]
 [ext_resource path="res://characters/player/sounds/hurt.wav" type="AudioStream" id=20]
+[ext_resource path="res://characters/character/sequences/PlayerDialogueSequence.gd" type="Script" id=21]
 [ext_resource path="res://characters/player/sounds/dash.wav" type="AudioStream" id=22]
 [ext_resource path="res://characters/player/sounds/move_short.wav" type="AudioStream" id=23]
 [ext_resource path="res://characters/player/sounds/fst_grass_cloth_run_004.wav" type="AudioStream" id=24]
@@ -651,14 +651,14 @@ anims/wall_slide = SubResource( 22 )
 [node name="HurtPlayer" parent="." index="3"]
 anims/hurt = SubResource( 23 )
 
-[node name="SequenceController" type="Node" parent="." index="4"]
-script = ExtResource( 13 )
+[node name="InputController" parent="." index="4"]
+script = ExtResource( 2 )
 
 [node name="DoorSequence" type="Node" parent="SequenceController" index="0"]
 script = ExtResource( 14 )
 
-[node name="InputController" parent="." index="5"]
-script = ExtResource( 2 )
+[node name="PlayerDialogueSequence" type="Node" parent="SequenceController" index="1"]
+script = ExtResource( 21 )
 
 [node name="IdleState" type="Node" parent="StateMachine" index="0"]
 script = ExtResource( 3 )
@@ -858,3 +858,6 @@ stream = ExtResource( 20 )
 volume_db = -8.0
 bus = "Sound"
 script = ExtResource( 17 )
+
+[node name="DialogueBoxPosition" parent="." index="9"]
+position = Vector2( 0, -44 )

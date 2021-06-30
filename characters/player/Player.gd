@@ -9,19 +9,14 @@ signal transition_requested(level_name, target_name)
 const RUNE_RESOURCES_PATH: String = "res://environment/runes/resource"
 
 onready var DoorCast: DoorCast = $Colliders/DoorCast
-onready var SequenceController: SequenceController = $SequenceController
 onready var LootPicker: Area2D = $Colliders/LootPicker
 
 var closest_interaction: Interaction
 
-var is_in_sequence: bool = false
+var camera: Node2D
 
 func _process(_delta: float) -> void:
 	if StateMachine.alive:
-		if InputController._is_action_just_activated("reset"):
-			# a 'default' transition call, this will infer to use checkpoints
-			emit_signal("transition_requested", null, null)
-
 		var loot_in_range: Array = LootPicker.get_overlapping_bodies()
 		if !loot_in_range.empty():
 			for loot in loot_in_range:
@@ -83,15 +78,6 @@ func load_game(save_data: Dictionary, level) -> void:
 func _set_current_health(new_health: int) -> void:
 	._set_current_health(new_health)
 	emit_signal("save_requested")
-
-func _get_input_controller() -> InputController:
-	return SequenceController if is_in_sequence else InputController
-
-func start_sequence(object) -> void:
-	is_in_sequence = SequenceController.start_sequence(object)
-	if is_in_sequence:
-		yield(SequenceController, "sequence_finished")
-		is_in_sequence = false
 
 func add_rune(rune: Rune) -> void:
 	match rune.resource_name:

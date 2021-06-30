@@ -7,19 +7,23 @@ signal character_turned(new_look_direction)
 
 onready var AnimationPlayer := $AnimationPlayer
 onready var HurtPlayer := $HurtPlayer
-onready var InputController: InputController = $InputController setget ,_get_input_controller
+onready var InputController: InputController = $InputController setget , get_input_controller
+onready var SequenceController_ := $SequenceController
 onready var StateMachine := $StateMachine
 onready var Colliders := $Colliders
 onready var Perception := $Colliders/Perception
 onready var Interactor := $Colliders/Interactor
 onready var AttackHitBoxCollider := get_node_or_null("Colliders/AttackHitbox/AttackCollisionShape") as CollisionShape2D
 onready var Sounds := $Sounds
+onready var DialogueBoxPosition := $DialogueBoxPosition
 
 export var max_health: int = 4 setget set_max_health
 
 export var dash_acquired: bool = false
 export var double_jump_acquired: bool = false
 export var wall_climb_acquired: bool = false
+
+export(String, "Left", "Right") var initial_look_direction: String = "Right"
 
 var velocity := Vector2.ZERO
 var kickback_velocity := Vector2.ZERO
@@ -35,7 +39,10 @@ var can_double_jump: bool = double_jump_acquired setget set_can_double_jump
 
 var audio_player_cache: Dictionary = {}
 
+var is_in_sequence: bool = false
+
 func _ready() -> void:
+	self.look_direction = -1 if initial_look_direction == "Left" else 1
 	# warning-ignore:return_value_discarded
 	AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
 	StateMachine.start()
@@ -85,7 +92,7 @@ func set_look_direction(new_look_direction: int) -> void:
 	if look_direction != new_look_direction:
 		look_direction = new_look_direction
 		for child in get_children():
-			if child is Node2D:
+			if child is Node2D && !child.is_in_group("NoFlip"):
 				child.scale.x = sign(look_direction)
 		emit_signal("character_turned")
 
@@ -110,9 +117,8 @@ func hit(attacker: Node2D, damage: int) -> void:
 		self.current_health -= damage
 		HurtPlayer.hurt(attacker)
 
-# can be overridden to dynamically switch between different input controllers
-func _get_input_controller() -> InputController:
-	return InputController
+func get_input_controller() -> InputController:
+	return (SequenceController_ as InputController) if is_in_sequence else InputController
 
 func set_can_dash(new_can_dash: bool) -> void:
 	can_dash = dash_acquired && new_can_dash
@@ -146,3 +152,11 @@ func is_playing_sound(player_name: String) -> bool:
 
 func _die() -> void:
 	StateMachine.die()
+
+func start_sequence(object, finished_callback: Object = null) -> void:
+	is_in_sequence = SequenceController_.start_sequence(object)
+	if is_in_sequence:
+		yield(SequenceController_, "sequence_finished")
+		is_in_sequence = false
+		if finished_callback:
+			finished_callback.call("on_sequence_finished")

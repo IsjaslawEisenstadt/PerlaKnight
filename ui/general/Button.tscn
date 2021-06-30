@@ -2,7 +2,8 @@
 
 [ext_resource path="res://ui/general/Button.gd" type="Script" id=1]
 [ext_resource path="res://ui/general/textures/gui.png" type="Texture" id=2]
-[ext_resource path="res://ui/general/fonts/MinimalPixel.tres" type="DynamicFont" id=3]
+[ext_resource path="res://ui/general/fonts/HeartbitXX.tres" type="DynamicFont" id=3]
+
 
 
 [sub_resource type="StyleBoxTexture" id=1]

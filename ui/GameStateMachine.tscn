@@ -10,7 +10,7 @@
 [ext_resource path="res://ui/transition/fade_out.png" type="Texture" id=8]
 [ext_resource path="res://ui/general/textures/gui.png" type="Texture" id=9]
 [ext_resource path="res://ui/transition/fade_in.png" type="Texture" id=10]
-[ext_resource path="res://ui/general/fonts/MinimalPixel.tres" type="DynamicFont" id=11]
+[ext_resource path="res://ui/general/fonts/HeartbitXX.tres" type="DynamicFont" id=11]
 [ext_resource path="res://ui/general/fonts/bitmgothic.tres" type="DynamicFont" id=12]
 [ext_resource path="res://ui/hud/health_container/HealthContainer.tscn" type="PackedScene" id=13]
 [ext_resource path="res://ui/hud/rune_hud/RuneHUD.gd" type="Script" id=14]
@@ -389,6 +389,7 @@ __meta__ = {
 }
 
 [node name="HealthContainer" parent="UI/PlayUI/HUD" instance=ExtResource( 13 )]
+visible = false
 mouse_filter = 2
 
 [node name="RuneHUD" type="MarginContainer" parent="UI/PlayUI/HUD"]
@@ -455,6 +456,8 @@ default_focus_path = NodePath("Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton
 [node name="Margin" type="MarginContainer" parent="UI/MainMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -0.33371
+margin_bottom = -0.33371
 mouse_filter = 2
 custom_constants/margin_right = 20
 custom_constants/margin_top = 40
@@ -491,14 +494,16 @@ mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="ButtonVBox" type="VBoxContainer" parent="UI/MainMenu/Margin/VBox/ButtonCenter"]
-margin_left = 174.0
-margin_top = 21.0
-margin_right = 266.0
-margin_bottom = 131.0
+margin_left = 165.0
+margin_top = 18.0
+margin_right = 275.0
+margin_bottom = 134.0
 mouse_filter = 2
 custom_constants/separation = 10
 
 [node name="ContinueButton" parent="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 19 )]
+margin_right = 110.0
+margin_bottom = 32.0
 focus_neighbour_top = NodePath("../ExitButton")
 focus_neighbour_bottom = NodePath("../NewGameButton")
 focus_next = NodePath("../NewGameButton")
@@ -506,16 +511,18 @@ focus_previous = NodePath("../ExitButton")
 text = "Continue"
 
 [node name="NewGameButton" parent="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 19 )]
-margin_top = 40.0
-margin_bottom = 70.0
+margin_top = 42.0
+margin_right = 110.0
+margin_bottom = 74.0
 focus_neighbour_top = NodePath("../ContinueButton")
 focus_neighbour_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../ContinueButton")
 
 [node name="ExitButton" parent="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 19 )]
-margin_top = 80.0
-margin_bottom = 110.0
+margin_top = 84.0
+margin_right = 110.0
+margin_bottom = 116.0
 focus_neighbour_top = NodePath("../NewGameButton")
 focus_neighbour_bottom = NodePath("../ContinueButton")
 focus_next = NodePath("../ContinueButton")
@@ -589,10 +596,10 @@ __meta__ = {
 }
 
 [node name="ButtonVBox" type="VBoxContainer" parent="UI/PauseMenu/Content/VBox/ButtonCenter"]
-margin_left = 154.0
-margin_top = 4.0
-margin_right = 246.0
-margin_bottom = 154.0
+margin_left = 145.0
+margin_top = 21.0
+margin_right = 255.0
+margin_bottom = 137.0
 mouse_filter = 2
 custom_constants/separation = 10
 __meta__ = {
@@ -675,7 +682,7 @@ __meta__ = {
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 217.0
-margin_bottom = 102.0
+margin_bottom = 129.0
 mouse_filter = 2
 custom_constants/separation = 19
 __meta__ = {
@@ -686,7 +693,7 @@ __meta__ = {
 margin_right = 212.0
 margin_bottom = 48.0
 custom_fonts/font = ExtResource( 11 )
-text = "Are you sure you want to start a new game? Your save will be lost."
+text = "Are you sure you want to start a new game? Your progress will be lost."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -760,8 +767,8 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu/ExitPopup/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 217.0
-margin_bottom = 68.0
+margin_right = 267.0
+margin_bottom = 72.0
 mouse_filter = 2
 custom_constants/separation = 19
 __meta__ = {
