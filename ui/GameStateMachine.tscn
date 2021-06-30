@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://ui/hud/rune_hud/RuneEntry.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://ui/game_states/KeyMap.gd" type="Script" id=20]
 [ext_resource path="res://ui/general/keymap/KeyMapListEntry.tscn" type="PackedScene" id=21]
 [ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=22]
+[ext_resource path="res://ui/general/keymap/textures/gdb-xbox-1a.png" type="Texture" id=23]
+[ext_resource path="res://ui/general/keymap/textures/Keyboard Black Corn.png" type="Texture" id=25]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 17 )
@@ -108,15 +110,78 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="ShaderMaterial" id=8]
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 25 )
+region = Rect2( 48, 49, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 23 )
+region = Rect2( 197, 72, 18, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 25 )
+region = Rect2( 80, 49, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 23 )
+region = Rect2( 233, 72, 18, 16 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 25 )
+region = Rect2( 80, 81, 80, 15 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 23 )
+region = Rect2( 17, 49, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 25 )
+region = Rect2( 248, 7, 7, 8 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 23 )
+region = Rect2( 17, 33, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 25 )
+region = Rect2( 80, 33, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 23 )
+region = Rect2( 17, 65, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 25 )
+region = Rect2( 6, 65, 42, 15 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 23 )
+region = Rect2( 336, 65, 16, 14 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 25 )
+region = Rect2( 64, 49, 16, 15 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 23 )
+region = Rect2( 216, 89, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 25 )
+region = Rect2( 27, 1, 21, 15 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 23 )
+region = Rect2( 18, 114, 12, 12 )
+
+[sub_resource type="ShaderMaterial" id=10]
 shader = ExtResource( 15 )
 shader_param/cutoff = 0.0
 shader_param/smooth_size = 0.2
 shader_param/color = Color( 0, 0, 0, 1 )
 shader_param/mask = ExtResource( 10 )
 
-[sub_resource type="Animation" id=9]
-resource_name = "alpha_in"
+[sub_resource type="Animation" id=11]
 length = 1.2
 step = 0.05
 tracks/0/type = "value"
@@ -156,8 +221,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "alpha_out"
+[sub_resource type="Animation" id=12]
 length = 1.5
 step = 0.05
 tracks/0/type = "value"
@@ -197,7 +261,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=13]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -237,7 +301,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=14]
 length = 0.35
 step = 0.05
 tracks/0/type = "value"
@@ -732,7 +796,6 @@ script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-KeyMapListEntry = ExtResource( 21 )
 
 [node name="Blur" type="ColorRect" parent="UI/KeyMap"]
 material = SubResource( 4 )
@@ -768,8 +831,64 @@ margin_bottom = 176.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer"]
-margin_right = 400.0
+margin_right = 388.0
+margin_bottom = 356.0
 size_flags_horizontal = 3
+
+[node name="MoveLeft" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 21 )]
+margin_right = 388.0
+margin_bottom = 41.0
+action_name = "Move left"
+input_entry_textures = [ SubResource( 15 ), SubResource( 16 ) ]
+
+[node name="MoveRight" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 21 )]
+margin_top = 45.0
+margin_right = 388.0
+margin_bottom = 86.0
+action_name = "Move right"
+input_entry_textures = [ SubResource( 18 ), SubResource( 19 ) ]
+
+[node name="Jump" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 21 )]
+margin_top = 90.0
+margin_right = 388.0
+margin_bottom = 131.0
+action_name = "Jump"
+input_entry_textures = [ SubResource( 20 ), SubResource( 21 ) ]
+
+[node name="Attack" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 21 )]
+margin_top = 135.0
+margin_right = 388.0
+margin_bottom = 176.0
+action_name = "Attack"
+input_entry_textures = [ SubResource( 8 ), SubResource( 22 ) ]
+
+[node name="Interact" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 21 )]
+margin_top = 180.0
+margin_right = 388.0
+margin_bottom = 221.0
+action_name = "Interact"
+input_entry_textures = [ SubResource( 23 ), SubResource( 24 ) ]
+
+[node name="Dash" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 21 )]
+margin_top = 225.0
+margin_right = 388.0
+margin_bottom = 266.0
+action_name = "Dash"
+input_entry_textures = [ SubResource( 25 ), SubResource( 26 ) ]
+
+[node name="Down" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 21 )]
+margin_top = 270.0
+margin_right = 388.0
+margin_bottom = 311.0
+action_name = "Down"
+input_entry_textures = [ SubResource( 27 ), SubResource( 28 ) ]
+
+[node name="Pause" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/VBoxContainer" instance=ExtResource( 21 )]
+margin_top = 315.0
+margin_right = 388.0
+margin_bottom = 356.0
+action_name = "Pause"
+input_entry_textures = [ SubResource( 29 ), SubResource( 30 ) ]
 
 [node name="ButtonCenter" type="CenterContainer" parent="UI/KeyMap/Content/VBoxContainer"]
 margin_top = 180.0
@@ -845,7 +964,7 @@ __meta__ = {
 
 [node name="TransitionEffect" type="ColorRect" parent="UI/Transition"]
 modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 8 )
+material = SubResource( 10 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -857,10 +976,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Transition"]
-anims/alpha_in = SubResource( 9 )
-anims/alpha_out = SubResource( 10 )
-anims/fade_in = SubResource( 11 )
-anims/fade_out = SubResource( 12 )
+anims/alpha_in = SubResource( 11 )
+anims/alpha_out = SubResource( 12 )
+anims/fade_in = SubResource( 13 )
+anims/fade_out = SubResource( 14 )
 
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_connected"]

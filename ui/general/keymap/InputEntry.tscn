@@ -1,11 +1,16 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="InputEntry" type="RichTextLabel"]
-margin_right = 369.0
+[ext_resource path="res://ui/general/keymap/textures/Keyboard Black Corn.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 80, 81, 80, 15 )
+
+[node name="InputEntry" type="TextureRect"]
+margin_right = 80.0
 margin_bottom = 15.0
-size_flags_horizontal = 3
-fit_content_height = true
-scroll_active = false
+size_flags_horizontal = 8
+texture = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
