@@ -24,8 +24,6 @@ export(LevelTypes) var level_type: int = LevelTypes.DUNGEON
 
 var play_ui: PlayUI
 
-var save_requested: bool = false
-
 func _ready() -> void:
 	if !Engine.editor_hint:
 		if Deer:
@@ -36,29 +34,19 @@ func _ready() -> void:
 		smart_camera.player = player
 		add_child(smart_camera)
 
-func _process(_delta: float) -> void:
-	if save_requested:
-		request_save()
-
 func set_ui(play_ui_: PlayUI) -> void:
 	play_ui = play_ui_
 	play_ui.connect_player(player)
 
 func _exit_tree() -> void:
-	if save_requested:
-		request_save()
 	if play_ui:
 		play_ui.disconnect_player(player)
 
 func preload_level(level_name: String) -> void:
 	emit_signal("preload_requested", level_name)
 
-func request_save() -> void:
-	save_requested = false
-	emit_signal("save_requested")
-
 func on_save_requested() -> void:
-	save_requested = true
+	emit_signal("save_requested")
 
 func on_transition_requested(level_name, target_name) -> void:
 	emit_signal("transition_requested", level_name, target_name)

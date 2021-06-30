@@ -2066,5 +2066,6 @@ collision_layer = 1024
 collision_mask = 1025
 script = ExtResource( 2 )
 
+[connection signal="transition_requested" from="Runes/RuneContainer" to="." method="on_transition_requested"]
 [connection signal="save_requested" from="Characters/Player" to="." method="on_save_requested"]
 [connection signal="transition_requested" from="Characters/Player" to="." method="on_transition_requested"]

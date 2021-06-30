@@ -4175,5 +4175,6 @@ collision_mask = 5
 script = ExtResource( 6 )
 initial_look_direction = "Left"
 
+[connection signal="transition_requested" from="Runes/RuneContainer" to="." method="on_transition_requested"]
 [connection signal="save_requested" from="Characters/Player" to="." method="on_save_requested"]
 [connection signal="transition_requested" from="Characters/Player" to="." method="on_transition_requested"]

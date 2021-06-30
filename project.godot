@@ -439,7 +439,6 @@ default_bus_layout="res://utility/bus_layout.tres"
 [autoload]
 
 Utility="*res://utility/Utility.gd"
-SceneLoader="*res://utility/SceneLoader.gd"
 
 [debug]
 

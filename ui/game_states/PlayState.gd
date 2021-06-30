@@ -13,6 +13,7 @@ enum EnterPlayMode {
 	LOAD_LEVEL,
 	LOAD_GAME,
 	NEW_GAME,
+	TUTORIAL
 }
 
 onready var PauseMenu = $".."/UI/PauseMenu
@@ -57,8 +58,7 @@ func unload_levels() -> void:
 		levels.erase(level_name)
 
 func load_level(level_name: String) -> void:
-	SceneLoader.load_scene("%s/%s.tscn" % [levels_dir, level_name])
-	var level: Level = yield(SceneLoader, "load_finished").instance()
+	var level: Level = load("%s/%s.tscn" % [levels_dir, level_name]).instance()
 	assert(level && level is Level)
 	
 	var background_scene: PackedScene
@@ -86,14 +86,19 @@ func activate_level(level_name: String) -> void:
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	if "enter_play_mode" in params:
-		var next_level_name: String = choose_next_level(params)
-		unload_levels()
-		yield(load_level(next_level_name), "completed")
-		activate_level(next_level_name)
-		load_game()
+		if params.enter_play_mode == EnterPlayMode.TUTORIAL:
+			activate_level(params.next_level_name)
+			load_game()
+			._state_enter(previous_state, params)
+		else:
+			var next_level_name: String = choose_next_level(params)
+			unload_levels()
+			load_level(next_level_name)
+			activate_level(next_level_name)
+			load_game()
 		
-		._state_enter(previous_state, params)
-		Transition.end()
+			._state_enter(previous_state, params)
+			Transition.end()
 	
 	# no enter_play_mode required if we just want to resume (from e.g. the pause menu)
 	else:
@@ -156,16 +161,21 @@ func on_transition_requested(level_name, target_name) -> void:
 	var transition_name: String = "alpha"
 	var pause_before_transition: bool = false
 	if level_name:
-		assert(target_name)
-		
-		params["enter_play_mode"] = EnterPlayMode.LOAD_LEVEL
-		params["next_level_name"] = level_name
-		save_data["spawn_target"] = target_name
-		
-		transition_name = "fade"
-		pause_before_transition = true
+		if target_name:
+			params["enter_play_mode"] = EnterPlayMode.LOAD_LEVEL
+			params["next_level_name"] = level_name
+			save_data["spawn_target"] = target_name
+			
+			transition_name = "fade"
+			pause_before_transition = true
+		else:
+			params["enter_play_mode"] = EnterPlayMode.TUTORIAL
+			params["next_level_name"] = level_name
+			state_machine._pop_push(self, params)
+			return
 	elif "checkpoint_level" in save_data:
 		params["enter_play_mode"] = EnterPlayMode.LOAD_GAME
+	
 	else:
 		params["enter_play_mode"] = EnterPlayMode.NEW_GAME
 	

@@ -2,6 +2,8 @@ tool
 extends Interaction
 class_name RuneContainer
 
+signal transition_requested(level_name, target_name)
+
 export var rune: Resource
 
 func _ready() -> void:
@@ -17,6 +19,8 @@ func _can_interact(_character) -> bool:
 func _interact(character) -> void:
 	visible = false
 	character.add_rune(rune)
+	if rune.resource_name != "HealthRune":
+		emit_signal("transition_requested", rune.level_name, null)
 
 func save_game(save_data: Dictionary, level) -> void:
 	if !visible:
