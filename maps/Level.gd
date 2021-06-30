@@ -9,6 +9,7 @@ enum LevelTypes {
 # warning-ignore:unused_signal
 signal save_requested()
 signal transition_requested(level_name, target_name)
+signal preload_requested(level_name)
 
 onready var player := get_node_or_null(player_path) as Player
 onready var Deer := get_node_or_null(deer_path) as Character
@@ -48,6 +49,9 @@ func _exit_tree() -> void:
 		request_save()
 	if play_ui:
 		play_ui.disconnect_player(player)
+
+func preload_level(level_name: String) -> void:
+	emit_signal("preload_requested", level_name)
 
 func request_save() -> void:
 	save_requested = false

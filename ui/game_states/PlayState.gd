@@ -9,7 +9,7 @@ const CURRENT_SAVE_VERSION: int = 4
 const SAVE_FILE_PATH: String = "user://PerlaKnight.save"
 
 enum EnterPlayMode {
-	KEEP,
+	RELOAD,
 	LOAD_LEVEL,
 	LOAD_GAME,
 	NEW_GAME,
@@ -18,7 +18,6 @@ enum EnterPlayMode {
 onready var PauseMenu = $".."/UI/PauseMenu
 onready var Transition := $".."/UI/Transition
 onready var PlayUI := $".."/UI/PlayUI
-onready var LoadingScreen := $".."/UI/LoadingScreen
 
 export(String, DIR) var levels_dir: String = "res://maps/test_map/levels"
 export var new_game_level_name: String = "Level1"
@@ -28,53 +27,75 @@ export var forest_background_scene: PackedScene = preload("res://maps/background
 
 var current_level: Level
 var save_data: Dictionary = {}
+var levels: Dictionary = {}
+
+func choose_next_level(params: Dictionary) -> String:
+	var next_level_name: String
+	match params.enter_play_mode:
+		EnterPlayMode.RELOAD:
+			assert(current_level)
+			next_level_name = current_level.name
+		EnterPlayMode.LOAD_LEVEL:
+			assert("next_level_name" in params)
+			next_level_name = params.next_level_name
+		EnterPlayMode.LOAD_GAME:
+			if "checkpoint_level" in save_data:
+				next_level_name = save_data.checkpoint_level
+			else:
+				next_level_name = new_game_level_name
+		EnterPlayMode.NEW_GAME:
+			next_level_name = new_game_level_name
+			reset_save_data()
+	return next_level_name
+
+func unload_levels() -> void:
+	if current_level:
+		remove_child(current_level)
+		current_level = null
+	for level_name in levels.keys():
+		levels[level_name].queue_free()
+		levels.erase(level_name)
+
+func load_level(level_name: String) -> void:
+	SceneLoader.load_scene("%s/%s.tscn" % [levels_dir, level_name])
+	var level: Level = yield(SceneLoader, "load_finished").instance()
+	assert(level && level is Level)
+	
+	var background_scene: PackedScene
+	match level.level_type:
+		Level.LevelTypes.FOREST:
+			background_scene = forest_background_scene
+		_:
+			background_scene = dungeon_background_scene
+	level.add_child(background_scene.instance(), true)
+	
+	levels[level_name] = level
+
+func activate_level(level_name: String) -> void:
+	if current_level:
+		current_level.disconnect("save_requested", self, "save_game")
+		current_level.disconnect("transition_requested", self, "on_transition_requested")
+		current_level.disconnect("preload_requested", self, "load_level")
+		remove_child(current_level)
+	current_level = levels[level_name]
+	add_child(current_level)
+	current_level.connect("save_requested", self, "save_game")
+	current_level.connect("transition_requested", self, "on_transition_requested")
+	current_level.connect("preload_requested", self, "load_level")
+	current_level.set_ui(PlayUI)
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	if "enter_play_mode" in params:
-		
-		var next_level_name: String
-		match params.enter_play_mode:
-			EnterPlayMode.KEEP:
-				assert(current_level)
-				next_level_name = current_level.name
-			EnterPlayMode.LOAD_LEVEL:
-				assert("next_level_name" in params)
-				next_level_name = params.next_level_name
-			EnterPlayMode.LOAD_GAME:
-				if "checkpoint_level" in save_data:
-					next_level_name = save_data.checkpoint_level
-				else:
-					next_level_name = new_game_level_name
-			EnterPlayMode.NEW_GAME:
-				next_level_name = new_game_level_name
-				reset_save_data()
-		
-		if current_level:
-			remove_child(current_level)
-			current_level.queue_free()
-		
-		LoadingScreen.load_scene("%s/%s.tscn" % [levels_dir, next_level_name])
-		current_level = yield(LoadingScreen, "load_finished").instance()
-		
-		assert(current_level && current_level is Level)
-		
-		add_child(current_level)
-		
-		var background_scene: PackedScene
-		
-		match current_level.level_type:
-			Level.LevelTypes.FOREST:
-				background_scene = forest_background_scene
-			_:
-				background_scene = dungeon_background_scene
-		
-		current_level.add_child(background_scene.instance(), true)
-		current_level.connect("save_requested", self, "save_game")
-		current_level.connect("transition_requested", self, "on_transition_requested")
-		current_level.set_ui(PlayUI)
+		var next_level_name: String = choose_next_level(params)
+		unload_levels()
+		yield(load_level(next_level_name), "completed")
+		activate_level(next_level_name)
 		load_game()
+		
 		._state_enter(previous_state, params)
 		Transition.end()
+	
+	# no enter_play_mode required if we just want to resume (from e.g. the pause menu)
 	else:
 		assert(current_level, "entered PlayState without enter_play_mode param or previously active level")
 		._state_enter(previous_state, params)
@@ -155,4 +176,5 @@ func on_transition_requested(level_name, target_name) -> void:
 	if !pause_before_transition:
 		yield(get_tree().create_timer(0.4), "timeout")
 	
+	#get_tree().paused = true
 	state_machine._pop_push(self, params)

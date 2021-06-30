@@ -184,11 +184,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://environment/switches/lever_switch/Lever.gd"
 }, {
-"base": "GameState",
-"class": "LoadingScreen",
-"language": "GDScript",
-"path": "res://ui/game_states/LoadingScreen.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "LootPickup",
 "language": "GDScript",
@@ -395,7 +390,6 @@ _global_script_class_icons={
 "LandState": "",
 "Level": "",
 "Lever": "",
-"LoadingScreen": "",
 "LootPickup": "",
 "MainMenu": "",
 "MoveState": "",
@@ -445,6 +439,7 @@ default_bus_layout="res://utility/bus_layout.tres"
 [autoload]
 
 Utility="*res://utility/Utility.gd"
+SceneLoader="*res://utility/SceneLoader.gd"
 
 [debug]
 

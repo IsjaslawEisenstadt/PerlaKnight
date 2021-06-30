@@ -33,3 +33,5 @@ func load_game(save_data: Dictionary, level) -> void:
 		&& (rune.resource_name in save_data.runes 
 		|| "HealthRune_%s_%s" % [level.name, name] in save_data.runes)):
 		visible = false
+	elif rune.level_name && rune.level_name != "":
+		level.preload_level(rune.level_name)

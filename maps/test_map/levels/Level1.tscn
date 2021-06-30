@@ -3125,7 +3125,6 @@ z_index = 1
 collision_layer = 1024
 collision_mask = 1025
 script = ExtResource( 30 )
-double_jump_acquired = true
 
 [connection signal="save_requested" from="Props/Checkpoint" to="." method="on_save_requested"]
 [connection signal="save_requested" from="Props/Checkpoint2" to="." method="on_save_requested"]
