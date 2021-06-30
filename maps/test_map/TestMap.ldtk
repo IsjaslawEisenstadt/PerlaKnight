@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 537,
+	"nextUid": 543,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -1433,6 +1433,26 @@
 					"regex": null,
 					"acceptFileTypes": null,
 					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "z_index",
+					"__type": "Int",
+					"uid": 540,
+					"type": "F_Int",
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": { "id": "V_Int", "params": [1] },
 					"textLanguageMode": null
 				}
 			]
@@ -3577,6 +3597,46 @@
 					"textLanguageMode": null
 				},
 				{
+					"identifier": "move_direction",
+					"__type": "LocalEnum.Move_direction",
+					"uid": 542,
+					"type": { "id": "F_Enum", "params": [541] },
+					"isArray": false,
+					"canBeNull": false,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "deer_teleport_waypoint",
+					"__type": "Point",
+					"uid": 538,
+					"type": "F_Point",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
 					"identifier": "dialogue",
 					"__type": "String",
 					"uid": 536,
@@ -4118,7 +4178,12 @@
 			{ "id": "Right", "tileId": null, "color": 0, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
 		{ "identifier": "GroundType", "uid": 447, "values": [ { "id": "Stone", "tileId": null, "color": 5460819, "__tileSrcRect": null }, { "id": "Dirt", "tileId": null, "color": 2957341, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
-		{ "identifier": "Initial_look_direction", "uid": 531, "values": [ { "id": "Left", "tileId": null, "color": 0, "__tileSrcRect": null }, { "id": "Right", "tileId": null, "color": 0, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }
+		{ "identifier": "Initial_look_direction", "uid": 531, "values": [ { "id": "Left", "tileId": null, "color": 0, "__tileSrcRect": null }, { "id": "Right", "tileId": null, "color": 0, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
+		{ "identifier": "Move_direction", "uid": 541, "values": [
+			{ "id": "Left", "tileId": null, "color": 0, "__tileSrcRect": null },
+			{ "id": "Right", "tileId": null, "color": 0, "__tileSrcRect": null },
+			{ "id": "NoMove", "tileId": null, "color": 0, "__tileSrcRect": null }
+		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }
 	], "externalEnums": [], "levelFields": [] },
 	"levels": [
 		{
@@ -4174,7 +4239,8 @@
 							"px": [1270,799],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
-								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] },
+								{ "__identifier": "z_index", "__value": 1, "__type": "Int", "defUid": 540, "realEditorValues": [] }
 							]
 						}
 					]
@@ -8462,7 +8528,8 @@
 							"px": [760,256],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
-								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] },
+								{ "__identifier": "z_index", "__value": 1, "__type": "Int", "defUid": 540, "realEditorValues": [] }
 							]
 						}
 					]
@@ -9976,7 +10043,8 @@
 							"px": [1992,576],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
-								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] },
+								{ "__identifier": "z_index", "__value": 1, "__type": "Int", "defUid": 540, "realEditorValues": [] }
 							]
 						},
 						{
@@ -12995,7 +13063,8 @@
 							"px": [1736,800],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
-								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] },
+								{ "__identifier": "z_index", "__value": 1, "__type": "Int", "defUid": 540, "realEditorValues": [] }
 							]
 						}
 					]
@@ -15218,7 +15287,8 @@
 							"px": [168,352],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
-								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] },
+								{ "__identifier": "z_index", "__value": 1, "__type": "Int", "defUid": 540, "realEditorValues": [] }
 							]
 						}
 					]
@@ -16764,7 +16834,8 @@
 										"id": "V_String",
 										"params": ["Right"]
 									}]
-								}
+								},
+								{ "__identifier": "z_index", "__value": 1, "__type": "Int", "defUid": 540, "realEditorValues": [] }
 							]
 						},
 						{
@@ -17606,6 +17677,26 @@
 									"realEditorValues": [{
 										"id": "V_String",
 										"params": ["res://utility/dialogue/resources/intro.tres"]
+									}]
+								},
+								{
+									"__identifier": "deer_teleport_waypoint",
+									"__value": { "cx": 169, "cy": 71 },
+									"__type": "Point",
+									"defUid": 538,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["169,71"]
+									}]
+								},
+								{
+									"__identifier": "move_direction",
+									"__value": "Right",
+									"__type": "LocalEnum.Move_direction",
+									"defUid": 542,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Right"]
 									}]
 								}
 							]
@@ -25282,7 +25373,8 @@
 							"px": [3144,864],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
-								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] },
+								{ "__identifier": "z_index", "__value": 1, "__type": "Int", "defUid": 540, "realEditorValues": [] }
 							]
 						}
 					]
@@ -34143,7 +34235,8 @@
 							"px": [312,1856],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
-								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] },
+								{ "__identifier": "z_index", "__value": 1, "__type": "Int", "defUid": 540, "realEditorValues": [] }
 							]
 						}
 					]
@@ -44821,7 +44914,8 @@
 							"px": [760,544],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
-								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] },
+								{ "__identifier": "z_index", "__value": 1, "__type": "Int", "defUid": 540, "realEditorValues": [] }
 							]
 						}
 					]
@@ -46848,7 +46942,8 @@
 							"px": [1384,544],
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://characters/player/Player.tscn", "__type": "String", "defUid": 24, "realEditorValues": [] },
-								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] }
+								{ "__identifier": "initial_look_direction", "__value": null, "__type": "LocalEnum.Initial_look_direction", "defUid": 533, "realEditorValues": [] },
+								{ "__identifier": "z_index", "__value": 1, "__type": "Int", "defUid": 540, "realEditorValues": [] }
 							]
 						}
 					]

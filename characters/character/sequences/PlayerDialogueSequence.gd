@@ -69,6 +69,17 @@ func on_line_finished(dialogue_box: DialogueBox = null) -> void:
 		
 		dialogue_box.connect("line_finished", self, "on_line_finished", [dialogue_box])
 		dialogue_box.text = current_line
+	elif sequence_trigger.deer:
+		sequence_trigger.deer.start_sequence(sequence_trigger)
+		sequence_trigger.deer.SequenceController_.state_machine.get_current_state().connect("walk_finished", self, "on_walk_finished")
+		host.camera.connect("interp_finished", host.camera, "set", ["use_custom_target", false])
+		host.camera.custom_target = host
+	else:
+		host.camera.connect("interp_finished", host.camera, "set", ["use_custom_target", false])
+		on_walk_finished()
+
+func on_walk_finished() -> void:
+	state_machine._pop_state()
 
 func _does_handle(object) -> bool:
 	return object is DialogueSequenceTrigger

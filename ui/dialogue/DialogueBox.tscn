@@ -116,6 +116,7 @@ mouse_filter = 1
 custom_fonts/font = SubResource( 2 )
 
 [node name="Icons" type="Node2D" parent="."]
+visible = false
 position = Vector2( 0, -15 )
 
 [node name="IconLeftOffset" type="Node2D" parent="Icons"]

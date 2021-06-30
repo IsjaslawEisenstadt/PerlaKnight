@@ -1,13 +1,15 @@
 extends KinematicBody2D
 class_name SmartCamera
 
+signal interp_finished()
+
 export var speed: float = 3.0
 export var interp_epsilon: float = 0.03
 
 var player: Player setget set_player
 
 var use_custom_target: bool = false
-var custom_target: Vector2
+var custom_target
 
 func _ready() -> void:
 	if player:
@@ -17,7 +19,11 @@ func _ready() -> void:
 		set_process(false)
 
 func _physics_process(delta: float) -> void:
-	var target = custom_target if use_custom_target else player.global_position
+	var target
+	if use_custom_target:
+		target = custom_target if custom_target is Vector2 else custom_target.global_position
+	else:
+		target = player.global_position
 	
 	var move: Vector2
 	if use_custom_target:
@@ -28,6 +34,7 @@ func _physics_process(delta: float) -> void:
 		
 		if abs(move.x) < interp_epsilon:
 			move = target - global_position
+			emit_signal("interp_finished")
 	else:
 		move = target - global_position
 	
