@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://ui/hud/rune_hud/RuneEntry.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://ui/game_states/PlayState.gd" type="Script" id=4]
 [ext_resource path="res://ui/transition/Transition.gd" type="Script" id=5]
 [ext_resource path="res://ui/game_states/PlayUI.gd" type="Script" id=6]
+[ext_resource path="res://ui/hud/SaveIcon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/transition/fade_out.png" type="Texture" id=8]
 [ext_resource path="res://ui/general/textures/gui.png" type="Texture" id=9]
 [ext_resource path="res://ui/transition/fade_in.png" type="Texture" id=10]
@@ -18,6 +19,7 @@
 [ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=17]
 [ext_resource path="res://ui/general/WarningPopup.gd" type="Script" id=18]
 [ext_resource path="res://ui/general/Button.tscn" type="PackedScene" id=19]
+[ext_resource path="res://ui/hud/SaveIcon.gd" type="Script" id=20]
 [ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=22]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -288,7 +290,6 @@ inactive_visibility = true
 
 [node name="PlayUI" type="Control" parent="UI"]
 pause_mode = 1
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -307,7 +308,6 @@ __meta__ = {
 }
 
 [node name="HealthContainer" parent="UI/PlayUI/HUD" instance=ExtResource( 13 )]
-visible = false
 mouse_filter = 2
 
 [node name="RuneHUD" type="MarginContainer" parent="UI/PlayUI/HUD"]
@@ -347,6 +347,10 @@ texture = SubResource( 1 )
 stretch_mode = 6
 script = ExtResource( 1 )
 rune = ExtResource( 22 )
+
+[node name="SaveIcon" parent="UI/PlayUI/HUD" instance=ExtResource( 7 )]
+position = Vector2( 462, 18 )
+script = ExtResource( 20 )
 
 [node name="WorldSpaceUI" type="Control" parent="UI/PlayUI"]
 anchor_right = 1.0
@@ -748,10 +752,11 @@ anims/alpha_out = SubResource( 10 )
 anims/fade_in = SubResource( 11 )
 anims/fade_out = SubResource( 12 )
 
-[connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_connected"]
+[connection signal="saved_to_file" from="PlayState" to="UI/PlayUI/HUD/SaveIcon" method="on_save"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
-[connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_disconnected"]
+[connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_connected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]
+[connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_disconnected"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/MainMenu" method="on_continue_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/MainMenu" method="on_new_game_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/MainMenu" method="on_exit_pressed"]

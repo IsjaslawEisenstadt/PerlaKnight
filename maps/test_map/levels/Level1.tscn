@@ -3127,8 +3127,11 @@ collision_mask = 1025
 script = ExtResource( 30 )
 
 [connection signal="save_requested" from="Props/Checkpoint" to="." method="on_save_requested"]
+[connection signal="save_to_file_requested" from="Props/Checkpoint" to="." method="on_save_to_file_requested"]
 [connection signal="save_requested" from="Props/Checkpoint2" to="." method="on_save_requested"]
+[connection signal="save_to_file_requested" from="Props/Checkpoint2" to="." method="on_save_to_file_requested"]
 [connection signal="save_requested" from="Props/Checkpoint3" to="." method="on_save_requested"]
+[connection signal="save_to_file_requested" from="Props/Checkpoint3" to="." method="on_save_to_file_requested"]
 [connection signal="transition_requested" from="Runes/RuneContainer" to="." method="on_transition_requested"]
 [connection signal="transition_requested" from="Runes/RuneContainer2" to="." method="on_transition_requested"]
 [connection signal="transition_requested" from="Runes/RuneContainer3" to="." method="on_transition_requested"]

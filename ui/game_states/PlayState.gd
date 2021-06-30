@@ -1,10 +1,12 @@
 extends GameState
 class_name PlayState
 
+signal saved_to_file()
+
 # save files can become incompatible over time, with breaking changes being a real possibility.
 # a version number saved in these files will give us the chance to not read old save data
 # in order to ensure proper functionality, especially during active development
-const CURRENT_SAVE_VERSION: int = 4
+const CURRENT_SAVE_VERSION: int = 5
 
 const SAVE_FILE_PATH: String = "user://PerlaKnight.save"
 
@@ -40,13 +42,18 @@ func choose_next_level(params: Dictionary) -> String:
 			assert("next_level_name" in params)
 			next_level_name = params.next_level_name
 		EnterPlayMode.LOAD_GAME:
-			if "checkpoint_level" in save_data:
+			if "tutorial_level" in save_data:
+				next_level_name = save_data.tutorial_level
+			elif "checkpoint_level" in save_data:
 				next_level_name = save_data.checkpoint_level
 			else:
 				next_level_name = new_game_level_name
+				reset_save_data()
+				save_to_file()
 		EnterPlayMode.NEW_GAME:
 			next_level_name = new_game_level_name
 			reset_save_data()
+			save_to_file()
 	return next_level_name
 
 func unload_levels() -> void:
@@ -74,12 +81,14 @@ func load_level(level_name: String) -> void:
 func activate_level(level_name: String) -> void:
 	if current_level:
 		current_level.disconnect("save_requested", self, "save_game")
+		current_level.disconnect("save_to_file_requested", self, "save_to_file")
 		current_level.disconnect("transition_requested", self, "on_transition_requested")
 		current_level.disconnect("preload_requested", self, "load_level")
 		remove_child(current_level)
 	current_level = levels[level_name]
 	add_child(current_level)
 	current_level.connect("save_requested", self, "save_game")
+	current_level.connect("save_to_file_requested", self, "save_to_file")
 	current_level.connect("transition_requested", self, "on_transition_requested")
 	current_level.connect("preload_requested", self, "load_level")
 	current_level.set_ui(PlayUI)
@@ -142,12 +151,14 @@ func save_game() -> void:
 	for node in get_tree().get_nodes_in_group("Persistent"):
 		if node.has_method("save_game"):
 			node.save_game(save_data, current_level)
-	
+
+func save_to_file() -> void:
 	var save_file := File.new()
 	var err: int = save_file.open(SAVE_FILE_PATH, File.WRITE)
 	assert(!err, "Couldn't open save file for writing!")
 	save_file.store_string(JSON.print(save_data, "\t"))
 	save_file.close()
+	emit_signal("saved_to_file")
 
 func load_game() -> void:
 	assert(current_level)
@@ -186,5 +197,4 @@ func on_transition_requested(level_name, target_name) -> void:
 	if !pause_before_transition:
 		yield(get_tree().create_timer(0.4), "timeout")
 	
-	#get_tree().paused = true
 	state_machine._pop_push(self, params)
