@@ -16,4 +16,4 @@ func _ready() -> void:
 	for texture in input_entry_textures:
 		var new_entry = InputEntry.instance()
 		new_entry.texture = texture
-		$MarginContainer/HBoxContainer/InputEntryList.add_child(new_entry)		
+		$MarginContainer/HBoxContainer/MarginContainer/InputEntryList.add_child(new_entry)		
