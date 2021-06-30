@@ -26,14 +26,14 @@ func get_layer_entities(layer, level, options):
 
 	var entities = []
 	for entity in layer.entityInstances:
-		var new_entity = new_entity(entity, level, options)
+		var new_entity = new_entity(entity, level, options, layer)
 		if new_entity:
 			entities.append(new_entity)
 
 	return entities
 
 #create new entity
-func new_entity(entity_data, level, options):
+func new_entity(entity_data, level, options, layer):
 	var new_entity
 	var metadata = []
 
@@ -67,11 +67,11 @@ func new_entity(entity_data, level, options):
 						if new_entity is OneWayPlatform:
 							new_entity.width = entity_data.width
 						
-						if new_entity is Doorway:
+						if new_entity is Doorway || new_entity is SequenceTrigger:
 							new_entity.shape = Vector2(entity_data.width, entity_data.height)
 						
 			elif options.Import_Metadata:
-				metadata.append({'name': field.__identifier, 'value': field.__value})
+				metadata.append({'name': field.__identifier, 'value': field.__value, 'type': field.__type})
 	else:
 		printerr("Could not load entity data: ", entity_data)
 		return
@@ -81,8 +81,11 @@ func new_entity(entity_data, level, options):
 
 	for data in metadata:
 		if data['name'] in new_entity:
-			if new_entity is RuneContainer && data['name'] == 'rune':
+			if (new_entity is RuneContainer && data['name'] == 'rune') || (new_entity is DialogueSequenceTrigger && data['name'] == 'dialogue'):
 				new_entity[data['name']] = load(data['value'])
+			elif data['type'] == 'Point':
+				var halfgrid = layer.__gridSize / 2
+				new_entity[data['name']] = Vector2(data['value'].cx * layer.__gridSize + level.worldX + halfgrid, data['value'].cy * layer.__gridSize + level.worldY + halfgrid)
 			else:
 				new_entity[data['name']] = data['value']
 		else:

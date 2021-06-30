@@ -11,10 +11,13 @@ signal save_requested()
 signal transition_requested(level_name, target_name)
 
 onready var player := get_node_or_null(player_path) as Player
+onready var Deer := get_node_or_null(deer_path) as Character
 onready var SpawnTargets := get_node(spawn_targets_path)
 
 export var player_path: NodePath
+export var deer_path: NodePath = "Characters/Deer"
 export var spawn_targets_path: NodePath = "Props"
+export var dialogue_triggers: Array
 
 export(LevelTypes) var level_type: int = LevelTypes.DUNGEON
 
@@ -24,6 +27,10 @@ var save_requested: bool = false
 
 func _ready() -> void:
 	if !Engine.editor_hint:
+		if Deer:
+			for trigger_path in dialogue_triggers:
+				get_node(trigger_path).deer = Deer
+		
 		var smart_camera: SmartCamera = preload("res://utility/camera/SmartCamera.tscn").instance()
 		smart_camera.player = player
 		add_child(smart_camera)
@@ -55,6 +62,10 @@ func on_transition_requested(level_name, target_name) -> void:
 # used by the LDtk importer
 func new_entities(new_entity: Array) -> void:
 	player_path = ""
+	
+	if !dialogue_triggers:
+		dialogue_triggers = []
+	
 	for entity in new_entity:
 		if entity.has_signal("save_requested"):
 			# CONNECT_PERSIST makes sure the signal connection is saved to disk
@@ -63,3 +74,5 @@ func new_entities(new_entity: Array) -> void:
 			entity.connect("transition_requested", self, "on_transition_requested", [], CONNECT_PERSIST)
 		if entity is Player:
 			player_path = get_path_to(entity)
+		if entity is DialogueSequenceTrigger:
+			dialogue_triggers.append(get_path_to(entity))
