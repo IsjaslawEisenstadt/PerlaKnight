@@ -70,7 +70,7 @@ func on_line_finished(dialogue_box: DialogueBox = null) -> void:
 			sequence_trigger.deer.DialogueBoxPosition.add_child(dialogue_box)
 		
 		dialogue_box.connect("line_finished", self, "on_line_finished", [dialogue_box])
-		dialogue_box.text = current_line
+		dialogue_box.text = current_line.substr(3, current_line.length())
 	elif sequence_trigger.deer:
 		if sequence_trigger.end_action == "Leave":
 			host.emit_signal("restore_requested")

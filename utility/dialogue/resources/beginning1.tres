@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 lines = [ "[D]At last, a visitor.", "[P]Where am I?
 I was at my camp in the dungeon..", "[D]In another world.[L]
-A more peaceful world.[L]", "[P]This place is stunning.[L]
+A more peaceful world.", "[P]This place is stunning.[L]
 I have not seen flowers
 in a long time. Is this real?", "[D]It exists in a different form
 than you think.", "[P]Where I am from,
