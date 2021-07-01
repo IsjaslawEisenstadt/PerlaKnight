@@ -2,6 +2,7 @@ extends GameState
 class_name PlayState
 
 signal saved_to_file()
+signal level_changed(level)
 
 # save files can become incompatible over time, with breaking changes being a real possibility.
 # a version number saved in these files will give us the chance to not read old save data
@@ -92,6 +93,7 @@ func activate_level(level_name: String) -> void:
 	current_level.connect("transition_requested", self, "on_transition_requested")
 	current_level.connect("preload_requested", self, "load_level")
 	current_level.set_ui(PlayUI)
+	emit_signal("level_changed", current_level)
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	if "enter_play_mode" in params:
