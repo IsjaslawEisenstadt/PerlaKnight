@@ -1,9 +1,32 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=257 format=2]
 
-[ext_resource path="res://environment/decoration/props.png" type="Texture" id=1]
-[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=2]
-[ext_resource path="res://maps/Level.gd" type="Script" id=3]
-[ext_resource path="res://maps/test_map/textures/dungeon.png" type="Texture" id=4]
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=2]
+[ext_resource path="res://environment/platforms/OneWayPlatform.gd" type="Script" id=3]
+[ext_resource path="res://maps/Level.gd" type="Script" id=4]
+[ext_resource path="res://environment/doors/Doorway.gd" type="Script" id=5]
+[ext_resource path="res://environment/hazards/PillarTrap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=7]
+[ext_resource path="res://environment/hazards/StaticSpikesSmall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://environment/doors/Doorway.tscn" type="PackedScene" id=9]
+[ext_resource path="res://environment/destructibles/Crate.tscn" type="PackedScene" id=10]
+[ext_resource path="res://environment/checkpoint/Checkpoint.tscn" type="PackedScene" id=11]
+[ext_resource path="res://environment/hazards/SpikeTrapLarge.tscn" type="PackedScene" id=12]
+[ext_resource path="res://environment/destructibles/Barrel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=14]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=15]
+[ext_resource path="res://environment/platforms/OneWayPlatformDungeon.tscn" type="PackedScene" id=16]
+[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=17]
+[ext_resource path="res://environment/loot_pickups/health_loot_pickup/HealthLootDrop.tres" type="Resource" id=18]
+[ext_resource path="res://maps/test_map/textures/dungeon.png" type="Texture" id=19]
+[ext_resource path="res://environment/decoration/lamps/textures/forest_lamps.png" type="Texture" id=20]
+[ext_resource path="res://environment/decoration/props.png" type="Texture" id=21]
+[ext_resource path="res://environment/checkpoint/Checkpoint.gd" type="Script" id=22]
+[ext_resource path="res://environment/hazards/base/Hazard.gd" type="Script" id=23]
+[ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=24]
+[ext_resource path="res://environment/hazards/base/Trap.gd" type="Script" id=25]
+[ext_resource path="res://environment/destructibles/base/Destructible.gd" type="Script" id=26]
+[ext_resource path="res://environment/runes/resource/DoubleJumpRune.tres" type="Resource" id=27]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -13,9 +36,417 @@ glow_levels/4 = true
 glow_levels/6 = true
 glow_intensity = 1.2
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 128, 16 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 128, 16 )
+
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=22]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 112, 16 )
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=27]
+extents = Vector2( 112, 16 )
+
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=30]
+extents = Vector2( 112, 16 )
+
+[sub_resource type="RectangleShape2D" id=31]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=34]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=35]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=36]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=40]
+extents = Vector2( 144, 16 )
+
+[sub_resource type="RectangleShape2D" id=41]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=42]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=43]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=44]
+extents = Vector2( 144, 16 )
+
+[sub_resource type="RectangleShape2D" id=45]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=46]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=47]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=48]
+extents = Vector2( 144, 16 )
+
+[sub_resource type="RectangleShape2D" id=49]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=50]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=52]
+extents = Vector2( 144, 16 )
+
+[sub_resource type="RectangleShape2D" id=53]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=54]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=55]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=56]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=57]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=58]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=59]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=60]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=61]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=62]
+extents = Vector2( 272, 16 )
+
+[sub_resource type="RectangleShape2D" id=63]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=64]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=65]
+extents = Vector2( 272, 16 )
+
+[sub_resource type="RectangleShape2D" id=66]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=67]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=68]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=69]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=70]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=71]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=72]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=73]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=74]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=75]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=76]
+extents = Vector2( 128, 16 )
+
+[sub_resource type="RectangleShape2D" id=77]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=78]
+extents = Vector2( 96, 16 )
+
+[sub_resource type="RectangleShape2D" id=79]
+extents = Vector2( 128, 16 )
+
+[sub_resource type="RectangleShape2D" id=80]
+extents = Vector2( 128, 16 )
+
+[sub_resource type="RectangleShape2D" id=81]
+extents = Vector2( 96, 16 )
+
+[sub_resource type="RectangleShape2D" id=82]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=83]
+extents = Vector2( 128, 16 )
+
+[sub_resource type="RectangleShape2D" id=84]
+extents = Vector2( 144, 16 )
+
+[sub_resource type="RectangleShape2D" id=85]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=86]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=87]
+extents = Vector2( 144, 16 )
+
+[sub_resource type="RectangleShape2D" id=88]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=89]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=90]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=91]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=92]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=93]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=94]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=95]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=96]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=97]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=98]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=99]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=100]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=101]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=102]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=103]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=104]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=105]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=106]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=107]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=108]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=109]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=110]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=111]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=112]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=113]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=114]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=115]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=116]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=117]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=118]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=119]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=120]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=121]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=122]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=123]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=124]
+extents = Vector2( 160, 16 )
+
+[sub_resource type="RectangleShape2D" id=125]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=126]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=127]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=128]
+extents = Vector2( 160, 16 )
+
+[sub_resource type="RectangleShape2D" id=129]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=130]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=131]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=132]
+extents = Vector2( 64, 16 )
+
+[sub_resource type="RectangleShape2D" id=133]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="RectangleShape2D" id=134]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="RectangleShape2D" id=135]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="RectangleShape2D" id=136]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="RectangleShape2D" id=137]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="TileSet" id=138]
 0/name = ""
-0/texture = ExtResource( 4 )
+0/texture = ExtResource( 19 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 32 )
@@ -29,7 +460,7 @@ glow_intensity = 1.2
 0/shapes = [  ]
 0/z_index = 0
 1/name = ""
-1/texture = ExtResource( 4 )
+1/texture = ExtResource( 19 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 32, 0, 32, 32 )
@@ -43,7 +474,7 @@ glow_intensity = 1.2
 1/shapes = [  ]
 1/z_index = 0
 2/name = ""
-2/texture = ExtResource( 4 )
+2/texture = ExtResource( 19 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 64, 0, 32, 32 )
@@ -57,7 +488,7 @@ glow_intensity = 1.2
 2/shapes = [  ]
 2/z_index = 0
 3/name = ""
-3/texture = ExtResource( 4 )
+3/texture = ExtResource( 19 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 96, 0, 32, 32 )
@@ -71,7 +502,7 @@ glow_intensity = 1.2
 3/shapes = [  ]
 3/z_index = 0
 4/name = ""
-4/texture = ExtResource( 4 )
+4/texture = ExtResource( 19 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 128, 0, 32, 32 )
@@ -85,7 +516,7 @@ glow_intensity = 1.2
 4/shapes = [  ]
 4/z_index = 0
 5/name = ""
-5/texture = ExtResource( 4 )
+5/texture = ExtResource( 19 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 160, 0, 32, 32 )
@@ -99,7 +530,7 @@ glow_intensity = 1.2
 5/shapes = [  ]
 5/z_index = 0
 6/name = ""
-6/texture = ExtResource( 4 )
+6/texture = ExtResource( 19 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 192, 0, 32, 32 )
@@ -113,7 +544,7 @@ glow_intensity = 1.2
 6/shapes = [  ]
 6/z_index = 0
 7/name = ""
-7/texture = ExtResource( 4 )
+7/texture = ExtResource( 19 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 32, 32, 32 )
@@ -127,7 +558,7 @@ glow_intensity = 1.2
 7/shapes = [  ]
 7/z_index = 0
 8/name = ""
-8/texture = ExtResource( 4 )
+8/texture = ExtResource( 19 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 32, 32, 32, 32 )
@@ -141,7 +572,7 @@ glow_intensity = 1.2
 8/shapes = [  ]
 8/z_index = 0
 9/name = ""
-9/texture = ExtResource( 4 )
+9/texture = ExtResource( 19 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 64, 32, 32, 32 )
@@ -155,7 +586,7 @@ glow_intensity = 1.2
 9/shapes = [  ]
 9/z_index = 0
 10/name = ""
-10/texture = ExtResource( 4 )
+10/texture = ExtResource( 19 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 96, 32, 32, 32 )
@@ -169,7 +600,7 @@ glow_intensity = 1.2
 10/shapes = [  ]
 10/z_index = 0
 11/name = ""
-11/texture = ExtResource( 4 )
+11/texture = ExtResource( 19 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 128, 32, 32, 32 )
@@ -183,7 +614,7 @@ glow_intensity = 1.2
 11/shapes = [  ]
 11/z_index = 0
 12/name = ""
-12/texture = ExtResource( 4 )
+12/texture = ExtResource( 19 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 160, 32, 32, 32 )
@@ -197,7 +628,7 @@ glow_intensity = 1.2
 12/shapes = [  ]
 12/z_index = 0
 13/name = ""
-13/texture = ExtResource( 4 )
+13/texture = ExtResource( 19 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 192, 32, 32, 32 )
@@ -211,7 +642,7 @@ glow_intensity = 1.2
 13/shapes = [  ]
 13/z_index = 0
 14/name = ""
-14/texture = ExtResource( 4 )
+14/texture = ExtResource( 19 )
 14/tex_offset = Vector2( 0, 0 )
 14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 0, 64, 32, 32 )
@@ -225,7 +656,7 @@ glow_intensity = 1.2
 14/shapes = [  ]
 14/z_index = 0
 15/name = ""
-15/texture = ExtResource( 4 )
+15/texture = ExtResource( 19 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 32, 64, 32, 32 )
@@ -239,7 +670,7 @@ glow_intensity = 1.2
 15/shapes = [  ]
 15/z_index = 0
 16/name = ""
-16/texture = ExtResource( 4 )
+16/texture = ExtResource( 19 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 64, 64, 32, 32 )
@@ -253,7 +684,7 @@ glow_intensity = 1.2
 16/shapes = [  ]
 16/z_index = 0
 17/name = ""
-17/texture = ExtResource( 4 )
+17/texture = ExtResource( 19 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 96, 64, 32, 32 )
@@ -267,7 +698,7 @@ glow_intensity = 1.2
 17/shapes = [  ]
 17/z_index = 0
 18/name = ""
-18/texture = ExtResource( 4 )
+18/texture = ExtResource( 19 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 128, 64, 32, 32 )
@@ -281,7 +712,7 @@ glow_intensity = 1.2
 18/shapes = [  ]
 18/z_index = 0
 19/name = ""
-19/texture = ExtResource( 4 )
+19/texture = ExtResource( 19 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 160, 64, 32, 32 )
@@ -295,7 +726,7 @@ glow_intensity = 1.2
 19/shapes = [  ]
 19/z_index = 0
 20/name = ""
-20/texture = ExtResource( 4 )
+20/texture = ExtResource( 19 )
 20/tex_offset = Vector2( 0, 0 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 192, 64, 32, 32 )
@@ -309,7 +740,7 @@ glow_intensity = 1.2
 20/shapes = [  ]
 20/z_index = 0
 21/name = ""
-21/texture = ExtResource( 4 )
+21/texture = ExtResource( 19 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 0, 96, 32, 32 )
@@ -323,7 +754,7 @@ glow_intensity = 1.2
 21/shapes = [  ]
 21/z_index = 0
 22/name = ""
-22/texture = ExtResource( 4 )
+22/texture = ExtResource( 19 )
 22/tex_offset = Vector2( 0, 0 )
 22/modulate = Color( 1, 1, 1, 1 )
 22/region = Rect2( 32, 96, 32, 32 )
@@ -337,7 +768,7 @@ glow_intensity = 1.2
 22/shapes = [  ]
 22/z_index = 0
 23/name = ""
-23/texture = ExtResource( 4 )
+23/texture = ExtResource( 19 )
 23/tex_offset = Vector2( 0, 0 )
 23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 64, 96, 32, 32 )
@@ -351,7 +782,7 @@ glow_intensity = 1.2
 23/shapes = [  ]
 23/z_index = 0
 24/name = ""
-24/texture = ExtResource( 4 )
+24/texture = ExtResource( 19 )
 24/tex_offset = Vector2( 0, 0 )
 24/modulate = Color( 1, 1, 1, 1 )
 24/region = Rect2( 96, 96, 32, 32 )
@@ -365,7 +796,7 @@ glow_intensity = 1.2
 24/shapes = [  ]
 24/z_index = 0
 25/name = ""
-25/texture = ExtResource( 4 )
+25/texture = ExtResource( 19 )
 25/tex_offset = Vector2( 0, 0 )
 25/modulate = Color( 1, 1, 1, 1 )
 25/region = Rect2( 128, 96, 32, 32 )
@@ -379,7 +810,7 @@ glow_intensity = 1.2
 25/shapes = [  ]
 25/z_index = 0
 26/name = ""
-26/texture = ExtResource( 4 )
+26/texture = ExtResource( 19 )
 26/tex_offset = Vector2( 0, 0 )
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 160, 96, 32, 32 )
@@ -393,7 +824,7 @@ glow_intensity = 1.2
 26/shapes = [  ]
 26/z_index = 0
 27/name = ""
-27/texture = ExtResource( 4 )
+27/texture = ExtResource( 19 )
 27/tex_offset = Vector2( 0, 0 )
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 192, 96, 32, 32 )
@@ -407,7 +838,7 @@ glow_intensity = 1.2
 27/shapes = [  ]
 27/z_index = 0
 28/name = ""
-28/texture = ExtResource( 4 )
+28/texture = ExtResource( 19 )
 28/tex_offset = Vector2( 0, 0 )
 28/modulate = Color( 1, 1, 1, 1 )
 28/region = Rect2( 0, 128, 32, 32 )
@@ -421,7 +852,7 @@ glow_intensity = 1.2
 28/shapes = [  ]
 28/z_index = 0
 29/name = ""
-29/texture = ExtResource( 4 )
+29/texture = ExtResource( 19 )
 29/tex_offset = Vector2( 0, 0 )
 29/modulate = Color( 1, 1, 1, 1 )
 29/region = Rect2( 32, 128, 32, 32 )
@@ -435,7 +866,7 @@ glow_intensity = 1.2
 29/shapes = [  ]
 29/z_index = 0
 30/name = ""
-30/texture = ExtResource( 4 )
+30/texture = ExtResource( 19 )
 30/tex_offset = Vector2( 0, 0 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 64, 128, 32, 32 )
@@ -449,7 +880,7 @@ glow_intensity = 1.2
 30/shapes = [  ]
 30/z_index = 0
 31/name = ""
-31/texture = ExtResource( 4 )
+31/texture = ExtResource( 19 )
 31/tex_offset = Vector2( 0, 0 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 96, 128, 32, 32 )
@@ -463,7 +894,7 @@ glow_intensity = 1.2
 31/shapes = [  ]
 31/z_index = 0
 32/name = ""
-32/texture = ExtResource( 4 )
+32/texture = ExtResource( 19 )
 32/tex_offset = Vector2( 0, 0 )
 32/modulate = Color( 1, 1, 1, 1 )
 32/region = Rect2( 128, 128, 32, 32 )
@@ -477,7 +908,7 @@ glow_intensity = 1.2
 32/shapes = [  ]
 32/z_index = 0
 33/name = ""
-33/texture = ExtResource( 4 )
+33/texture = ExtResource( 19 )
 33/tex_offset = Vector2( 0, 0 )
 33/modulate = Color( 1, 1, 1, 1 )
 33/region = Rect2( 160, 128, 32, 32 )
@@ -491,7 +922,7 @@ glow_intensity = 1.2
 33/shapes = [  ]
 33/z_index = 0
 34/name = ""
-34/texture = ExtResource( 4 )
+34/texture = ExtResource( 19 )
 34/tex_offset = Vector2( 0, 0 )
 34/modulate = Color( 1, 1, 1, 1 )
 34/region = Rect2( 192, 128, 32, 32 )
@@ -505,7 +936,7 @@ glow_intensity = 1.2
 34/shapes = [  ]
 34/z_index = 0
 35/name = ""
-35/texture = ExtResource( 4 )
+35/texture = ExtResource( 19 )
 35/tex_offset = Vector2( 0, 0 )
 35/modulate = Color( 1, 1, 1, 1 )
 35/region = Rect2( 0, 160, 32, 32 )
@@ -519,7 +950,7 @@ glow_intensity = 1.2
 35/shapes = [  ]
 35/z_index = 0
 36/name = ""
-36/texture = ExtResource( 4 )
+36/texture = ExtResource( 19 )
 36/tex_offset = Vector2( 0, 0 )
 36/modulate = Color( 1, 1, 1, 1 )
 36/region = Rect2( 32, 160, 32, 32 )
@@ -533,7 +964,7 @@ glow_intensity = 1.2
 36/shapes = [  ]
 36/z_index = 0
 37/name = ""
-37/texture = ExtResource( 4 )
+37/texture = ExtResource( 19 )
 37/tex_offset = Vector2( 0, 0 )
 37/modulate = Color( 1, 1, 1, 1 )
 37/region = Rect2( 64, 160, 32, 32 )
@@ -547,7 +978,7 @@ glow_intensity = 1.2
 37/shapes = [  ]
 37/z_index = 0
 38/name = ""
-38/texture = ExtResource( 4 )
+38/texture = ExtResource( 19 )
 38/tex_offset = Vector2( 0, 0 )
 38/modulate = Color( 1, 1, 1, 1 )
 38/region = Rect2( 96, 160, 32, 32 )
@@ -561,7 +992,7 @@ glow_intensity = 1.2
 38/shapes = [  ]
 38/z_index = 0
 39/name = ""
-39/texture = ExtResource( 4 )
+39/texture = ExtResource( 19 )
 39/tex_offset = Vector2( 0, 0 )
 39/modulate = Color( 1, 1, 1, 1 )
 39/region = Rect2( 128, 160, 32, 32 )
@@ -575,7 +1006,7 @@ glow_intensity = 1.2
 39/shapes = [  ]
 39/z_index = 0
 40/name = ""
-40/texture = ExtResource( 4 )
+40/texture = ExtResource( 19 )
 40/tex_offset = Vector2( 0, 0 )
 40/modulate = Color( 1, 1, 1, 1 )
 40/region = Rect2( 160, 160, 32, 32 )
@@ -589,7 +1020,7 @@ glow_intensity = 1.2
 40/shapes = [  ]
 40/z_index = 0
 41/name = ""
-41/texture = ExtResource( 4 )
+41/texture = ExtResource( 19 )
 41/tex_offset = Vector2( 0, 0 )
 41/modulate = Color( 1, 1, 1, 1 )
 41/region = Rect2( 192, 160, 32, 32 )
@@ -603,7 +1034,7 @@ glow_intensity = 1.2
 41/shapes = [  ]
 41/z_index = 0
 42/name = ""
-42/texture = ExtResource( 4 )
+42/texture = ExtResource( 19 )
 42/tex_offset = Vector2( 0, 0 )
 42/modulate = Color( 1, 1, 1, 1 )
 42/region = Rect2( 0, 192, 32, 32 )
@@ -617,7 +1048,7 @@ glow_intensity = 1.2
 42/shapes = [  ]
 42/z_index = 0
 43/name = ""
-43/texture = ExtResource( 4 )
+43/texture = ExtResource( 19 )
 43/tex_offset = Vector2( 0, 0 )
 43/modulate = Color( 1, 1, 1, 1 )
 43/region = Rect2( 32, 192, 32, 32 )
@@ -631,7 +1062,7 @@ glow_intensity = 1.2
 43/shapes = [  ]
 43/z_index = 0
 44/name = ""
-44/texture = ExtResource( 4 )
+44/texture = ExtResource( 19 )
 44/tex_offset = Vector2( 0, 0 )
 44/modulate = Color( 1, 1, 1, 1 )
 44/region = Rect2( 64, 192, 32, 32 )
@@ -645,7 +1076,7 @@ glow_intensity = 1.2
 44/shapes = [  ]
 44/z_index = 0
 45/name = ""
-45/texture = ExtResource( 4 )
+45/texture = ExtResource( 19 )
 45/tex_offset = Vector2( 0, 0 )
 45/modulate = Color( 1, 1, 1, 1 )
 45/region = Rect2( 96, 192, 32, 32 )
@@ -659,7 +1090,7 @@ glow_intensity = 1.2
 45/shapes = [  ]
 45/z_index = 0
 46/name = ""
-46/texture = ExtResource( 4 )
+46/texture = ExtResource( 19 )
 46/tex_offset = Vector2( 0, 0 )
 46/modulate = Color( 1, 1, 1, 1 )
 46/region = Rect2( 128, 192, 32, 32 )
@@ -673,7 +1104,7 @@ glow_intensity = 1.2
 46/shapes = [  ]
 46/z_index = 0
 47/name = ""
-47/texture = ExtResource( 4 )
+47/texture = ExtResource( 19 )
 47/tex_offset = Vector2( 0, 0 )
 47/modulate = Color( 1, 1, 1, 1 )
 47/region = Rect2( 160, 192, 32, 32 )
@@ -687,7 +1118,7 @@ glow_intensity = 1.2
 47/shapes = [  ]
 47/z_index = 0
 48/name = ""
-48/texture = ExtResource( 4 )
+48/texture = ExtResource( 19 )
 48/tex_offset = Vector2( 0, 0 )
 48/modulate = Color( 1, 1, 1, 1 )
 48/region = Rect2( 192, 192, 32, 32 )
@@ -701,9 +1132,279 @@ glow_intensity = 1.2
 48/shapes = [  ]
 48/z_index = 0
 
-[sub_resource type="TileSet" id=3]
+[sub_resource type="RectangleShape2D" id=139]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="RectangleShape2D" id=140]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="RectangleShape2D" id=141]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=142]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=143]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=144]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=145]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=146]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=147]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=148]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=149]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=150]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=151]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=152]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=153]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=154]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=155]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=156]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=157]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=158]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=159]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=160]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=161]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=162]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=163]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=164]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=165]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=166]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=167]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=168]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=169]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=170]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=171]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=172]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=173]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=174]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=175]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=176]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=177]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=178]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=179]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=180]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=181]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=182]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=183]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=184]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=185]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=186]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=187]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=188]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=189]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=190]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=191]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=192]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=193]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=194]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=195]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=196]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=197]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=198]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=199]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=200]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=201]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=202]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=203]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=204]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=205]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=206]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=207]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=208]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=209]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=210]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=211]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=212]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=213]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=214]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=215]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=216]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=217]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=218]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=219]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=220]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=221]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=222]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=223]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=224]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=225]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=226]
+extents = Vector2( 32, 16 )
+
+[sub_resource type="RectangleShape2D" id=227]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="RectangleShape2D" id=228]
+extents = Vector2( 560, 16 )
+
+[sub_resource type="TileSet" id=229]
 0/name = ""
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 21 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 32 )
@@ -717,7 +1418,7 @@ glow_intensity = 1.2
 0/shapes = [  ]
 0/z_index = 0
 1/name = ""
-1/texture = ExtResource( 1 )
+1/texture = ExtResource( 21 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 32, 0, 32, 32 )
@@ -731,7 +1432,7 @@ glow_intensity = 1.2
 1/shapes = [  ]
 1/z_index = 0
 2/name = ""
-2/texture = ExtResource( 1 )
+2/texture = ExtResource( 21 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 64, 0, 32, 32 )
@@ -745,7 +1446,7 @@ glow_intensity = 1.2
 2/shapes = [  ]
 2/z_index = 0
 3/name = ""
-3/texture = ExtResource( 1 )
+3/texture = ExtResource( 21 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 96, 0, 32, 32 )
@@ -759,7 +1460,7 @@ glow_intensity = 1.2
 3/shapes = [  ]
 3/z_index = 0
 4/name = ""
-4/texture = ExtResource( 1 )
+4/texture = ExtResource( 21 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 128, 0, 32, 32 )
@@ -773,7 +1474,7 @@ glow_intensity = 1.2
 4/shapes = [  ]
 4/z_index = 0
 15/name = ""
-15/texture = ExtResource( 1 )
+15/texture = ExtResource( 21 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 0, 32, 32, 32 )
@@ -787,7 +1488,7 @@ glow_intensity = 1.2
 15/shapes = [  ]
 15/z_index = 0
 16/name = ""
-16/texture = ExtResource( 1 )
+16/texture = ExtResource( 21 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 32, 32, 32, 32 )
@@ -801,7 +1502,7 @@ glow_intensity = 1.2
 16/shapes = [  ]
 16/z_index = 0
 17/name = ""
-17/texture = ExtResource( 1 )
+17/texture = ExtResource( 21 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 64, 32, 32, 32 )
@@ -815,7 +1516,7 @@ glow_intensity = 1.2
 17/shapes = [  ]
 17/z_index = 0
 18/name = ""
-18/texture = ExtResource( 1 )
+18/texture = ExtResource( 21 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 96, 32, 32, 32 )
@@ -829,7 +1530,7 @@ glow_intensity = 1.2
 18/shapes = [  ]
 18/z_index = 0
 19/name = ""
-19/texture = ExtResource( 1 )
+19/texture = ExtResource( 21 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 128, 32, 32, 32 )
@@ -843,7 +1544,7 @@ glow_intensity = 1.2
 19/shapes = [  ]
 19/z_index = 0
 30/name = ""
-30/texture = ExtResource( 1 )
+30/texture = ExtResource( 21 )
 30/tex_offset = Vector2( 0, 0 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 0, 64, 32, 32 )
@@ -857,7 +1558,7 @@ glow_intensity = 1.2
 30/shapes = [  ]
 30/z_index = 0
 31/name = ""
-31/texture = ExtResource( 1 )
+31/texture = ExtResource( 21 )
 31/tex_offset = Vector2( 0, 0 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 32, 64, 32, 32 )
@@ -871,7 +1572,7 @@ glow_intensity = 1.2
 31/shapes = [  ]
 31/z_index = 0
 32/name = ""
-32/texture = ExtResource( 1 )
+32/texture = ExtResource( 21 )
 32/tex_offset = Vector2( 0, 0 )
 32/modulate = Color( 1, 1, 1, 1 )
 32/region = Rect2( 64, 64, 32, 32 )
@@ -885,7 +1586,7 @@ glow_intensity = 1.2
 32/shapes = [  ]
 32/z_index = 0
 33/name = ""
-33/texture = ExtResource( 1 )
+33/texture = ExtResource( 21 )
 33/tex_offset = Vector2( 0, 0 )
 33/modulate = Color( 1, 1, 1, 1 )
 33/region = Rect2( 96, 64, 32, 32 )
@@ -899,7 +1600,7 @@ glow_intensity = 1.2
 33/shapes = [  ]
 33/z_index = 0
 34/name = ""
-34/texture = ExtResource( 1 )
+34/texture = ExtResource( 21 )
 34/tex_offset = Vector2( 0, 0 )
 34/modulate = Color( 1, 1, 1, 1 )
 34/region = Rect2( 128, 64, 32, 32 )
@@ -913,7 +1614,7 @@ glow_intensity = 1.2
 34/shapes = [  ]
 34/z_index = 0
 35/name = ""
-35/texture = ExtResource( 1 )
+35/texture = ExtResource( 21 )
 35/tex_offset = Vector2( 0, 0 )
 35/modulate = Color( 1, 1, 1, 1 )
 35/region = Rect2( 160, 64, 32, 32 )
@@ -927,7 +1628,7 @@ glow_intensity = 1.2
 35/shapes = [  ]
 35/z_index = 0
 45/name = ""
-45/texture = ExtResource( 1 )
+45/texture = ExtResource( 21 )
 45/tex_offset = Vector2( 0, 0 )
 45/modulate = Color( 1, 1, 1, 1 )
 45/region = Rect2( 0, 96, 32, 32 )
@@ -941,7 +1642,7 @@ glow_intensity = 1.2
 45/shapes = [  ]
 45/z_index = 0
 46/name = ""
-46/texture = ExtResource( 1 )
+46/texture = ExtResource( 21 )
 46/tex_offset = Vector2( 0, 0 )
 46/modulate = Color( 1, 1, 1, 1 )
 46/region = Rect2( 32, 96, 32, 32 )
@@ -955,7 +1656,7 @@ glow_intensity = 1.2
 46/shapes = [  ]
 46/z_index = 0
 47/name = ""
-47/texture = ExtResource( 1 )
+47/texture = ExtResource( 21 )
 47/tex_offset = Vector2( 0, 0 )
 47/modulate = Color( 1, 1, 1, 1 )
 47/region = Rect2( 64, 96, 32, 32 )
@@ -969,7 +1670,7 @@ glow_intensity = 1.2
 47/shapes = [  ]
 47/z_index = 0
 48/name = ""
-48/texture = ExtResource( 1 )
+48/texture = ExtResource( 21 )
 48/tex_offset = Vector2( 0, 0 )
 48/modulate = Color( 1, 1, 1, 1 )
 48/region = Rect2( 96, 96, 32, 32 )
@@ -983,7 +1684,7 @@ glow_intensity = 1.2
 48/shapes = [  ]
 48/z_index = 0
 49/name = ""
-49/texture = ExtResource( 1 )
+49/texture = ExtResource( 21 )
 49/tex_offset = Vector2( 0, 0 )
 49/modulate = Color( 1, 1, 1, 1 )
 49/region = Rect2( 128, 96, 32, 32 )
@@ -997,7 +1698,7 @@ glow_intensity = 1.2
 49/shapes = [  ]
 49/z_index = 0
 50/name = ""
-50/texture = ExtResource( 1 )
+50/texture = ExtResource( 21 )
 50/tex_offset = Vector2( 0, 0 )
 50/modulate = Color( 1, 1, 1, 1 )
 50/region = Rect2( 160, 96, 32, 32 )
@@ -1011,7 +1712,7 @@ glow_intensity = 1.2
 50/shapes = [  ]
 50/z_index = 0
 60/name = ""
-60/texture = ExtResource( 1 )
+60/texture = ExtResource( 21 )
 60/tex_offset = Vector2( 0, 0 )
 60/modulate = Color( 1, 1, 1, 1 )
 60/region = Rect2( 0, 128, 32, 32 )
@@ -1025,7 +1726,7 @@ glow_intensity = 1.2
 60/shapes = [  ]
 60/z_index = 0
 61/name = ""
-61/texture = ExtResource( 1 )
+61/texture = ExtResource( 21 )
 61/tex_offset = Vector2( 0, 0 )
 61/modulate = Color( 1, 1, 1, 1 )
 61/region = Rect2( 32, 128, 32, 32 )
@@ -1039,7 +1740,7 @@ glow_intensity = 1.2
 61/shapes = [  ]
 61/z_index = 0
 62/name = ""
-62/texture = ExtResource( 1 )
+62/texture = ExtResource( 21 )
 62/tex_offset = Vector2( 0, 0 )
 62/modulate = Color( 1, 1, 1, 1 )
 62/region = Rect2( 64, 128, 32, 32 )
@@ -1053,7 +1754,7 @@ glow_intensity = 1.2
 62/shapes = [  ]
 62/z_index = 0
 63/name = ""
-63/texture = ExtResource( 1 )
+63/texture = ExtResource( 21 )
 63/tex_offset = Vector2( 0, 0 )
 63/modulate = Color( 1, 1, 1, 1 )
 63/region = Rect2( 96, 128, 32, 32 )
@@ -1067,7 +1768,7 @@ glow_intensity = 1.2
 63/shapes = [  ]
 63/z_index = 0
 64/name = ""
-64/texture = ExtResource( 1 )
+64/texture = ExtResource( 21 )
 64/tex_offset = Vector2( 0, 0 )
 64/modulate = Color( 1, 1, 1, 1 )
 64/region = Rect2( 128, 128, 32, 32 )
@@ -1081,7 +1782,7 @@ glow_intensity = 1.2
 64/shapes = [  ]
 64/z_index = 0
 65/name = ""
-65/texture = ExtResource( 1 )
+65/texture = ExtResource( 21 )
 65/tex_offset = Vector2( 0, 0 )
 65/modulate = Color( 1, 1, 1, 1 )
 65/region = Rect2( 160, 128, 32, 32 )
@@ -1095,7 +1796,7 @@ glow_intensity = 1.2
 65/shapes = [  ]
 65/z_index = 0
 75/name = ""
-75/texture = ExtResource( 1 )
+75/texture = ExtResource( 21 )
 75/tex_offset = Vector2( 0, 0 )
 75/modulate = Color( 1, 1, 1, 1 )
 75/region = Rect2( 0, 160, 32, 32 )
@@ -1109,7 +1810,7 @@ glow_intensity = 1.2
 75/shapes = [  ]
 75/z_index = 0
 76/name = ""
-76/texture = ExtResource( 1 )
+76/texture = ExtResource( 21 )
 76/tex_offset = Vector2( 0, 0 )
 76/modulate = Color( 1, 1, 1, 1 )
 76/region = Rect2( 32, 160, 32, 32 )
@@ -1123,7 +1824,7 @@ glow_intensity = 1.2
 76/shapes = [  ]
 76/z_index = 0
 77/name = ""
-77/texture = ExtResource( 1 )
+77/texture = ExtResource( 21 )
 77/tex_offset = Vector2( 0, 0 )
 77/modulate = Color( 1, 1, 1, 1 )
 77/region = Rect2( 64, 160, 32, 32 )
@@ -1137,7 +1838,7 @@ glow_intensity = 1.2
 77/shapes = [  ]
 77/z_index = 0
 78/name = ""
-78/texture = ExtResource( 1 )
+78/texture = ExtResource( 21 )
 78/tex_offset = Vector2( 0, 0 )
 78/modulate = Color( 1, 1, 1, 1 )
 78/region = Rect2( 96, 160, 32, 32 )
@@ -1151,7 +1852,7 @@ glow_intensity = 1.2
 78/shapes = [  ]
 78/z_index = 0
 79/name = ""
-79/texture = ExtResource( 1 )
+79/texture = ExtResource( 21 )
 79/tex_offset = Vector2( 0, 0 )
 79/modulate = Color( 1, 1, 1, 1 )
 79/region = Rect2( 128, 160, 32, 32 )
@@ -1165,7 +1866,7 @@ glow_intensity = 1.2
 79/shapes = [  ]
 79/z_index = 0
 80/name = ""
-80/texture = ExtResource( 1 )
+80/texture = ExtResource( 21 )
 80/tex_offset = Vector2( 0, 0 )
 80/modulate = Color( 1, 1, 1, 1 )
 80/region = Rect2( 160, 160, 32, 32 )
@@ -1179,7 +1880,7 @@ glow_intensity = 1.2
 80/shapes = [  ]
 80/z_index = 0
 90/name = ""
-90/texture = ExtResource( 1 )
+90/texture = ExtResource( 21 )
 90/tex_offset = Vector2( 0, 0 )
 90/modulate = Color( 1, 1, 1, 1 )
 90/region = Rect2( 0, 192, 32, 32 )
@@ -1193,7 +1894,7 @@ glow_intensity = 1.2
 90/shapes = [  ]
 90/z_index = 0
 91/name = ""
-91/texture = ExtResource( 1 )
+91/texture = ExtResource( 21 )
 91/tex_offset = Vector2( 0, 0 )
 91/modulate = Color( 1, 1, 1, 1 )
 91/region = Rect2( 32, 192, 32, 32 )
@@ -1208,35 +1909,941 @@ glow_intensity = 1.2
 91/z_index = 0
 
 [node name="Level13" type="Node2D"]
-script = ExtResource( 3 )
+script = ExtResource( 4 )
+player_path = NodePath("Characters/Player")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 2 )]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 14 )]
 environment = SubResource( 1 )
 
 [node name="Collision_Ground" type="StaticBody2D" parent="."]
-position = Vector2( -5376, -3808 )
+position = Vector2( -4448, -3552 )
 z_index = 1
 __meta__ = {
 "ground_type": "Stone"
 }
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 560, 16 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 560, 48 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 560, 80 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 560, 112 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 144 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 144 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 176 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 176 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 208 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 208 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1072, 208 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 240 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 240 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 240 )
+shape = SubResource( 15 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 272 )
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 992, 272 )
+shape = SubResource( 17 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 304 )
+shape = SubResource( 18 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 992, 304 )
+shape = SubResource( 19 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 336 )
+shape = SubResource( 20 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 336 )
+shape = SubResource( 21 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 336 )
+shape = SubResource( 22 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 368 )
+shape = SubResource( 23 )
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 528, 368 )
+shape = SubResource( 24 )
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 368 )
+shape = SubResource( 25 )
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 400 )
+shape = SubResource( 26 )
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 528, 400 )
+shape = SubResource( 27 )
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 400 )
+shape = SubResource( 28 )
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 432 )
+shape = SubResource( 29 )
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 528, 432 )
+shape = SubResource( 30 )
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 432 )
+shape = SubResource( 31 )
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 464 )
+shape = SubResource( 32 )
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 464 )
+shape = SubResource( 33 )
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 464 )
+shape = SubResource( 34 )
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 496 )
+shape = SubResource( 35 )
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 496 )
+shape = SubResource( 36 )
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 496 )
+shape = SubResource( 37 )
+
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 528 )
+shape = SubResource( 38 )
+
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 528 )
+shape = SubResource( 39 )
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 784, 528 )
+shape = SubResource( 40 )
+
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 528 )
+shape = SubResource( 41 )
+
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 560 )
+shape = SubResource( 42 )
+
+[node name="CollisionShape2D42" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 560 )
+shape = SubResource( 43 )
+
+[node name="CollisionShape2D43" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 784, 560 )
+shape = SubResource( 44 )
+
+[node name="CollisionShape2D44" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 560 )
+shape = SubResource( 45 )
+
+[node name="CollisionShape2D45" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 592 )
+shape = SubResource( 46 )
+
+[node name="CollisionShape2D46" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 592 )
+shape = SubResource( 47 )
+
+[node name="CollisionShape2D47" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 784, 592 )
+shape = SubResource( 48 )
+
+[node name="CollisionShape2D48" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 592 )
+shape = SubResource( 49 )
+
+[node name="CollisionShape2D49" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 624 )
+shape = SubResource( 50 )
+
+[node name="CollisionShape2D50" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 624 )
+shape = SubResource( 51 )
+
+[node name="CollisionShape2D51" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 784, 624 )
+shape = SubResource( 52 )
+
+[node name="CollisionShape2D52" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 624 )
+shape = SubResource( 53 )
+
+[node name="CollisionShape2D53" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 656 )
+shape = SubResource( 54 )
+
+[node name="CollisionShape2D54" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 656 )
+shape = SubResource( 55 )
+
+[node name="CollisionShape2D55" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 656 )
+shape = SubResource( 56 )
+
+[node name="CollisionShape2D56" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 688 )
+shape = SubResource( 57 )
+
+[node name="CollisionShape2D57" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 688 )
+shape = SubResource( 58 )
+
+[node name="CollisionShape2D58" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 688 )
+shape = SubResource( 59 )
+
+[node name="CollisionShape2D59" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 720 )
+shape = SubResource( 60 )
+
+[node name="CollisionShape2D60" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 720 )
+shape = SubResource( 61 )
+
+[node name="CollisionShape2D61" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 848, 720 )
+shape = SubResource( 62 )
+
+[node name="CollisionShape2D62" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 752 )
+shape = SubResource( 63 )
+
+[node name="CollisionShape2D63" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 752 )
+shape = SubResource( 64 )
+
+[node name="CollisionShape2D64" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 848, 752 )
+shape = SubResource( 65 )
+
+[node name="CollisionShape2D65" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 784 )
+shape = SubResource( 66 )
+
+[node name="CollisionShape2D66" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 784 )
+shape = SubResource( 67 )
+
+[node name="CollisionShape2D67" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 896, 784 )
+shape = SubResource( 68 )
+
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 784 )
+shape = SubResource( 69 )
+
+[node name="CollisionShape2D69" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 816 )
+shape = SubResource( 70 )
+
+[node name="CollisionShape2D70" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 816 )
+shape = SubResource( 71 )
+
+[node name="CollisionShape2D71" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 896, 816 )
+shape = SubResource( 72 )
+
+[node name="CollisionShape2D72" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 816 )
+shape = SubResource( 73 )
+
+[node name="CollisionShape2D73" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 848 )
+shape = SubResource( 74 )
+
+[node name="CollisionShape2D74" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 848 )
+shape = SubResource( 75 )
+
+[node name="CollisionShape2D75" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 992, 848 )
+shape = SubResource( 76 )
+
+[node name="CollisionShape2D76" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 880 )
+shape = SubResource( 77 )
+
+[node name="CollisionShape2D77" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 512, 880 )
+shape = SubResource( 78 )
+
+[node name="CollisionShape2D78" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 992, 880 )
+shape = SubResource( 79 )
+
+[node name="CollisionShape2D79" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 128, 912 )
+shape = SubResource( 80 )
+
+[node name="CollisionShape2D80" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 512, 912 )
+shape = SubResource( 81 )
+
+[node name="CollisionShape2D81" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 912 )
+shape = SubResource( 82 )
+
+[node name="CollisionShape2D82" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 128, 944 )
+shape = SubResource( 83 )
+
+[node name="CollisionShape2D83" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 560, 944 )
+shape = SubResource( 84 )
+
+[node name="CollisionShape2D84" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 944 )
+shape = SubResource( 85 )
+
+[node name="CollisionShape2D85" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 976 )
+shape = SubResource( 86 )
+
+[node name="CollisionShape2D86" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 560, 976 )
+shape = SubResource( 87 )
+
+[node name="CollisionShape2D87" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 976 )
+shape = SubResource( 88 )
+
+[node name="CollisionShape2D88" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 1008 )
+shape = SubResource( 89 )
+
+[node name="CollisionShape2D89" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 1008 )
+shape = SubResource( 90 )
+
+[node name="CollisionShape2D90" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1008 )
+shape = SubResource( 91 )
+
+[node name="CollisionShape2D91" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 1040 )
+shape = SubResource( 92 )
+
+[node name="CollisionShape2D92" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 1040 )
+shape = SubResource( 93 )
+
+[node name="CollisionShape2D93" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1040 )
+shape = SubResource( 94 )
+
+[node name="CollisionShape2D94" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 1072 )
+shape = SubResource( 95 )
+
+[node name="CollisionShape2D95" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 1072 )
+shape = SubResource( 96 )
+
+[node name="CollisionShape2D96" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 896, 1072 )
+shape = SubResource( 97 )
+
+[node name="CollisionShape2D97" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1072 )
+shape = SubResource( 98 )
+
+[node name="CollisionShape2D98" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 1104 )
+shape = SubResource( 99 )
+
+[node name="CollisionShape2D99" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 1104 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape2D100" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 896, 1104 )
+shape = SubResource( 101 )
+
+[node name="CollisionShape2D101" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1104 )
+shape = SubResource( 102 )
+
+[node name="CollisionShape2D102" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 1136 )
+shape = SubResource( 103 )
+
+[node name="CollisionShape2D103" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 1136 )
+shape = SubResource( 104 )
+
+[node name="CollisionShape2D104" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 896, 1136 )
+shape = SubResource( 105 )
+
+[node name="CollisionShape2D105" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1136 )
+shape = SubResource( 106 )
+
+[node name="CollisionShape2D106" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 1168 )
+shape = SubResource( 107 )
+
+[node name="CollisionShape2D107" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 1168 )
+shape = SubResource( 108 )
+
+[node name="CollisionShape2D108" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 896, 1168 )
+shape = SubResource( 109 )
+
+[node name="CollisionShape2D109" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1168 )
+shape = SubResource( 110 )
+
+[node name="CollisionShape2D110" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 1200 )
+shape = SubResource( 111 )
+
+[node name="CollisionShape2D111" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 1200 )
+shape = SubResource( 112 )
+
+[node name="CollisionShape2D112" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 896, 1200 )
+shape = SubResource( 113 )
+
+[node name="CollisionShape2D113" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1200 )
+shape = SubResource( 114 )
+
+[node name="CollisionShape2D114" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 1232 )
+shape = SubResource( 115 )
+
+[node name="CollisionShape2D115" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 1232 )
+shape = SubResource( 116 )
+
+[node name="CollisionShape2D116" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 896, 1232 )
+shape = SubResource( 117 )
+
+[node name="CollisionShape2D117" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1232 )
+shape = SubResource( 118 )
+
+[node name="CollisionShape2D118" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 1264 )
+shape = SubResource( 119 )
+
+[node name="CollisionShape2D119" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 464, 1264 )
+shape = SubResource( 120 )
+
+[node name="CollisionShape2D120" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 896, 1264 )
+shape = SubResource( 121 )
+
+[node name="CollisionShape2D121" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1264 )
+shape = SubResource( 122 )
+
+[node name="CollisionShape2D122" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 1296 )
+shape = SubResource( 123 )
+
+[node name="CollisionShape2D123" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 384, 1296 )
+shape = SubResource( 124 )
+
+[node name="CollisionShape2D124" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 896, 1296 )
+shape = SubResource( 125 )
+
+[node name="CollisionShape2D125" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1296 )
+shape = SubResource( 126 )
+
+[node name="CollisionShape2D126" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 64, 1328 )
+shape = SubResource( 127 )
+
+[node name="CollisionShape2D127" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 384, 1328 )
+shape = SubResource( 128 )
+
+[node name="CollisionShape2D128" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 896, 1328 )
+shape = SubResource( 129 )
+
+[node name="CollisionShape2D129" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1328 )
+shape = SubResource( 130 )
+
+[node name="CollisionShape2D130" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1360 )
+shape = SubResource( 131 )
+
+[node name="CollisionShape2D131" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 1056, 1392 )
+shape = SubResource( 132 )
+
+[node name="CollisionShape2D132" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 560, 1424 )
+shape = SubResource( 133 )
+
+[node name="CollisionShape2D133" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 560, 1456 )
+shape = SubResource( 134 )
+
+[node name="CollisionShape2D134" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 560, 1488 )
+shape = SubResource( 135 )
+
+[node name="CollisionShape2D135" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 560, 1520 )
+shape = SubResource( 136 )
+
+[node name="CollisionShape2D136" type="CollisionShape2D" parent="Collision_Ground"]
+position = Vector2( 560, 1552 )
+shape = SubResource( 137 )
+
 [node name="Ground" type="TileMap" parent="."]
-position = Vector2( -5376, -3808 )
+position = Vector2( -4448, -3552 )
 z_index = 1
-tile_set = SubResource( 2 )
+tile_set = SubResource( 138 )
 cell_size = Vector2( 32, 32 )
 format = 1
+tile_data = PoolIntArray( 0, 8, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 8, 0, 6, 8, 0, 7, 8, 0, 8, 8, 0, 9, 8, 0, 10, 8, 0, 11, 8, 0, 12, 8, 0, 13, 8, 0, 14, 8, 0, 15, 8, 0, 16, 8, 0, 17, 8, 0, 18, 8, 0, 19, 8, 0, 20, 8, 0, 21, 8, 0, 22, 8, 0, 23, 8, 0, 24, 8, 0, 25, 8, 0, 26, 8, 0, 27, 8, 0, 28, 8, 0, 29, 8, 0, 30, 8, 0, 31, 8, 0, 32, 8, 0, 33, 8, 0, 34, 8, 0, 65536, 8, 0, 65537, 8, 0, 65538, 8, 0, 65539, 8, 0, 65540, 8, 0, 65541, 8, 0, 65542, 8, 0, 65543, 8, 0, 65544, 8, 0, 65545, 8, 0, 65546, 8, 0, 65547, 8, 0, 65548, 8, 0, 65549, 8, 0, 65550, 8, 0, 65551, 8, 0, 65552, 8, 0, 65553, 8, 0, 65554, 8, 0, 65555, 8, 0, 65556, 8, 0, 65557, 8, 0, 65558, 8, 0, 65559, 8, 0, 65560, 8, 0, 65561, 8, 0, 65562, 8, 0, 65563, 8, 0, 65564, 8, 0, 65565, 8, 0, 65566, 8, 0, 65567, 8, 0, 65568, 8, 0, 65569, 8, 0, 65570, 8, 0, 131072, 8, 0, 131073, 8, 0, 131074, 8, 0, 131075, 8, 0, 131076, 8, 0, 131077, 8, 0, 131078, 8, 0, 131079, 8, 0, 131080, 8, 0, 131081, 8, 0, 131082, 8, 0, 131083, 8, 0, 131084, 8, 0, 131085, 8, 0, 131086, 8, 0, 131087, 8, 0, 131088, 8, 0, 131089, 8, 0, 131090, 8, 0, 131091, 8, 0, 131092, 8, 0, 131093, 8, 0, 131094, 8, 0, 131095, 8, 0, 131096, 8, 0, 131097, 8, 0, 131098, 8, 0, 131099, 8, 0, 131100, 8, 0, 131101, 8, 0, 131102, 8, 0, 131103, 8, 0, 131104, 8, 0, 131105, 8, 0, 131106, 8, 0, 196608, 8, 0, 196609, 8, 0, 196610, 8, 0, 196611, 4, 0, 196612, 15, 0, 196613, 15, 0, 196614, 15, 0, 196615, 15, 0, 196616, 15, 0, 196617, 15, 0, 196618, 15, 0, 196619, 15, 0, 196620, 15, 0, 196621, 5, 0, 196622, 8, 0, 196623, 4, 0, 196624, 15, 0, 196625, 15, 0, 196626, 15, 0, 196627, 15, 0, 196628, 15, 0, 196629, 15, 0, 196630, 15, 0, 196631, 15, 0, 196632, 15, 0, 196633, 15, 0, 196634, 15, 0, 196635, 15, 0, 196636, 15, 0, 196637, 15, 0, 196638, 15, 0, 196639, 15, 0, 196640, 15, 0, 196641, 15, 0, 196642, 15, 0, 262144, 8, 0, 262145, 8, 0, 262146, 8, 0, 262147, 9, 0, 262157, 7, 0, 262158, 8, 0, 262159, 9, 0, 327680, 8, 0, 327681, 8, 0, 327682, 8, 0, 327683, 9, 0, 327693, 7, 0, 327694, 8, 0, 327695, 9, 0, 393216, 8, 0, 393217, 8, 0, 393218, 8, 0, 393219, 9, 0, 393229, 7, 0, 393230, 8, 0, 393231, 9, 0, 393248, 0, 0, 393249, 1, 0, 393250, 1, 0, 458752, 8, 0, 458753, 8, 0, 458754, 8, 0, 458755, 9, 0, 458765, 14, 0, 458766, 15, 0, 458767, 16, 0, 458783, 0, 0, 458784, 12, 0, 458785, 8, 0, 458786, 8, 0, 524288, 8, 0, 524289, 8, 0, 524290, 8, 0, 524291, 9, 0, 524315, 0, 0, 524316, 1, 0, 524317, 1, 0, 524318, 1, 0, 524319, 12, 0, 524320, 8, 0, 524321, 8, 0, 524322, 8, 0, 589824, 8, 0, 589825, 8, 0, 589826, 8, 0, 589827, 9, 0, 589851, 14, 0, 589852, 15, 0, 589853, 15, 0, 589854, 15, 0, 589855, 5, 0, 589856, 8, 0, 589857, 8, 0, 589858, 8, 0, 655360, 8, 0, 655361, 8, 0, 655362, 8, 0, 655363, 9, 0, 655373, 0, 0, 655374, 1, 0, 655375, 2, 0, 655391, 7, 0, 655392, 8, 0, 655393, 8, 0, 655394, 8, 0, 720896, 8, 0, 720897, 8, 0, 720898, 8, 0, 720899, 9, 0, 720909, 7, 0, 720910, 8, 0, 720911, 11, 0, 720912, 1, 0, 720913, 1, 0, 720914, 1, 0, 720915, 2, 0, 720927, 7, 0, 720928, 8, 0, 720929, 8, 0, 720930, 8, 0, 786432, 8, 0, 786433, 8, 0, 786434, 8, 0, 786435, 9, 0, 786445, 7, 0, 786446, 8, 0, 786447, 8, 0, 786448, 8, 0, 786449, 8, 0, 786450, 8, 0, 786451, 9, 0, 786463, 7, 0, 786464, 8, 0, 786465, 8, 0, 786466, 8, 0, 851968, 8, 0, 851969, 8, 0, 851970, 8, 0, 851971, 9, 0, 851981, 7, 0, 851982, 8, 0, 851983, 4, 0, 851984, 15, 0, 851985, 15, 0, 851986, 15, 0, 851987, 16, 0, 851999, 7, 0, 852000, 8, 0, 852001, 8, 0, 852002, 8, 0, 917504, 8, 0, 917505, 8, 0, 917506, 8, 0, 917507, 9, 0, 917517, 7, 0, 917518, 8, 0, 917519, 9, 0, 917535, 7, 0, 917536, 8, 0, 917537, 8, 0, 917538, 8, 0, 983040, 8, 0, 983041, 8, 0, 983042, 8, 0, 983043, 9, 0, 983053, 7, 0, 983054, 8, 0, 983055, 9, 0, 983071, 7, 0, 983072, 8, 0, 983073, 8, 0, 983074, 8, 0, 1048576, 8, 0, 1048577, 8, 0, 1048578, 8, 0, 1048579, 9, 0, 1048589, 7, 0, 1048590, 8, 0, 1048591, 9, 0, 1048596, 0, 0, 1048597, 1, 0, 1048598, 1, 0, 1048599, 1, 0, 1048600, 1, 0, 1048601, 1, 0, 1048602, 1, 0, 1048603, 1, 0, 1048604, 2, 0, 1048607, 7, 0, 1048608, 8, 0, 1048609, 8, 0, 1048610, 8, 0, 1114112, 8, 0, 1114113, 8, 0, 1114114, 8, 0, 1114115, 9, 0, 1114125, 7, 0, 1114126, 8, 0, 1114127, 9, 0, 1114132, 7, 0, 1114133, 8, 0, 1114134, 8, 0, 1114135, 8, 0, 1114136, 8, 0, 1114137, 8, 0, 1114138, 8, 0, 1114139, 8, 0, 1114140, 9, 0, 1114143, 7, 0, 1114144, 8, 0, 1114145, 8, 0, 1114146, 8, 0, 1179648, 8, 0, 1179649, 8, 0, 1179650, 8, 0, 1179651, 9, 0, 1179661, 7, 0, 1179662, 8, 0, 1179663, 9, 0, 1179668, 7, 0, 1179669, 8, 0, 1179670, 8, 0, 1179671, 8, 0, 1179672, 8, 0, 1179673, 8, 0, 1179674, 8, 0, 1179675, 8, 0, 1179676, 9, 0, 1179679, 7, 0, 1179680, 8, 0, 1179681, 8, 0, 1179682, 8, 0, 1245184, 8, 0, 1245185, 8, 0, 1245186, 8, 0, 1245187, 9, 0, 1245197, 7, 0, 1245198, 8, 0, 1245199, 9, 0, 1245204, 14, 0, 1245205, 15, 0, 1245206, 15, 0, 1245207, 15, 0, 1245208, 15, 0, 1245209, 15, 0, 1245210, 15, 0, 1245211, 15, 0, 1245212, 16, 0, 1245215, 7, 0, 1245216, 8, 0, 1245217, 8, 0, 1245218, 8, 0, 1310720, 8, 0, 1310721, 8, 0, 1310722, 8, 0, 1310723, 9, 0, 1310733, 7, 0, 1310734, 8, 0, 1310735, 9, 0, 1310751, 7, 0, 1310752, 8, 0, 1310753, 8, 0, 1310754, 8, 0, 1376256, 8, 0, 1376257, 8, 0, 1376258, 8, 0, 1376259, 9, 0, 1376269, 7, 0, 1376270, 8, 0, 1376271, 9, 0, 1376287, 7, 0, 1376288, 8, 0, 1376289, 8, 0, 1376290, 8, 0, 1441792, 8, 0, 1441793, 8, 0, 1441794, 8, 0, 1441795, 9, 0, 1441805, 7, 0, 1441806, 8, 0, 1441807, 9, 0, 1441810, 0, 0, 1441811, 1, 0, 1441812, 1, 0, 1441813, 1, 0, 1441814, 1, 0, 1441815, 1, 0, 1441816, 1, 0, 1441817, 1, 0, 1441818, 1, 0, 1441819, 1, 0, 1441820, 1, 0, 1441821, 1, 0, 1441822, 1, 0, 1441823, 12, 0, 1441824, 8, 0, 1441825, 8, 0, 1441826, 8, 0, 1507328, 8, 0, 1507329, 8, 0, 1507330, 8, 0, 1507331, 9, 0, 1507341, 7, 0, 1507342, 8, 0, 1507343, 9, 0, 1507346, 14, 0, 1507347, 15, 0, 1507348, 15, 0, 1507349, 15, 0, 1507350, 15, 0, 1507351, 15, 0, 1507352, 15, 0, 1507353, 15, 0, 1507354, 15, 0, 1507355, 5, 0, 1507356, 4, 0, 1507357, 15, 0, 1507358, 15, 0, 1507359, 5, 0, 1507360, 8, 0, 1507361, 8, 0, 1507362, 8, 0, 1572864, 8, 0, 1572865, 8, 0, 1572866, 8, 0, 1572867, 9, 0, 1572877, 7, 0, 1572878, 8, 0, 1572879, 9, 0, 1572891, 7, 0, 1572892, 9, 0, 1572895, 7, 0, 1572896, 8, 0, 1572897, 8, 0, 1572898, 8, 0, 1638400, 8, 0, 1638401, 8, 0, 1638402, 8, 0, 1638403, 9, 0, 1638413, 7, 0, 1638414, 8, 0, 1638415, 9, 0, 1638427, 7, 0, 1638428, 9, 0, 1638431, 7, 0, 1638432, 8, 0, 1638433, 8, 0, 1638434, 8, 0, 1703936, 8, 0, 1703937, 8, 0, 1703938, 8, 0, 1703939, 9, 0, 1703949, 7, 0, 1703950, 8, 0, 1703951, 9, 0, 1703963, 7, 0, 1703964, 11, 0, 1703965, 1, 0, 1703966, 1, 0, 1703967, 12, 0, 1703968, 8, 0, 1703969, 8, 0, 1703970, 8, 0, 1769472, 8, 0, 1769473, 8, 0, 1769474, 8, 0, 1769475, 9, 0, 1769485, 7, 0, 1769486, 8, 0, 1769487, 11, 0, 1769488, 1, 0, 1769489, 1, 0, 1769490, 2, 0, 1769499, 14, 0, 1769500, 15, 0, 1769501, 15, 0, 1769502, 15, 0, 1769503, 5, 0, 1769504, 8, 0, 1769505, 8, 0, 1769506, 8, 0, 1835008, 8, 0, 1835009, 8, 0, 1835010, 8, 0, 1835011, 11, 0, 1835012, 1, 0, 1835013, 1, 0, 1835014, 1, 0, 1835015, 2, 0, 1835021, 7, 0, 1835022, 8, 0, 1835023, 8, 0, 1835024, 8, 0, 1835025, 8, 0, 1835026, 9, 0, 1835039, 7, 0, 1835040, 8, 0, 1835041, 8, 0, 1835042, 8, 0, 1900544, 8, 0, 1900545, 8, 0, 1900546, 8, 0, 1900547, 4, 0, 1900548, 15, 0, 1900549, 15, 0, 1900550, 15, 0, 1900551, 16, 0, 1900557, 7, 0, 1900558, 8, 0, 1900559, 8, 0, 1900560, 8, 0, 1900561, 8, 0, 1900562, 11, 0, 1900563, 1, 0, 1900564, 1, 0, 1900565, 2, 0, 1900575, 7, 0, 1900576, 8, 0, 1900577, 8, 0, 1900578, 8, 0, 1966080, 8, 0, 1966081, 8, 0, 1966082, 8, 0, 1966083, 9, 0, 1966093, 7, 0, 1966094, 8, 0, 1966095, 4, 0, 1966096, 15, 0, 1966097, 15, 0, 1966098, 15, 0, 1966099, 15, 0, 1966100, 15, 0, 1966101, 16, 0, 1966111, 7, 0, 1966112, 8, 0, 1966113, 8, 0, 1966114, 8, 0, 2031616, 8, 0, 2031617, 8, 0, 2031618, 8, 0, 2031619, 9, 0, 2031629, 7, 0, 2031630, 8, 0, 2031631, 9, 0, 2031647, 7, 0, 2031648, 8, 0, 2031649, 8, 0, 2031650, 8, 0, 2097152, 8, 0, 2097153, 8, 0, 2097154, 8, 0, 2097155, 9, 0, 2097165, 7, 0, 2097166, 8, 0, 2097167, 9, 0, 2097183, 7, 0, 2097184, 8, 0, 2097185, 8, 0, 2097186, 8, 0, 2162688, 8, 0, 2162689, 8, 0, 2162690, 8, 0, 2162691, 9, 0, 2162701, 7, 0, 2162702, 8, 0, 2162703, 9, 0, 2162715, 0, 0, 2162716, 2, 0, 2162719, 7, 0, 2162720, 8, 0, 2162721, 8, 0, 2162722, 8, 0, 2228224, 8, 0, 2228225, 8, 0, 2228226, 8, 0, 2228227, 9, 0, 2228237, 7, 0, 2228238, 8, 0, 2228239, 9, 0, 2228251, 7, 0, 2228252, 9, 0, 2228255, 7, 0, 2228256, 8, 0, 2228257, 8, 0, 2228258, 8, 0, 2293760, 8, 0, 2293761, 8, 0, 2293762, 8, 0, 2293763, 9, 0, 2293773, 7, 0, 2293774, 8, 0, 2293775, 9, 0, 2293787, 7, 0, 2293788, 9, 0, 2293791, 7, 0, 2293792, 8, 0, 2293793, 8, 0, 2293794, 8, 0, 2359296, 8, 0, 2359297, 8, 0, 2359298, 8, 0, 2359299, 9, 0, 2359309, 7, 0, 2359310, 8, 0, 2359311, 9, 0, 2359323, 7, 0, 2359324, 9, 0, 2359327, 7, 0, 2359328, 8, 0, 2359329, 8, 0, 2359330, 8, 0, 2424832, 8, 0, 2424833, 8, 0, 2424834, 8, 0, 2424835, 9, 0, 2424845, 7, 0, 2424846, 8, 0, 2424847, 9, 0, 2424859, 7, 0, 2424860, 9, 0, 2424863, 7, 0, 2424864, 8, 0, 2424865, 8, 0, 2424866, 8, 0, 2490368, 8, 0, 2490369, 8, 0, 2490370, 8, 0, 2490371, 9, 0, 2490381, 7, 0, 2490382, 8, 0, 2490383, 9, 0, 2490395, 7, 0, 2490396, 9, 0, 2490399, 7, 0, 2490400, 8, 0, 2490401, 8, 0, 2490402, 8, 0, 2555904, 8, 0, 2555905, 8, 0, 2555906, 8, 0, 2555907, 9, 0, 2555917, 7, 0, 2555918, 8, 0, 2555919, 9, 0, 2555931, 7, 0, 2555932, 9, 0, 2555935, 7, 0, 2555936, 8, 0, 2555937, 8, 0, 2555938, 8, 0, 2621440, 8, 0, 2621441, 8, 0, 2621442, 8, 0, 2621443, 9, 0, 2621447, 0, 0, 2621448, 1, 0, 2621449, 1, 0, 2621450, 1, 0, 2621451, 1, 0, 2621452, 1, 0, 2621453, 12, 0, 2621454, 8, 0, 2621455, 11, 0, 2621456, 2, 0, 2621467, 7, 0, 2621468, 9, 0, 2621471, 7, 0, 2621472, 8, 0, 2621473, 8, 0, 2621474, 8, 0, 2686976, 15, 0, 2686977, 15, 0, 2686978, 15, 0, 2686979, 16, 0, 2686983, 14, 0, 2686984, 15, 0, 2686985, 15, 0, 2686986, 15, 0, 2686987, 15, 0, 2686988, 15, 0, 2686989, 15, 0, 2686990, 15, 0, 2686991, 15, 0, 2686992, 16, 0, 2687003, 14, 0, 2687004, 16, 0, 2687007, 7, 0, 2687008, 8, 0, 2687009, 8, 0, 2687010, 8, 0, 2752543, 7, 0, 2752544, 8, 0, 2752545, 8, 0, 2752546, 8, 0, 2818079, 7, 0, 2818080, 8, 0, 2818081, 8, 0, 2818082, 8, 0, 2883584, 1, 0, 2883585, 1, 0, 2883586, 1, 0, 2883587, 1, 0, 2883588, 1, 0, 2883589, 1, 0, 2883590, 1, 0, 2883591, 1, 0, 2883592, 1, 0, 2883593, 1, 0, 2883594, 1, 0, 2883595, 1, 0, 2883596, 1, 0, 2883597, 1, 0, 2883598, 1, 0, 2883599, 1, 0, 2883600, 1, 0, 2883601, 1, 0, 2883602, 1, 0, 2883603, 1, 0, 2883604, 1, 0, 2883605, 1, 0, 2883606, 1, 0, 2883607, 1, 0, 2883608, 1, 0, 2883609, 1, 0, 2883610, 1, 0, 2883611, 1, 0, 2883612, 1, 0, 2883613, 1, 0, 2883614, 1, 0, 2883615, 12, 0, 2883616, 8, 0, 2883617, 8, 0, 2883618, 8, 0, 2949120, 8, 0, 2949121, 8, 0, 2949122, 8, 0, 2949123, 8, 0, 2949124, 8, 0, 2949125, 8, 0, 2949126, 8, 0, 2949127, 8, 0, 2949128, 8, 0, 2949129, 8, 0, 2949130, 8, 0, 2949131, 8, 0, 2949132, 8, 0, 2949133, 8, 0, 2949134, 8, 0, 2949135, 8, 0, 2949136, 8, 0, 2949137, 8, 0, 2949138, 8, 0, 2949139, 8, 0, 2949140, 8, 0, 2949141, 8, 0, 2949142, 8, 0, 2949143, 8, 0, 2949144, 8, 0, 2949145, 8, 0, 2949146, 8, 0, 2949147, 8, 0, 2949148, 8, 0, 2949149, 8, 0, 2949150, 8, 0, 2949151, 8, 0, 2949152, 8, 0, 2949153, 8, 0, 2949154, 8, 0, 3014656, 8, 0, 3014657, 8, 0, 3014658, 8, 0, 3014659, 8, 0, 3014660, 8, 0, 3014661, 8, 0, 3014662, 8, 0, 3014663, 8, 0, 3014664, 8, 0, 3014665, 8, 0, 3014666, 8, 0, 3014667, 8, 0, 3014668, 8, 0, 3014669, 8, 0, 3014670, 8, 0, 3014671, 8, 0, 3014672, 8, 0, 3014673, 8, 0, 3014674, 8, 0, 3014675, 8, 0, 3014676, 8, 0, 3014677, 8, 0, 3014678, 8, 0, 3014679, 8, 0, 3014680, 8, 0, 3014681, 8, 0, 3014682, 8, 0, 3014683, 8, 0, 3014684, 8, 0, 3014685, 8, 0, 3014686, 8, 0, 3014687, 8, 0, 3014688, 8, 0, 3014689, 8, 0, 3014690, 8, 0, 3080192, 8, 0, 3080193, 8, 0, 3080194, 8, 0, 3080195, 8, 0, 3080196, 8, 0, 3080197, 8, 0, 3080198, 8, 0, 3080199, 8, 0, 3080200, 8, 0, 3080201, 8, 0, 3080202, 8, 0, 3080203, 8, 0, 3080204, 8, 0, 3080205, 8, 0, 3080206, 8, 0, 3080207, 8, 0, 3080208, 8, 0, 3080209, 8, 0, 3080210, 8, 0, 3080211, 8, 0, 3080212, 8, 0, 3080213, 8, 0, 3080214, 8, 0, 3080215, 8, 0, 3080216, 8, 0, 3080217, 8, 0, 3080218, 8, 0, 3080219, 8, 0, 3080220, 8, 0, 3080221, 8, 0, 3080222, 8, 0, 3080223, 8, 0, 3080224, 8, 0, 3080225, 8, 0, 3080226, 8, 0, 3145728, 8, 0, 3145729, 8, 0, 3145730, 8, 0, 3145731, 8, 0, 3145732, 8, 0, 3145733, 8, 0, 3145734, 8, 0, 3145735, 8, 0, 3145736, 8, 0, 3145737, 8, 0, 3145738, 8, 0, 3145739, 8, 0, 3145740, 8, 0, 3145741, 8, 0, 3145742, 8, 0, 3145743, 8, 0, 3145744, 8, 0, 3145745, 8, 0, 3145746, 8, 0, 3145747, 8, 0, 3145748, 8, 0, 3145749, 8, 0, 3145750, 8, 0, 3145751, 8, 0, 3145752, 8, 0, 3145753, 8, 0, 3145754, 8, 0, 3145755, 8, 0, 3145756, 8, 0, 3145757, 8, 0, 3145758, 8, 0, 3145759, 8, 0, 3145760, 8, 0, 3145761, 8, 0, 3145762, 8, 0 )
 
 [node name="Collision_Camera" type="StaticBody2D" parent="."]
-position = Vector2( -5376, -3808 )
+position = Vector2( -4448, -3552 )
 z_index = 2
 collision_layer = 524288
 collision_mask = 524288
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 560, 16 )
+shape = SubResource( 139 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 560, 48 )
+shape = SubResource( 140 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 80 )
+shape = SubResource( 141 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 80 )
+shape = SubResource( 142 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 112 )
+shape = SubResource( 143 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 112 )
+shape = SubResource( 144 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 144 )
+shape = SubResource( 145 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 176 )
+shape = SubResource( 146 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 208 )
+shape = SubResource( 147 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 208 )
+shape = SubResource( 148 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 240 )
+shape = SubResource( 149 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 240 )
+shape = SubResource( 150 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 272 )
+shape = SubResource( 151 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 272 )
+shape = SubResource( 152 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 304 )
+shape = SubResource( 153 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 304 )
+shape = SubResource( 154 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 336 )
+shape = SubResource( 155 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 336 )
+shape = SubResource( 156 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 368 )
+shape = SubResource( 157 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 368 )
+shape = SubResource( 158 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 400 )
+shape = SubResource( 159 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 400 )
+shape = SubResource( 160 )
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 432 )
+shape = SubResource( 161 )
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 432 )
+shape = SubResource( 162 )
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 464 )
+shape = SubResource( 163 )
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 464 )
+shape = SubResource( 164 )
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 496 )
+shape = SubResource( 165 )
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 496 )
+shape = SubResource( 166 )
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 528 )
+shape = SubResource( 167 )
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 528 )
+shape = SubResource( 168 )
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 560 )
+shape = SubResource( 169 )
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 560 )
+shape = SubResource( 170 )
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 592 )
+shape = SubResource( 171 )
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 592 )
+shape = SubResource( 172 )
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 624 )
+shape = SubResource( 173 )
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 624 )
+shape = SubResource( 174 )
+
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 656 )
+shape = SubResource( 175 )
+
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 656 )
+shape = SubResource( 176 )
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 688 )
+shape = SubResource( 177 )
+
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 688 )
+shape = SubResource( 178 )
+
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 720 )
+shape = SubResource( 179 )
+
+[node name="CollisionShape2D42" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 720 )
+shape = SubResource( 180 )
+
+[node name="CollisionShape2D43" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 752 )
+shape = SubResource( 181 )
+
+[node name="CollisionShape2D44" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 752 )
+shape = SubResource( 182 )
+
+[node name="CollisionShape2D45" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 784 )
+shape = SubResource( 183 )
+
+[node name="CollisionShape2D46" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 784 )
+shape = SubResource( 184 )
+
+[node name="CollisionShape2D47" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 816 )
+shape = SubResource( 185 )
+
+[node name="CollisionShape2D48" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 816 )
+shape = SubResource( 186 )
+
+[node name="CollisionShape2D49" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 848 )
+shape = SubResource( 187 )
+
+[node name="CollisionShape2D50" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 848 )
+shape = SubResource( 188 )
+
+[node name="CollisionShape2D51" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 880 )
+shape = SubResource( 189 )
+
+[node name="CollisionShape2D52" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 880 )
+shape = SubResource( 190 )
+
+[node name="CollisionShape2D53" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 912 )
+shape = SubResource( 191 )
+
+[node name="CollisionShape2D54" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 912 )
+shape = SubResource( 192 )
+
+[node name="CollisionShape2D55" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 944 )
+shape = SubResource( 193 )
+
+[node name="CollisionShape2D56" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 944 )
+shape = SubResource( 194 )
+
+[node name="CollisionShape2D57" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 976 )
+shape = SubResource( 195 )
+
+[node name="CollisionShape2D58" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 976 )
+shape = SubResource( 196 )
+
+[node name="CollisionShape2D59" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1008 )
+shape = SubResource( 197 )
+
+[node name="CollisionShape2D60" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1008 )
+shape = SubResource( 198 )
+
+[node name="CollisionShape2D61" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1040 )
+shape = SubResource( 199 )
+
+[node name="CollisionShape2D62" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1040 )
+shape = SubResource( 200 )
+
+[node name="CollisionShape2D63" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1072 )
+shape = SubResource( 201 )
+
+[node name="CollisionShape2D64" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1072 )
+shape = SubResource( 202 )
+
+[node name="CollisionShape2D65" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1104 )
+shape = SubResource( 203 )
+
+[node name="CollisionShape2D66" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1104 )
+shape = SubResource( 204 )
+
+[node name="CollisionShape2D67" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1136 )
+shape = SubResource( 205 )
+
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1136 )
+shape = SubResource( 206 )
+
+[node name="CollisionShape2D69" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1168 )
+shape = SubResource( 207 )
+
+[node name="CollisionShape2D70" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1168 )
+shape = SubResource( 208 )
+
+[node name="CollisionShape2D71" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1200 )
+shape = SubResource( 209 )
+
+[node name="CollisionShape2D72" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1200 )
+shape = SubResource( 210 )
+
+[node name="CollisionShape2D73" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1232 )
+shape = SubResource( 211 )
+
+[node name="CollisionShape2D74" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1232 )
+shape = SubResource( 212 )
+
+[node name="CollisionShape2D75" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1264 )
+shape = SubResource( 213 )
+
+[node name="CollisionShape2D76" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1264 )
+shape = SubResource( 214 )
+
+[node name="CollisionShape2D77" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1296 )
+shape = SubResource( 215 )
+
+[node name="CollisionShape2D78" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1296 )
+shape = SubResource( 216 )
+
+[node name="CollisionShape2D79" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1328 )
+shape = SubResource( 217 )
+
+[node name="CollisionShape2D80" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1328 )
+shape = SubResource( 218 )
+
+[node name="CollisionShape2D81" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1360 )
+shape = SubResource( 219 )
+
+[node name="CollisionShape2D82" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1392 )
+shape = SubResource( 220 )
+
+[node name="CollisionShape2D83" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1424 )
+shape = SubResource( 221 )
+
+[node name="CollisionShape2D84" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1424 )
+shape = SubResource( 222 )
+
+[node name="CollisionShape2D85" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1456 )
+shape = SubResource( 223 )
+
+[node name="CollisionShape2D86" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1456 )
+shape = SubResource( 224 )
+
+[node name="CollisionShape2D87" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 32, 1488 )
+shape = SubResource( 225 )
+
+[node name="CollisionShape2D88" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 1088, 1488 )
+shape = SubResource( 226 )
+
+[node name="CollisionShape2D89" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 560, 1520 )
+shape = SubResource( 227 )
+
+[node name="CollisionShape2D90" type="CollisionShape2D" parent="Collision_Camera"]
+position = Vector2( 560, 1552 )
+shape = SubResource( 228 )
+
 [node name="Decoration" type="TileMap" parent="."]
-position = Vector2( -5376, -3808 )
+position = Vector2( -4448, -3552 )
 z_index = 3
-tile_set = SubResource( 3 )
+tile_set = SubResource( 229 )
 cell_size = Vector2( 16, 16 )
 format = 1
 
@@ -1246,11 +2853,538 @@ z_index = 4
 [node name="Props" type="Node2D" parent="."]
 z_index = 5
 
+[node name="PillarTrap" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -4176, -2144 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="PillarTrap2" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -4144, -2144 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="PillarTrap3" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -4112, -2144 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 2.0
+
+[node name="PillarTrap4" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -4048, -2144 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 2.0
+
+[node name="PillarTrap5" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -4016, -2144 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="PillarTrap6" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3984, -2144 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 4.0
+
+[node name="PillarTrap7" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3952, -2144 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 1.0
+
+[node name="SpikeTrapLarge" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3760, -2624 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge2" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3792, -2624 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge3" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3824, -2624 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge4" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3856, -2688 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge5" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3888, -2688 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge6" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3920, -2688 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 6.0
+
+[node name="Door1" type="Area2D" parent="Props" instance=ExtResource( 9 )]
+position = Vector2( -4448, -2208 )
+collision_layer = 262144
+collision_mask = 262144
+script = ExtResource( 5 )
+next_level = "Level12"
+next_door = "Door2"
+exit_direction = "Right"
+shape = Vector2( 64, 64 )
+
+[node name="Door2" type="Area2D" parent="Props" instance=ExtResource( 9 )]
+position = Vector2( -3392, -3424 )
+collision_layer = 262144
+collision_mask = 262144
+script = ExtResource( 5 )
+next_level = "Level14"
+next_door = "Door1"
+exit_direction = "Left"
+shape = Vector2( 64, 64 )
+
+[node name="SpikeTrapLarge7" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3920, -3200 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge8" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3888, -3200 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge9" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3856, -3200 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge10" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3824, -3200 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="PillarTrap8" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -4016, -3232 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 1.0
+
+[node name="PillarTrap9" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3984, -3232 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="PillarTrap10" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3952, -3232 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 2.0
+
+[node name="Lamp" type="Sprite" parent="Props" instance=ExtResource( 7 )]
+position = Vector2( -4176, -2272 )
+texture = ExtResource( 20 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 24 )
+
+[node name="Lamp2" type="Sprite" parent="Props" instance=ExtResource( 7 )]
+position = Vector2( -4080, -2272 )
+texture = ExtResource( 20 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 24 )
+type = 4
+
+[node name="PillarTrap11" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3792, -2848 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 1.0
+
+[node name="PillarTrap12" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3760, -2848 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 2.0
+
+[node name="PillarTrap13" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3728, -2848 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="PillarTrap14" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3696, -2848 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 10.0
+
+[node name="PillarTrap15" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3664, -2848 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 4.0
+
+[node name="PillarTrap16" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3632, -2848 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="PillarTrap17" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3600, -2848 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 5.0
+
+[node name="PillarTrap18" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3568, -2848 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="PillarTrap19" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3536, -2848 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 8.0
+
+[node name="StaticSpikesSmall" type="Area2D" parent="Props" instance=ExtResource( 8 )]
+position = Vector2( -3536, -3040 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 23 )
+
+[node name="StaticSpikesSmall2" type="Area2D" parent="Props" instance=ExtResource( 8 )]
+position = Vector2( -3600, -3040 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 23 )
+
+[node name="StaticSpikesSmall3" type="Area2D" parent="Props" instance=ExtResource( 8 )]
+position = Vector2( -3664, -3040 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 23 )
+
+[node name="StaticSpikesSmall4" type="Area2D" parent="Props" instance=ExtResource( 8 )]
+position = Vector2( -3728, -3040 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 23 )
+
+[node name="StaticSpikesSmall5" type="Area2D" parent="Props" instance=ExtResource( 8 )]
+position = Vector2( -3792, -3040 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 23 )
+
+[node name="SpikeTrapLarge11" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3760, -3040 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge12" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3696, -3040 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge13" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3632, -3040 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge14" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3568, -3040 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge15" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3472, -2144 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="SpikeTrapLarge16" type="Area2D" parent="Props" instance=ExtResource( 12 )]
+position = Vector2( -3504, -2144 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="Barrel" type="Area2D" parent="Props" instance=ExtResource( 13 )]
+position = Vector2( -3792, -2144 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 26 )
+possible_drops = [ ExtResource( 18 ) ]
+
+[node name="Crate" type="Area2D" parent="Props" instance=ExtResource( 10 )]
+position = Vector2( -3664, -2144 )
+collision_layer = 8
+collision_mask = 0
+script = ExtResource( 26 )
+possible_drops = [ ExtResource( 18 ) ]
+
+[node name="Lamp3" type="Sprite" parent="Props" instance=ExtResource( 7 )]
+position = Vector2( -3490, -2720 )
+texture = ExtResource( 20 )
+offset = Vector2( 0, -16 )
+hframes = 19
+vframes = 6
+frame = 1
+script = ExtResource( 24 )
+type = 4
+
+[node name="PillarTrap20" type="Area2D" parent="Props" instance=ExtResource( 6 )]
+position = Vector2( -3920, -2144 )
+collision_layer = 0
+collision_mask = 7168
+script = ExtResource( 25 )
+interval = 3.0
+
+[node name="Checkpoint" type="Area2D" parent="Props" groups=[
+"Checkpoint",
+"Persistent",
+] instance=ExtResource( 11 )]
+position = Vector2( -4272, -2656 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 22 )
+
 [node name="Runes" type="Node2D" parent="."]
 z_index = 6
+
+[node name="RuneContainer" type="Area2D" parent="Runes" groups=[
+"Persistent",
+] instance=ExtResource( 17 )]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+position = Vector2( -4127, -2289 )
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 2 )
+rune = ExtResource( 27 )
 
 [node name="Platforms" type="Node2D" parent="."]
 z_index = 7
 
+[node name="OneWayPlatformDungeon" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -3520, -2240 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon2" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -3520, -2336 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon3" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -3520, -2432 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon4" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -4320, -2272 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 96
+
+[node name="OneWayPlatformDungeon5" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -3936, -2784 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon6" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -3520, -2928 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon7" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -3520, -3024 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon8" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -3808, -3136 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon9" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -4096, -2432 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon10" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -4096, -2592 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon11" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -4320, -2816 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon12" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -3744, -2576 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon13" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -4320, -2976 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon14" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -4096, -3040 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
+[node name="OneWayPlatformDungeon15" type="StaticBody2D" parent="Platforms" instance=ExtResource( 16 )]
+position = Vector2( -4096, -3184 )
+collision_layer = 15360
+collision_mask = 16
+script = ExtResource( 3 )
+__meta__ = {
+"ground_type": "Stone"
+}
+width = 64
+
 [node name="Characters" type="Node2D" parent="."]
 z_index = 8
+
+[node name="Player" type="KinematicBody2D" parent="Characters" groups=[
+"Persistent",
+] instance=ExtResource( 15 )]
+position = Vector2( -3880, -2784 )
+z_index = 1
+collision_layer = 1024
+collision_mask = 1025
+script = ExtResource( 1 )
+
+[connection signal="save_requested" from="Props/Checkpoint" to="." method="on_save_requested"]
+[connection signal="save_requested" from="Characters/Player" to="." method="on_save_requested"]
+[connection signal="transition_requested" from="Characters/Player" to="." method="on_transition_requested"]
