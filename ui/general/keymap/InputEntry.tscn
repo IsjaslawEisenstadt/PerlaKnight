@@ -9,9 +9,14 @@ region = Rect2( 80, 81, 80, 15 )
 [node name="InputEntry" type="CenterContainer"]
 margin_right = 188.0
 margin_bottom = 15.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Texture" type="TextureRect" parent="."]
 margin_left = 54.0
 margin_right = 134.0
 margin_bottom = 15.0
+size_flags_horizontal = 3
 texture = SubResource( 1 )

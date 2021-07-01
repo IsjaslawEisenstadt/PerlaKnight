@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://ui/hud/rune_hud/RuneEntry.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=2]
@@ -23,7 +23,6 @@
 [ext_resource path="res://ui/general/keymap/KeyMapListEntry.tscn" type="PackedScene" id=21]
 [ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=22]
 [ext_resource path="res://ui/general/keymap/textures/gdb-xbox-1a.png" type="Texture" id=23]
-[ext_resource path="res://ui/general/keymap/textures/input_entry.png" type="Texture" id=24]
 [ext_resource path="res://ui/general/keymap/textures/Keyboard Black Corn.png" type="Texture" id=25]
 [ext_resource path="res://ui/hud/help_hud/HelpHUD.gd" type="Script" id=26]
 
@@ -927,144 +926,79 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 custom_constants/margin_right = 40
-custom_constants/margin_top = 40
+custom_constants/margin_top = 24
 custom_constants/margin_left = 40
 custom_constants/margin_bottom = 20
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/KeyMap/Content"]
+[node name="GridContainer" type="GridContainer" parent="UI/KeyMap/Content"]
 margin_left = 40.0
-margin_top = 40.0
+margin_top = 24.0
 margin_right = 440.0
 margin_bottom = 250.0
-mouse_filter = 2
+columns = 2
 
-[node name="TitleContainer" type="MarginContainer" parent="UI/KeyMap/Content/VBoxContainer"]
-margin_right = 400.0
-margin_bottom = 41.0
-rect_pivot_offset = Vector2( -226.838, -311 )
-custom_constants/margin_right = 14
-
-[node name="TextureRect" type="TextureRect" parent="UI/KeyMap/Content/VBoxContainer/TitleContainer"]
-margin_right = 386.0
-margin_bottom = 41.0
-texture = ExtResource( 24 )
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/KeyMap/Content/VBoxContainer/TitleContainer"]
-margin_right = 386.0
-margin_bottom = 41.0
-custom_constants/margin_right = 15
-custom_constants/margin_top = 10
-custom_constants/margin_left = 5
-custom_constants/margin_bottom = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/KeyMap/Content/VBoxContainer/TitleContainer/MarginContainer"]
-margin_left = 5.0
-margin_top = 10.0
-margin_right = 371.0
-margin_bottom = 39.0
+[node name="MoveLeft" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
+margin_right = 198.0
+margin_bottom = 43.0
 size_flags_horizontal = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/KeyMap/Content/VBoxContainer/TitleContainer/MarginContainer/HBoxContainer"]
-margin_right = 181.0
-margin_bottom = 29.0
-size_flags_horizontal = 3
-custom_fonts/normal_font = ExtResource( 11 )
-bbcode_enabled = true
-bbcode_text = "[u][center]Action[/center][/u]"
-text = "Action"
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="UI/KeyMap/Content/VBoxContainer/TitleContainer/MarginContainer/HBoxContainer"]
-margin_left = 185.0
-margin_right = 366.0
-margin_bottom = 29.0
-size_flags_horizontal = 3
-custom_fonts/normal_font = ExtResource( 11 )
-bbcode_enabled = true
-bbcode_text = "[u][center]Input[/center][/u]"
-text = "Input"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ScrollContainer" type="ScrollContainer" parent="UI/KeyMap/Content/VBoxContainer"]
-margin_top = 45.0
-margin_right = 400.0
-margin_bottom = 210.0
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer"]
-margin_right = 388.0
-margin_bottom = 356.0
-size_flags_horizontal = 3
-custom_constants/margin_right = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/MarginContainer"]
-margin_right = 386.0
-margin_bottom = 356.0
-size_flags_horizontal = 3
-
-[node name="MoveLeft" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 21 )]
-margin_right = 386.0
-margin_bottom = 41.0
 action_name = "Move left"
 input_entry_textures = [ SubResource( 11 ), SubResource( 12 ) ]
 
-[node name="MoveRight" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 21 )]
-margin_top = 45.0
-margin_right = 386.0
-margin_bottom = 86.0
+[node name="MoveRight" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
+margin_left = 202.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
 action_name = "Move right"
 input_entry_textures = [ SubResource( 13 ), SubResource( 14 ) ]
 
-[node name="FallThrough" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 21 )]
-margin_top = 90.0
-margin_right = 386.0
-margin_bottom = 131.0
+[node name="FallThrough" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
+margin_top = 47.0
+margin_right = 198.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
 action_name = "Fall through"
 input_entry_textures = [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ]
 
-[node name="Jump" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 21 )]
-margin_top = 135.0
-margin_right = 386.0
-margin_bottom = 176.0
+[node name="Jump" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
+margin_left = 202.0
+margin_top = 47.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
 action_name = "Jump"
 input_entry_textures = [ SubResource( 18 ), SubResource( 19 ) ]
 
-[node name="Attack" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 21 )]
-margin_top = 180.0
-margin_right = 386.0
-margin_bottom = 221.0
+[node name="Attack" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
+margin_top = 112.0
+margin_right = 198.0
+margin_bottom = 165.0
+size_flags_horizontal = 3
 action_name = "Attack"
 input_entry_textures = [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ]
 
-[node name="Interact" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 21 )]
-margin_top = 225.0
-margin_right = 386.0
-margin_bottom = 266.0
+[node name="Interact" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
+margin_left = 202.0
+margin_top = 112.0
+margin_bottom = 165.0
+size_flags_horizontal = 3
 action_name = "Interact"
 input_entry_textures = [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ]
 
-[node name="Dash" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 21 )]
-margin_top = 270.0
-margin_right = 386.0
-margin_bottom = 311.0
+[node name="Dash" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
+margin_top = 169.0
+margin_right = 198.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
 action_name = "Dash"
 input_entry_textures = [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ]
 
-[node name="Pause" parent="UI/KeyMap/Content/VBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource( 21 )]
-margin_top = 315.0
-margin_right = 386.0
-margin_bottom = 356.0
+[node name="Pause" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
+margin_left = 202.0
+margin_top = 169.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
 action_name = "Pause"
 input_entry_textures = [ SubResource( 29 ), SubResource( 30 ) ]
 
