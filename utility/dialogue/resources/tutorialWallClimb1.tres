@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://utility/dialogue/Dialogue.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+lines = [ "[D]Fabulous, 
+there are no more magical traces left.", "[P]The flow of energy feels... complete.", "[D]Climb these walls and rise to 
+the height of the biggest mountains." ]

@@ -3,6 +3,7 @@ extends Interaction
 class_name Checkpoint
 
 signal save_requested()
+signal save_to_file_requested()
 
 onready var AnimationPlayer := $AnimationPlayer
 
@@ -10,9 +11,10 @@ var active: bool = false setget set_active
 
 func _interact(_character) -> void:
 	activate()
+	emit_signal("save_to_file_requested")
 
 func _can_interact(_character) -> bool:
-	return !active # TODO: can't interact at full health and refill health otherwise
+	return true
 
 func activate() -> void:
 	if !active:

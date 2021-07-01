@@ -63,7 +63,7 @@ __meta__ = {
 scroll_time = 0.04
 
 [node name="ScrollTimer" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.04
 one_shot = true
 
 [node name="Offset" type="Control" parent="."]
@@ -116,7 +116,6 @@ mouse_filter = 1
 custom_fonts/font = SubResource( 2 )
 
 [node name="Icons" type="Node2D" parent="."]
-visible = false
 position = Vector2( 0, -15 )
 
 [node name="IconLeftOffset" type="Node2D" parent="Icons"]

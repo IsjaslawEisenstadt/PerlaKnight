@@ -3,13 +3,15 @@ class_name SmartCamera
 
 signal interp_finished()
 
-export var speed: float = 3.0
+export var slow_speed: float = 3.0
+export var fast_speed: float = 6.0
 export var interp_epsilon: float = 0.03
 
 var player: Player setget set_player
 
 var use_custom_target: bool = false
 var custom_target
+var use_slow_speed: bool = true
 
 func _ready() -> void:
 	if player:
@@ -27,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	
 	var move: Vector2
 	if use_custom_target:
-		move = global_position.linear_interpolate(target, speed * delta) - global_position
+		move = global_position.linear_interpolate(target, (slow_speed if use_slow_speed else fast_speed) * delta) - global_position
 		
 		move.x = int(move.x * 100.0) / 100.0
 		move.y = int(move.y * 100.0) / 100.0

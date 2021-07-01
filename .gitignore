@@ -4,3 +4,6 @@ build/
 
 # Mono-specific ignores
 .mono/
+
+# Ignore auto generated level files
+maps/*/levels

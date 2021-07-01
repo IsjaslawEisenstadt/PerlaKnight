@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://ui/hud/rune_hud/RuneEntry.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://ui/game_states/PlayState.gd" type="Script" id=4]
 [ext_resource path="res://ui/transition/Transition.gd" type="Script" id=5]
 [ext_resource path="res://ui/game_states/PlayUI.gd" type="Script" id=6]
-[ext_resource path="res://ui/game_states/LoadingScreen.gd" type="Script" id=7]
+[ext_resource path="res://ui/hud/SaveIcon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://ui/transition/fade_out.png" type="Texture" id=8]
 [ext_resource path="res://ui/general/textures/gui.png" type="Texture" id=9]
 [ext_resource path="res://ui/transition/fade_in.png" type="Texture" id=10]
@@ -19,7 +19,15 @@
 [ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=17]
 [ext_resource path="res://ui/general/WarningPopup.gd" type="Script" id=18]
 [ext_resource path="res://ui/general/Button.tscn" type="PackedScene" id=19]
+[ext_resource path="res://ui/hud/SaveIcon.gd" type="Script" id=20]
+[ext_resource path="res://utility/audio_player/MusicPlayer.gd" type="Script" id=21]
 [ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=22]
+[ext_resource path="res://maps/music/dungeon/ambt_dungeon_dwemer_generic_2dlp.wav" type="AudioStream" id=23]
+[ext_resource path="res://maps/music/dungeon/ambt_dungeon_catacombs_generic_2dlp.wav" type="AudioStream" id=24]
+[ext_resource path="res://maps/music/dungeon/dungeon_howl.wav" type="AudioStream" id=25]
+[ext_resource path="res://maps/music/dungeon/dungeon002.wav" type="AudioStream" id=26]
+[ext_resource path="res://maps/music/forest/amb_forestlp_001.wav" type="AudioStream" id=27]
+[ext_resource path="res://maps/music/forest/amb_forestlp_002.wav" type="AudioStream" id=28]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 17 )
@@ -289,6 +297,7 @@ inactive_visibility = true
 
 [node name="PlayUI" type="Control" parent="UI"]
 pause_mode = 1
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -307,7 +316,6 @@ __meta__ = {
 }
 
 [node name="HealthContainer" parent="UI/PlayUI/HUD" instance=ExtResource( 13 )]
-visible = false
 mouse_filter = 2
 
 [node name="RuneHUD" type="MarginContainer" parent="UI/PlayUI/HUD"]
@@ -347,6 +355,10 @@ texture = SubResource( 1 )
 stretch_mode = 6
 script = ExtResource( 1 )
 rune = ExtResource( 22 )
+
+[node name="SaveIcon" parent="UI/PlayUI/HUD" instance=ExtResource( 7 )]
+position = Vector2( 462, 18 )
+script = ExtResource( 20 )
 
 [node name="WorldSpaceUI" type="Control" parent="UI/PlayUI"]
 anchor_right = 1.0
@@ -719,34 +731,6 @@ focus_previous = NodePath("../ConfirmButton")
 size_flags_horizontal = 3
 text = "No"
 
-[node name="LoadingScreen" type="Control" parent="UI"]
-pause_mode = 2
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="UI/LoadingScreen"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-
-[node name="Label" type="Label" parent="UI/LoadingScreen"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -7.0
-margin_right = 20.0
-margin_bottom = 7.0
-
 [node name="Transition" type="Control" parent="UI"]
 pause_mode = 2
 anchor_right = 1.0
@@ -776,10 +760,18 @@ anims/alpha_out = SubResource( 10 )
 anims/fade_in = SubResource( 11 )
 anims/fade_out = SubResource( 12 )
 
-[connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_connected"]
+[node name="Music" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+script = ExtResource( 21 )
+dungeon_music = [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 26 ) ]
+forest_music = [ ExtResource( 27 ), ExtResource( 28 ) ]
+
+[connection signal="level_changed" from="PlayState" to="Music" method="_on_PlayState_level_changed"]
+[connection signal="saved_to_file" from="PlayState" to="UI/PlayUI/HUD/SaveIcon" method="on_save"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
-[connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_disconnected"]
+[connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_connected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]
+[connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_disconnected"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/MainMenu" method="on_continue_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/MainMenu" method="on_new_game_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/MainMenu" method="on_exit_pressed"]
@@ -793,3 +785,4 @@ anims/fade_out = SubResource( 12 )
 [connection signal="pressed" from="UI/PauseMenu/ExitPopup/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="UI/PauseMenu/ExitPopup" method="close" binds= [ true ]]
 [connection signal="pressed" from="UI/PauseMenu/ExitPopup/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="UI/PauseMenu/ExitPopup" method="close" binds= [ false ]]
 [connection signal="animation_finished" from="UI/Transition/AnimationPlayer" to="UI/Transition" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="finished" from="Music" to="Music" method="_on_Music_finished"]

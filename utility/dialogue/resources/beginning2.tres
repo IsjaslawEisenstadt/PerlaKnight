@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://utility/dialogue/Dialogue.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+lines = [ "[D]Your abilities are astonishing.", "[P]Otherwise I would have not survived 
+my duties as a knight.", "[D]You also seem to have a keen eye.
+Watch out for hidden secrets.", "[D]There are many paths,
+not all are ready for you to visit yet.
+Once you have enhanced your abilities,
+you might pass where you once did not.", "[P]How do I know that I am ready?", "[D]You have what it takes.
+Look out for magical things." ]

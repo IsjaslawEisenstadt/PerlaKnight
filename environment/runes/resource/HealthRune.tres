@@ -9,3 +9,4 @@ script = ExtResource( 1 )
 name = "Health Rune"
 description = "This rune improves your health."
 texture = ExtResource( 2 )
+level_name = ""
