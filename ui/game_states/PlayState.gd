@@ -25,6 +25,7 @@ onready var PlayUI := $".."/UI/PlayUI
 
 export(String, DIR) var levels_dir: String = "res://maps/test_map/levels"
 export var new_game_level_name: String = "Level1"
+export var new_game_tutorial_name: String = "Tutorial"
 
 export var dungeon_background_scene: PackedScene = preload("res://maps/backgrounds/dungeon/DungeonBackground.tscn")
 export var forest_background_scene: PackedScene = preload("res://maps/backgrounds/forest/ForestBackground.tscn")
@@ -36,11 +37,17 @@ var levels: Dictionary = {}
 
 func restore_previous_level() -> void:
 	if previous_level:
+		get_tree().paused = true
+		Transition.start("fade")
+		yield(Transition, "transition_finished")
+		
 		save_data["restore"] = true
 		activate_level(previous_level.name)
 		load_game()
 		save_data.erase("restore")
 		save_to_file()
+		Transition.end()
+		get_tree().paused = false
 
 func choose_next_level(params: Dictionary) -> String:
 	var next_level_name: String
@@ -113,12 +120,20 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 		if params.enter_play_mode == EnterPlayMode.TUTORIAL:
 			activate_level(params.next_level_name)
 			load_game()
+			Transition.end()
 			._state_enter(previous_state, params)
 		else:
 			var next_level_name: String = choose_next_level(params)
 			unload_levels()
+			
+			if params.enter_play_mode == EnterPlayMode.NEW_GAME:
+				load_level(new_game_tutorial_name)
+			
 			load_level(next_level_name)
 			activate_level(next_level_name)
+			load_game()
+			
+			activate_level(new_game_tutorial_name)
 			load_game()
 		
 			._state_enter(previous_state, params)
@@ -191,14 +206,11 @@ func on_transition_requested(level_name, target_name) -> void:
 			params["enter_play_mode"] = EnterPlayMode.LOAD_LEVEL
 			params["next_level_name"] = level_name
 			save_data["spawn_target"] = target_name
-			
-			transition_name = "fade"
-			pause_before_transition = true
 		else:
 			params["enter_play_mode"] = EnterPlayMode.TUTORIAL
 			params["next_level_name"] = level_name
-			state_machine._pop_push(self, params)
-			return
+		transition_name = "fade"
+		pause_before_transition = true
 	elif "checkpoint_level" in save_data:
 		params["enter_play_mode"] = EnterPlayMode.LOAD_GAME
 	
