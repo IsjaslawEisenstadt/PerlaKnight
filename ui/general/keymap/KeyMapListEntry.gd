@@ -11,9 +11,9 @@ func _ready() -> void:
 	assert(input_entry_textures)
 	assert(action_name)
 	
-	$MarginContainer/HBoxContainer/Action.text = action_name
+	$MarginContainer/HBoxContainer/CenterContainer/Action.text = action_name
 	
 	for texture in input_entry_textures:
 		var new_entry = InputEntry.instance()
-		new_entry.texture = texture
+		new_entry.get_node("Texture").texture = texture
 		$MarginContainer/HBoxContainer/MarginContainer/InputEntryList.add_child(new_entry)		

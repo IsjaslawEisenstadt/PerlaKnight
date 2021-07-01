@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/general/keymap/InputEntry.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/general/keymap/textures/input_entry.png" type="Texture" id=2]
 [ext_resource path="res://ui/general/keymap/KeyMapListEntry.gd" type="Script" id=3]
+[ext_resource path="res://ui/general/fonts/HeartbitXX.tres" type="DynamicFont" id=4]
 
 [node name="KeyMapListEntry" type="MarginContainer"]
 margin_right = 400.0
@@ -40,11 +41,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Action" type="Label" parent="MarginContainer/HBoxContainer"]
-margin_top = 11.0
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
 margin_right = 188.0
-margin_bottom = 25.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
+
+[node name="Action" type="Label" parent="MarginContainer/HBoxContainer/CenterContainer"]
+margin_left = 65.0
+margin_top = 10.0
+margin_right = 123.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
 text = "Default"
 __meta__ = {
 "_edit_use_anchors_": false
