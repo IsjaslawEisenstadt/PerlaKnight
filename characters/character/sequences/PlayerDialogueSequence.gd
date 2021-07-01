@@ -20,6 +20,7 @@ var current_line_index: int
 func _state_enter(_previous_state: State, params: Dictionary = {}) -> void:
 	sequence_trigger = params.object
 	current_line_index = -1
+	dialogue_state = -1
 	
 	if sequence_trigger.deer:
 		host.camera.use_custom_target = true
@@ -70,16 +71,20 @@ func on_line_finished(dialogue_box: DialogueBox = null) -> void:
 		dialogue_box.connect("line_finished", self, "on_line_finished", [dialogue_box])
 		dialogue_box.text = current_line
 	elif sequence_trigger.deer:
-		sequence_trigger.deer.start_sequence(sequence_trigger)
-		sequence_trigger.deer.SequenceController_.state_machine.get_current_state().connect("walk_finished", self, "on_walk_finished")
-		host.camera.connect("interp_finished", host.camera, "set", ["use_custom_target", false])
-		host.camera.custom_target = host
+		if sequence_trigger.end_action == "Leave":
+			host.emit_signal("restore_requested")
+		else:
+			sequence_trigger.deer.start_sequence(sequence_trigger)
+			sequence_trigger.deer.SequenceController_.state_machine.get_current_state().connect("walk_finished", self, "on_walk_finished", [], CONNECT_ONESHOT)
+			host.camera.connect("interp_finished", host.camera, "set", ["use_custom_target", false], CONNECT_ONESHOT)
+			host.camera.custom_target = host
 	else:
 		host.camera.connect("interp_finished", host.camera, "set", ["use_custom_target", false])
 		on_walk_finished()
 
 func on_walk_finished() -> void:
-	state_machine._pop_state()
+	if state_machine.get_current_state():
+		state_machine._pop_state()
 
 func _does_handle(object) -> bool:
 	return object is DialogueSequenceTrigger

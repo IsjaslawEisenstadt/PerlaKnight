@@ -29,9 +29,18 @@ export var new_game_level_name: String = "Level1"
 export var dungeon_background_scene: PackedScene = preload("res://maps/backgrounds/dungeon/DungeonBackground.tscn")
 export var forest_background_scene: PackedScene = preload("res://maps/backgrounds/forest/ForestBackground.tscn")
 
+var previous_level: Level
 var current_level: Level
 var save_data: Dictionary = {}
 var levels: Dictionary = {}
+
+func restore_previous_level() -> void:
+	if previous_level:
+		save_data["restore"] = true
+		activate_level(previous_level.name)
+		load_game()
+		save_data.erase("restore")
+		save_to_file()
 
 func choose_next_level(params: Dictionary) -> String:
 	var next_level_name: String
@@ -58,6 +67,7 @@ func choose_next_level(params: Dictionary) -> String:
 	return next_level_name
 
 func unload_levels() -> void:
+	previous_level = null
 	if current_level:
 		remove_child(current_level)
 		current_level = null
@@ -81,17 +91,20 @@ func load_level(level_name: String) -> void:
 
 func activate_level(level_name: String) -> void:
 	if current_level:
-		current_level.disconnect("save_requested", self, "save_game")
-		current_level.disconnect("save_to_file_requested", self, "save_to_file")
-		current_level.disconnect("transition_requested", self, "on_transition_requested")
-		current_level.disconnect("preload_requested", self, "load_level")
-		remove_child(current_level)
+		previous_level = current_level
+		previous_level.disconnect("save_requested", self, "save_game")
+		previous_level.disconnect("save_to_file_requested", self, "save_to_file")
+		previous_level.disconnect("transition_requested", self, "on_transition_requested")
+		previous_level.disconnect("preload_requested", self, "load_level")
+		previous_level.disconnect("restore_requested", self, "restore_previous_level")
+		remove_child(previous_level)
 	current_level = levels[level_name]
 	add_child(current_level)
 	current_level.connect("save_requested", self, "save_game")
 	current_level.connect("save_to_file_requested", self, "save_to_file")
 	current_level.connect("transition_requested", self, "on_transition_requested")
 	current_level.connect("preload_requested", self, "load_level")
+	current_level.connect("restore_requested", self, "restore_previous_level")
 	current_level.set_ui(PlayUI)
 	emit_signal("level_changed", current_level)
 

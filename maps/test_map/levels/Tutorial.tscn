@@ -1,34 +1,34 @@
 [gd_scene load_steps=223 format=2]
 
-[ext_resource path="res://environment/decoration/trees/Bush1.tscn" type="PackedScene" id=1]
-[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=2]
-[ext_resource path="res://environment/decoration/trees/SmallTree1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=4]
-[ext_resource path="res://environment/platforms/OneWayPlatformForest.tscn" type="PackedScene" id=5]
-[ext_resource path="res://environment/decoration/flowers/Flower3.tscn" type="PackedScene" id=6]
-[ext_resource path="res://environment/decoration/lamps/BrokenLamp2.tscn" type="PackedScene" id=7]
-[ext_resource path="res://environment/decoration/flowers/Flower2.tscn" type="PackedScene" id=8]
-[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=9]
-[ext_resource path="res://environment/decoration/trees/BigTree2.tscn" type="PackedScene" id=10]
-[ext_resource path="res://environment/decoration/trees/BigTree1.tscn" type="PackedScene" id=11]
-[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=12]
-[ext_resource path="res://environment/decoration/trees/Wind.shader" type="Shader" id=13]
-[ext_resource path="res://maps/Level.gd" type="Script" id=14]
-[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=15]
-[ext_resource path="res://characters/player/Player.gd" type="Script" id=16]
-[ext_resource path="res://environment/platforms/OneWayPlatform.gd" type="Script" id=17]
-[ext_resource path="res://environment/runes/resource/HealthRune.tres" type="Resource" id=18]
+[ext_resource path="res://maps/Level.gd" type="Script" id=1]
+[ext_resource path="res://environment/platforms/OneWayPlatform.gd" type="Script" id=2]
+[ext_resource path="res://characters/player/Player.gd" type="Script" id=3]
+[ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=4]
+[ext_resource path="res://environment/runes/resource/HealthRune.tres" type="Resource" id=5]
+[ext_resource path="res://maps/world_environment/WorldEnvironment.tscn" type="PackedScene" id=6]
+[ext_resource path="res://environment/decoration/flowers/Flower3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://environment/decoration/lamps/BrokenLamp2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://environment/decoration/trees/BigTree2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://environment/decoration/trees/BigTree1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://environment/decoration/trees/Bush1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://environment/decoration/trees/SmallTree1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://environment/decoration/lamps/Lamp.tscn" type="PackedScene" id=13]
+[ext_resource path="res://environment/decoration/flowers/Flower2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://environment/runes/RuneContainer.tscn" type="PackedScene" id=15]
+[ext_resource path="res://environment/decoration/trees/Wind.shader" type="Shader" id=16]
+[ext_resource path="res://environment/decoration/trees/Wind.gd" type="Script" id=17]
+[ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=18]
 [ext_resource path="res://environment/decoration/lamps/textures/forest_lamps.png" type="Texture" id=19]
-[ext_resource path="res://environment/decoration/trees/textures/big_tree1.png" type="Texture" id=20]
-[ext_resource path="res://environment/decoration/props.png" type="Texture" id=21]
-[ext_resource path="res://environment/decoration/flowers/textures/flower2.png" type="Texture" id=22]
-[ext_resource path="res://environment/decoration/flowers/textures/flower3.png" type="Texture" id=23]
+[ext_resource path="res://environment/decoration/props.png" type="Texture" id=20]
+[ext_resource path="res://environment/decoration/flowers/textures/flower3.png" type="Texture" id=21]
+[ext_resource path="res://environment/decoration/trees/textures/big_tree1.png" type="Texture" id=22]
+[ext_resource path="res://environment/decoration/flowers/textures/flower2.png" type="Texture" id=23]
 [ext_resource path="res://maps/test_map/textures/forest.png" type="Texture" id=24]
-[ext_resource path="res://environment/decoration/trees/Wind.gd" type="Script" id=25]
-[ext_resource path="res://environment/decoration/lamps/Lamp.gd" type="Script" id=26]
+[ext_resource path="res://environment/decoration/trees/textures/big_tree2.png" type="Texture" id=25]
+[ext_resource path="res://environment/decoration/trees/textures/bush1.png" type="Texture" id=26]
 [ext_resource path="res://environment/decoration/trees/textures/small_tree1.png" type="Texture" id=27]
-[ext_resource path="res://environment/decoration/trees/textures/bush1.png" type="Texture" id=28]
-[ext_resource path="res://environment/decoration/trees/textures/big_tree2.png" type="Texture" id=29]
+[ext_resource path="res://environment/platforms/OneWayPlatformForest.tscn" type="PackedScene" id=28]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=29]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -1470,7 +1470,7 @@ extents = Vector2( 1376, 16 )
 
 [sub_resource type="TileSet" id=185]
 0/name = ""
-0/texture = ExtResource( 21 )
+0/texture = ExtResource( 20 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 32 )
@@ -1484,7 +1484,7 @@ extents = Vector2( 1376, 16 )
 0/shapes = [  ]
 0/z_index = 0
 1/name = ""
-1/texture = ExtResource( 21 )
+1/texture = ExtResource( 20 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 32, 0, 32, 32 )
@@ -1498,7 +1498,7 @@ extents = Vector2( 1376, 16 )
 1/shapes = [  ]
 1/z_index = 0
 2/name = ""
-2/texture = ExtResource( 21 )
+2/texture = ExtResource( 20 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 64, 0, 32, 32 )
@@ -1512,7 +1512,7 @@ extents = Vector2( 1376, 16 )
 2/shapes = [  ]
 2/z_index = 0
 3/name = ""
-3/texture = ExtResource( 21 )
+3/texture = ExtResource( 20 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 96, 0, 32, 32 )
@@ -1526,7 +1526,7 @@ extents = Vector2( 1376, 16 )
 3/shapes = [  ]
 3/z_index = 0
 4/name = ""
-4/texture = ExtResource( 21 )
+4/texture = ExtResource( 20 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 128, 0, 32, 32 )
@@ -1540,7 +1540,7 @@ extents = Vector2( 1376, 16 )
 4/shapes = [  ]
 4/z_index = 0
 15/name = ""
-15/texture = ExtResource( 21 )
+15/texture = ExtResource( 20 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 0, 32, 32, 32 )
@@ -1554,7 +1554,7 @@ extents = Vector2( 1376, 16 )
 15/shapes = [  ]
 15/z_index = 0
 16/name = ""
-16/texture = ExtResource( 21 )
+16/texture = ExtResource( 20 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 32, 32, 32, 32 )
@@ -1568,7 +1568,7 @@ extents = Vector2( 1376, 16 )
 16/shapes = [  ]
 16/z_index = 0
 17/name = ""
-17/texture = ExtResource( 21 )
+17/texture = ExtResource( 20 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 64, 32, 32, 32 )
@@ -1582,7 +1582,7 @@ extents = Vector2( 1376, 16 )
 17/shapes = [  ]
 17/z_index = 0
 18/name = ""
-18/texture = ExtResource( 21 )
+18/texture = ExtResource( 20 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 96, 32, 32, 32 )
@@ -1596,7 +1596,7 @@ extents = Vector2( 1376, 16 )
 18/shapes = [  ]
 18/z_index = 0
 19/name = ""
-19/texture = ExtResource( 21 )
+19/texture = ExtResource( 20 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 128, 32, 32, 32 )
@@ -1610,7 +1610,7 @@ extents = Vector2( 1376, 16 )
 19/shapes = [  ]
 19/z_index = 0
 30/name = ""
-30/texture = ExtResource( 21 )
+30/texture = ExtResource( 20 )
 30/tex_offset = Vector2( 0, 0 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 0, 64, 32, 32 )
@@ -1624,7 +1624,7 @@ extents = Vector2( 1376, 16 )
 30/shapes = [  ]
 30/z_index = 0
 31/name = ""
-31/texture = ExtResource( 21 )
+31/texture = ExtResource( 20 )
 31/tex_offset = Vector2( 0, 0 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 32, 64, 32, 32 )
@@ -1638,7 +1638,7 @@ extents = Vector2( 1376, 16 )
 31/shapes = [  ]
 31/z_index = 0
 32/name = ""
-32/texture = ExtResource( 21 )
+32/texture = ExtResource( 20 )
 32/tex_offset = Vector2( 0, 0 )
 32/modulate = Color( 1, 1, 1, 1 )
 32/region = Rect2( 64, 64, 32, 32 )
@@ -1652,7 +1652,7 @@ extents = Vector2( 1376, 16 )
 32/shapes = [  ]
 32/z_index = 0
 33/name = ""
-33/texture = ExtResource( 21 )
+33/texture = ExtResource( 20 )
 33/tex_offset = Vector2( 0, 0 )
 33/modulate = Color( 1, 1, 1, 1 )
 33/region = Rect2( 96, 64, 32, 32 )
@@ -1666,7 +1666,7 @@ extents = Vector2( 1376, 16 )
 33/shapes = [  ]
 33/z_index = 0
 34/name = ""
-34/texture = ExtResource( 21 )
+34/texture = ExtResource( 20 )
 34/tex_offset = Vector2( 0, 0 )
 34/modulate = Color( 1, 1, 1, 1 )
 34/region = Rect2( 128, 64, 32, 32 )
@@ -1680,7 +1680,7 @@ extents = Vector2( 1376, 16 )
 34/shapes = [  ]
 34/z_index = 0
 35/name = ""
-35/texture = ExtResource( 21 )
+35/texture = ExtResource( 20 )
 35/tex_offset = Vector2( 0, 0 )
 35/modulate = Color( 1, 1, 1, 1 )
 35/region = Rect2( 160, 64, 32, 32 )
@@ -1694,7 +1694,7 @@ extents = Vector2( 1376, 16 )
 35/shapes = [  ]
 35/z_index = 0
 45/name = ""
-45/texture = ExtResource( 21 )
+45/texture = ExtResource( 20 )
 45/tex_offset = Vector2( 0, 0 )
 45/modulate = Color( 1, 1, 1, 1 )
 45/region = Rect2( 0, 96, 32, 32 )
@@ -1708,7 +1708,7 @@ extents = Vector2( 1376, 16 )
 45/shapes = [  ]
 45/z_index = 0
 46/name = ""
-46/texture = ExtResource( 21 )
+46/texture = ExtResource( 20 )
 46/tex_offset = Vector2( 0, 0 )
 46/modulate = Color( 1, 1, 1, 1 )
 46/region = Rect2( 32, 96, 32, 32 )
@@ -1722,7 +1722,7 @@ extents = Vector2( 1376, 16 )
 46/shapes = [  ]
 46/z_index = 0
 47/name = ""
-47/texture = ExtResource( 21 )
+47/texture = ExtResource( 20 )
 47/tex_offset = Vector2( 0, 0 )
 47/modulate = Color( 1, 1, 1, 1 )
 47/region = Rect2( 64, 96, 32, 32 )
@@ -1736,7 +1736,7 @@ extents = Vector2( 1376, 16 )
 47/shapes = [  ]
 47/z_index = 0
 48/name = ""
-48/texture = ExtResource( 21 )
+48/texture = ExtResource( 20 )
 48/tex_offset = Vector2( 0, 0 )
 48/modulate = Color( 1, 1, 1, 1 )
 48/region = Rect2( 96, 96, 32, 32 )
@@ -1750,7 +1750,7 @@ extents = Vector2( 1376, 16 )
 48/shapes = [  ]
 48/z_index = 0
 49/name = ""
-49/texture = ExtResource( 21 )
+49/texture = ExtResource( 20 )
 49/tex_offset = Vector2( 0, 0 )
 49/modulate = Color( 1, 1, 1, 1 )
 49/region = Rect2( 128, 96, 32, 32 )
@@ -1764,7 +1764,7 @@ extents = Vector2( 1376, 16 )
 49/shapes = [  ]
 49/z_index = 0
 50/name = ""
-50/texture = ExtResource( 21 )
+50/texture = ExtResource( 20 )
 50/tex_offset = Vector2( 0, 0 )
 50/modulate = Color( 1, 1, 1, 1 )
 50/region = Rect2( 160, 96, 32, 32 )
@@ -1778,7 +1778,7 @@ extents = Vector2( 1376, 16 )
 50/shapes = [  ]
 50/z_index = 0
 60/name = ""
-60/texture = ExtResource( 21 )
+60/texture = ExtResource( 20 )
 60/tex_offset = Vector2( 0, 0 )
 60/modulate = Color( 1, 1, 1, 1 )
 60/region = Rect2( 0, 128, 32, 32 )
@@ -1792,7 +1792,7 @@ extents = Vector2( 1376, 16 )
 60/shapes = [  ]
 60/z_index = 0
 61/name = ""
-61/texture = ExtResource( 21 )
+61/texture = ExtResource( 20 )
 61/tex_offset = Vector2( 0, 0 )
 61/modulate = Color( 1, 1, 1, 1 )
 61/region = Rect2( 32, 128, 32, 32 )
@@ -1806,7 +1806,7 @@ extents = Vector2( 1376, 16 )
 61/shapes = [  ]
 61/z_index = 0
 62/name = ""
-62/texture = ExtResource( 21 )
+62/texture = ExtResource( 20 )
 62/tex_offset = Vector2( 0, 0 )
 62/modulate = Color( 1, 1, 1, 1 )
 62/region = Rect2( 64, 128, 32, 32 )
@@ -1820,7 +1820,7 @@ extents = Vector2( 1376, 16 )
 62/shapes = [  ]
 62/z_index = 0
 63/name = ""
-63/texture = ExtResource( 21 )
+63/texture = ExtResource( 20 )
 63/tex_offset = Vector2( 0, 0 )
 63/modulate = Color( 1, 1, 1, 1 )
 63/region = Rect2( 96, 128, 32, 32 )
@@ -1834,7 +1834,7 @@ extents = Vector2( 1376, 16 )
 63/shapes = [  ]
 63/z_index = 0
 64/name = ""
-64/texture = ExtResource( 21 )
+64/texture = ExtResource( 20 )
 64/tex_offset = Vector2( 0, 0 )
 64/modulate = Color( 1, 1, 1, 1 )
 64/region = Rect2( 128, 128, 32, 32 )
@@ -1848,7 +1848,7 @@ extents = Vector2( 1376, 16 )
 64/shapes = [  ]
 64/z_index = 0
 65/name = ""
-65/texture = ExtResource( 21 )
+65/texture = ExtResource( 20 )
 65/tex_offset = Vector2( 0, 0 )
 65/modulate = Color( 1, 1, 1, 1 )
 65/region = Rect2( 160, 128, 32, 32 )
@@ -1862,7 +1862,7 @@ extents = Vector2( 1376, 16 )
 65/shapes = [  ]
 65/z_index = 0
 75/name = ""
-75/texture = ExtResource( 21 )
+75/texture = ExtResource( 20 )
 75/tex_offset = Vector2( 0, 0 )
 75/modulate = Color( 1, 1, 1, 1 )
 75/region = Rect2( 0, 160, 32, 32 )
@@ -1876,7 +1876,7 @@ extents = Vector2( 1376, 16 )
 75/shapes = [  ]
 75/z_index = 0
 76/name = ""
-76/texture = ExtResource( 21 )
+76/texture = ExtResource( 20 )
 76/tex_offset = Vector2( 0, 0 )
 76/modulate = Color( 1, 1, 1, 1 )
 76/region = Rect2( 32, 160, 32, 32 )
@@ -1890,7 +1890,7 @@ extents = Vector2( 1376, 16 )
 76/shapes = [  ]
 76/z_index = 0
 77/name = ""
-77/texture = ExtResource( 21 )
+77/texture = ExtResource( 20 )
 77/tex_offset = Vector2( 0, 0 )
 77/modulate = Color( 1, 1, 1, 1 )
 77/region = Rect2( 64, 160, 32, 32 )
@@ -1904,7 +1904,7 @@ extents = Vector2( 1376, 16 )
 77/shapes = [  ]
 77/z_index = 0
 78/name = ""
-78/texture = ExtResource( 21 )
+78/texture = ExtResource( 20 )
 78/tex_offset = Vector2( 0, 0 )
 78/modulate = Color( 1, 1, 1, 1 )
 78/region = Rect2( 96, 160, 32, 32 )
@@ -1918,7 +1918,7 @@ extents = Vector2( 1376, 16 )
 78/shapes = [  ]
 78/z_index = 0
 79/name = ""
-79/texture = ExtResource( 21 )
+79/texture = ExtResource( 20 )
 79/tex_offset = Vector2( 0, 0 )
 79/modulate = Color( 1, 1, 1, 1 )
 79/region = Rect2( 128, 160, 32, 32 )
@@ -1932,7 +1932,7 @@ extents = Vector2( 1376, 16 )
 79/shapes = [  ]
 79/z_index = 0
 80/name = ""
-80/texture = ExtResource( 21 )
+80/texture = ExtResource( 20 )
 80/tex_offset = Vector2( 0, 0 )
 80/modulate = Color( 1, 1, 1, 1 )
 80/region = Rect2( 160, 160, 32, 32 )
@@ -1946,7 +1946,7 @@ extents = Vector2( 1376, 16 )
 80/shapes = [  ]
 80/z_index = 0
 90/name = ""
-90/texture = ExtResource( 21 )
+90/texture = ExtResource( 20 )
 90/tex_offset = Vector2( 0, 0 )
 90/modulate = Color( 1, 1, 1, 1 )
 90/region = Rect2( 0, 192, 32, 32 )
@@ -1960,7 +1960,7 @@ extents = Vector2( 1376, 16 )
 90/shapes = [  ]
 90/z_index = 0
 91/name = ""
-91/texture = ExtResource( 21 )
+91/texture = ExtResource( 20 )
 91/tex_offset = Vector2( 0, 0 )
 91/modulate = Color( 1, 1, 1, 1 )
 91/region = Rect2( 32, 192, 32, 32 )
@@ -1976,7 +1976,7 @@ extents = Vector2( 1376, 16 )
 
 [sub_resource type="ShaderMaterial" id=186]
 resource_local_to_scene = true
-shader = ExtResource( 13 )
+shader = ExtResource( 16 )
 shader_param/speed = 1.0
 shader_param/minStrength = 0.05
 shader_param/maxStrength = 0.01
@@ -1988,7 +1988,7 @@ shader_param/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id=187]
 resource_local_to_scene = true
-shader = ExtResource( 13 )
+shader = ExtResource( 16 )
 shader_param/speed = 1.0
 shader_param/minStrength = 0.05
 shader_param/maxStrength = 0.01
@@ -2000,7 +2000,7 @@ shader_param/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id=188]
 resource_local_to_scene = true
-shader = ExtResource( 13 )
+shader = ExtResource( 16 )
 shader_param/speed = 1.0
 shader_param/minStrength = 0.05
 shader_param/maxStrength = 0.01
@@ -2012,7 +2012,7 @@ shader_param/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id=189]
 resource_local_to_scene = true
-shader = ExtResource( 13 )
+shader = ExtResource( 16 )
 shader_param/speed = 1.0
 shader_param/minStrength = 0.05
 shader_param/maxStrength = 0.01
@@ -2024,7 +2024,7 @@ shader_param/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id=190]
 resource_local_to_scene = true
-shader = ExtResource( 13 )
+shader = ExtResource( 16 )
 shader_param/speed = 1.0
 shader_param/minStrength = 0.05
 shader_param/maxStrength = 0.01
@@ -2036,7 +2036,7 @@ shader_param/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id=191]
 resource_local_to_scene = true
-shader = ExtResource( 13 )
+shader = ExtResource( 16 )
 shader_param/speed = 1.0
 shader_param/minStrength = 0.05
 shader_param/maxStrength = 0.01
@@ -2048,7 +2048,7 @@ shader_param/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id=192]
 resource_local_to_scene = true
-shader = ExtResource( 13 )
+shader = ExtResource( 16 )
 shader_param/speed = 1.0
 shader_param/minStrength = 0.05
 shader_param/maxStrength = 0.01
@@ -2060,7 +2060,7 @@ shader_param/offset = 0.0
 
 [sub_resource type="ShaderMaterial" id=193]
 resource_local_to_scene = true
-shader = ExtResource( 13 )
+shader = ExtResource( 16 )
 shader_param/speed = 1.0
 shader_param/minStrength = 0.05
 shader_param/maxStrength = 0.01
@@ -2071,11 +2071,11 @@ shader_param/heightOffset = 0.5
 shader_param/offset = 0.0
 
 [node name="Tutorial" type="Node2D"]
-script = ExtResource( 14 )
+script = ExtResource( 1 )
 player_path = NodePath("Characters/Player")
 level_type = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 2 )]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." instance=ExtResource( 6 )]
 environment = SubResource( 1 )
 
 [node name="Collision_Ground" type="StaticBody2D" parent="."]
@@ -2840,87 +2840,87 @@ z_index = 4
 [node name="Props" type="Node2D" parent="."]
 z_index = 5
 
-[node name="BigTree2" type="Sprite" parent="Props" instance=ExtResource( 10 )]
+[node name="BigTree2" type="Sprite" parent="Props" instance=ExtResource( 9 )]
 material = SubResource( 186 )
 position = Vector2( -8752, 8608 )
-texture = ExtResource( 29 )
+texture = ExtResource( 25 )
 offset = Vector2( 0, -64 )
 flip_h = true
-script = ExtResource( 25 )
+script = ExtResource( 17 )
 
-[node name="BigTree3" type="Sprite" parent="Props" instance=ExtResource( 10 )]
+[node name="BigTree3" type="Sprite" parent="Props" instance=ExtResource( 9 )]
 material = SubResource( 187 )
 position = Vector2( -8112, 8608 )
-texture = ExtResource( 29 )
+texture = ExtResource( 25 )
 offset = Vector2( 0, -64 )
 flip_h = true
-script = ExtResource( 25 )
+script = ExtResource( 17 )
 
-[node name="BigTree1" type="Sprite" parent="Props" instance=ExtResource( 11 )]
+[node name="BigTree1" type="Sprite" parent="Props" instance=ExtResource( 10 )]
 material = SubResource( 188 )
 position = Vector2( -8624, 8608 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 offset = Vector2( 0, -64 )
-script = ExtResource( 25 )
+script = ExtResource( 17 )
 
-[node name="Flower3" type="Sprite" parent="Props" instance=ExtResource( 6 )]
+[node name="Flower3" type="Sprite" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( -8528, 8608 )
-texture = ExtResource( 23 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, -16 )
 hframes = 8
 vframes = 7
 
-[node name="Flower4" type="Sprite" parent="Props" instance=ExtResource( 6 )]
+[node name="Flower4" type="Sprite" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( -8432, 8608 )
-texture = ExtResource( 23 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, -16 )
 hframes = 8
 vframes = 7
 
-[node name="Flower5" type="Sprite" parent="Props" instance=ExtResource( 6 )]
+[node name="Flower5" type="Sprite" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( -8304, 8608 )
-texture = ExtResource( 23 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, -16 )
 hframes = 8
 vframes = 7
 
-[node name="Flower6" type="Sprite" parent="Props" instance=ExtResource( 6 )]
+[node name="Flower6" type="Sprite" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( -8048, 8448 )
-texture = ExtResource( 23 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, -16 )
 hframes = 8
 vframes = 7
 
-[node name="Flower7" type="Sprite" parent="Props" instance=ExtResource( 6 )]
+[node name="Flower7" type="Sprite" parent="Props" instance=ExtResource( 7 )]
 position = Vector2( -8016, 8448 )
-texture = ExtResource( 23 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, -16 )
 hframes = 8
 vframes = 7
 
-[node name="Bush1" type="Sprite" parent="Props" instance=ExtResource( 1 )]
+[node name="Bush1" type="Sprite" parent="Props" instance=ExtResource( 11 )]
 material = SubResource( 189 )
 position = Vector2( -7952, 8608 )
-texture = ExtResource( 28 )
+texture = ExtResource( 26 )
 offset = Vector2( 0, -32 )
 flip_h = true
-script = ExtResource( 25 )
+script = ExtResource( 17 )
 
-[node name="Bush2" type="Sprite" parent="Props" instance=ExtResource( 1 )]
+[node name="Bush2" type="Sprite" parent="Props" instance=ExtResource( 11 )]
 material = SubResource( 190 )
 position = Vector2( -7632, 8736 )
-texture = ExtResource( 28 )
+texture = ExtResource( 26 )
 offset = Vector2( 0, -32 )
-script = ExtResource( 25 )
+script = ExtResource( 17 )
 
-[node name="SmallTree1" type="Sprite" parent="Props" instance=ExtResource( 3 )]
+[node name="SmallTree1" type="Sprite" parent="Props" instance=ExtResource( 12 )]
 material = SubResource( 191 )
 position = Vector2( -7088, 8352 )
 texture = ExtResource( 27 )
 offset = Vector2( 0, -32 )
-script = ExtResource( 25 )
+script = ExtResource( 17 )
 
-[node name="BrokenLamp1" type="Sprite" parent="Props" instance=ExtResource( 7 )]
+[node name="BrokenLamp1" type="Sprite" parent="Props" instance=ExtResource( 8 )]
 position = Vector2( -6608, 8736 )
 texture = ExtResource( 19 )
 offset = Vector2( 0, -16 )
@@ -2928,48 +2928,48 @@ hframes = 19
 vframes = 6
 frame = 96
 
-[node name="Lamp" type="Sprite" parent="Props" instance=ExtResource( 4 )]
+[node name="Lamp" type="Sprite" parent="Props" instance=ExtResource( 13 )]
 position = Vector2( -6448, 8736 )
 texture = ExtResource( 19 )
 offset = Vector2( 0, -16 )
 hframes = 19
 vframes = 6
 frame = 1
-script = ExtResource( 26 )
+script = ExtResource( 18 )
 type = 2
 
-[node name="BigTree4" type="Sprite" parent="Props" instance=ExtResource( 10 )]
+[node name="BigTree4" type="Sprite" parent="Props" instance=ExtResource( 9 )]
 material = SubResource( 192 )
 position = Vector2( -6864, 8736 )
-texture = ExtResource( 29 )
+texture = ExtResource( 25 )
 offset = Vector2( 0, -64 )
 flip_h = true
-script = ExtResource( 25 )
+script = ExtResource( 17 )
 
-[node name="BigTree5" type="Sprite" parent="Props" instance=ExtResource( 11 )]
+[node name="BigTree5" type="Sprite" parent="Props" instance=ExtResource( 10 )]
 material = SubResource( 193 )
 position = Vector2( -7344, 8736 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 offset = Vector2( 0, -64 )
-script = ExtResource( 25 )
+script = ExtResource( 17 )
 
-[node name="Flower2" type="Sprite" parent="Props" instance=ExtResource( 8 )]
+[node name="Flower2" type="Sprite" parent="Props" instance=ExtResource( 14 )]
 position = Vector2( -7536, 8288 )
-texture = ExtResource( 22 )
-offset = Vector2( 0, -16 )
-hframes = 6
-vframes = 5
-
-[node name="Flower8" type="Sprite" parent="Props" instance=ExtResource( 8 )]
-position = Vector2( -7408, 8320 )
-texture = ExtResource( 22 )
-offset = Vector2( 0, -16 )
-hframes = 6
-vframes = 5
-
-[node name="Flower9" type="Sprite" parent="Props" instance=ExtResource( 6 )]
-position = Vector2( -7600, 8320 )
 texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 6
+vframes = 5
+
+[node name="Flower8" type="Sprite" parent="Props" instance=ExtResource( 14 )]
+position = Vector2( -7408, 8320 )
+texture = ExtResource( 23 )
+offset = Vector2( 0, -16 )
+hframes = 6
+vframes = 5
+
+[node name="Flower9" type="Sprite" parent="Props" instance=ExtResource( 7 )]
+position = Vector2( -7600, 8320 )
+texture = ExtResource( 21 )
 offset = Vector2( 0, -16 )
 hframes = 8
 vframes = 7
@@ -2979,72 +2979,72 @@ z_index = 6
 
 [node name="RuneContainer" type="Area2D" parent="Runes" groups=[
 "Persistent",
-] instance=ExtResource( 9 )]
+] instance=ExtResource( 15 )]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 position = Vector2( -7940, 8498 )
 collision_layer = 2
 collision_mask = 0
-script = ExtResource( 15 )
-rune = ExtResource( 18 )
+script = ExtResource( 4 )
+rune = ExtResource( 5 )
 
 [node name="Platforms" type="Node2D" parent="."]
 z_index = 7
 
-[node name="OneWayPlatform2" type="StaticBody2D" parent="Platforms" instance=ExtResource( 5 )]
+[node name="OneWayPlatform2" type="StaticBody2D" parent="Platforms" instance=ExtResource( 28 )]
 position = Vector2( -6400, 8512 )
 collision_layer = 15360
 collision_mask = 16
-script = ExtResource( 17 )
+script = ExtResource( 2 )
 __meta__ = {
 "ground_type": "Dirt"
 }
 width = 64
 
-[node name="OneWayPlatform3" type="StaticBody2D" parent="Platforms" instance=ExtResource( 5 )]
+[node name="OneWayPlatform3" type="StaticBody2D" parent="Platforms" instance=ExtResource( 28 )]
 position = Vector2( -6400, 8416 )
 collision_layer = 15360
 collision_mask = 16
-script = ExtResource( 17 )
+script = ExtResource( 2 )
 __meta__ = {
 "ground_type": "Dirt"
 }
 width = 64
 
-[node name="OneWayPlatform4" type="StaticBody2D" parent="Platforms" instance=ExtResource( 5 )]
+[node name="OneWayPlatform4" type="StaticBody2D" parent="Platforms" instance=ExtResource( 28 )]
 position = Vector2( -6400, 8320 )
 collision_layer = 15360
 collision_mask = 16
-script = ExtResource( 17 )
+script = ExtResource( 2 )
 __meta__ = {
 "ground_type": "Dirt"
 }
 width = 64
 
-[node name="OneWayPlatform5" type="StaticBody2D" parent="Platforms" instance=ExtResource( 5 )]
+[node name="OneWayPlatform5" type="StaticBody2D" parent="Platforms" instance=ExtResource( 28 )]
 position = Vector2( -6400, 8224 )
 collision_layer = 15360
 collision_mask = 16
-script = ExtResource( 17 )
+script = ExtResource( 2 )
 __meta__ = {
 "ground_type": "Dirt"
 }
 width = 64
 
-[node name="OneWayPlatform6" type="StaticBody2D" parent="Platforms" instance=ExtResource( 5 )]
+[node name="OneWayPlatform6" type="StaticBody2D" parent="Platforms" instance=ExtResource( 28 )]
 position = Vector2( -6400, 8144 )
 collision_layer = 15360
 collision_mask = 16
-script = ExtResource( 17 )
+script = ExtResource( 2 )
 __meta__ = {
 "ground_type": "Dirt"
 }
 width = 64
 
-[node name="OneWayPlatform7" type="StaticBody2D" parent="Platforms" instance=ExtResource( 5 )]
+[node name="OneWayPlatform7" type="StaticBody2D" parent="Platforms" instance=ExtResource( 28 )]
 position = Vector2( -6400, 8048 )
 collision_layer = 15360
 collision_mask = 16
-script = ExtResource( 17 )
+script = ExtResource( 2 )
 __meta__ = {
 "ground_type": "Dirt"
 }
@@ -3055,13 +3055,14 @@ z_index = 8
 
 [node name="Player" type="KinematicBody2D" parent="Characters" groups=[
 "Persistent",
-] instance=ExtResource( 12 )]
+] instance=ExtResource( 29 )]
 position = Vector2( -8600, 8608 )
 z_index = 1
 collision_layer = 1024
 collision_mask = 1025
-script = ExtResource( 16 )
+script = ExtResource( 3 )
 
 [connection signal="transition_requested" from="Runes/RuneContainer" to="." method="on_transition_requested"]
+[connection signal="restore_requested" from="Characters/Player" to="." method="on_restore_requested"]
 [connection signal="save_requested" from="Characters/Player" to="." method="on_save_requested"]
 [connection signal="transition_requested" from="Characters/Player" to="." method="on_transition_requested"]

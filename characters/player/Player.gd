@@ -4,6 +4,8 @@ class_name Player
 signal rune_added(rune)
 signal save_requested()
 signal transition_requested(level_name, target_name)
+# warning-ignore:unused_signal
+signal restore_requested()
 
 # this is pretty hacky, but it saves us from storing filepaths in our savefiles
 const RUNE_RESOURCES_PATH: String = "res://environment/runes/resource"
@@ -53,6 +55,8 @@ func save_game(save_data: Dictionary, _level) -> void:
 
 func load_game(save_data: Dictionary, level) -> void:
 	if "runes" in save_data:
+		self.max_health = 3
+		
 		for rune_name in save_data.runes:
 			if rune_name.begins_with("HealthRune"):
 				rune_name = "HealthRune"
@@ -65,14 +69,15 @@ func load_game(save_data: Dictionary, level) -> void:
 	else:
 		health = max_health # on new game
 	
-	if "spawn_target" in save_data:
-		start_sequence(level.SpawnTargets.get_node(save_data.spawn_target))
-		save_data.erase("spawn_target")
-		emit_signal("save_requested")
-	elif save_data.get("checkpoint_level") == level.name && "checkpoint_name" in save_data:
-		global_position = level.SpawnTargets.get_node(save_data.checkpoint_name).global_position
-		# respawn with full health
-		health = max_health
+	if !"restore" in save_data:
+		if "spawn_target" in save_data:
+			start_sequence(level.SpawnTargets.get_node(save_data.spawn_target))
+			save_data.erase("spawn_target")
+			emit_signal("save_requested")
+		elif save_data.get("checkpoint_level") == level.name && "checkpoint_name" in save_data:
+			global_position = level.SpawnTargets.get_node(save_data.checkpoint_name).global_position
+			# respawn with full health
+			health = max_health
 	self.current_health = health
 
 func _set_current_health(new_health: int) -> void:

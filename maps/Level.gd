@@ -10,6 +10,7 @@ signal save_requested()
 signal save_to_file_requested()
 signal transition_requested(level_name, target_name)
 signal preload_requested(level_name)
+signal restore_requested()
 
 onready var Player_ := get_node_or_null(player_path) as Player
 onready var Deer := get_node_or_null(deer_path) as Character
@@ -66,6 +67,9 @@ func on_save_to_file_requested() -> void:
 func on_transition_requested(level_name, target_name) -> void:
 	emit_signal("transition_requested", level_name, target_name)
 
+func on_restore_requested() -> void:
+	emit_signal("restore_requested")
+
 # used by the LDtk importer
 func new_entities(new_entity: Array) -> void:
 	player_path = ""
@@ -82,6 +86,8 @@ func new_entities(new_entity: Array) -> void:
 			entity.connect("save_to_file_requested", self, "on_save_to_file_requested", [], CONNECT_PERSIST)
 		if entity.has_signal("transition_requested"):
 			entity.connect("transition_requested", self, "on_transition_requested", [], CONNECT_PERSIST)
+		if entity.has_signal("restore_requested"):
+			entity.connect("restore_requested", self, "on_restore_requested", [], CONNECT_PERSIST)
 		if entity is Player:
 			player_path = get_path_to(entity)
 		if entity is DialogueSequenceTrigger:

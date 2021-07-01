@@ -9,7 +9,7 @@
 		"url": "https://ldtk.io"
 	},
 	"jsonVersion": "0.9.3",
-	"nextUid": 550,
+	"nextUid": 551,
 	"worldLayout": "GridVania",
 	"worldGridWidth": 32,
 	"worldGridHeight": 32,
@@ -2102,7 +2102,7 @@
 			"tilesetId": 129,
 			"tileId": 0,
 			"tileRenderMode": "FitInside",
-			"maxCount": 1,
+			"maxCount": 0,
 			"limitScope": "PerWorld",
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0.5,
@@ -2174,7 +2174,7 @@
 			"tilesetId": 129,
 			"tileId": 1,
 			"tileRenderMode": "FitInside",
-			"maxCount": 1,
+			"maxCount": 0,
 			"limitScope": "PerWorld",
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0.5,
@@ -2318,7 +2318,7 @@
 			"tilesetId": 129,
 			"tileId": 3,
 			"tileRenderMode": "FitInside",
-			"maxCount": 1,
+			"maxCount": 0,
 			"limitScope": "PerWorld",
 			"limitBehavior": "MoveLastOne",
 			"pivotX": 0.5,
@@ -3597,10 +3597,30 @@
 					"textLanguageMode": null
 				},
 				{
-					"identifier": "move_direction",
-					"__type": "LocalEnum.Move_direction",
-					"uid": 542,
-					"type": { "id": "F_Enum", "params": [541] },
+					"identifier": "deer_teleport_waypoint",
+					"__type": "Point",
+					"uid": 538,
+					"type": "F_Point",
+					"isArray": false,
+					"canBeNull": true,
+					"arrayMinLength": null,
+					"arrayMaxLength": null,
+					"editorDisplayMode": "Hidden",
+					"editorDisplayPos": "Above",
+					"editorAlwaysShow": false,
+					"editorCutLongValues": true,
+					"min": null,
+					"max": null,
+					"regex": null,
+					"acceptFileTypes": null,
+					"defaultOverride": null,
+					"textLanguageMode": null
+				},
+				{
+					"identifier": "deer_teleport_look_direction",
+					"__type": "LocalEnum.Initial_look_direction",
+					"uid": 550,
+					"type": { "id": "F_Enum", "params": [531] },
 					"isArray": false,
 					"canBeNull": false,
 					"arrayMinLength": null,
@@ -3617,12 +3637,12 @@
 					"textLanguageMode": null
 				},
 				{
-					"identifier": "deer_teleport_waypoint",
-					"__type": "Point",
-					"uid": 538,
-					"type": "F_Point",
+					"identifier": "end_action",
+					"__type": "LocalEnum.DialogueEndAction",
+					"uid": 542,
+					"type": { "id": "F_Enum", "params": [541] },
 					"isArray": false,
-					"canBeNull": true,
+					"canBeNull": false,
 					"arrayMinLength": null,
 					"arrayMaxLength": null,
 					"editorDisplayMode": "Hidden",
@@ -4179,10 +4199,11 @@
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
 		{ "identifier": "GroundType", "uid": 447, "values": [ { "id": "Stone", "tileId": null, "color": 5460819, "__tileSrcRect": null }, { "id": "Dirt", "tileId": null, "color": 2957341, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
 		{ "identifier": "Initial_look_direction", "uid": 531, "values": [ { "id": "Left", "tileId": null, "color": 0, "__tileSrcRect": null }, { "id": "Right", "tileId": null, "color": 0, "__tileSrcRect": null } ], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null },
-		{ "identifier": "Move_direction", "uid": 541, "values": [
-			{ "id": "Left", "tileId": null, "color": 0, "__tileSrcRect": null },
-			{ "id": "Right", "tileId": null, "color": 0, "__tileSrcRect": null },
-			{ "id": "NoMove", "tileId": null, "color": 0, "__tileSrcRect": null }
+		{ "identifier": "DialogueEndAction", "uid": 541, "values": [
+			{ "id": "MoveLeft", "tileId": null, "color": 0, "__tileSrcRect": null },
+			{ "id": "MoveRight", "tileId": null, "color": 0, "__tileSrcRect": null },
+			{ "id": "Wait", "tileId": null, "color": 0, "__tileSrcRect": null },
+			{ "id": "Leave", "tileId": null, "color": 0, "__tileSrcRect": null }
 		], "iconTilesetUid": null, "externalRelPath": null, "externalFileChecksum": null }
 	], "externalEnums": [], "levelFields": [] },
 	"levels": [
@@ -4391,6 +4412,34 @@
 							"fieldInstances": [
 								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 136, "realEditorValues": [] },
 								{ "__identifier": "rune", "__value": "res://environment/runes/resource/HealthRune.tres", "__type": "String", "defUid": 137, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "DoubleJumpRune",
+							"__grid": [101,52],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [16,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 132,
+							"px": [1624,840],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 133, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DoubleJumpRune.tres", "__type": "String", "defUid": 134, "realEditorValues": [] }
+							]
+						},
+						{
+							"__identifier": "DashRune",
+							"__grid": [106,52],
+							"__pivot": [0.5,0.5],
+							"__tile": { "tilesetUid": 129, "srcRect": [0,0,16,16] },
+							"width": 16,
+							"height": 16,
+							"defUid": 128,
+							"px": [1704,840],
+							"fieldInstances": [
+								{ "__identifier": "NodeType", "__value": "res://environment/runes/RuneContainer.tscn", "__type": "String", "defUid": 130, "realEditorValues": [] },
+								{ "__identifier": "rune", "__value": "res://environment/runes/resource/DashRune.tres", "__type": "String", "defUid": 131, "realEditorValues": [] }
 							]
 						}
 					]
@@ -17619,8 +17668,8 @@
 							"__grid": [29,56],
 							"__pivot": [0,0],
 							"__tile": null,
-							"width": 224,
-							"height": 304,
+							"width": 16,
+							"height": 320,
 							"defUid": 524,
 							"px": [464,896],
 							"fieldInstances": [
@@ -17643,32 +17692,180 @@
 								},
 								{
 									"__identifier": "dialogue",
-									"__value": "res://utility/dialogue/resources/intro.tres",
+									"__value": "res://utility/dialogue/resources/beginning1.tres",
 									"__type": "String",
 									"defUid": 536,
 									"realEditorValues": [{
 										"id": "V_String",
-										"params": ["res://utility/dialogue/resources/intro.tres"]
+										"params": ["res://utility/dialogue/resources/beginning1.tres"]
 									}]
 								},
 								{
 									"__identifier": "deer_teleport_waypoint",
-									"__value": { "cx": 169, "cy": 71 },
+									"__value": { "cx": 179, "cy": 83 },
 									"__type": "Point",
 									"defUid": 538,
 									"realEditorValues": [{
 										"id": "V_String",
-										"params": ["169,71"]
+										"params": ["179,83"]
 									}]
 								},
 								{
-									"__identifier": "move_direction",
-									"__value": "Right",
-									"__type": "LocalEnum.Move_direction",
+									"__identifier": "end_action",
+									"__value": "MoveRight",
+									"__type": "LocalEnum.DialogueEndAction",
 									"defUid": 542,
 									"realEditorValues": [{
 										"id": "V_String",
+										"params": ["MoveRight"]
+									}]
+								},
+								{
+									"__identifier": "deer_teleport_look_direction",
+									"__value": "Left",
+									"__type": "LocalEnum.Initial_look_direction",
+									"defUid": 550,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Left"]
+									}]
+								}
+							]
+						},
+						{
+							"__identifier": "DialogueSequenceTrigger",
+							"__grid": [167,74],
+							"__pivot": [0,0],
+							"__tile": null,
+							"width": 16,
+							"height": 160,
+							"defUid": 524,
+							"px": [2672,1184],
+							"fieldInstances": [
+								{
+									"__identifier": "NodeType",
+									"__value": "res://characters/character/sequences/trigger/DialogueSequenceTrigger.tscn",
+									"__type": "String",
+									"defUid": 525,
+									"realEditorValues": []
+								},
+								{
+									"__identifier": "player_waypoint",
+									"__value": { "cx": 171, "cy": 83 },
+									"__type": "Point",
+									"defUid": 526,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["171,83"]
+									}]
+								},
+								{
+									"__identifier": "dialogue",
+									"__value": "res://utility/dialogue/resources/beginning2.tres",
+									"__type": "String",
+									"defUid": 536,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["res://utility/dialogue/resources/beginning2.tres"]
+									}]
+								},
+								{
+									"__identifier": "deer_teleport_waypoint",
+									"__value": { "cx": 26, "cy": 27 },
+									"__type": "Point",
+									"defUid": 538,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["26,27"]
+									}]
+								},
+								{
+									"__identifier": "end_action",
+									"__value": "Wait",
+									"__type": "LocalEnum.DialogueEndAction",
+									"defUid": 542,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Wait"]
+									}]
+								},
+								{
+									"__identifier": "deer_teleport_look_direction",
+									"__value": "Right",
+									"__type": "LocalEnum.Initial_look_direction",
+									"defUid": 550,
+									"realEditorValues": [{
+										"id": "V_String",
 										"params": ["Right"]
+									}]
+								}
+							]
+						},
+						{
+							"__identifier": "DialogueSequenceTrigger",
+							"__grid": [39,2],
+							"__pivot": [0,0],
+							"__tile": null,
+							"width": 16,
+							"height": 416,
+							"defUid": 524,
+							"px": [624,32],
+							"fieldInstances": [
+								{
+									"__identifier": "NodeType",
+									"__value": "res://characters/character/sequences/trigger/DialogueSequenceTrigger.tscn",
+									"__type": "String",
+									"defUid": 525,
+									"realEditorValues": []
+								},
+								{
+									"__identifier": "player_waypoint",
+									"__value": { "cx": 32, "cy": 27 },
+									"__type": "Point",
+									"defUid": 526,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["32,27"]
+									}]
+								},
+								{
+									"__identifier": "dialogue",
+									"__value": "res://utility/dialogue/resources/beginning3.tres",
+									"__type": "String",
+									"defUid": 536,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["res://utility/dialogue/resources/beginning3.tres"]
+									}]
+								},
+								{
+									"__identifier": "deer_teleport_waypoint",
+									"__value": { "cx": 24, "cy": 2 },
+									"__type": "Point",
+									"defUid": 538,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["24,2"]
+									}]
+								},
+								{
+									"__identifier": "end_action",
+									"__value": "Leave",
+									"__type": "LocalEnum.DialogueEndAction",
+									"defUid": 542,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Leave"]
+									}]
+								},
+								{
+									"__identifier": "deer_teleport_look_direction",
+									"__value": "Left",
+									"__type": "LocalEnum.Initial_look_direction",
+									"defUid": 550,
+									"realEditorValues": [{
+										"id": "V_String",
+										"params": ["Left"]
 									}]
 								}
 							]
@@ -34293,7 +34490,7 @@
 					"layerDefUid": 82,
 					"pxOffsetX": 0,
 					"pxOffsetY": 0,
-					"visible": false,
+					"visible": true,
 					"optionalRules": [],
 					"intGrid": [],
 					"intGridCsv": [],
