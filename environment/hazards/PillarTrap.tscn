@@ -92,6 +92,7 @@ texture = ExtResource( 1 )
 hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+autoplay = "trigger"
 anims/trigger = SubResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]

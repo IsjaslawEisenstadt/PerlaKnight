@@ -24,7 +24,7 @@ onready var Transition := $".."/UI/Transition
 onready var PlayUI := $".."/UI/PlayUI
 
 export(String, DIR) var levels_dir: String = "res://maps/test_map/levels"
-export var new_game_level_name: String = "Level1"
+export var new_game_level_name: String = "Crossroads"
 export var new_game_tutorial_name: String = "Tutorial"
 
 export var dungeon_background_scene: PackedScene = preload("res://maps/backgrounds/dungeon/DungeonBackground.tscn")
@@ -133,8 +133,9 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 			activate_level(next_level_name)
 			load_game()
 			
-			activate_level(new_game_tutorial_name)
-			load_game()
+			if params.enter_play_mode == EnterPlayMode.NEW_GAME:
+				activate_level(new_game_tutorial_name)
+				load_game()
 		
 			._state_enter(previous_state, params)
 			Transition.end()
