@@ -8,6 +8,10 @@ export(String, MULTILINE) var text: String = "" setget set_text
 export var scroll_time: float = 0.05
 export var icon_offset: float = 6.0
 
+export var large_pause_time: float = 0.8
+export var medium_pause_time: float = 0.4
+export var short_pause_time: float = 0.2
+
 var current_character: int = 0
 
 var force_line_finish: bool = false
@@ -81,19 +85,22 @@ func on_scroll_timeout() -> void:
 	
 	var pause_time: float = scroll_time
 	if text[current_character] == '[':
-		var pause_str: String = ""
-		var i: int = current_character + 1
 		
-		while is_char_in_bounds(i) && text[i] != ']':
-			pause_str += text[i]
-			i += 1
-		
-		if !is_char_in_bounds(i):
+		if !is_char_in_bounds(current_character + 2):
 			show_icons()
 			return
 		
-		current_character = i + 1
-		pause_time = float(pause_str)
+		match text[current_character + 1] + text[current_character + 2]:
+			"L]":
+				pause_time = large_pause_time
+			"M]":
+				pause_time = medium_pause_time
+			"S]":
+				pause_time = short_pause_time
+			_:
+				$Offset/Panel/Margin/Label.text += text[current_character]
+				current_character -= 2
+		current_character += 3
 	else:
 		$Offset/Panel/Margin/Label.text += text[current_character]
 		current_character += 1
