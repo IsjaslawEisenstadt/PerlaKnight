@@ -177,7 +177,7 @@ _global_script_classes=[ {
 "base": "Container",
 "class": "KeyMapListEntry",
 "language": "GDScript",
-"path": "res://ui/general/keymap/KeyMapListEntry.gd"
+"path": "res://ui/keymap/KeyMapListEntry.gd"
 }, {
 "base": "PhysicsState",
 "class": "LandState",

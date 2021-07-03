@@ -1,9 +1,9 @@
 [gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://ui/keymap/KeyMap.gd" type="Script" id=2]
-[ext_resource path="res://ui/general/keymap/KeyMapListEntry.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ui/general/keymap/textures/gdb-xbox-1a.png" type="Texture" id=5]
-[ext_resource path="res://ui/general/keymap/textures/Keyboard Black Corn.png" type="Texture" id=6]
+[ext_resource path="res://ui/keymap/KeyMapListEntry.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/keymap/textures/gdb-xbox-1a.png" type="Texture" id=5]
+[ext_resource path="res://ui/keymap/textures/Keyboard Black Corn.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 length = 0.15
@@ -170,62 +170,62 @@ columns = 2
 
 [node name="MoveLeft" parent="Content/GridContainer" instance=ExtResource( 4 )]
 margin_right = 198.0
-margin_bottom = 43.0
+margin_bottom = 20.0
 size_flags_horizontal = 3
 action_name = "Move left"
 input_entry_textures = [ SubResource( 4 ), SubResource( 5 ) ]
 
 [node name="MoveRight" parent="Content/GridContainer" instance=ExtResource( 4 )]
 margin_left = 202.0
-margin_bottom = 43.0
+margin_bottom = 20.0
 size_flags_horizontal = 3
 action_name = "Move right"
 input_entry_textures = [ SubResource( 6 ), SubResource( 7 ) ]
 
 [node name="FallThrough" parent="Content/GridContainer" instance=ExtResource( 4 )]
-margin_top = 47.0
+margin_top = 24.0
 margin_right = 198.0
-margin_bottom = 108.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 action_name = "Fall through"
 input_entry_textures = [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ]
 
 [node name="Jump" parent="Content/GridContainer" instance=ExtResource( 4 )]
 margin_left = 202.0
-margin_top = 47.0
-margin_bottom = 108.0
+margin_top = 24.0
+margin_bottom = 44.0
 size_flags_horizontal = 3
 action_name = "Jump"
 input_entry_textures = [ SubResource( 11 ), SubResource( 12 ) ]
 
 [node name="Attack" parent="Content/GridContainer" instance=ExtResource( 4 )]
-margin_top = 112.0
+margin_top = 48.0
 margin_right = 198.0
-margin_bottom = 165.0
+margin_bottom = 68.0
 size_flags_horizontal = 3
 action_name = "Attack"
 input_entry_textures = [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ]
 
 [node name="Interact" parent="Content/GridContainer" instance=ExtResource( 4 )]
 margin_left = 202.0
-margin_top = 112.0
-margin_bottom = 165.0
+margin_top = 48.0
+margin_bottom = 68.0
 size_flags_horizontal = 3
 action_name = "Interact"
 input_entry_textures = [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ]
 
 [node name="Dash" parent="Content/GridContainer" instance=ExtResource( 4 )]
-margin_top = 169.0
+margin_top = 72.0
 margin_right = 198.0
-margin_bottom = 222.0
+margin_bottom = 92.0
 size_flags_horizontal = 3
 action_name = "Dash"
 input_entry_textures = [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ]
 
 [node name="Pause" parent="Content/GridContainer" instance=ExtResource( 4 )]
 margin_left = 202.0
-margin_top = 169.0
-margin_bottom = 222.0
+margin_top = 72.0
+margin_bottom = 92.0
 size_flags_horizontal = 3
 action_name = "Pause"
 input_entry_textures = [ SubResource( 22 ), SubResource( 23 ) ]

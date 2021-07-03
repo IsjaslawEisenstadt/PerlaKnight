@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gdb-xbox-1a.png-f0c7cfccf9f021f961b1e7bb6a0b7555.stex"
+path="res://.import/Keyboard Black Corn.png-8631d15f02ca7d1c371434bcdf73061e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/general/keymap/textures/gdb-xbox-1a.png"
-dest_files=[ "res://.import/gdb-xbox-1a.png-f0c7cfccf9f021f961b1e7bb6a0b7555.stex" ]
+source_file="res://ui/keymap/textures/Keyboard Black Corn.png"
+dest_files=[ "res://.import/Keyboard Black Corn.png-8631d15f02ca7d1c371434bcdf73061e.stex" ]
 
 [params]
 

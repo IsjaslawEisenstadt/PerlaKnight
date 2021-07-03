@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/input_entry.png-a544e95c795ac0147713836e1dbbc3fe.stex"
+path="res://.import/gdb-xbox-1a.png-fd77b0947238c1acee1175723d09904d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/general/keymap/textures/input_entry.png"
-dest_files=[ "res://.import/input_entry.png-a544e95c795ac0147713836e1dbbc3fe.stex" ]
+source_file="res://ui/keymap/textures/gdb-xbox-1a.png"
+dest_files=[ "res://.import/gdb-xbox-1a.png-fd77b0947238c1acee1175723d09904d.stex" ]
 
 [params]
 
