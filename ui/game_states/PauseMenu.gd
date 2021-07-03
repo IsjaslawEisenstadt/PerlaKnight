@@ -56,3 +56,4 @@ func on_exit_pressed() -> void:
 		Input.action_release("pause")
 		Input.action_release("ui_cancel")
 		popup_open = false
+

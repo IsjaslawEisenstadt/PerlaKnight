@@ -1,0 +1,780 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://ui/keymap/textures/input_entry.png" type="Texture" id=1]
+[ext_resource path="res://ui/keymap/KeyMap.gd" type="Script" id=2]
+[ext_resource path="res://ui/keymap/textures/gamepad.png" type="Texture" id=5]
+[ext_resource path="res://ui/general/fonts/HeartbitXX.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://ui/keymap/KeyButton.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Animation" id=1]
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Content:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Blur:material:shader_param/blur_amount")
+tracks/1/interp = 2
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 2.0 ]
+}
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+uniform float blur_amount : hint_range(0, 5);
+
+void fragment() {
+	COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount);
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/blur_amount = 2.0
+
+[sub_resource type="DynamicFont" id=4]
+extra_spacing_top = -2
+extra_spacing_bottom = -2
+extra_spacing_space = -2
+font_data = ExtResource( 7 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 352, 176, 19, 19 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 197, 72, 18, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 384, 176, 19, 19 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 233, 72, 18, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 448, 176, 19, 19 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 216, 89, 16, 18 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 17, 49, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 17, 33, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 17, 65, 14, 14 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 336, 65, 16, 14 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 5 )
+region = Rect2( 336, 101, 16, 8 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 5 )
+region = Rect2( 18, 114, 12, 12 )
+
+[node name="KeyMap" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pause_game = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/blur = SubResource( 1 )
+
+[node name="Blur" type="ColorRect" parent="."]
+material = SubResource( 3 )
+margin_right = 480.0
+margin_bottom = 270.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 160
+custom_constants/margin_top = 24
+custom_constants/margin_left = 160
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content"]
+margin_left = 160.0
+margin_top = 24.0
+margin_right = 320.0
+margin_bottom = 250.0
+custom_constants/separation = 2
+
+[node name="MoveLeft" type="MarginContainer" parent="Content/VBoxContainer"]
+margin_right = 160.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Content/VBoxContainer/MoveLeft"]
+margin_right = 160.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/MoveLeft"]
+margin_right = 160.0
+margin_bottom = 26.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 3
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/MoveLeft/MarginContainer"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 155.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="Content/VBoxContainer/MoveLeft/MarginContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 84.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Move Left"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/MoveLeft/MarginContainer/HBoxContainer"]
+margin_left = 88.0
+margin_right = 150.0
+margin_bottom = 19.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/MoveLeft/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_right = 17.0
+margin_bottom = 19.0
+custom_constants/margin_top = 1
+custom_constants/margin_bottom = 2
+
+[node name="KeyButton" parent="Content/VBoxContainer/MoveLeft/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource( 8 )]
+margin_top = 1.0
+margin_right = 17.0
+margin_bottom = 17.0
+text = "A"
+
+[node name="Texture3" type="TextureRect" parent="Content/VBoxContainer/MoveLeft/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 21.0
+margin_right = 40.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 5 )
+stretch_mode = 6
+
+[node name="Texture2" type="TextureRect" parent="Content/VBoxContainer/MoveLeft/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 44.0
+margin_right = 62.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 6 )
+stretch_mode = 6
+
+[node name="MoveRight" type="MarginContainer" parent="Content/VBoxContainer"]
+margin_top = 28.0
+margin_right = 160.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Content/VBoxContainer/MoveRight"]
+margin_right = 160.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/MoveRight"]
+margin_right = 160.0
+margin_bottom = 26.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 3
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/MoveRight/MarginContainer"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 155.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="Content/VBoxContainer/MoveRight/MarginContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 84.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Move Right"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/MoveRight/MarginContainer/HBoxContainer"]
+margin_left = 88.0
+margin_right = 150.0
+margin_bottom = 19.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/MoveRight/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_right = 17.0
+margin_bottom = 19.0
+custom_constants/margin_top = 1
+custom_constants/margin_bottom = 2
+
+[node name="KeyButton" parent="Content/VBoxContainer/MoveRight/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource( 8 )]
+margin_top = 1.0
+margin_right = 17.0
+margin_bottom = 17.0
+text = "D"
+
+[node name="Texture3" type="TextureRect" parent="Content/VBoxContainer/MoveRight/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 21.0
+margin_right = 40.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 7 )
+stretch_mode = 6
+
+[node name="Texture" type="TextureRect" parent="Content/VBoxContainer/MoveRight/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 44.0
+margin_right = 62.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 8 )
+stretch_mode = 6
+
+[node name="Fallthrough" type="MarginContainer" parent="Content/VBoxContainer"]
+margin_top = 56.0
+margin_right = 160.0
+margin_bottom = 82.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Content/VBoxContainer/Fallthrough"]
+margin_right = 160.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Fallthrough"]
+margin_right = 160.0
+margin_bottom = 26.0
+custom_constants/margin_right = 7
+custom_constants/margin_top = 3
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Fallthrough/MarginContainer"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 153.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="Content/VBoxContainer/Fallthrough/MarginContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 84.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Fallthrough"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Fallthrough/MarginContainer/HBoxContainer"]
+margin_left = 88.0
+margin_right = 148.0
+margin_bottom = 19.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Fallthrough/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_right = 17.0
+margin_bottom = 19.0
+custom_constants/margin_top = 1
+custom_constants/margin_bottom = 2
+
+[node name="KeyButton" parent="Content/VBoxContainer/Fallthrough/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource( 8 )]
+margin_top = 1.0
+margin_right = 17.0
+margin_bottom = 17.0
+text = "S"
+
+[node name="Texture3" type="TextureRect" parent="Content/VBoxContainer/Fallthrough/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 21.0
+margin_right = 40.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 9 )
+stretch_mode = 6
+
+[node name="Texture" type="TextureRect" parent="Content/VBoxContainer/Fallthrough/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 44.0
+margin_right = 60.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 10 )
+stretch_mode = 6
+
+[node name="Jump" type="MarginContainer" parent="Content/VBoxContainer"]
+margin_top = 84.0
+margin_right = 160.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Content/VBoxContainer/Jump"]
+margin_right = 160.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Jump"]
+margin_right = 160.0
+margin_bottom = 26.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 3
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Jump/MarginContainer"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 155.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="Content/VBoxContainer/Jump/MarginContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 92.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Jump / Talk"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Jump/MarginContainer/HBoxContainer"]
+margin_left = 96.0
+margin_right = 150.0
+margin_bottom = 19.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Jump/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_right = 36.0
+margin_bottom = 19.0
+custom_constants/margin_top = 1
+custom_constants/margin_bottom = 2
+
+[node name="KeyButton" parent="Content/VBoxContainer/Jump/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource( 8 )]
+margin_top = 1.0
+margin_right = 36.0
+margin_bottom = 17.0
+text = "Space"
+
+[node name="Texture" type="TextureRect" parent="Content/VBoxContainer/Jump/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 40.0
+margin_right = 54.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 11 )
+stretch_mode = 6
+
+[node name="Attack" type="MarginContainer" parent="Content/VBoxContainer"]
+margin_top = 112.0
+margin_right = 160.0
+margin_bottom = 138.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Content/VBoxContainer/Attack"]
+margin_right = 160.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Attack"]
+margin_right = 160.0
+margin_bottom = 26.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 3
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Attack/MarginContainer"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 155.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="Content/VBoxContainer/Attack/MarginContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 76.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Attack"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Attack/MarginContainer/HBoxContainer"]
+margin_left = 80.0
+margin_right = 150.0
+margin_bottom = 19.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Attack/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_right = 17.0
+margin_bottom = 19.0
+custom_constants/margin_top = 1
+custom_constants/margin_bottom = 2
+
+[node name="KeyButton" parent="Content/VBoxContainer/Attack/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource( 8 )]
+margin_top = 1.0
+margin_right = 17.0
+margin_bottom = 17.0
+text = "Q"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Content/VBoxContainer/Attack/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 21.0
+margin_right = 52.0
+margin_bottom = 19.0
+custom_constants/margin_top = 1
+custom_constants/margin_bottom = 2
+
+[node name="KeyButton" parent="Content/VBoxContainer/Attack/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer2" instance=ExtResource( 8 )]
+margin_top = 1.0
+margin_right = 31.0
+margin_bottom = 17.0
+text = "LMB"
+
+[node name="Texture" type="TextureRect" parent="Content/VBoxContainer/Attack/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 56.0
+margin_right = 70.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 12 )
+stretch_mode = 6
+
+[node name="Interact" type="MarginContainer" parent="Content/VBoxContainer"]
+margin_top = 140.0
+margin_right = 160.0
+margin_bottom = 166.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Content/VBoxContainer/Interact"]
+margin_right = 160.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Interact"]
+margin_right = 160.0
+margin_bottom = 26.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 3
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Interact/MarginContainer"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 155.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="Content/VBoxContainer/Interact/MarginContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 111.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Interact / Talk"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Interact/MarginContainer/HBoxContainer"]
+margin_left = 115.0
+margin_right = 150.0
+margin_bottom = 19.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Interact/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_right = 17.0
+margin_bottom = 19.0
+custom_constants/margin_top = 1
+custom_constants/margin_bottom = 2
+
+[node name="KeyButton" parent="Content/VBoxContainer/Interact/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource( 8 )]
+margin_top = 1.0
+margin_right = 17.0
+margin_bottom = 17.0
+text = "E"
+
+[node name="Texture" type="TextureRect" parent="Content/VBoxContainer/Interact/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 21.0
+margin_right = 35.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 13 )
+stretch_mode = 6
+
+[node name="Dash" type="MarginContainer" parent="Content/VBoxContainer"]
+margin_top = 168.0
+margin_right = 160.0
+margin_bottom = 194.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Content/VBoxContainer/Dash"]
+margin_right = 160.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Dash"]
+margin_right = 160.0
+margin_bottom = 26.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 3
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Dash/MarginContainer"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 155.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="Content/VBoxContainer/Dash/MarginContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 76.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Dash"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Dash/MarginContainer/HBoxContainer"]
+margin_left = 80.0
+margin_right = 150.0
+margin_bottom = 19.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Dash/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_right = 30.0
+margin_bottom = 19.0
+custom_constants/margin_top = 1
+custom_constants/margin_bottom = 2
+
+[node name="KeyButton" parent="Content/VBoxContainer/Dash/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource( 8 )]
+margin_top = 1.0
+margin_right = 30.0
+margin_bottom = 17.0
+text = "Shift"
+
+[node name="Texture3" type="TextureRect" parent="Content/VBoxContainer/Dash/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 34.0
+margin_right = 50.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 14 )
+stretch_mode = 6
+
+[node name="Texture" type="TextureRect" parent="Content/VBoxContainer/Dash/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 54.0
+margin_right = 70.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 15 )
+stretch_mode = 6
+
+[node name="Pause" type="MarginContainer" parent="Content/VBoxContainer"]
+margin_top = 196.0
+margin_right = 160.0
+margin_bottom = 222.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Content/VBoxContainer/Pause"]
+margin_right = 160.0
+margin_bottom = 26.0
+texture = ExtResource( 1 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Pause"]
+margin_right = 160.0
+margin_bottom = 26.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 3
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Pause/MarginContainer"]
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 155.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="Content/VBoxContainer/Pause/MarginContainer/HBoxContainer"]
+margin_top = 5.0
+margin_right = 105.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 4 )
+text = "Pause"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Content/VBoxContainer/Pause/MarginContainer/HBoxContainer"]
+margin_left = 109.0
+margin_right = 150.0
+margin_bottom = 19.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Content/VBoxContainer/Pause/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_right = 25.0
+margin_bottom = 19.0
+custom_constants/margin_top = 1
+custom_constants/margin_bottom = 2
+
+[node name="KeyButton" parent="Content/VBoxContainer/Pause/MarginContainer/HBoxContainer/HBoxContainer/MarginContainer" instance=ExtResource( 8 )]
+margin_top = 1.0
+margin_right = 25.0
+margin_bottom = 17.0
+text = "Esc"
+
+[node name="Texture" type="TextureRect" parent="Content/VBoxContainer/Pause/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 29.0
+margin_right = 41.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+texture = SubResource( 16 )
+stretch_mode = 6
