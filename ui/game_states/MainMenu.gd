@@ -1,7 +1,6 @@
 extends GameState
 class_name MainMenu
 
-onready var LoadingScreen := $".."/LoadingScreen
 onready var Transition := $".."/Transition
 onready var PlayState := $"../.."/PlayState
 

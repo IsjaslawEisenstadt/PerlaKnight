@@ -1,13 +1,11 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://ui/general/keymap/KeyMapListEntry.gd" type="Script" id=1]
 [ext_resource path="res://ui/game_states/KeyMap.gd" type="Script" id=2]
-[ext_resource path="res://ui/general/keymap/InputEntry.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/general/keymap/KeyMapListEntry.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/general/keymap/textures/gdb-xbox-1a.png" type="Texture" id=5]
 [ext_resource path="res://ui/general/keymap/textures/Keyboard Black Corn.png" type="Texture" id=6]
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=1]
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
@@ -35,7 +33,7 @@ tracks/1/keys = {
 "values": [ 0.0, 2.0 ]
 }
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 
 uniform float blur_amount : hint_range(0, 5);
@@ -44,87 +42,87 @@ void fragment() {
 	COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount);
 }"
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
 shader_param/blur_amount = 2.0
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 6 )
 region = Rect2( 48, 49, 16, 15 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 5 )
 region = Rect2( 197, 72, 18, 16 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 6 )
 region = Rect2( 80, 49, 16, 15 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 5 )
 region = Rect2( 233, 72, 18, 16 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 6 )
 region = Rect2( 64, 49, 16, 15 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 5 )
 region = Rect2( 216, 89, 16, 18 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 5 )
 region = Rect2( 148, 82, 8, 12 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 6 )
 region = Rect2( 80, 81, 80, 15 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 5 )
 region = Rect2( 17, 49, 14, 14 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 6 )
 region = Rect2( 248, 7, 7, 8 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 6 )
 region = Rect2( 48, 33, 16, 15 )
 
-[sub_resource type="AtlasTexture" id=22]
+[sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 5 )
 region = Rect2( 17, 33, 14, 14 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 6 )
 region = Rect2( 80, 33, 16, 15 )
 
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 5 )
 region = Rect2( 336, 85, 16, 8 )
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 5 )
 region = Rect2( 17, 65, 14, 14 )
 
-[sub_resource type="AtlasTexture" id=26]
+[sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 6 )
 region = Rect2( 6, 65, 42, 15 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 5 )
 region = Rect2( 336, 65, 16, 14 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 5 )
 region = Rect2( 336, 101, 16, 8 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 6 )
 region = Rect2( 27, 1, 21, 15 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=23]
 atlas = ExtResource( 5 )
 region = Rect2( 18, 114, 12, 12 )
 
@@ -140,10 +138,10 @@ __meta__ = {
 pause_game = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/blur = SubResource( 10 )
+anims/blur = SubResource( 1 )
 
 [node name="Blur" type="ColorRect" parent="."]
-material = SubResource( 6 )
+material = SubResource( 3 )
 margin_right = 480.0
 margin_bottom = 270.0
 mouse_filter = 2
@@ -170,108 +168,64 @@ margin_right = 440.0
 margin_bottom = 250.0
 columns = 2
 
-[node name="MoveLeft" type="MarginContainer" parent="Content/GridContainer" instance=ExtResource( 4 )]
+[node name="MoveLeft" parent="Content/GridContainer" instance=ExtResource( 4 )]
 margin_right = 198.0
 margin_bottom = 43.0
 size_flags_horizontal = 3
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-InputEntry = ExtResource( 3 )
 action_name = "Move left"
+input_entry_textures = [ SubResource( 4 ), SubResource( 5 ) ]
+
+[node name="MoveRight" parent="Content/GridContainer" instance=ExtResource( 4 )]
+margin_left = 202.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+action_name = "Move right"
+input_entry_textures = [ SubResource( 6 ), SubResource( 7 ) ]
+
+[node name="FallThrough" parent="Content/GridContainer" instance=ExtResource( 4 )]
+margin_top = 47.0
+margin_right = 198.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+action_name = "Fall through"
+input_entry_textures = [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ]
+
+[node name="Jump" parent="Content/GridContainer" instance=ExtResource( 4 )]
+margin_left = 202.0
+margin_top = 47.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+action_name = "Jump"
 input_entry_textures = [ SubResource( 11 ), SubResource( 12 ) ]
 
-[node name="MoveRight" type="MarginContainer" parent="Content/GridContainer" instance=ExtResource( 4 )]
-margin_left = 202.0
-margin_right = 400.0
-margin_bottom = 43.0
-size_flags_horizontal = 3
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-InputEntry = ExtResource( 3 )
-action_name = "Move right"
-input_entry_textures = [ SubResource( 13 ), SubResource( 14 ) ]
-
-[node name="FallThrough" type="MarginContainer" parent="Content/GridContainer" instance=ExtResource( 4 )]
-margin_top = 47.0
-margin_right = 198.0
-margin_bottom = 108.0
-size_flags_horizontal = 3
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-InputEntry = ExtResource( 3 )
-action_name = "Fall through"
-input_entry_textures = [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ]
-
-[node name="Jump" type="MarginContainer" parent="Content/GridContainer" instance=ExtResource( 4 )]
-margin_left = 202.0
-margin_top = 47.0
-margin_right = 400.0
-margin_bottom = 108.0
-size_flags_horizontal = 3
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-InputEntry = ExtResource( 3 )
-action_name = "Jump"
-input_entry_textures = [ SubResource( 18 ), SubResource( 19 ) ]
-
-[node name="Attack" type="MarginContainer" parent="Content/GridContainer" instance=ExtResource( 4 )]
+[node name="Attack" parent="Content/GridContainer" instance=ExtResource( 4 )]
 margin_top = 112.0
 margin_right = 198.0
 margin_bottom = 165.0
 size_flags_horizontal = 3
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-InputEntry = ExtResource( 3 )
 action_name = "Attack"
-input_entry_textures = [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ]
+input_entry_textures = [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ]
 
-[node name="Interact" type="MarginContainer" parent="Content/GridContainer" instance=ExtResource( 4 )]
+[node name="Interact" parent="Content/GridContainer" instance=ExtResource( 4 )]
 margin_left = 202.0
 margin_top = 112.0
-margin_right = 400.0
 margin_bottom = 165.0
 size_flags_horizontal = 3
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-InputEntry = ExtResource( 3 )
 action_name = "Interact"
-input_entry_textures = [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ]
+input_entry_textures = [ SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ]
 
-[node name="Dash" type="MarginContainer" parent="Content/GridContainer" instance=ExtResource( 4 )]
+[node name="Dash" parent="Content/GridContainer" instance=ExtResource( 4 )]
 margin_top = 169.0
 margin_right = 198.0
 margin_bottom = 222.0
 size_flags_horizontal = 3
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-InputEntry = ExtResource( 3 )
 action_name = "Dash"
-input_entry_textures = [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ]
+input_entry_textures = [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ]
 
-[node name="Pause" type="MarginContainer" parent="Content/GridContainer" instance=ExtResource( 4 )]
+[node name="Pause" parent="Content/GridContainer" instance=ExtResource( 4 )]
 margin_left = 202.0
 margin_top = 169.0
-margin_right = 400.0
 margin_bottom = 222.0
 size_flags_horizontal = 3
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-InputEntry = ExtResource( 3 )
 action_name = "Pause"
-input_entry_textures = [ SubResource( 29 ), SubResource( 30 ) ]
+input_entry_textures = [ SubResource( 22 ), SubResource( 23 ) ]

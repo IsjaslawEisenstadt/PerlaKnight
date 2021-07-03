@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://utility/dialogue/Dialogue.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+lines = [ "[D]This is all the guidance
+I have for you right now.", "[P]I do not want to leave..", "[D]We will meet again.
+May the odds be in your favor." ]

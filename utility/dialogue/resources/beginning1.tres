@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://utility/dialogue/Dialogue.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+lines = [ "[D]At last, a visitor.", "[P]Where am I?
+I was at my camp in the dungeon..", "[D]In another world.[L]
+A more peaceful world.", "[P]This place is stunning.[L]
+I have not seen flowers
+in a long time. Is this real?", "[D]It exists in a different form
+than you think.", "[P]Where I am from,
+everything is ruined.", "[P]I failed to protect my kingdom.[L]
+I failed as a knight.", "[P]There is nothing left
+for me in this ruined world.[L]
+No chance for redemption.
+I just want to start over.", "[D]Maybe there is a way.." ]

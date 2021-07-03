@@ -13,3 +13,4 @@ script = ExtResource( 1 )
 name = "Dash Rune"
 description = "With this rune, you can dash."
 texture = SubResource( 1 )
+level_name = "TutorialDash"

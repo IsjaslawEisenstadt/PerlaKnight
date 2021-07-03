@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://utility/dialogue/Dialogue.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+lines = [ "[D]Seek the origin of the runes
+and return them to the other world.", "[D]Well hidden it is, you have to use 
+everything you have learnt.
+May the odds be in your favor." ]

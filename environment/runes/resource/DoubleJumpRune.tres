@@ -13,3 +13,4 @@ script = ExtResource( 1 )
 name = "Double Jump Rune"
 description = "This rune makes you jump even higher."
 texture = SubResource( 1 )
+level_name = "TutorialDoubleJump"

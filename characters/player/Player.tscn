@@ -615,6 +615,7 @@ collision_mask = 1025
 script = ExtResource( 10 )
 
 [node name="Sprite" parent="." index="0"]
+light_mask = 0
 material = SubResource( 1 )
 texture = ExtResource( 4 )
 offset = Vector2( 7.5, -21 )

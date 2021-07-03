@@ -17,7 +17,7 @@ onready var AttackHitBoxCollider := get_node_or_null("Colliders/AttackHitbox/Att
 onready var Sounds := $Sounds
 onready var DialogueBoxPosition := $DialogueBoxPosition
 
-export var max_health: int = 4 setget set_max_health
+export var max_health: int = 3 setget set_max_health
 
 export var dash_acquired: bool = false
 export var double_jump_acquired: bool = false

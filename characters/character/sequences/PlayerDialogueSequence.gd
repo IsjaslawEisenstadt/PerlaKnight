@@ -20,10 +20,12 @@ var current_line_index: int
 func _state_enter(_previous_state: State, params: Dictionary = {}) -> void:
 	sequence_trigger = params.object
 	current_line_index = -1
+	dialogue_state = -1
 	
 	if sequence_trigger.deer:
 		host.camera.use_custom_target = true
 		host.camera.custom_target = sequence_trigger.player_waypoint.linear_interpolate(sequence_trigger.deer.global_position, 0.5)
+		host.camera.use_slow_speed = true
 	
 	input_controller.deactivate_actions()
 	var waypoint_distance = host.global_position.x - sequence_trigger.player_waypoint.x
@@ -68,18 +70,28 @@ func on_line_finished(dialogue_box: DialogueBox = null) -> void:
 			sequence_trigger.deer.DialogueBoxPosition.add_child(dialogue_box)
 		
 		dialogue_box.connect("line_finished", self, "on_line_finished", [dialogue_box])
-		dialogue_box.text = current_line
+		dialogue_box.text = current_line.substr(3, current_line.length())
 	elif sequence_trigger.deer:
-		sequence_trigger.deer.start_sequence(sequence_trigger)
-		sequence_trigger.deer.SequenceController_.state_machine.get_current_state().connect("walk_finished", self, "on_walk_finished")
-		host.camera.connect("interp_finished", host.camera, "set", ["use_custom_target", false])
-		host.camera.custom_target = host
+		if sequence_trigger.end_action == "Leave":
+			host.emit_signal("restore_requested")
+		else:
+			sequence_trigger.deer.start_sequence(sequence_trigger)
+			sequence_trigger.deer.SequenceController_.state_machine.get_current_state().connect("walk_finished", self, "on_walk_finished", [], CONNECT_ONESHOT)
+			host.camera.connect("interp_finished", self, "on_interp_finished", [], CONNECT_ONESHOT)
+			host.camera.custom_target = host
+			host.camera.use_slow_speed = false
 	else:
 		host.camera.connect("interp_finished", host.camera, "set", ["use_custom_target", false])
 		on_walk_finished()
 
 func on_walk_finished() -> void:
-	state_machine._pop_state()
+	if state_machine.get_current_state() == self:
+		if host.camera.use_custom_target:
+			yield(host.camera, "interp_finished")
+		state_machine._pop_state()
+
+func on_interp_finished() -> void:
+	host.camera.use_custom_target = false
 
 func _does_handle(object) -> bool:
 	return object is DialogueSequenceTrigger
