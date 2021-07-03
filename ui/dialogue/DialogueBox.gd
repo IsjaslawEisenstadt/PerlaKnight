@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 	$Icons/IconRightOffset.position.x = ($Offset/Panel.rect_size.x / 2) - icon_offset
 	$Icons.position.y = -($Offset/Panel.rect_size.y / 2)
 	
-	if !Engine.editor_hint && Input.is_action_just_pressed("interact"):
+	if !Engine.editor_hint && Input.is_action_just_pressed("talk"):
 		if $ScrollTimer.is_stopped():
 			emit_signal("line_finished")
 		else:

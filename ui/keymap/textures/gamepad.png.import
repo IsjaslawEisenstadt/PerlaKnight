@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Keyboard Black Corn.png-8631d15f02ca7d1c371434bcdf73061e.stex"
+path="res://.import/gamepad.png-5a0580b52f5d1a1426fa3b506cde816d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/keymap/textures/Keyboard Black Corn.png"
-dest_files=[ "res://.import/Keyboard Black Corn.png-8631d15f02ca7d1c371434bcdf73061e.stex" ]
+source_file="res://ui/keymap/textures/gamepad.png"
+dest_files=[ "res://.import/gamepad.png-5a0580b52f5d1a1426fa3b506cde816d.stex" ]
 
 [params]
 

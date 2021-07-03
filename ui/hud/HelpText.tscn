@@ -1,20 +1,22 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://ui/general/fonts/HeartbitXX.tres" type="DynamicFont" id=1]
-[ext_resource path="res://ui/keymap/textures/gdb-xbox-1a.png" type="Texture" id=2]
-[ext_resource path="res://ui/keymap/textures/Keyboard Black Corn.png" type="Texture" id=3]
+[ext_resource path="res://ui/general/fonts/HeartbitXX.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/keymap/textures/gamepad.png" type="Texture" id=2]
+[ext_resource path="res://ui/keymap/KeyButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/hud/HelpText.gd" type="Script" id=4]
 
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 3 )
-region = Rect2( 128, 49, 16, 15 )
+[sub_resource type="DynamicFont" id=1]
+extra_spacing_top = -4
+extra_spacing_bottom = -2
+extra_spacing_space = -4
+font_data = ExtResource( 1 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 18, 98, 12, 12 )
 
 [node name="HelpText" type="MarginContainer"]
-margin_right = 182.0
+margin_right = 122.0
 margin_bottom = 36.0
 mouse_filter = 1
 custom_constants/margin_right = 10
@@ -29,40 +31,48 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 172.0
+margin_right = 112.0
 margin_bottom = 26.0
+size_flags_vertical = 3
+custom_constants/separation = 2
 
 [node name="Label" type="Label" parent="HBoxContainer"]
-margin_right = 46.0
-margin_bottom = 16.0
+margin_top = 4.0
+margin_right = 23.0
+margin_bottom = 11.0
 mouse_filter = 1
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
 text = "Press"
+valign = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
-margin_left = 50.0
-margin_right = 66.0
+[node name="KeyButton" parent="HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 25.0
+margin_top = 0.0
+margin_right = 42.0
 margin_bottom = 16.0
-texture = SubResource( 1 )
+text = "H"
 
 [node name="Label2" type="Label" parent="HBoxContainer"]
-margin_left = 70.0
-margin_right = 78.0
-margin_bottom = 16.0
+margin_left = 44.0
+margin_top = 4.0
+margin_right = 53.0
+margin_bottom = 11.0
 mouse_filter = 1
-custom_fonts/font = ExtResource( 1 )
-text = "/"
+custom_fonts/font = SubResource( 1 )
+text = "or"
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
-margin_left = 82.0
-margin_right = 94.0
+margin_left = 55.0
+margin_right = 67.0
 margin_bottom = 16.0
 texture = SubResource( 2 )
+stretch_mode = 6
 
 [node name="Label3" type="Label" parent="HBoxContainer"]
-margin_left = 98.0
-margin_right = 162.0
-margin_bottom = 16.0
+margin_left = 69.0
+margin_top = 4.0
+margin_right = 99.0
+margin_bottom = 11.0
 mouse_filter = 1
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
 text = "for help"

@@ -1,11 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://ui/general/Button.gd" type="Script" id=1]
 [ext_resource path="res://ui/game_states/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://ui/general/textures/gui.png" type="Texture" id=3]
 [ext_resource path="res://ui/general/Button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/general/fonts/bitmgothic.tres" type="DynamicFont" id=5]
-[ext_resource path="res://ui/general/fonts/HeartbitXX.tres" type="DynamicFont" id=6]
 
 [sub_resource type="StyleBoxTexture" id=1]
 content_margin_left = 8.0
@@ -49,7 +47,6 @@ region_rect = Rect2( 145, 81, 46, 14 )
 
 [node name="MainMenu" type="Control"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
@@ -101,16 +98,16 @@ mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="ButtonVBox" type="VBoxContainer" parent="Margin/VBox/ButtonCenter"]
-margin_left = 165.0
-margin_top = 18.0
-margin_right = 275.0
-margin_bottom = 134.0
+margin_left = 189.0
+margin_top = 38.0
+margin_right = 250.0
+margin_bottom = 115.0
 mouse_filter = 2
 custom_constants/separation = 10
 
-[node name="ContinueButton" type="Button" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
-margin_right = 110.0
-margin_bottom = 32.0
+[node name="ContinueButton" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
+margin_right = 61.0
+margin_bottom = 19.0
 focus_neighbour_top = NodePath("../ExitButton")
 focus_neighbour_bottom = NodePath("../NewGameButton")
 focus_next = NodePath("../NewGameButton")
@@ -120,17 +117,12 @@ custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 6 )
 text = "Continue"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="NewGameButton" type="Button" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
-margin_top = 42.0
-margin_right = 110.0
-margin_bottom = 74.0
+[node name="NewGameButton" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
+margin_top = 29.0
+margin_right = 61.0
+margin_bottom = 48.0
 focus_neighbour_top = NodePath("../ContinueButton")
 focus_neighbour_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
@@ -140,17 +132,11 @@ custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 6 )
-text = "New Game"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="ExitButton" type="Button" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
-margin_top = 84.0
-margin_right = 110.0
-margin_bottom = 116.0
+[node name="ExitButton" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
+margin_top = 58.0
+margin_right = 61.0
+margin_bottom = 77.0
 focus_neighbour_top = NodePath("../NewGameButton")
 focus_neighbour_bottom = NodePath("../ContinueButton")
 focus_next = NodePath("../ContinueButton")
@@ -160,12 +146,7 @@ custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 6 )
 text = "Exit"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="." method="on_continue_pressed"]
 [connection signal="pressed" from="Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="." method="on_new_game_pressed"]
