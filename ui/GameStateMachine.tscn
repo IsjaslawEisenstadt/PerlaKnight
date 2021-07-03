@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://ui/hud/rune_hud/RuneEntry.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=2]
@@ -19,24 +19,11 @@
 [ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=17]
 [ext_resource path="res://ui/general/WarningPopup.gd" type="Script" id=18]
 [ext_resource path="res://ui/general/Button.tscn" type="PackedScene" id=19]
-[ext_resource path="res://ui/game_states/KeyMap.gd" type="Script" id=20]
-[ext_resource path="res://ui/general/keymap/KeyMapListEntry.tscn" type="PackedScene" id=21]
 [ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=22]
-[ext_resource path="res://ui/general/keymap/textures/gdb-xbox-1a.png" type="Texture" id=23]
-[ext_resource path="res://ui/general/keymap/textures/Keyboard Black Corn.png" type="Texture" id=25]
-[ext_resource path="res://ui/hud/help_hud/HelpHUD.gd" type="Script" id=26]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 17 )
 region = Rect2( 48, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 25 )
-region = Rect2( 128, 49, 16, 15 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 23 )
-region = Rect2( 18, 98, 12, 12 )
 
 [sub_resource type="Animation" id=4]
 length = 0.15
@@ -118,114 +105,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-
-[sub_resource type="Animation" id=10]
-length = 0.15
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Content:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Blur:material:shader_param/blur_amount")
-tracks/1/interp = 2
-tracks/1/loop_wrap = false
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 2.0 ]
-}
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 25 )
-region = Rect2( 48, 49, 16, 15 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 23 )
-region = Rect2( 197, 72, 18, 16 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 25 )
-region = Rect2( 80, 49, 16, 15 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 23 )
-region = Rect2( 233, 72, 18, 16 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 25 )
-region = Rect2( 64, 49, 16, 15 )
-
-[sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 23 )
-region = Rect2( 216, 89, 16, 18 )
-
-[sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 23 )
-region = Rect2( 148, 82, 8, 12 )
-
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 25 )
-region = Rect2( 80, 81, 80, 15 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 23 )
-region = Rect2( 17, 49, 14, 14 )
-
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 25 )
-region = Rect2( 248, 7, 7, 8 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 25 )
-region = Rect2( 48, 33, 16, 15 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 23 )
-region = Rect2( 17, 33, 14, 14 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 25 )
-region = Rect2( 80, 33, 16, 15 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 23 )
-region = Rect2( 336, 85, 16, 8 )
-
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 23 )
-region = Rect2( 17, 65, 14, 14 )
-
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 25 )
-region = Rect2( 6, 65, 42, 15 )
-
-[sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 23 )
-region = Rect2( 336, 65, 16, 14 )
-
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 23 )
-region = Rect2( 336, 101, 16, 8 )
-
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 25 )
-region = Rect2( 27, 1, 21, 15 )
-
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 23 )
-region = Rect2( 18, 114, 12, 12 )
 
 [sub_resource type="ShaderMaterial" id=31]
 shader = ExtResource( 15 )
@@ -465,63 +344,6 @@ texture = SubResource( 1 )
 stretch_mode = 6
 script = ExtResource( 1 )
 rune = ExtResource( 22 )
-
-[node name="HelpHUD" type="MarginContainer" parent="UI/PlayUI/HUD"]
-visible = false
-modulate = Color( 1, 1, 1, 0.258824 )
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -38.0
-margin_right = 182.0
-margin_bottom = -2.0
-grow_horizontal = 0
-grow_vertical = 0
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
-script = ExtResource( 26 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/PlayUI/HUD/HelpHUD"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 172.0
-margin_bottom = 26.0
-
-[node name="Label" type="Label" parent="UI/PlayUI/HUD/HelpHUD/HBoxContainer"]
-margin_right = 46.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 11 )
-text = "Press"
-
-[node name="TextureRect" type="TextureRect" parent="UI/PlayUI/HUD/HelpHUD/HBoxContainer"]
-margin_left = 50.0
-margin_right = 66.0
-margin_bottom = 16.0
-texture = SubResource( 2 )
-
-[node name="Label2" type="Label" parent="UI/PlayUI/HUD/HelpHUD/HBoxContainer"]
-margin_left = 70.0
-margin_right = 78.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 11 )
-text = "/"
-
-[node name="TextureRect2" type="TextureRect" parent="UI/PlayUI/HUD/HelpHUD/HBoxContainer"]
-margin_left = 82.0
-margin_right = 94.0
-margin_bottom = 16.0
-texture = SubResource( 3 )
-
-[node name="Label3" type="Label" parent="UI/PlayUI/HUD/HelpHUD/HBoxContainer"]
-margin_left = 98.0
-margin_right = 162.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 11 )
-text = "for help"
 
 [node name="WorldSpaceUI" type="Control" parent="UI/PlayUI"]
 anchor_right = 1.0
@@ -898,110 +720,6 @@ focus_previous = NodePath("../ConfirmButton")
 size_flags_horizontal = 3
 text = "No"
 
-[node name="KeyMap" type="Control" parent="UI"]
-pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-script = ExtResource( 20 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-pause_game = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/KeyMap"]
-anims/blur = SubResource( 10 )
-
-[node name="Blur" type="ColorRect" parent="UI/KeyMap"]
-material = SubResource( 6 )
-margin_right = 480.0
-margin_bottom = 270.0
-mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Content" type="MarginContainer" parent="UI/KeyMap"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-custom_constants/margin_right = 40
-custom_constants/margin_top = 24
-custom_constants/margin_left = 40
-custom_constants/margin_bottom = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GridContainer" type="GridContainer" parent="UI/KeyMap/Content"]
-margin_left = 40.0
-margin_top = 24.0
-margin_right = 440.0
-margin_bottom = 250.0
-columns = 2
-
-[node name="MoveLeft" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
-margin_right = 198.0
-margin_bottom = 43.0
-size_flags_horizontal = 3
-action_name = "Move left"
-input_entry_textures = [ SubResource( 11 ), SubResource( 12 ) ]
-
-[node name="MoveRight" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
-margin_left = 202.0
-margin_bottom = 43.0
-size_flags_horizontal = 3
-action_name = "Move right"
-input_entry_textures = [ SubResource( 13 ), SubResource( 14 ) ]
-
-[node name="FallThrough" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
-margin_top = 47.0
-margin_right = 198.0
-margin_bottom = 108.0
-size_flags_horizontal = 3
-action_name = "Fall through"
-input_entry_textures = [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ]
-
-[node name="Jump" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
-margin_left = 202.0
-margin_top = 47.0
-margin_bottom = 108.0
-size_flags_horizontal = 3
-action_name = "Jump"
-input_entry_textures = [ SubResource( 18 ), SubResource( 19 ) ]
-
-[node name="Attack" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
-margin_top = 112.0
-margin_right = 198.0
-margin_bottom = 165.0
-size_flags_horizontal = 3
-action_name = "Attack"
-input_entry_textures = [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ]
-
-[node name="Interact" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
-margin_left = 202.0
-margin_top = 112.0
-margin_bottom = 165.0
-size_flags_horizontal = 3
-action_name = "Interact"
-input_entry_textures = [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ]
-
-[node name="Dash" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
-margin_top = 169.0
-margin_right = 198.0
-margin_bottom = 222.0
-size_flags_horizontal = 3
-action_name = "Dash"
-input_entry_textures = [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ]
-
-[node name="Pause" parent="UI/KeyMap/Content/GridContainer" instance=ExtResource( 21 )]
-margin_left = 202.0
-margin_top = 169.0
-margin_bottom = 222.0
-size_flags_horizontal = 3
-action_name = "Pause"
-input_entry_textures = [ SubResource( 29 ), SubResource( 30 ) ]
-
 [node name="LoadingScreen" type="Control" parent="UI"]
 pause_mode = 2
 visible = false
@@ -1062,10 +780,8 @@ anims/fade_out = SubResource( 35 )
 
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_connected"]
 [connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_connected"]
-[connection signal="player_connected" from="UI/PlayUI" to="UI/PlayUI/HUD/HelpHUD" method="on_player_connected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HealthContainer" method="on_player_disconnected"]
 [connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/RuneHUD" method="on_player_disconnected"]
-[connection signal="player_disconnected" from="UI/PlayUI" to="UI/PlayUI/HUD/HelpHUD" method="on_player_disconnected"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="UI/MainMenu" method="on_continue_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="UI/MainMenu" method="on_new_game_pressed"]
 [connection signal="pressed" from="UI/MainMenu/Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="UI/MainMenu" method="on_exit_pressed"]
