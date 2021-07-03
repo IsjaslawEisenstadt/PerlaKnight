@@ -1,0 +1,172 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://ui/general/Button.gd" type="Script" id=1]
+[ext_resource path="res://ui/game_states/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://ui/general/textures/gui.png" type="Texture" id=3]
+[ext_resource path="res://ui/general/Button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/general/fonts/bitmgothic.tres" type="DynamicFont" id=5]
+[ext_resource path="res://ui/general/fonts/HeartbitXX.tres" type="DynamicFont" id=6]
+
+[sub_resource type="StyleBoxTexture" id=1]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 145, 81, 46, 14 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 145, 98, 46, 13 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 145, 113, 46, 14 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 145, 81, 46, 14 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 3 )
+region_rect = Rect2( 145, 81, 46, 14 )
+
+[node name="MainMenu" type="Control"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pause_game = true
+default_focus_path = NodePath("Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton")
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.33371
+margin_bottom = -0.33371
+mouse_filter = 2
+custom_constants/margin_right = 20
+custom_constants/margin_top = 40
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 460.0
+margin_bottom = 245.0
+mouse_filter = 2
+
+[node name="TitleContainer" type="CenterContainer" parent="Margin/VBox"]
+margin_right = 440.0
+margin_bottom = 48.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Margin/VBox/TitleContainer"]
+margin_left = 73.0
+margin_right = 367.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 5 )
+text = "Perla Knight"
+
+[node name="ButtonCenter" type="CenterContainer" parent="Margin/VBox"]
+margin_top = 52.0
+margin_right = 440.0
+margin_bottom = 205.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="ButtonVBox" type="VBoxContainer" parent="Margin/VBox/ButtonCenter"]
+margin_left = 165.0
+margin_top = 18.0
+margin_right = 275.0
+margin_bottom = 134.0
+mouse_filter = 2
+custom_constants/separation = 10
+
+[node name="ContinueButton" type="Button" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
+margin_right = 110.0
+margin_bottom = 32.0
+focus_neighbour_top = NodePath("../ExitButton")
+focus_neighbour_bottom = NodePath("../NewGameButton")
+focus_next = NodePath("../NewGameButton")
+focus_previous = NodePath("../ExitButton")
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 6 )
+text = "Continue"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameButton" type="Button" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
+margin_top = 42.0
+margin_right = 110.0
+margin_bottom = 74.0
+focus_neighbour_top = NodePath("../ContinueButton")
+focus_neighbour_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../ContinueButton")
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 6 )
+text = "New Game"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
+margin_top = 84.0
+margin_right = 110.0
+margin_bottom = 116.0
+focus_neighbour_top = NodePath("../NewGameButton")
+focus_neighbour_bottom = NodePath("../ContinueButton")
+focus_next = NodePath("../ContinueButton")
+focus_previous = NodePath("../NewGameButton")
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 6 )
+text = "Exit"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="." method="on_continue_pressed"]
+[connection signal="pressed" from="Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="." method="on_new_game_pressed"]
+[connection signal="pressed" from="Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="." method="on_exit_pressed"]

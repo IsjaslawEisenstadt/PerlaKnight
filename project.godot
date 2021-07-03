@@ -172,7 +172,7 @@ _global_script_classes=[ {
 "base": "GameState",
 "class": "KeyMap",
 "language": "GDScript",
-"path": "res://ui/game_states/KeyMap.gd"
+"path": "res://ui/keymap/KeyMap.gd"
 }, {
 "base": "Container",
 "class": "KeyMapListEntry",

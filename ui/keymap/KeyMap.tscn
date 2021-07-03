@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://ui/game_states/KeyMap.gd" type="Script" id=2]
+[ext_resource path="res://ui/keymap/KeyMap.gd" type="Script" id=2]
 [ext_resource path="res://ui/general/keymap/KeyMapListEntry.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/general/keymap/textures/gdb-xbox-1a.png" type="Texture" id=5]
 [ext_resource path="res://ui/general/keymap/textures/Keyboard Black Corn.png" type="Texture" id=6]
