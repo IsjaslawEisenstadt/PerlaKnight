@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/npc_draugr_injured_02.wav-93c29f3a595542a22d8fddfcc4c51f48.sample"
+
+[deps]
+
+source_file="res://characters/slimes/sounds/npc_draugr_injured_02.wav"
+dest_files=[ "res://.import/npc_draugr_injured_02.wav-93c29f3a595542a22d8fddfcc4c51f48.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

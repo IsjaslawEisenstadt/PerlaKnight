@@ -1,8 +1,23 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://characters/slimes/base/BaseSlime.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/character/hurtfx/ColorAdd.tres" type="Shader" id=2]
 [ext_resource path="res://environment/decoration/lamps/textures/light_mask.png" type="Texture" id=3]
+[ext_resource path="res://utility/audio_player/ChangeAudioPlayer.gd" type="Script" id=4]
+[ext_resource path="res://utility/audio_player/RandomAudioPlayer.gd" type="Script" id=5]
+[ext_resource path="res://characters/slimes/sounds/phy_body_medium_ice_l_03.wav" type="AudioStream" id=6]
+[ext_resource path="res://characters/slimes/sounds/phy_body_medium_ice_l_04.wav" type="AudioStream" id=7]
+[ext_resource path="res://characters/slimes/sounds/phy_body_medium_ice_l_01.wav" type="AudioStream" id=8]
+[ext_resource path="res://characters/slimes/sounds/phy_body_medium_ice_l_02.wav" type="AudioStream" id=9]
+[ext_resource path="res://characters/slimes/sounds/npc_draugr_injured_02.wav" type="AudioStream" id=10]
+[ext_resource path="res://characters/slimes/sounds/npc_draugr_injured_03.wav" type="AudioStream" id=11]
+[ext_resource path="res://characters/slimes/sounds/npc_draugr_injured_04.wav" type="AudioStream" id=12]
+[ext_resource path="res://characters/slimes/sounds/npc_draugr_injured_01.wav" type="AudioStream" id=13]
+[ext_resource path="res://characters/slimes/sounds/npc_draugr_death_02.wav" type="AudioStream" id=14]
+[ext_resource path="res://characters/slimes/sounds/npc_draugr_death_05.wav" type="AudioStream" id=15]
+[ext_resource path="res://characters/slimes/sounds/npc_draugr_death_01.wav" type="AudioStream" id=16]
+[ext_resource path="res://characters/slimes/sounds/npc_draugr_death_03.wav" type="AudioStream" id=17]
+[ext_resource path="res://characters/slimes/sounds/npc_draugr_death_04.wav" type="AudioStream" id=18]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -50,6 +65,29 @@ shape = SubResource( 5 )
 
 [node name="CollisionShape2D" parent="Colliders/Perception/Sight" index="0"]
 shape = SubResource( 6 )
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
+position = Vector2( 0, 1 )
+max_distance = 1000.0
+attenuation = 5.0
+bus = "Sound"
+script = ExtResource( 5 )
+sounds = [ ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ]
+
+[node name="MoveStone" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
+position = Vector2( 0, 1 )
+max_distance = 1000.0
+attenuation = 5.0
+bus = "Sound"
+script = ExtResource( 4 )
+sounds = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ) ]
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+max_distance = 1000.0
+attenuation = 5.0
+bus = "Sound"
+script = ExtResource( 5 )
+sounds = [ ExtResource( 16 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ) ]
 
 [node name="Light2D" type="Light2D" parent="." index="10"]
 texture = ExtResource( 3 )

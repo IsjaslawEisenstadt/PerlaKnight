@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/phy_body_medium_ice_l_03.wav-9fc9eb0983d6e29f7e66b581d28d8c6f.sample"
+
+[deps]
+
+source_file="res://characters/slimes/sounds/phy_body_medium_ice_l_03.wav"
+dest_files=[ "res://.import/phy_body_medium_ice_l_03.wav-9fc9eb0983d6e29f7e66b581d28d8c6f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
