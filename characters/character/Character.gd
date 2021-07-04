@@ -105,11 +105,12 @@ func _set_current_health(new_health: int) -> void:
 	
 	emit_signal("health_changed", current_health)
 
-func set_max_health(new_max_health: int) -> void:
+func set_max_health(new_max_health: int, override: bool = false) -> void:
 	assert(new_max_health > 0)
 	
 	max_health = new_max_health
-	self.current_health = max_health
+	if !override:
+		self.current_health = max_health
 	emit_signal("max_health_changed", max_health)
 
 func hit(attacker: Node2D, damage: int) -> void:

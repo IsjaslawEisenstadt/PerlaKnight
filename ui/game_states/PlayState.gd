@@ -22,6 +22,7 @@ enum EnterPlayMode {
 onready var PauseMenu = $".."/UI/PauseMenu
 onready var Transition := $".."/UI/Transition
 onready var PlayUI := $".."/UI/PlayUI
+onready var KeyMap := $".."/UI/KeyMap
 
 export(String, DIR) var levels_dir: String = "res://maps/test_map/levels"
 export var new_game_level_name: String = "Crossroads"
@@ -148,6 +149,9 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 func _state_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		state_machine._push_state(PauseMenu)
+	
+	if Input.is_action_just_pressed("help"):
+		state_machine._push_state(KeyMap)
 
 func _ready() -> void:
 	var save_file := File.new()
@@ -197,11 +201,11 @@ func load_game() -> void:
 		if node.has_method("load_game"):
 			node.load_game(save_data, current_level)
 
-func on_transition_requested(level_name, target_name) -> void:
+func on_transition_requested(level_name, target_name, reset_override: bool = false) -> void:
 	var params: Dictionary = {}
 
-	var transition_name: String = "alpha"
-	var pause_before_transition: bool = false
+	var transition_name: String = "fade" if reset_override else "alpha"
+	var pause_before_transition: bool = reset_override
 	if level_name:
 		if target_name:
 			params["enter_play_mode"] = EnterPlayMode.LOAD_LEVEL

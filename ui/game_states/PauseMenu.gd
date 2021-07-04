@@ -56,3 +56,16 @@ func on_exit_pressed() -> void:
 		Input.action_release("pause")
 		Input.action_release("ui_cancel")
 		popup_open = false
+
+func on_reset_pressed():
+	if can_press():
+		popup_open = true
+		$ResetPopup.open()
+		var confirmed: bool = yield($ResetPopup, "popup_closed")
+		if confirmed:
+			$"../.."/PlayState.on_transition_requested(null, null, true)
+			close()
+		
+		Input.action_release("pause")
+		Input.action_release("ui_cancel")
+		popup_open = false

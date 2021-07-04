@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://ui/hud/rune_hud/RuneHUD.gd" type="Script" id=2]
+[ext_resource path="res://ui/hud/rune_hud/RuneEntry.gd" type="Script" id=3]
+[ext_resource path="res://ui/game_states/PlayUI.gd" type="Script" id=4]
+[ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=5]
+[ext_resource path="res://ui/hud/SaveIcon.gd" type="Script" id=7]
+[ext_resource path="res://ui/general/textures/icons.png" type="Texture" id=8]
+[ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=9]
+[ext_resource path="res://ui/hud/health_container/HealthContainer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://ui/hud/HelpText.tscn" type="PackedScene" id=12]
+[ext_resource path="res://ui/hud/SaveIcon.tscn" type="PackedScene" id=13]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 9 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 8 )
+region = Rect2( 33, 17, 14, 15 )
+
+[node name="PlayUI" type="Control"]
+pause_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthContainer" parent="." instance=ExtResource( 11 )]
+mouse_filter = 2
+
+[node name="RuneHUD" type="MarginContainer" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -36.0
+margin_top = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBox" type="HBoxContainer" parent="RuneHUD"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 26.0
+margin_bottom = 26.0
+grow_horizontal = 0
+grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RuneEntry3" type="TextureRect" parent="RuneHUD/HBox"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = SubResource( 1 )
+stretch_mode = 6
+script = ExtResource( 3 )
+rune = ExtResource( 5 )
+
+[node name="HelpText" parent="." instance=ExtResource( 12 )]
+margin_top = 234.0
+margin_bottom = 270.0
+
+[node name="SaveIcon" parent="." instance=ExtResource( 13 )]
+position = Vector2( 462, 18 )
+texture = SubResource( 2 )
+script = ExtResource( 7 )
+
+[connection signal="player_connected" from="." to="HealthContainer" method="on_player_connected"]
+[connection signal="player_connected" from="." to="HelpText" method="on_player_connected"]
+[connection signal="player_connected" from="." to="RuneHUD" method="on_player_connected"]
+[connection signal="player_disconnected" from="." to="HealthContainer" method="on_player_disconnected"]
+[connection signal="player_disconnected" from="." to="HelpText" method="on_player_disconnected"]
+[connection signal="player_disconnected" from="." to="RuneHUD" method="on_player_disconnected"]

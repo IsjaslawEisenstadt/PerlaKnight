@@ -9,6 +9,7 @@ onready var AnimationPlayer = $AnimationPlayer
 var last_transition_name: String
 
 func _ready() -> void:
+	visible = true
 	TransitionEffect.visible = false
 
 func start(transition_name: String) -> void:

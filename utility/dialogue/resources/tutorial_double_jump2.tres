@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://utility/dialogue/Dialogue.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+lines = [ "[P]How am I supposed to get up there?", "[D]Aim for the sky and jump twice, 
+like the air was the ground under your feet." ]
