@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://utility/interaction/Interaction.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/runes/resource/DashRune.tres" type="Resource" id=2]
 [ext_resource path="res://environment/runes/RuneContainer.gd" type="Script" id=3]
 [ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=4]
 [ext_resource path="res://utility/audio_player/RandomAudioPlayer.gd" type="Script" id=5]
-[ext_resource path="res://environment/runes/sound/mag_illusion_fear_ready_lp.wav" type="AudioStream" id=6]
-[ext_resource path="res://environment/runes/sound/ui_skill_increase.wav" type="AudioStream" id=7]
+[ext_resource path="res://environment/runes/sound/rune_pickup.wav" type="AudioStream" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -40,20 +39,14 @@ rune = ExtResource( 2 )
 
 [node name="Sprite" parent="." index="0"]
 light_mask = 0
-position = Vector2( 0, -4.68703 )
+position = Vector2( 0, -3.95288 )
 texture = SubResource( 1 )
 
 [node name="IconLeftOffset" parent="Sprite/Icons" index="0"]
 position = Vector2( -2, 0 )
 
-[node name="IconLeft" parent="Sprite/Icons/IconLeftOffset" index="0"]
-position = Vector2( -15.9091, 0 )
-
 [node name="IconRightOffset" parent="Sprite/Icons" index="1"]
 position = Vector2( 2, 0 )
-
-[node name="IconRight" parent="Sprite/Icons/IconRightOffset" index="0"]
-position = Vector2( 15.9091, 0 )
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource( 2 )
@@ -62,16 +55,9 @@ shape = SubResource( 2 )
 anims/hover = SubResource( 3 )
 
 [node name="PickUp" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource( 7 )
 max_distance = 1000.0
 attenuation = 5.0
 bus = "Sound"
 script = ExtResource( 5 )
 sounds = [ ExtResource( 7 ) ]
-
-[node name="Close" type="AudioStreamPlayer2D" parent="." index="5"]
-stream = ExtResource( 6 )
-max_distance = 1500.0
-attenuation = 2.0
-bus = "Sound"
-script = ExtResource( 5 )
-sounds = [ ExtResource( 6 ) ]
