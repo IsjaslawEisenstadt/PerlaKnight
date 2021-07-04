@@ -824,6 +824,7 @@ position = Vector2( 0, -16 )
 
 [node name="MoveDirt" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
 stream = ExtResource( 24 )
+bus = "Sound"
 script = ExtResource( 27 )
 sounds = [ ExtResource( 19 ), ExtResource( 24 ) ]
 

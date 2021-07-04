@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://maps/backgrounds/dungeon/textures/background.png" type="Texture" id=1]
 [ext_resource path="res://ui/game_states/MainMenu.gd" type="Script" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://maps/backgrounds/forest/textures/stars.png" type="Texture" id=19]
 [ext_resource path="res://maps/backgrounds/forest/textures/stars_small.png" type="Texture" id=20]
 [ext_resource path="res://maps/backgrounds/forest/textures/mountains3.png" type="Texture" id=21]
+[ext_resource path="res://ui/general/VolumeSlider.tscn" type="PackedScene" id=22]
+[ext_resource path="res://ui/general/fonts/HeartbitXX.ttf" type="DynamicFontData" id=23]
 
 [sub_resource type="StyleBoxTexture" id=1]
 content_margin_left = 8.0
@@ -62,6 +64,13 @@ content_margin_bottom = 8.0
 texture = ExtResource( 3 )
 region_rect = Rect2( 145, 81, 46, 14 )
 
+[sub_resource type="DynamicFont" id=6]
+size = 32
+extra_spacing_top = -8
+extra_spacing_bottom = -2
+extra_spacing_space = -4
+font_data = ExtResource( 23 )
+
 [node name="MainMenu" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
@@ -72,64 +81,39 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 pause_game = true
-default_focus_path = NodePath("Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton")
+default_focus_path = NodePath("Buttons/NewGameButton")
 backgrounds = [ NodePath("DungeonBackground"), NodePath("ForestBackground") ]
 
-[node name="Margin" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -0.33371
-margin_bottom = -0.33371
-mouse_filter = 2
-custom_constants/margin_right = 20
-custom_constants/margin_top = 40
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 25
+[node name="Title" type="Label" parent="."]
+margin_left = 30.0
+margin_top = 26.0
+margin_right = 324.0
+margin_bottom = 74.0
+custom_fonts/font = ExtResource( 5 )
+text = "Perla Knight"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBox" type="VBoxContainer" parent="Margin"]
-margin_left = 20.0
-margin_top = 40.0
-margin_right = 460.0
-margin_bottom = 245.0
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 345.0
+margin_top = 24.0
+margin_right = 455.0
+margin_bottom = 251.0
 mouse_filter = 2
+custom_constants/separation = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="TitleContainer" type="CenterContainer" parent="Margin/VBox"]
-margin_right = 440.0
-margin_bottom = 48.0
-mouse_filter = 2
-
-[node name="Title" type="Label" parent="Margin/VBox/TitleContainer"]
-margin_left = 73.0
-margin_right = 367.0
-margin_bottom = 48.0
-custom_fonts/font = ExtResource( 5 )
-text = "Perla Knight"
-
-[node name="ButtonCenter" type="CenterContainer" parent="Margin/VBox"]
-margin_top = 52.0
-margin_right = 440.0
-margin_bottom = 205.0
-mouse_filter = 2
-size_flags_vertical = 3
-
-[node name="ButtonVBox" type="VBoxContainer" parent="Margin/VBox/ButtonCenter"]
-margin_left = 165.0
-margin_top = 18.0
-margin_right = 275.0
-margin_bottom = 134.0
-mouse_filter = 2
-custom_constants/separation = 10
-
-[node name="ContinueButton" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
+[node name="ContinueButton" parent="Buttons" instance=ExtResource( 4 )]
 margin_right = 110.0
 margin_bottom = 32.0
-focus_neighbour_top = NodePath("../ExitButton")
+focus_neighbour_top = NodePath("../MusicSlider")
 focus_neighbour_bottom = NodePath("../NewGameButton")
 focus_next = NodePath("../NewGameButton")
-focus_previous = NodePath("../ExitButton")
+focus_previous = NodePath("../MusicSlider")
+size_flags_horizontal = 3
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
@@ -137,34 +121,102 @@ custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "Continue"
 
-[node name="NewGameButton" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
-margin_top = 42.0
+[node name="NewGameButton" parent="Buttons" instance=ExtResource( 4 )]
+margin_top = 36.0
 margin_right = 110.0
-margin_bottom = 74.0
+margin_bottom = 68.0
 focus_neighbour_top = NodePath("../ContinueButton")
 focus_neighbour_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../ContinueButton")
+size_flags_horizontal = 3
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 
-[node name="ExitButton" parent="Margin/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 4 )]
-margin_top = 84.0
+[node name="CreditsButton" parent="Buttons" instance=ExtResource( 4 )]
+margin_top = 72.0
 margin_right = 110.0
-margin_bottom = 116.0
+margin_bottom = 104.0
+focus_mode = 0
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+disabled = true
+text = "Credits"
+
+[node name="ExitButton" parent="Buttons" instance=ExtResource( 4 )]
+margin_top = 108.0
+margin_right = 110.0
+margin_bottom = 140.0
 focus_neighbour_top = NodePath("../NewGameButton")
-focus_neighbour_bottom = NodePath("../ContinueButton")
-focus_next = NodePath("../ContinueButton")
+focus_neighbour_bottom = NodePath("../SoundSlider")
+focus_next = NodePath("../SoundSlider")
 focus_previous = NodePath("../NewGameButton")
+size_flags_horizontal = 3
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "Exit"
+
+[node name="Spacer1" type="MarginContainer" parent="Buttons"]
+margin_top = 144.0
+margin_right = 110.0
+margin_bottom = 146.0
+custom_constants/margin_top = 2
+
+[node name="SoundLabel" type="Label" parent="Buttons"]
+margin_top = 150.0
+margin_right = 110.0
+margin_bottom = 166.0
+custom_fonts/font = SubResource( 6 )
+text = "Sound"
+align = 1
+valign = 1
+
+[node name="SoundSlider" parent="Buttons" instance=ExtResource( 22 )]
+margin_top = 170.0
+margin_right = 110.0
+margin_bottom = 186.0
+focus_neighbour_top = NodePath("../ExitButton")
+focus_neighbour_bottom = NodePath("../MusicSlider")
+focus_next = NodePath("../MusicSlider")
+focus_previous = NodePath("../ExitButton")
+size_flags_horizontal = 3
+audio_bus_name = "Sound"
+
+[node name="Spacer2" type="MarginContainer" parent="Buttons"]
+margin_top = 190.0
+margin_right = 110.0
+margin_bottom = 192.0
+custom_constants/margin_top = 2
+
+[node name="MusicLabel" type="Label" parent="Buttons"]
+margin_top = 196.0
+margin_right = 110.0
+margin_bottom = 212.0
+custom_fonts/font = SubResource( 6 )
+text = "Music"
+align = 1
+valign = 1
+
+[node name="MusicSlider" parent="Buttons" instance=ExtResource( 22 )]
+margin_top = 216.0
+margin_right = 110.0
+margin_bottom = 232.0
+focus_neighbour_top = NodePath("../SoundSlider")
+focus_neighbour_bottom = NodePath("../ContinueButton")
+focus_next = NodePath("../ContinueButton")
+focus_previous = NodePath("../SoundSlider")
+size_flags_horizontal = 3
+audio_bus_name = "Music"
 
 [node name="DungeonBackground" type="ParallaxBackground" parent="."]
 script = ExtResource( 12 )
@@ -294,6 +346,6 @@ motion_mirroring = Vector2( 1080, 0 )
 [node name="Mountains3" type="Sprite" parent="ForestBackground/ParallaxLayer"]
 texture = ExtResource( 21 )
 
-[connection signal="pressed" from="Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="." method="on_continue_pressed"]
-[connection signal="pressed" from="Margin/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="." method="on_new_game_pressed"]
-[connection signal="pressed" from="Margin/VBox/ButtonCenter/ButtonVBox/ExitButton" to="." method="on_exit_pressed"]
+[connection signal="pressed" from="Buttons/ContinueButton" to="." method="on_continue_pressed"]
+[connection signal="pressed" from="Buttons/NewGameButton" to="." method="on_new_game_pressed"]
+[connection signal="pressed" from="Buttons/ExitButton" to="." method="on_exit_pressed"]

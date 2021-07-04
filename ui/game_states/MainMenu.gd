@@ -4,8 +4,8 @@ class_name MainMenu
 onready var Transition := $".."/Transition
 onready var PlayState := $"../.."/PlayState
 
-onready var ContinueButton := $Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton
-onready var ExitButton := $Margin/VBox/ButtonCenter/ButtonVBox/ExitButton
+onready var ContinueButton := $Buttons/ContinueButton
+onready var ExitButton := $Buttons/ExitButton
 
 export(Array, NodePath) var backgrounds: Array
 
@@ -20,10 +20,10 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
 
 	if PlayState.has_save_data():
-		ContinueButton.visible = true
 		ContinueButton.grab_focus()
 	else:
-		ContinueButton.visible = false
+		ContinueButton.disabled = true
+		ContinueButton.focus_mode = Control.FOCUS_NONE
 
 func start_game(enter_play_mode: int = PlayState.EnterPlayMode.NEW_GAME) -> void:
 	Transition.start("fade")
