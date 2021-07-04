@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mag_frostbiteimpact_flesh_005.wav-1a9ab8d229e5015c7b76821b21043551.sample"
+
+[deps]
+
+source_file="res://characters/slimes/sounds/mag_frostbiteimpact_flesh_005.wav"
+dest_files=[ "res://.import/mag_frostbiteimpact_flesh_005.wav-1a9ab8d229e5015c7b76821b21043551.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
