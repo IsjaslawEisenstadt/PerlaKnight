@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/npc_atronachstorm_conscious_lp.wav-9d8735abc3480b7fd142f622ba70edfd.sample"
+
+[deps]
+
+source_file="res://environment/checkpoint/sound/npc_atronachstorm_conscious_lp.wav"
+dest_files=[ "res://.import/npc_atronachstorm_conscious_lp.wav-9d8735abc3480b7fd142f622ba70edfd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

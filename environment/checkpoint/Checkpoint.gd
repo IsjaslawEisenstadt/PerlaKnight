@@ -9,6 +9,9 @@ onready var AnimationPlayer := $AnimationPlayer
 
 var active: bool = false setget set_active
 
+func _ready():
+	$Close._play()
+
 func _interact(_character) -> void:
 	activate()
 	emit_signal("save_to_file_requested")
@@ -20,6 +23,7 @@ func activate() -> void:
 	if !active:
 		self.active = true
 		AnimationPlayer.play("activate")
+		$Activate._play()
 
 func activate_immediately(override: bool = false) -> void:
 	set_active(true, override)
