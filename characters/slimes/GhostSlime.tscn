@@ -70,6 +70,7 @@ shape = SubResource( 6 )
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
 position = Vector2( 0, 1 )
+stream = ExtResource( 12 )
 max_distance = 1000.0
 attenuation = 5.0
 bus = "Sound"
@@ -78,6 +79,7 @@ sounds = [ ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource(
 
 [node name="MoveStone" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
 position = Vector2( 0, 1 )
+stream = ExtResource( 7 )
 max_distance = 1000.0
 attenuation = 5.0
 bus = "Sound"
@@ -85,6 +87,7 @@ script = ExtResource( 4 )
 sounds = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ) ]
 
 [node name="Death" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
+stream = ExtResource( 15 )
 max_distance = 1000.0
 attenuation = 5.0
 bus = "Sound"
@@ -92,6 +95,7 @@ script = ExtResource( 5 )
 sounds = [ ExtResource( 16 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ) ]
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
+stream = ExtResource( 19 )
 script = ExtResource( 5 )
 sounds = [ ExtResource( 19 ), ExtResource( 20 ) ]
 
