@@ -12,3 +12,14 @@ func _ready() -> void:
 
 func interval_timout() -> void:
 	$AnimationPlayer.play("trigger")
+	
+
+func _on_Spike_Sprite_frame_changed():
+	if $Sprite.frame == 16:
+		$SpikeSound._play()
+
+
+func _on_Pillar_Sprite_frame_changed():
+	if $Sprite.frame == 4:
+		$ImpactSound._play()
+
