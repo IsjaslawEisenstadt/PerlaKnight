@@ -36,8 +36,10 @@ visible = false
 [node name="MainMenu" parent="UI" instance=ExtResource( 5 )]
 
 [node name="PauseMenu" parent="UI" instance=ExtResource( 3 )]
+visible = false
 
 [node name="Transition" parent="UI" instance=ExtResource( 8 )]
+visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 bus = "Music"

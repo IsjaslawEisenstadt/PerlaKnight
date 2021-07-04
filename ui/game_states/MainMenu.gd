@@ -1,6 +1,8 @@
 extends GameState
 class_name MainMenu
 
+export(Array, NodePath) var backgrounds: Array
+
 onready var Transition := $".."/Transition
 onready var PlayState := $"../.."/PlayState
 
@@ -10,6 +12,10 @@ onready var ExitButton := $Margin/VBox/ButtonCenter/ButtonVBox/ExitButton
 func _ready() -> void:
 	if OS.has_feature("HTML5"):
 		ExitButton.visible = false
+	
+	if !backgrounds.empty():
+		get_node(backgrounds[randi() % backgrounds.size()]).visible = true
+	
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)

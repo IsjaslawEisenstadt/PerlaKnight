@@ -79,9 +79,9 @@ position = Vector2( 462, 18 )
 texture = SubResource( 2 )
 script = ExtResource( 7 )
 
+[connection signal="player_connected" from="." to="HealthContainer" method="on_player_connected"]
 [connection signal="player_connected" from="." to="HelpText" method="on_player_connected"]
 [connection signal="player_connected" from="." to="RuneHUD" method="on_player_connected"]
-[connection signal="player_connected" from="." to="HealthContainer" method="on_player_connected"]
+[connection signal="player_disconnected" from="." to="HealthContainer" method="on_player_disconnected"]
 [connection signal="player_disconnected" from="." to="HelpText" method="on_player_disconnected"]
 [connection signal="player_disconnected" from="." to="RuneHUD" method="on_player_disconnected"]
-[connection signal="player_disconnected" from="." to="HealthContainer" method="on_player_disconnected"]

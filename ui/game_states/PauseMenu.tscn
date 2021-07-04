@@ -130,7 +130,6 @@ tracks/0/keys = {
 
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -234,9 +233,9 @@ custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 
 [node name="ExitButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
-margin_top = 126.0
+margin_top = 84.0
 margin_right = 110.0
-margin_bottom = 158.0
+margin_bottom = 116.0
 focus_neighbour_top = NodePath("../NewGameButton")
 focus_neighbour_bottom = NodePath("../ContinueButton")
 focus_next = NodePath("../ContinueButton")
