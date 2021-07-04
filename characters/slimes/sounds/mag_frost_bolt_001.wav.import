@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mag_frost_bolt_001.wav-f2c13da35f183a4157d80bbca1e04d7b.sample"
+
+[deps]
+
+source_file="res://characters/slimes/sounds/mag_frost_bolt_001.wav"
+dest_files=[ "res://.import/mag_frost_bolt_001.wav-f2c13da35f183a4157d80bbca1e04d7b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
