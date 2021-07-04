@@ -201,11 +201,11 @@ func load_game() -> void:
 		if node.has_method("load_game"):
 			node.load_game(save_data, current_level)
 
-func on_transition_requested(level_name, target_name) -> void:
+func on_transition_requested(level_name, target_name, reset_override: bool = false) -> void:
 	var params: Dictionary = {}
 
-	var transition_name: String = "alpha"
-	var pause_before_transition: bool = false
+	var transition_name: String = "fade" if reset_override else "alpha"
+	var pause_before_transition: bool = reset_override
 	if level_name:
 		if target_name:
 			params["enter_play_mode"] = EnterPlayMode.LOAD_LEVEL

@@ -1,13 +1,13 @@
 extends GameState
 class_name MainMenu
 
-export(Array, NodePath) var backgrounds: Array
-
 onready var Transition := $".."/Transition
 onready var PlayState := $"../.."/PlayState
 
 onready var ContinueButton := $Margin/VBox/ButtonCenter/ButtonVBox/ContinueButton
 onready var ExitButton := $Margin/VBox/ButtonCenter/ButtonVBox/ExitButton
+
+export(Array, NodePath) var backgrounds: Array
 
 func _ready() -> void:
 	if OS.has_feature("HTML5"):
@@ -15,7 +15,6 @@ func _ready() -> void:
 	
 	if !backgrounds.empty():
 		get_node(backgrounds[randi() % backgrounds.size()]).visible = true
-	
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://ui/game_states/PauseMenu.gd" type="Script" id=2]
 [ext_resource path="res://ui/general/WarningPopup.gd" type="Script" id=3]
@@ -96,6 +96,22 @@ margin_right = 30.0
 margin_top = 14.0
 margin_bottom = 14.0
 
+[sub_resource type="Animation" id=12]
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [sub_resource type="Animation" id=10]
 length = 0.15
 step = 0.05
@@ -170,6 +186,7 @@ margin_top = 40.0
 margin_right = 440.0
 margin_bottom = 250.0
 mouse_filter = 2
+custom_constants/separation = 17
 
 [node name="TitleContainer" type="CenterContainer" parent="Content/VBox"]
 margin_right = 400.0
@@ -184,7 +201,7 @@ custom_fonts/font = ExtResource( 6 )
 text = "Perla Knight"
 
 [node name="ButtonCenter" type="CenterContainer" parent="Content/VBox"]
-margin_top = 52.0
+margin_top = 65.0
 margin_right = 400.0
 margin_bottom = 210.0
 mouse_filter = 2
@@ -195,11 +212,11 @@ __meta__ = {
 
 [node name="ButtonVBox" type="VBoxContainer" parent="Content/VBox/ButtonCenter"]
 margin_left = 145.0
-margin_top = 21.0
+margin_top = 4.0
 margin_right = 255.0
-margin_bottom = 137.0
+margin_bottom = 141.0
 mouse_filter = 2
-custom_constants/separation = 10
+custom_constants/separation = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -218,14 +235,29 @@ custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 text = "Continue"
 
-[node name="NewGameButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
-margin_top = 42.0
+[node name="ResetButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
+margin_top = 35.0
 margin_right = 110.0
-margin_bottom = 74.0
+margin_bottom = 67.0
 focus_neighbour_top = NodePath("../ContinueButton")
+focus_neighbour_bottom = NodePath("../NewGameButton")
+focus_next = NodePath("../NewGameButton")
+focus_previous = NodePath("../ContinueButton")
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "Reset"
+
+[node name="NewGameButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
+margin_top = 70.0
+margin_right = 110.0
+margin_bottom = 102.0
+focus_neighbour_top = NodePath("../ResetButton")
 focus_neighbour_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
-focus_previous = NodePath("../ContinueButton")
+focus_previous = NodePath("../ResetButton")
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/focus = SubResource( 6 )
@@ -233,9 +265,9 @@ custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 
 [node name="ExitButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
-margin_top = 84.0
+margin_top = 105.0
 margin_right = 110.0
-margin_bottom = 116.0
+margin_bottom = 137.0
 focus_neighbour_top = NodePath("../NewGameButton")
 focus_neighbour_bottom = NodePath("../ContinueButton")
 focus_next = NodePath("../ContinueButton")
@@ -246,6 +278,104 @@ custom_styles/focus = SubResource( 6 )
 custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 text = "Exit"
+
+[node name="ResetPopup" type="PopupPanel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -141.0
+margin_top = -78.0
+margin_right = 141.0
+margin_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+custom_styles/panel = SubResource( 9 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ResetPopup"]
+anims/blur = SubResource( 12 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ResetPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 14.0
+margin_right = -30.0
+margin_bottom = -14.0
+mouse_filter = 2
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ResetPopup/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 217.0
+margin_bottom = 110.0
+mouse_filter = 2
+custom_constants/separation = 19
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ResetPopup/MarginContainer/VBoxContainer"]
+margin_right = 212.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 7 )
+text = "This will reset you to your last checkpoint. Are you sure?"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ResetPopup/MarginContainer/VBoxContainer"]
+margin_top = 73.0
+margin_right = 212.0
+margin_bottom = 105.0
+mouse_filter = 2
+custom_constants/separation = 15
+
+[node name="ConfirmButton" parent="ResetPopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+margin_right = 98.0
+margin_bottom = 32.0
+focus_neighbour_left = NodePath("../CancelButton")
+focus_neighbour_right = NodePath("../CancelButton")
+focus_next = NodePath("../CancelButton")
+focus_previous = NodePath("../CancelButton")
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "Yes"
+
+[node name="CancelButton" parent="ResetPopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+margin_left = 113.0
+margin_right = 212.0
+margin_bottom = 32.0
+focus_neighbour_left = NodePath("../ConfirmButton")
+focus_neighbour_right = NodePath("../ConfirmButton")
+focus_next = NodePath("../ConfirmButton")
+focus_previous = NodePath("../ConfirmButton")
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+text = "No"
 
 [node name="NewGamePopup" type="PopupPanel" parent="."]
 anchor_left = 0.5
@@ -299,7 +429,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="NewGamePopup/MarginContainer/VBoxContainer"]
 margin_right = 212.0
-margin_bottom = 48.0
+margin_bottom = 73.0
 custom_fonts/font = ExtResource( 7 )
 text = "Are you sure you want to start a new game? Your progress will be lost."
 autowrap = true
@@ -308,14 +438,15 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NewGamePopup/MarginContainer/VBoxContainer"]
-margin_top = 67.0
+margin_top = 92.0
 margin_right = 212.0
-margin_bottom = 97.0
+margin_bottom = 124.0
 mouse_filter = 2
 custom_constants/separation = 15
 
 [node name="ConfirmButton" parent="NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
 margin_right = 98.0
+margin_bottom = 32.0
 focus_neighbour_left = NodePath("../CancelButton")
 focus_neighbour_right = NodePath("../CancelButton")
 focus_next = NodePath("../CancelButton")
@@ -331,6 +462,7 @@ text = "Yes"
 [node name="CancelButton" parent="NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 113.0
 margin_right = 212.0
+margin_bottom = 32.0
 focus_neighbour_left = NodePath("../ConfirmButton")
 focus_neighbour_right = NodePath("../ConfirmButton")
 focus_next = NodePath("../ConfirmButton")
@@ -394,8 +526,8 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="ExitPopup/MarginContainer/VBoxContainer"]
-margin_right = 212.0
-margin_bottom = 14.0
+margin_right = 262.0
+margin_bottom = 16.0
 custom_fonts/font = ExtResource( 7 )
 text = "Are you sure you want to quit?"
 __meta__ = {
@@ -403,14 +535,15 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ExitPopup/MarginContainer/VBoxContainer"]
-margin_top = 33.0
-margin_right = 212.0
-margin_bottom = 63.0
+margin_top = 35.0
+margin_right = 262.0
+margin_bottom = 67.0
 mouse_filter = 2
 custom_constants/separation = 15
 
 [node name="ConfirmButton" parent="ExitPopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
-margin_right = 98.0
+margin_right = 123.0
+margin_bottom = 32.0
 focus_neighbour_left = NodePath("../CancelButton")
 focus_neighbour_right = NodePath("../CancelButton")
 focus_next = NodePath("../CancelButton")
@@ -424,8 +557,9 @@ custom_styles/normal = SubResource( 8 )
 text = "Yes"
 
 [node name="CancelButton" parent="ExitPopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
-margin_left = 113.0
-margin_right = 212.0
+margin_left = 138.0
+margin_right = 262.0
+margin_bottom = 32.0
 focus_neighbour_left = NodePath("../ConfirmButton")
 focus_neighbour_right = NodePath("../ConfirmButton")
 focus_next = NodePath("../ConfirmButton")
@@ -439,8 +573,12 @@ custom_styles/normal = SubResource( 8 )
 text = "No"
 
 [connection signal="pressed" from="Content/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="." method="on_continue_pressed"]
+[connection signal="pressed" from="Content/VBox/ButtonCenter/ButtonVBox/ResetButton" to="." method="on_reset_pressed"]
 [connection signal="pressed" from="Content/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="." method="on_new_game_pressed"]
 [connection signal="pressed" from="Content/VBox/ButtonCenter/ButtonVBox/ExitButton" to="." method="on_exit_pressed"]
+[connection signal="popup_hide" from="ResetPopup" to="ResetPopup" method="close" binds= [ false ]]
+[connection signal="pressed" from="ResetPopup/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="ResetPopup" method="close" binds= [ true ]]
+[connection signal="pressed" from="ResetPopup/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="ResetPopup" method="close" binds= [ false ]]
 [connection signal="popup_hide" from="NewGamePopup" to="NewGamePopup" method="close" binds= [ false ]]
 [connection signal="pressed" from="NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="NewGamePopup" method="close" binds= [ true ]]
 [connection signal="pressed" from="NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="NewGamePopup" method="close" binds= [ false ]]
