@@ -20,6 +20,7 @@ func activate() -> void:
 	if !active:
 		self.active = true
 		AnimationPlayer.play("activate")
+		$Activate._play()
 
 func activate_immediately(override: bool = false) -> void:
 	set_active(true, override)
