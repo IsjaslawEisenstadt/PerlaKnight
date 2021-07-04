@@ -12,6 +12,7 @@ func _ready() -> void:
 		$Sprite.texture = rune.texture 
 		$AnimationPlayer.play("hover")
 		$AnimationPlayer.advance(randf() * $AnimationPlayer.current_animation_length)
+		$Close._play()
 
 func _can_interact(_character) -> bool:
 	return visible
@@ -19,6 +20,8 @@ func _can_interact(_character) -> bool:
 func _interact(character) -> void:
 	visible = false
 	character.add_rune(rune)
+	$PickUp._play()
+	$Close.stop()
 	if rune.resource_name != "HealthRune":
 		emit_signal("transition_requested", rune.level_name, null)
 
