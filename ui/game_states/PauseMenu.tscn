@@ -1,11 +1,13 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=28 format=2]
 
+[ext_resource path="res://ui/general/VolumeSlider.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/game_states/PauseMenu.gd" type="Script" id=2]
 [ext_resource path="res://ui/general/WarningPopup.gd" type="Script" id=3]
 [ext_resource path="res://ui/general/textures/gui.png" type="Texture" id=4]
 [ext_resource path="res://ui/general/Button.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/general/fonts/bitmgothic.tres" type="DynamicFont" id=6]
 [ext_resource path="res://ui/general/fonts/HeartbitXX.tres" type="DynamicFont" id=7]
+[ext_resource path="res://ui/general/fonts/HeartbitXX.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="Animation" id=1]
 length = 0.15
@@ -88,6 +90,49 @@ content_margin_bottom = 8.0
 texture = ExtResource( 4 )
 region_rect = Rect2( 145, 81, 46, 14 )
 
+[sub_resource type="DynamicFont" id=13]
+size = 32
+extra_spacing_top = -8
+extra_spacing_bottom = -2
+extra_spacing_space = -4
+font_data = ExtResource( 8 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 4 )
+region = Rect2( 119, 197, 6, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 4 )
+region = Rect2( 109, 197, 6, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 4 )
+region = Rect2( 98, 197, 6, 16 )
+
+[sub_resource type="StyleBoxTexture" id=17]
+texture = ExtResource( 4 )
+region_rect = Rect2( 60, 200, 32, 10 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.0901961, 0.631373, 0.921569, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.0705882, 0.521569, 0.776471, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
 [sub_resource type="StyleBoxTexture" id=9]
 texture = ExtResource( 4 )
 region_rect = Rect2( 2, 34, 44, 44 )
@@ -95,22 +140,6 @@ margin_left = 30.0
 margin_right = 30.0
 margin_top = 14.0
 margin_bottom = 14.0
-
-[sub_resource type="Animation" id=12]
-length = 0.15
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = false
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
 
 [sub_resource type="Animation" id=10]
 length = 0.15
@@ -144,6 +173,22 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=12]
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="PauseMenu" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
@@ -154,7 +199,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 pause_game = true
-default_focus_path = NodePath("Content/VBox/ButtonCenter/ButtonVBox/ContinueButton")
+default_focus_path = NodePath("Content/Buttons/ContinueButton")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/blur = SubResource( 1 )
@@ -168,66 +213,41 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Content" type="MarginContainer" parent="."]
+[node name="Content" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-custom_constants/margin_right = 40
-custom_constants/margin_top = 40
-custom_constants/margin_left = 40
-custom_constants/margin_bottom = 20
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBox" type="VBoxContainer" parent="Content"]
-margin_left = 40.0
-margin_top = 40.0
-margin_right = 440.0
-margin_bottom = 250.0
-mouse_filter = 2
-custom_constants/separation = 17
-
-[node name="TitleContainer" type="CenterContainer" parent="Content/VBox"]
-margin_right = 400.0
-margin_bottom = 48.0
-mouse_filter = 2
-
-[node name="Title" type="Label" parent="Content/VBox/TitleContainer"]
-margin_left = 53.0
-margin_right = 347.0
-margin_bottom = 48.0
+[node name="Title" type="Label" parent="Content"]
+margin_left = 30.0
+margin_top = 26.0
+margin_right = 324.0
+margin_bottom = 74.0
 custom_fonts/font = ExtResource( 6 )
 text = "Perla Knight"
-
-[node name="ButtonCenter" type="CenterContainer" parent="Content/VBox"]
-margin_top = 65.0
-margin_right = 400.0
-margin_bottom = 210.0
-mouse_filter = 2
-size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ButtonVBox" type="VBoxContainer" parent="Content/VBox/ButtonCenter"]
-margin_left = 145.0
-margin_top = 4.0
-margin_right = 255.0
-margin_bottom = 141.0
+[node name="Buttons" type="VBoxContainer" parent="Content"]
+margin_left = 345.0
+margin_top = 24.0
+margin_right = 455.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( -144.619, -32.4717 )
 mouse_filter = 2
-custom_constants/separation = 3
+custom_constants/separation = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ContinueButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
+[node name="ContinueButton" parent="Content/Buttons" instance=ExtResource( 5 )]
 margin_right = 110.0
 margin_bottom = 32.0
-focus_neighbour_top = NodePath("../ExitButton")
-focus_neighbour_bottom = NodePath("../NewGameButton")
-focus_next = NodePath("../NewGameButton")
-focus_previous = NodePath("../ExitButton")
+focus_neighbour_top = NodePath("../MusicSlider")
+focus_neighbour_bottom = NodePath("../ResetButton")
+focus_next = NodePath("../ResetButton")
+focus_previous = NodePath("../MusicSlider")
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/focus = SubResource( 6 )
@@ -235,10 +255,10 @@ custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 text = "Continue"
 
-[node name="ResetButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
-margin_top = 35.0
+[node name="ResetButton" parent="Content/Buttons" instance=ExtResource( 5 )]
+margin_top = 36.0
 margin_right = 110.0
-margin_bottom = 67.0
+margin_bottom = 68.0
 focus_neighbour_top = NodePath("../ContinueButton")
 focus_neighbour_bottom = NodePath("../NewGameButton")
 focus_next = NodePath("../NewGameButton")
@@ -250,10 +270,10 @@ custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 text = "Reset"
 
-[node name="NewGameButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
-margin_top = 70.0
+[node name="NewGameButton" parent="Content/Buttons" instance=ExtResource( 5 )]
+margin_top = 72.0
 margin_right = 110.0
-margin_bottom = 102.0
+margin_bottom = 104.0
 focus_neighbour_top = NodePath("../ResetButton")
 focus_neighbour_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
@@ -264,13 +284,13 @@ custom_styles/focus = SubResource( 6 )
 custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 
-[node name="ExitButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
-margin_top = 105.0
+[node name="ExitButton" parent="Content/Buttons" instance=ExtResource( 5 )]
+margin_top = 108.0
 margin_right = 110.0
-margin_bottom = 137.0
+margin_bottom = 140.0
 focus_neighbour_top = NodePath("../NewGameButton")
-focus_neighbour_bottom = NodePath("../ContinueButton")
-focus_next = NodePath("../ContinueButton")
+focus_neighbour_bottom = NodePath("../SoundSlider")
+focus_next = NodePath("../SoundSlider")
 focus_previous = NodePath("../NewGameButton")
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
@@ -278,6 +298,70 @@ custom_styles/focus = SubResource( 6 )
 custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 text = "Exit"
+
+[node name="Spacer1" type="MarginContainer" parent="Content/Buttons"]
+margin_top = 144.0
+margin_right = 110.0
+margin_bottom = 146.0
+custom_constants/margin_top = 2
+
+[node name="SoundLabel" type="Label" parent="Content/Buttons"]
+margin_top = 150.0
+margin_right = 110.0
+margin_bottom = 166.0
+custom_fonts/font = SubResource( 13 )
+text = "Sound"
+align = 1
+valign = 1
+
+[node name="SoundSlider" parent="Content/Buttons" instance=ExtResource( 1 )]
+margin_top = 170.0
+margin_right = 110.0
+margin_bottom = 186.0
+focus_neighbour_top = NodePath("../ExitButton")
+focus_neighbour_bottom = NodePath("../MusicSlider")
+focus_next = NodePath("../MusicSlider")
+focus_previous = NodePath("../ExitButton")
+size_flags_horizontal = 3
+custom_icons/grabber_disabled = SubResource( 14 )
+custom_icons/grabber_highlight = SubResource( 15 )
+custom_icons/grabber = SubResource( 16 )
+custom_styles/slider = SubResource( 17 )
+custom_styles/grabber_area_highlight = SubResource( 18 )
+custom_styles/grabber_area = SubResource( 19 )
+audio_bus_name = "Sound"
+
+[node name="Spacer2" type="MarginContainer" parent="Content/Buttons"]
+margin_top = 190.0
+margin_right = 110.0
+margin_bottom = 192.0
+custom_constants/margin_top = 2
+
+[node name="MusicLabel" type="Label" parent="Content/Buttons"]
+margin_top = 196.0
+margin_right = 110.0
+margin_bottom = 212.0
+custom_fonts/font = SubResource( 13 )
+text = "Music"
+align = 1
+valign = 1
+
+[node name="MusicSlider" parent="Content/Buttons" instance=ExtResource( 1 )]
+margin_top = 216.0
+margin_right = 110.0
+margin_bottom = 232.0
+focus_neighbour_top = NodePath("../SoundSlider")
+focus_neighbour_bottom = NodePath("../ContinueButton")
+focus_next = NodePath("../ContinueButton")
+focus_previous = NodePath("../SoundSlider")
+size_flags_horizontal = 3
+custom_icons/grabber_disabled = SubResource( 14 )
+custom_icons/grabber_highlight = SubResource( 15 )
+custom_icons/grabber = SubResource( 16 )
+custom_styles/slider = SubResource( 17 )
+custom_styles/grabber_area_highlight = SubResource( 18 )
+custom_styles/grabber_area = SubResource( 19 )
+audio_bus_name = "Music"
 
 [node name="ResetPopup" type="PopupPanel" parent="."]
 anchor_left = 0.5
@@ -300,7 +384,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ResetPopup"]
-anims/blur = SubResource( 12 )
+anims/blur = SubResource( 10 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ResetPopup"]
 anchor_right = 1.0
@@ -398,7 +482,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NewGamePopup"]
-anims/blur = SubResource( 10 )
+anims/blur = SubResource( 11 )
 
 [node name="MarginContainer" type="MarginContainer" parent="NewGamePopup"]
 anchor_right = 1.0
@@ -496,7 +580,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ExitPopup"]
-anims/blur = SubResource( 11 )
+anims/blur = SubResource( 12 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ExitPopup"]
 anchor_right = 1.0
@@ -572,10 +656,10 @@ custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
 text = "No"
 
-[connection signal="pressed" from="Content/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="." method="on_continue_pressed"]
-[connection signal="pressed" from="Content/VBox/ButtonCenter/ButtonVBox/ResetButton" to="." method="on_reset_pressed"]
-[connection signal="pressed" from="Content/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="." method="on_new_game_pressed"]
-[connection signal="pressed" from="Content/VBox/ButtonCenter/ButtonVBox/ExitButton" to="." method="on_exit_pressed"]
+[connection signal="pressed" from="Content/Buttons/ContinueButton" to="." method="on_continue_pressed"]
+[connection signal="pressed" from="Content/Buttons/ResetButton" to="." method="on_reset_pressed"]
+[connection signal="pressed" from="Content/Buttons/NewGameButton" to="." method="on_new_game_pressed"]
+[connection signal="pressed" from="Content/Buttons/ExitButton" to="." method="on_exit_pressed"]
 [connection signal="popup_hide" from="ResetPopup" to="ResetPopup" method="close" binds= [ false ]]
 [connection signal="pressed" from="ResetPopup/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="ResetPopup" method="close" binds= [ true ]]
 [connection signal="pressed" from="ResetPopup/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="ResetPopup" method="close" binds= [ false ]]
