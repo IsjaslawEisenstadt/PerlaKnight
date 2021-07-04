@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://environment/decoration/candles/candle.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "burn"
+length = 2.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 20 ]
+}
+
+[node name="CandleStand" type="Sprite"]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -10 )
+hframes = 5
+vframes = 5
+frame = 20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "burn"
+anims/burn = SubResource( 1 )
