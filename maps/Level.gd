@@ -54,7 +54,6 @@ func preload_level(level_name: String) -> void:
 func save_game(save_data: Dictionary, _level) -> void:
 	if level_type == LevelTypes.FOREST:
 		save_data["tutorial_level"] = name
-		call_deferred("on_save_to_file_requested")
 	else:
 		save_data.erase("tutorial_level")
 

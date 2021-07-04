@@ -48,4 +48,5 @@ dungeon_music = [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtRe
 forest_music = [ ExtResource( 27 ), ExtResource( 28 ) ]
 
 [connection signal="level_changed" from="PlayState" to="Music" method="_on_PlayState_level_changed"]
+[connection signal="saved_to_file" from="PlayState" to="UI/PlayUI" method="on_save"]
 [connection signal="finished" from="Music" to="Music" method="_on_Music_finished"]
