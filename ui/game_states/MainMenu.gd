@@ -9,12 +9,15 @@ onready var ExitButton := $Buttons/ExitButton
 
 export(Array, NodePath) var backgrounds: Array
 
+var background
+
 func _ready() -> void:
 	if OS.has_feature("HTML5"):
 		ExitButton.visible = false
 	
 	if !backgrounds.empty():
-		get_node(backgrounds[randi() % backgrounds.size()])._visible = true
+		background = get_node(backgrounds[randi() % backgrounds.size()])
+		background._visible = true
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
@@ -24,6 +27,10 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	else:
 		ContinueButton.disabled = true
 		ContinueButton.focus_mode = Control.FOCUS_NONE
+
+func _state_exit(next_state: State, params: Dictionary = {}) -> void:
+	._state_exit(next_state, params)
+	background._visible = false
 
 func start_game(enter_play_mode: int = PlayState.EnterPlayMode.NEW_GAME) -> void:
 	Transition.start("fade")
