@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/altar_activate.wav-332d6237b98023f1d7d2b610e116f50f.sample"
+
+[deps]
+
+source_file="res://environment/checkpoint/sound/altar_activate.wav"
+dest_files=[ "res://.import/altar_activate.wav-332d6237b98023f1d7d2b610e116f50f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

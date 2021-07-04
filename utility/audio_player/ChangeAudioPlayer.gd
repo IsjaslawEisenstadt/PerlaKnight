@@ -1,3 +1,4 @@
+tool
 extends AudioPlayer
 class_name ChangeAudioPlayer
 
