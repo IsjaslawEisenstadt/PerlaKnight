@@ -14,7 +14,7 @@ func _ready() -> void:
 		ExitButton.visible = false
 	
 	if !backgrounds.empty():
-		get_node(backgrounds[randi() % backgrounds.size()]).visible = true
+		get_node(backgrounds[randi() % backgrounds.size()])._visible = true
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)

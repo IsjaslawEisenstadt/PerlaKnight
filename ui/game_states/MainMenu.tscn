@@ -168,6 +168,7 @@ text = "Exit"
 
 [node name="DungeonBackground" type="ParallaxBackground" parent="."]
 script = ExtResource( 12 )
+_visible = false
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="DungeonBackground"]
 visible = false
@@ -222,6 +223,7 @@ texture = ExtResource( 9 )
 scale = Vector2( 0.7, 0.7 )
 transform = Transform2D( 0.7, 0, 0, 0.7, 0, 0 )
 script = ExtResource( 12 )
+_visible = false
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="ForestBackground"]
 visible = false
