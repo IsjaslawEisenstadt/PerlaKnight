@@ -55,13 +55,13 @@ func save_game(save_data: Dictionary, _level) -> void:
 
 func load_game(save_data: Dictionary, level) -> void:
 	if "runes" in save_data:
-		self.max_health = 3
+		set_max_health(3, true)
 		
 		for rune_name in save_data.runes:
 			if rune_name.begins_with("HealthRune"):
 				rune_name = "HealthRune"
 			var path = "%s/%s.tres" % [RUNE_RESOURCES_PATH, rune_name]
-			add_rune(load(path))
+			add_rune(load(path), true)
 	
 	var health: int
 	if "current_health" in save_data:
@@ -84,10 +84,10 @@ func _set_current_health(new_health: int) -> void:
 	._set_current_health(new_health)
 	emit_signal("save_requested")
 
-func add_rune(rune: Rune) -> void:
+func add_rune(rune: Rune, override: bool = false) -> void:
 	match rune.resource_name:
 		"HealthRune":
-			self.max_health += 1
+			set_max_health(max_health + 1, override)
 		"DashRune":
 			dash_acquired = true
 		"WallClimbRune":
@@ -96,7 +96,8 @@ func add_rune(rune: Rune) -> void:
 			double_jump_acquired = true
 	
 	emit_signal("rune_added", rune)
-	emit_signal("save_requested")
+	if !override:
+		emit_signal("save_requested")
 
 func _die() -> void:
 	._die()

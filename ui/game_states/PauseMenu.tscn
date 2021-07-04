@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://ui/general/Button.gd" type="Script" id=1]
 [ext_resource path="res://ui/game_states/PauseMenu.gd" type="Script" id=2]
 [ext_resource path="res://ui/general/WarningPopup.gd" type="Script" id=3]
 [ext_resource path="res://ui/general/textures/gui.png" type="Texture" id=4]
@@ -8,7 +7,7 @@
 [ext_resource path="res://ui/general/fonts/bitmgothic.tres" type="DynamicFont" id=6]
 [ext_resource path="res://ui/general/fonts/HeartbitXX.tres" type="DynamicFont" id=7]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
@@ -36,7 +35,7 @@ tracks/1/keys = {
 "values": [ 0.0, 2.0 ]
 }
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 
 uniform float blur_amount : hint_range(0, 5);
@@ -45,35 +44,11 @@ void fragment() {
 	COLOR = textureLod(SCREEN_TEXTURE, SCREEN_UV, blur_amount);
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
 shader_param/blur_amount = 2.0
 
-[sub_resource type="StyleBoxTexture" id=1]
-content_margin_left = 8.0
-content_margin_right = 8.0
-content_margin_top = 8.0
-content_margin_bottom = 8.0
-texture = ExtResource( 4 )
-region_rect = Rect2( 145, 81, 46, 14 )
-
-[sub_resource type="StyleBoxTexture" id=8]
-content_margin_left = 8.0
-content_margin_right = 8.0
-content_margin_top = 8.0
-content_margin_bottom = 8.0
-texture = ExtResource( 4 )
-region_rect = Rect2( 145, 98, 46, 13 )
-
-[sub_resource type="StyleBoxTexture" id=9]
-content_margin_left = 8.0
-content_margin_right = 8.0
-content_margin_top = 8.0
-content_margin_bottom = 8.0
-texture = ExtResource( 4 )
-region_rect = Rect2( 145, 113, 46, 14 )
-
-[sub_resource type="StyleBoxTexture" id=10]
+[sub_resource type="StyleBoxTexture" id=4]
 content_margin_left = 8.0
 content_margin_right = 8.0
 content_margin_top = 8.0
@@ -87,9 +62,33 @@ content_margin_right = 8.0
 content_margin_top = 8.0
 content_margin_bottom = 8.0
 texture = ExtResource( 4 )
+region_rect = Rect2( 145, 98, 46, 13 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 4 )
+region_rect = Rect2( 145, 113, 46, 14 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 4 )
 region_rect = Rect2( 145, 81, 46, 14 )
 
-[sub_resource type="StyleBoxTexture" id=11]
+[sub_resource type="StyleBoxTexture" id=8]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource( 4 )
+region_rect = Rect2( 145, 81, 46, 14 )
+
+[sub_resource type="StyleBoxTexture" id=9]
 texture = ExtResource( 4 )
 region_rect = Rect2( 2, 34, 44, 44 )
 margin_left = 30.0
@@ -97,7 +96,7 @@ margin_right = 30.0
 margin_top = 14.0
 margin_bottom = 14.0
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=10]
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
@@ -113,7 +112,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=11]
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
@@ -143,10 +142,10 @@ pause_game = true
 default_focus_path = NodePath("Content/VBox/ButtonCenter/ButtonVBox/ContinueButton")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/blur = SubResource( 2 )
+anims/blur = SubResource( 1 )
 
 [node name="Blur" type="ColorRect" parent="."]
-material = SubResource( 4 )
+material = SubResource( 3 )
 margin_right = 480.0
 margin_bottom = 270.0
 mouse_filter = 2
@@ -206,26 +205,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ContinueButton" type="Button" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
+[node name="ContinueButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
 margin_right = 110.0
 margin_bottom = 32.0
 focus_neighbour_top = NodePath("../ExitButton")
 focus_neighbour_bottom = NodePath("../NewGameButton")
 focus_next = NodePath("../NewGameButton")
 focus_previous = NodePath("../ExitButton")
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 10 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 text = "Continue"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="NewGameButton" type="Button" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
+[node name="NewGameButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
 margin_top = 42.0
 margin_right = 110.0
 margin_bottom = 74.0
@@ -233,19 +227,13 @@ focus_neighbour_top = NodePath("../ContinueButton")
 focus_neighbour_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../ContinueButton")
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 10 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 7 )
-text = "New Game"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 
-[node name="ExitButton" type="Button" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
+[node name="ExitButton" parent="Content/VBox/ButtonCenter/ButtonVBox" instance=ExtResource( 5 )]
 margin_top = 126.0
 margin_right = 110.0
 margin_bottom = 158.0
@@ -253,17 +241,12 @@ focus_neighbour_top = NodePath("../NewGameButton")
 focus_neighbour_bottom = NodePath("../ContinueButton")
 focus_next = NodePath("../ContinueButton")
 focus_previous = NodePath("../NewGameButton")
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 10 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 text = "Exit"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="NewGamePopup" type="PopupPanel" parent="."]
 anchor_left = 0.5
@@ -279,14 +262,14 @@ grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 9 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NewGamePopup"]
-anims/blur = SubResource( 6 )
+anims/blur = SubResource( 10 )
 
 [node name="MarginContainer" type="MarginContainer" parent="NewGamePopup"]
 anchor_right = 1.0
@@ -332,46 +315,34 @@ margin_bottom = 97.0
 mouse_filter = 2
 custom_constants/separation = 15
 
-[node name="ConfirmButton" type="Button" parent="NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+[node name="ConfirmButton" parent="NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
 margin_right = 98.0
-margin_bottom = 30.0
 focus_neighbour_left = NodePath("../CancelButton")
 focus_neighbour_right = NodePath("../CancelButton")
 focus_next = NodePath("../CancelButton")
 focus_previous = NodePath("../CancelButton")
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 10 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 text = "Yes"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="CancelButton" type="Button" parent="NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+[node name="CancelButton" parent="NewGamePopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 113.0
 margin_right = 212.0
-margin_bottom = 30.0
 focus_neighbour_left = NodePath("../ConfirmButton")
 focus_neighbour_right = NodePath("../ConfirmButton")
 focus_next = NodePath("../ConfirmButton")
 focus_previous = NodePath("../ConfirmButton")
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 10 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 text = "No"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ExitPopup" type="PopupPanel" parent="."]
 anchor_left = 0.5
@@ -387,14 +358,14 @@ grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 9 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ExitPopup"]
-anims/blur = SubResource( 7 )
+anims/blur = SubResource( 11 )
 
 [node name="MarginContainer" type="MarginContainer" parent="ExitPopup"]
 anchor_right = 1.0
@@ -439,46 +410,34 @@ margin_bottom = 63.0
 mouse_filter = 2
 custom_constants/separation = 15
 
-[node name="ConfirmButton" type="Button" parent="ExitPopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+[node name="ConfirmButton" parent="ExitPopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
 margin_right = 98.0
-margin_bottom = 30.0
 focus_neighbour_left = NodePath("../CancelButton")
 focus_neighbour_right = NodePath("../CancelButton")
 focus_next = NodePath("../CancelButton")
 focus_previous = NodePath("../CancelButton")
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 10 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 text = "Yes"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="CancelButton" type="Button" parent="ExitPopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
+[node name="CancelButton" parent="ExitPopup/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource( 5 )]
 margin_left = 113.0
 margin_right = 212.0
-margin_bottom = 30.0
 focus_neighbour_left = NodePath("../ConfirmButton")
 focus_neighbour_right = NodePath("../ConfirmButton")
 focus_next = NodePath("../ConfirmButton")
 focus_previous = NodePath("../ConfirmButton")
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 8 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 10 )
-custom_styles/normal = SubResource( 5 )
-custom_fonts/font = ExtResource( 7 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 text = "No"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [connection signal="pressed" from="Content/VBox/ButtonCenter/ButtonVBox/ContinueButton" to="." method="on_continue_pressed"]
 [connection signal="pressed" from="Content/VBox/ButtonCenter/ButtonVBox/NewGameButton" to="." method="on_new_game_pressed"]

@@ -21,8 +21,8 @@ func activate() -> void:
 		self.active = true
 		AnimationPlayer.play("activate")
 
-func activate_immediately() -> void:
-	self.active = true
+func activate_immediately(override: bool = false) -> void:
+	set_active(true, override)
 	AnimationPlayer.play("activate")
 	AnimationPlayer.advance(AnimationPlayer.get_animation("activate").length)
 
@@ -32,7 +32,7 @@ func deactivate() -> void:
 		AnimationPlayer.play_backwards("activate")
 		AnimationPlayer.seek(AnimationPlayer.current_animation_position, true)
 
-func set_active(new_active: bool) -> void:
+func set_active(new_active: bool, override: bool = false) -> void:
 	if active != new_active:
 		active = new_active
 		if active:
@@ -41,7 +41,8 @@ func set_active(new_active: bool) -> void:
 					assert("active" in checkpoint)
 					if checkpoint.active:
 						checkpoint.deactivate()
-			emit_signal("save_requested")
+			if !override:
+				emit_signal("save_requested")
 
 func save_game(save_data: Dictionary, level) -> void:
 	if active:
@@ -50,4 +51,4 @@ func save_game(save_data: Dictionary, level) -> void:
 
 func load_game(save_data: Dictionary, level) -> void:
 	if save_data.get("checkpoint_level") == level.name && save_data.get("checkpoint_name") == name:
-		activate_immediately()
+		activate_immediately(true)
