@@ -47,7 +47,7 @@ visible = false
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = -10.0
-bus = "Sound"
+bus = "Music"
 script = ExtResource( 21 )
 dungeon_music = [ ExtResource( 18 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 16 ) ]
 forest_music = [ ExtResource( 14 ), ExtResource( 12 ) ]

@@ -70,8 +70,9 @@ anims/trigger = SubResource( 2 )
 
 [node name="SpikeSound" type="AudioStreamPlayer2D" parent="." index="3"]
 stream = ExtResource( 5 )
+volume_db = -3.0
 max_distance = 1000.0
-attenuation = 5.0
+attenuation = 6.8302
 bus = "Sound"
 script = ExtResource( 4 )
 
