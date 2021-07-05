@@ -26,6 +26,7 @@ func drop_random(drop_dir: int = 1) -> void:
 func on_area_entered(area) -> void:
 	if !$AnimationPlayer.is_playing():
 		$AnimationPlayer.play(destruct_animation_name)
+		$AudioPlayer._play()
 		
 		var drop_dir := int(sign((global_position - area.global_position).x))
 		# calling immediately causes physics issues

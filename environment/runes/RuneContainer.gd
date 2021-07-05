@@ -19,6 +19,7 @@ func _can_interact(_character) -> bool:
 func _interact(character) -> void:
 	visible = false
 	character.add_rune(rune)
+	$PickUp._play()
 	if rune.resource_name != "HealthRune":
 		emit_signal("transition_requested", rune.level_name, null)
 

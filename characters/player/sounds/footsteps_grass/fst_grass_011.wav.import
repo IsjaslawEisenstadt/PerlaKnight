@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fst_grass_011.wav-1fe425a03e13c63c785ce5a4cce9a21d.sample"
+
+[deps]
+
+source_file="res://characters/player/sounds/footsteps_grass/fst_grass_011.wav"
+dest_files=[ "res://.import/fst_grass_011.wav-1fe425a03e13c63c785ce5a4cce9a21d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

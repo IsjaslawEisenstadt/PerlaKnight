@@ -5,7 +5,7 @@ var popup_open: bool = false
 
 func _ready() -> void:
 	if OS.has_feature("HTML5"):
-		$Content/VBox/ButtonCenter/ButtonVBox/ExitButton.visible = false
+		$Content/Buttons/ExitButton.visible = false
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	$AnimationPlayer.play("blur")

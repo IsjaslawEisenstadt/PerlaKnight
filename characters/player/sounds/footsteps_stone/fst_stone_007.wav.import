@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fst_stone_007.wav-3914521b6ea3df57b48e5ba0af09c629.sample"
+
+[deps]
+
+source_file="res://characters/player/sounds/footsteps_stone/fst_stone_007.wav"
+dest_files=[ "res://.import/fst_stone_007.wav-3914521b6ea3df57b48e5ba0af09c629.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ui/hud/rune_hud/RuneHUD.gd" type="Script" id=2]
 [ext_resource path="res://ui/hud/rune_hud/RuneEntry.gd" type="Script" id=3]
 [ext_resource path="res://ui/game_states/PlayUI.gd" type="Script" id=4]
 [ext_resource path="res://environment/runes/resource/WallClimbRune.tres" type="Resource" id=5]
-[ext_resource path="res://ui/hud/SaveIcon.gd" type="Script" id=7]
 [ext_resource path="res://ui/general/textures/icons.png" type="Texture" id=8]
 [ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=9]
 [ext_resource path="res://ui/hud/health_container/HealthContainer.tscn" type="PackedScene" id=11]
@@ -77,11 +76,11 @@ margin_bottom = 270.0
 [node name="SaveIcon" parent="." instance=ExtResource( 13 )]
 position = Vector2( 462, 18 )
 texture = SubResource( 2 )
-script = ExtResource( 7 )
 
-[connection signal="player_connected" from="." to="HealthContainer" method="on_player_connected"]
 [connection signal="player_connected" from="." to="HelpText" method="on_player_connected"]
 [connection signal="player_connected" from="." to="RuneHUD" method="on_player_connected"]
-[connection signal="player_disconnected" from="." to="HealthContainer" method="on_player_disconnected"]
+[connection signal="player_connected" from="." to="HealthContainer" method="on_player_connected"]
 [connection signal="player_disconnected" from="." to="HelpText" method="on_player_disconnected"]
 [connection signal="player_disconnected" from="." to="RuneHUD" method="on_player_disconnected"]
+[connection signal="player_disconnected" from="." to="HealthContainer" method="on_player_disconnected"]
+[connection signal="saved_to_file" from="." to="SaveIcon" method="on_save"]

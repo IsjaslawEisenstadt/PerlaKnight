@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://ui/general/textures/gui.png" type="Texture" id=1]
+[ext_resource path="res://ui/general/VolumeSlider.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 119, 197, 6, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 109, 197, 6, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 98, 197, 6, 16 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 1 )
+region_rect = Rect2( 60, 200, 32, 10 )
+margin_left = 2.0
+margin_right = 2.0
+margin_top = 2.0
+margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.0901961, 0.631373, 0.921569, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.0705882, 0.521569, 0.776471, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[node name="VolumeSlider" type="HSlider"]
+margin_right = 30.0
+margin_bottom = 14.0
+custom_icons/grabber_disabled = SubResource( 1 )
+custom_icons/grabber_highlight = SubResource( 2 )
+custom_icons/grabber = SubResource( 3 )
+custom_styles/slider = SubResource( 4 )
+custom_styles/grabber_area_highlight = SubResource( 5 )
+custom_styles/grabber_area = SubResource( 6 )
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="." to="." method="on_value_changed"]

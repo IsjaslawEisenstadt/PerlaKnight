@@ -9,11 +9,15 @@ export var time_to_despawn: float = 3.0
 
 export var force_animation: bool = false
 
+export var death_sound: String = "Death"
+
 var collision_layer: int = 0
 var collision_mask: int = 1
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
+	
+	host.play_sound(death_sound)
 	
 	host.collision_layer = collision_layer
 	host.collision_mask = collision_mask

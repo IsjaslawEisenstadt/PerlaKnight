@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/amb_generic_night.ogg-f57b962d2a2b86c99cb97e292c700405.oggstr"
+
+[deps]
+
+source_file="res://maps/ambience/forest/amb_generic_night.ogg"
+dest_files=[ "res://.import/amb_generic_night.ogg-f57b962d2a2b86c99cb97e292c700405.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
