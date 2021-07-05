@@ -9,6 +9,8 @@ export var hurt_animation_name: String = "hurt"
 export var kickback_strength: float = 550.0
 export var makes_invincible: bool = true
 
+export var hurt_sound: String = "Hurt"
+
 func _ready() -> void:
 	yield(get_tree(), "idle_frame")
 	Host.AnimationPlayer.connect("animation_finished", self, "on_host_animation_finished")
@@ -28,6 +30,8 @@ func hurt(attacker: Node2D) -> void:
 	Host.on_animation_finished(Host.AnimationPlayer.current_animation)
 	
 	Host.play_animation(hurt_animation_name)
+	
+	Host.play_sound(hurt_sound)
 	
 	if has_animation(hurt_animation_name):
 		play(hurt_animation_name)

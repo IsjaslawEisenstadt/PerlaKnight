@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://characters/character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://characters/character/input/PlayerController.gd" type="Script" id=2]
@@ -12,22 +12,66 @@
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=10]
 [ext_resource path="res://characters/character/states/DeathState.gd" type="Script" id=11]
 [ext_resource path="res://characters/character/hurtfx/ColorAdd.tres" type="Shader" id=12]
-[ext_resource path="res://characters/player/sounds/fst_stone_cloth_walk_004.wav" type="AudioStream" id=13]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_001.wav" type="AudioStream" id=13]
 [ext_resource path="res://characters/character/sequences/DoorSequence.gd" type="Script" id=14]
 [ext_resource path="res://characters/player/DoorCast.gd" type="Script" id=15]
 [ext_resource path="res://utility/audio_player/RandomAudioPlayer.gd" type="Script" id=16]
 [ext_resource path="res://utility/audio_player/AudioPlayer.gd" type="Script" id=17]
-[ext_resource path="res://characters/player/sounds/fst_stone_cloth_walk_005.wav" type="AudioStream" id=18]
-[ext_resource path="res://characters/player/sounds/fst_grass_cloth_run_006.wav" type="AudioStream" id=19]
-[ext_resource path="res://characters/player/sounds/hurt.wav" type="AudioStream" id=20]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_004.wav" type="AudioStream" id=18]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_002.wav" type="AudioStream" id=19]
+[ext_resource path="res://characters/player/sounds/voice/jump1.wav" type="AudioStream" id=20]
 [ext_resource path="res://characters/character/sequences/PlayerDialogueSequence.gd" type="Script" id=21]
-[ext_resource path="res://characters/player/sounds/dash.wav" type="AudioStream" id=22]
-[ext_resource path="res://characters/player/sounds/fst_grass_cloth_run_004.wav" type="AudioStream" id=24]
+[ext_resource path="res://characters/player/sounds/swoosh.wav" type="AudioStream" id=22]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_011.wav" type="AudioStream" id=23]
+[ext_resource path="res://characters/player/sounds/voice/hurt4.wav" type="AudioStream" id=24]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_006.wav" type="AudioStream" id=25]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_015.wav" type="AudioStream" id=26]
 [ext_resource path="res://utility/audio_player/ChangeAudioPlayer.gd" type="Script" id=27]
-[ext_resource path="res://characters/player/sounds/blade1handforsworn_swing_005.wav" type="AudioStream" id=28]
-[ext_resource path="res://characters/player/sounds/blade1handforsworn_swing_001.wav" type="AudioStream" id=29]
-[ext_resource path="res://characters/player/sounds/blade1handforsworn_swing_002.wav" type="AudioStream" id=30]
-[ext_resource path="res://characters/player/sounds/blade1handforsworn_swing_006.wav" type="AudioStream" id=31]
+[ext_resource path="res://characters/player/sounds/attack3.wav" type="AudioStream" id=28]
+[ext_resource path="res://characters/player/sounds/attack1.wav" type="AudioStream" id=29]
+[ext_resource path="res://characters/player/sounds/attack2.wav" type="AudioStream" id=30]
+[ext_resource path="res://characters/player/sounds/attack4.wav" type="AudioStream" id=31]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_016.wav" type="AudioStream" id=32]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_005.wav" type="AudioStream" id=33]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_009.wav" type="AudioStream" id=34]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_013.wav" type="AudioStream" id=35]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_001.wav" type="AudioStream" id=36]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_014.wav" type="AudioStream" id=37]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_007.wav" type="AudioStream" id=38]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_008.wav" type="AudioStream" id=39]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_002.wav" type="AudioStream" id=40]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_012.wav" type="AudioStream" id=41]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_003.wav" type="AudioStream" id=42]
+[ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_010.wav" type="AudioStream" id=43]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_003.wav" type="AudioStream" id=44]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_016.wav" type="AudioStream" id=45]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_007.wav" type="AudioStream" id=46]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_008.wav" type="AudioStream" id=47]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_006.wav" type="AudioStream" id=48]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_009.wav" type="AudioStream" id=49]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_011.wav" type="AudioStream" id=50]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_012.wav" type="AudioStream" id=51]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_005.wav" type="AudioStream" id=52]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_013.wav" type="AudioStream" id=53]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_014.wav" type="AudioStream" id=54]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_004.wav" type="AudioStream" id=55]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_010.wav" type="AudioStream" id=56]
+[ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_015.wav" type="AudioStream" id=57]
+[ext_resource path="res://characters/player/sounds/voice/hurt1.wav" type="AudioStream" id=58]
+[ext_resource path="res://characters/player/sounds/voice/hurt2.wav" type="AudioStream" id=59]
+[ext_resource path="res://characters/player/sounds/voice/hurt3.wav" type="AudioStream" id=60]
+[ext_resource path="res://characters/player/sounds/voice/jump4.wav" type="AudioStream" id=61]
+[ext_resource path="res://characters/player/sounds/voice/jump2.wav" type="AudioStream" id=62]
+[ext_resource path="res://characters/player/sounds/voice/jump3.wav" type="AudioStream" id=63]
+[ext_resource path="res://characters/player/sounds/voice/jump5.wav" type="AudioStream" id=64]
+[ext_resource path="res://characters/player/sounds/voice/death3.wav" type="AudioStream" id=65]
+[ext_resource path="res://characters/player/sounds/voice/jump6.wav" type="AudioStream" id=66]
+[ext_resource path="res://characters/player/sounds/voice/death5.wav" type="AudioStream" id=67]
+[ext_resource path="res://characters/player/sounds/voice/attack2.wav" type="AudioStream" id=68]
+[ext_resource path="res://characters/player/sounds/voice/attack1.wav" type="AudioStream" id=69]
+[ext_resource path="res://characters/player/sounds/voice/death2.wav" type="AudioStream" id=70]
+[ext_resource path="res://characters/player/sounds/voice/attack3.wav" type="AudioStream" id=71]
+[ext_resource path="res://characters/player/sounds/voice/death4.wav" type="AudioStream" id=72]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -809,42 +853,69 @@ shape = SubResource( 31 )
 position = Vector2( 0, -16 )
 
 [node name="MoveDirt" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
-stream = ExtResource( 24 )
-volume_db = -5.0
+stream = ExtResource( 53 )
+volume_db = -3.0
 bus = "Sound"
 script = ExtResource( 27 )
-sounds = [ ExtResource( 19 ), ExtResource( 24 ) ]
+sound_dir = "res://characters/player/sounds/footsteps_grass"
+sounds = [ ExtResource( 13 ), ExtResource( 19 ), ExtResource( 44 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 48 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 56 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 57 ), ExtResource( 45 ) ]
 
 [node name="MoveStone" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
-stream = ExtResource( 13 )
+stream = ExtResource( 37 )
 volume_db = -5.0
 bus = "Sound"
 script = ExtResource( 27 )
-sounds = [ ExtResource( 13 ), ExtResource( 18 ) ]
+sound_dir = "res://characters/player/sounds/footsteps_stone"
+sounds = [ ExtResource( 36 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 18 ), ExtResource( 33 ), ExtResource( 25 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 34 ), ExtResource( 43 ), ExtResource( 23 ), ExtResource( 41 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 26 ), ExtResource( 32 ) ]
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
-stream = ExtResource( 22 )
+stream = ExtResource( 63 )
 bus = "Sound"
 script = ExtResource( 16 )
-sounds = [ ExtResource( 22 ) ]
+sounds = [ ExtResource( 20 ), ExtResource( 63 ), ExtResource( 61 ) ]
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
-stream = ExtResource( 28 )
+stream = ExtResource( 30 )
 volume_db = -5.0
 bus = "Sound"
 script = ExtResource( 16 )
+next_sound_path = NodePath("../AttackVoice")
 sounds = [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 31 ) ]
 
-[node name="Dash" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
+[node name="AttackVoice" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
+stream = ExtResource( 30 )
+volume_db = -5.0
+bus = "Sound"
+script = ExtResource( 16 )
+sounds = [ ExtResource( 69 ), ExtResource( 68 ), ExtResource( 71 ) ]
+
+[node name="Death" type="AudioStreamPlayer2D" parent="Sounds" index="5"]
+stream = ExtResource( 30 )
+volume_db = -5.0
+bus = "Sound"
+script = ExtResource( 16 )
+sounds = [ ExtResource( 70 ), ExtResource( 65 ), ExtResource( 72 ), ExtResource( 67 ) ]
+
+[node name="Swoosh" type="AudioStreamPlayer2D" parent="Sounds" index="6"]
 stream = ExtResource( 22 )
+volume_db = 3.5
 bus = "Sound"
 script = ExtResource( 17 )
 
-[node name="Hurt" type="AudioStreamPlayer2D" parent="Sounds" index="5"]
-stream = ExtResource( 20 )
-volume_db = -10.0
+[node name="Dash" type="AudioStreamPlayer2D" parent="Sounds" index="7"]
+stream = ExtResource( 62 )
+volume_db = -6.067
 bus = "Sound"
-script = ExtResource( 17 )
+script = ExtResource( 27 )
+next_sound_path = NodePath("../Swoosh")
+sounds = [ ExtResource( 62 ), ExtResource( 64 ), ExtResource( 66 ) ]
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="Sounds" index="8"]
+stream = ExtResource( 24 )
+volume_db = -7.0
+bus = "Sound"
+script = ExtResource( 16 )
+sounds = [ ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 24 ) ]
 
 [node name="DialogueBoxPosition" parent="." index="9"]
 position = Vector2( 0, -44 )
