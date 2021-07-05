@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://characters/slimes/base/SlimeController.gd" type="Script" id=1]
 [ext_resource path="res://characters/character/states/DeathState.gd" type="Script" id=2]
@@ -32,10 +32,10 @@ tracks/0/loop_wrap = false
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 30 ]
+"values": [ 31, 37 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -137,25 +137,29 @@ length = 8.0
 
 [sub_resource type="RayShape2D" id=11]
 resource_local_to_scene = true
+length = 1.0
+
+[sub_resource type="RayShape2D" id=12]
+resource_local_to_scene = true
 length = 16.0
 
-[sub_resource type="CircleShape2D" id=12]
+[sub_resource type="CircleShape2D" id=13]
 resource_local_to_scene = true
 radius = 120.0
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=14]
 
 [node name="BaseSlime" instance=ExtResource( 10 )]
 collision_layer = 2048
 collision_mask = 1
-max_health = 3
 
 [node name="Sprite" parent="." index="0"]
 material = SubResource( 1 )
 texture = ExtResource( 8 )
-offset = Vector2( 0, -16 )
+offset = Vector2( 0, -8 )
 hframes = 10
 vframes = 4
+frame = 37
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 1.5, -9.5 )
@@ -257,18 +261,21 @@ position = Vector2( 16, 0 )
 [node name="CollisionShape2D" parent="Colliders/Perception/Edge" index="0"]
 shape = SubResource( 10 )
 
-[node name="Wall" parent="Colliders/Perception" index="1"]
+[node name="CollisionShape2D" parent="Colliders/Perception/Ground" index="0"]
+shape = SubResource( 11 )
+
+[node name="Wall" parent="Colliders/Perception" index="2"]
 visible = true
 
 [node name="CollisionShape2D" parent="Colliders/Perception/Wall" index="0"]
 position = Vector2( 0, -16 )
-shape = SubResource( 11 )
+shape = SubResource( 12 )
 
-[node name="Sight" parent="Colliders/Perception" index="2"]
+[node name="Sight" parent="Colliders/Perception" index="3"]
 visible = true
 
 [node name="CollisionShape2D" parent="Colliders/Perception/Sight" index="0"]
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="Hazard" parent="Colliders" index="2" instance=ExtResource( 9 )]
 visible = false
@@ -276,6 +283,6 @@ position = Vector2( 0, -8 )
 collision_mask = 1024
 
 [node name="CollisionShape2D" parent="Colliders/Hazard" index="0"]
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [editable path="Colliders/Hazard"]

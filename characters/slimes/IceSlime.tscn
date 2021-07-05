@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://characters/slimes/textures/mini_ice_slime.png" type="Texture" id=1]
 [ext_resource path="res://characters/slimes/base/BaseSlime.tscn" type="PackedScene" id=2]
@@ -30,6 +30,22 @@ shader_param/ColorAdd = Color( 0, 0, 0, 1 )
 resource_local_to_scene = true
 extents = Vector2( 9, 8 )
 
+[sub_resource type="Animation" id=7]
+resource_name = "hurt"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/ColorAdd")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.498039, 0.498039, 0.498039, 1 ), Color( 0, 0, 0, 1 ), Color( 0.498039, 0.498039, 0.498039, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
 [sub_resource type="RayShape2D" id=3]
 resource_local_to_scene = true
 length = 8.0
@@ -52,11 +68,19 @@ radius = 120.0
 light_mask = 0
 material = SubResource( 1 )
 texture = ExtResource( 1 )
+frame = 31
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
 position = Vector2( 1, -8 )
 shape = SubResource( 2 )
+
+[node name="HurtPlayer" parent="." index="3"]
+anims/hurt = SubResource( 7 )
+kickback_strength = 550.0
+
+[node name="DeathState" parent="StateMachine" index="1"]
+force_animation = true
 
 [node name="CollisionShape2D" parent="Colliders/Perception/Edge" index="0"]
 shape = SubResource( 3 )
@@ -72,7 +96,8 @@ shape = SubResource( 6 )
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
 position = Vector2( 0, 1 )
-stream = ExtResource( 8 )
+stream = ExtResource( 7 )
+volume_db = -2.0
 max_distance = 1000.0
 attenuation = 5.0
 bus = "Sound"
@@ -81,7 +106,8 @@ sounds = [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ) ]
 
 [node name="MoveStone" type="AudioStreamPlayer2D" parent="Sounds" index="1"]
 position = Vector2( 0, 1 )
-stream = ExtResource( 14 )
+stream = ExtResource( 9 )
+volume_db = -2.0
 max_distance = 1000.0
 attenuation = 5.0
 bus = "Sound"
@@ -89,7 +115,8 @@ script = ExtResource( 10 )
 sounds = [ ExtResource( 11 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ]
 
 [node name="Death" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
-stream = ExtResource( 18 )
+stream = ExtResource( 15 )
+volume_db = -6.0
 max_distance = 1000.0
 attenuation = 5.0
 bus = "Sound"
@@ -98,6 +125,7 @@ sounds = [ ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource(
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
 stream = ExtResource( 19 )
+volume_db = -9.0
 bus = "Sound"
 script = ExtResource( 5 )
 sounds = [ ExtResource( 21 ), ExtResource( 19 ) ]
