@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/npc_draugr_death_01.wav-0c9497b8e24e5cf8db4d4c05d75df140.sample"
+
+[deps]
+
+source_file="res://characters/slimes/sounds/npc_draugr_death_01.wav"
+dest_files=[ "res://.import/npc_draugr_death_01.wav-0c9497b8e24e5cf8db4d4c05d75df140.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

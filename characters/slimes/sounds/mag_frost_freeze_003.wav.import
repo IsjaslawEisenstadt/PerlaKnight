@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mag_frost_freeze_003.wav-51c4dae14e3ad973052fc3df05ac416f.sample"
+
+[deps]
+
+source_file="res://characters/slimes/sounds/mag_frost_freeze_003.wav"
+dest_files=[ "res://.import/mag_frost_freeze_003.wav-51c4dae14e3ad973052fc3df05ac416f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

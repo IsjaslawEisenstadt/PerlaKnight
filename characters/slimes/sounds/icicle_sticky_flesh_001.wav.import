@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/icicle_sticky_flesh_001.wav-75ac4ecc48a822d547c6c279106c9968.sample"
+
+[deps]
+
+source_file="res://characters/slimes/sounds/icicle_sticky_flesh_001.wav"
+dest_files=[ "res://.import/icicle_sticky_flesh_001.wav-75ac4ecc48a822d547c6c279106c9968.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
