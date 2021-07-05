@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/amb_dungeon_fort_002.ogg-dff0430e6370ebcd1daacad4f06b5989.oggstr"
+
+[deps]
+
+source_file="res://maps/ambience/dungeon/amb_dungeon_fort_002.ogg"
+dest_files=[ "res://.import/amb_dungeon_fort_002.ogg-dff0430e6370ebcd1daacad4f06b5989.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://ui/hud/PlayUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/GameStateMachine.gd" type="Script" id=2]
@@ -7,13 +7,16 @@
 [ext_resource path="res://ui/game_states/MainMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/keymap/KeyMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/transition/Transition.tscn" type="PackedScene" id=8]
+[ext_resource path="res://maps/ambience/dungeon/amb_dungeon_fort_002.ogg" type="AudioStream" id=9]
+[ext_resource path="res://maps/ambience/dungeon/amb_dungeon_fort_generic.ogg" type="AudioStream" id=10]
+[ext_resource path="res://maps/ambience/dungeon/LF_Quiet4.ogg" type="AudioStream" id=11]
+[ext_resource path="res://maps/ambience/forest/LF_GrassyDawn3.ogg" type="AudioStream" id=12]
+[ext_resource path="res://maps/ambience/dungeon/LF_Quiet5.ogg" type="AudioStream" id=13]
+[ext_resource path="res://maps/ambience/forest/LF_GrassyDawn2.ogg" type="AudioStream" id=14]
+[ext_resource path="res://maps/ambience/dungeon/LF_Quiet2.ogg" type="AudioStream" id=15]
+[ext_resource path="res://maps/ambience/dungeon/LF_Quiet6.ogg" type="AudioStream" id=16]
+[ext_resource path="res://maps/ambience/dungeon/amb_dungeon_fort_001.ogg" type="AudioStream" id=18]
 [ext_resource path="res://utility/audio_player/MusicPlayer.gd" type="Script" id=21]
-[ext_resource path="res://maps/music/dungeon/ambt_dungeon_dwemer_generic_2dlp.wav" type="AudioStream" id=23]
-[ext_resource path="res://maps/music/dungeon/ambt_dungeon_catacombs_generic_2dlp.wav" type="AudioStream" id=24]
-[ext_resource path="res://maps/music/dungeon/dungeon_howl.wav" type="AudioStream" id=25]
-[ext_resource path="res://maps/music/dungeon/dungeon002.wav" type="AudioStream" id=26]
-[ext_resource path="res://maps/music/forest/amb_forestlp_001.wav" type="AudioStream" id=27]
-[ext_resource path="res://maps/music/forest/amb_forestlp_002.wav" type="AudioStream" id=28]
 
 [node name="GameStateMachine" type="Node"]
 pause_mode = 2
@@ -41,12 +44,20 @@ visible = false
 [node name="Transition" parent="UI" instance=ExtResource( 8 )]
 visible = false
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-bus = "Music"
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+bus = "Sound"
 script = ExtResource( 21 )
-dungeon_music = [ ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 26 ) ]
-forest_music = [ ExtResource( 27 ), ExtResource( 28 ) ]
+dungeon_music = [ ExtResource( 18 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 15 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 16 ) ]
+forest_music = [ ExtResource( 14 ), ExtResource( 12 ) ]
+forest_volume = -10.0
 
-[connection signal="level_changed" from="PlayState" to="Music" method="_on_PlayState_level_changed"]
+[node name="Timer" type="Timer" parent="Ambience"]
+wait_time = 18.6517
+one_shot = true
+
+[connection signal="level_changed" from="PlayState" to="Ambience" method="on_level_changed"]
 [connection signal="saved_to_file" from="PlayState" to="UI/PlayUI" method="on_save"]
-[connection signal="finished" from="Music" to="Music" method="_on_Music_finished"]
+[connection signal="finished" from="Ambience" to="Ambience" method="on_timeout"]
+[connection signal="timeout" from="Ambience/Timer" to="Ambience" method="on_timeout"]

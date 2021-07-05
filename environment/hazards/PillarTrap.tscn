@@ -1,12 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://environment/trigger/pillar/textures/pillar.png" type="Texture" id=1]
 [ext_resource path="res://environment/hazards/base/Hazard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://environment/hazards/base/Trap.gd" type="Script" id=3]
-[ext_resource path="res://utility/audio_player/RandomAudioPlayer.gd" type="Script" id=4]
-[ext_resource path="res://environment/hazards/sounds/blade2hand_imp_metal_002.wav" type="AudioStream" id=5]
-[ext_resource path="res://environment/hazards/sounds/blade2hand_imp_metal_001.wav" type="AudioStream" id=6]
-[ext_resource path="res://environment/hazards/sounds/blade2hand_imp_metal_003.wav" type="AudioStream" id=7]
+[ext_resource path="res://utility/audio_player/AudioPlayer.gd" type="Script" id=4]
+[ext_resource path="res://environment/hazards/sounds/stonetrap.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5.79221, 33.1902 )
@@ -80,6 +78,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [ Vector2( 0.397, -50 ), Vector2( 0.396851, -32.5417 ) ]
 }
+tracks/5/type = "audio"
+tracks/5/path = NodePath("ImpactSound")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [node name="PillarTrap" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
@@ -94,6 +106,7 @@ disabled = true
 position = Vector2( 0, -32 )
 texture = ExtResource( 1 )
 hframes = 5
+frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "trigger"
@@ -104,15 +117,14 @@ collision_layer = 1024
 collision_mask = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-disabled = true
 position = Vector2( 0.396851, -32.5417 )
 shape = SubResource( 3 )
+disabled = true
 
 [node name="ImpactSound" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource( 5 )
+volume_db = -5.0
 max_distance = 1000.0
-attenuation = 5.0
+attenuation = 7.07106
 bus = "Sound"
 script = ExtResource( 4 )
-sounds = [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ]
-
-[connection signal="frame_changed" from="Sprite" to="." method="_on_Pillar_Sprite_frame_changed"]

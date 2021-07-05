@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/LF_Quiet6.ogg-73bcfc2c0394e5a1b1bcece7c82cd1dd.oggstr"
+
+[deps]
+
+source_file="res://maps/ambience/dungeon/LF_Quiet6.ogg"
+dest_files=[ "res://.import/LF_Quiet6.ogg-73bcfc2c0394e5a1b1bcece7c82cd1dd.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

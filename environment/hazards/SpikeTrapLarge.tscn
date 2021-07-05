@@ -1,12 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://environment/hazards/textures/spike_large.png" type="Texture" id=1]
 [ext_resource path="res://environment/hazards/base/Hazard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://environment/hazards/base/Trap.gd" type="Script" id=3]
-[ext_resource path="res://utility/audio_player/RandomAudioPlayer.gd" type="Script" id=4]
-[ext_resource path="res://environment/hazards/sounds/dagger1hand_draw_003.wav" type="AudioStream" id=5]
-[ext_resource path="res://environment/hazards/sounds/dagger1hand_draw_002.wav" type="AudioStream" id=6]
-[ext_resource path="res://environment/hazards/sounds/dagger1hand_draw_001.wav" type="AudioStream" id=7]
+[ext_resource path="res://utility/audio_player/AudioPlayer.gd" type="Script" id=4]
+[ext_resource path="res://environment/hazards/sounds/blade1hand_imp_dirt_001.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
@@ -38,6 +36,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false, true ]
 }
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SpikeSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 1.1 )
+}
 
 [node name="SpikeTrapLarge" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
@@ -51,15 +63,14 @@ disabled = true
 position = Vector2( 0, -16 )
 texture = ExtResource( 1 )
 hframes = 28
+frame = 16
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 anims/trigger = SubResource( 2 )
 
 [node name="SpikeSound" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource( 5 )
 max_distance = 1000.0
 attenuation = 5.0
 bus = "Sound"
 script = ExtResource( 4 )
-sounds = [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ) ]
-
-[connection signal="frame_changed" from="Sprite" to="." method="_on_Spike_Sprite_frame_changed"]

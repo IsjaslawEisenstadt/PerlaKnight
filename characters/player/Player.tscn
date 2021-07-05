@@ -854,7 +854,7 @@ position = Vector2( 0, -16 )
 
 [node name="MoveDirt" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
 stream = ExtResource( 53 )
-volume_db = -3.0
+volume_db = -1.0
 bus = "Sound"
 script = ExtResource( 27 )
 sound_dir = "res://characters/player/sounds/footsteps_grass"

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/blade1hand_imp_dirt_002.wav-9002be5c5660c0c34363be4bb9f5a521.sample"
+
+[deps]
+
+source_file="res://environment/hazards/sounds/blade1hand_imp_dirt_002.wav"
+dest_files=[ "res://.import/blade1hand_imp_dirt_002.wav-9002be5c5660c0c34363be4bb9f5a521.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
