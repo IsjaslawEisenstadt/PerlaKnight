@@ -97,7 +97,7 @@ func set_look_direction(new_look_direction: int) -> void:
 		emit_signal("character_turned")
 
 func _set_current_health(new_health: int) -> void:
-	assert(new_health >= 0 && new_health <= max_health)
+	assert(new_health <= max_health)
 	
 	current_health = new_health
 	if current_health <= 0:

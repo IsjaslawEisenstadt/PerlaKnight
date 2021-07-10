@@ -7,13 +7,13 @@
 [ext_resource path="res://environment/hazards/sounds/stonetrap.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.79221, 33.1902 )
+extents = Vector2( 8, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15, 6 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 14.7214, 32.5225 )
+extents = Vector2( 12, 32 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "trigger"
@@ -37,7 +37,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.9, 1.8 ),
+"times": PoolRealArray( 0, 0.9, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -49,7 +49,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.9, 1.8 ),
+"times": PoolRealArray( 0, 0.9, 1.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ true, false, true ]
@@ -61,10 +61,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.9 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.9, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ SubResource( 2 ), SubResource( 3 ) ]
+"values": [ SubResource( 2 ), SubResource( 3 ), SubResource( 2 ) ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("StaticBody2D/CollisionShape2D:position")
@@ -73,10 +73,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.9 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.9, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( 0.397, -50 ), Vector2( 0.396851, -32.5417 ) ]
+"values": [ Vector2( 0, -58 ), Vector2( 0, -32 ), Vector2( 0, -58 ) ]
 }
 tracks/5/type = "audio"
 tracks/5/path = NodePath("ImpactSound")
@@ -95,18 +95,19 @@ tracks/5/keys = {
 
 [node name="PillarTrap" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
+damage = 2
 interval = 3.0
 
-[node name="CollisionShape2D" parent="." index="0"]
-position = Vector2( -0.0432968, -30.7119 )
-shape = SubResource( 1 )
-disabled = true
-
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 position = Vector2( 0, -32 )
 texture = ExtResource( 1 )
 hframes = 5
 frame = 1
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, -32 )
+shape = SubResource( 1 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "trigger"
@@ -117,8 +118,8 @@ collision_layer = 1024
 collision_mask = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2( 0.396851, -32.5417 )
-shape = SubResource( 3 )
+position = Vector2( 0, -58 )
+shape = SubResource( 2 )
 disabled = true
 
 [node name="ImpactSound" type="AudioStreamPlayer2D" parent="." index="4"]
