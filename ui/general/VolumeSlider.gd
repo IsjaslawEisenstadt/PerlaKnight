@@ -6,7 +6,8 @@ onready var Bus := AudioServer.get_bus_index(audio_bus_name)
 export var audio_bus_name := "Master"
 
 func _ready() -> void:
-	value = db2linear(AudioServer.get_bus_volume_db(Bus))
+	value = Config.get_volume(audio_bus_name, db2linear(AudioServer.get_bus_volume_db(Bus)))
 
 func on_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(Bus, linear2db(value))
+	Config.set_volume(audio_bus_name, value)

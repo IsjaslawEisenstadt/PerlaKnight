@@ -457,6 +457,7 @@ default_bus_layout="res://utility/bus_layout.tres"
 [autoload]
 
 Utility="*res://utility/Utility.gd"
+Config="*res://utility/Config.gd"
 
 [debug]
 
