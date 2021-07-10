@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://maps/backgrounds/dungeon/textures/background.png" type="Texture" id=1]
 [ext_resource path="res://ui/game_states/MainMenu.gd" type="Script" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://maps/backgrounds/forest/textures/mountains3.png" type="Texture" id=21]
 [ext_resource path="res://ui/general/VolumeSlider.tscn" type="PackedScene" id=22]
 [ext_resource path="res://ui/general/fonts/HeartbitXX.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://ui/game_states/Credits.tscn" type="PackedScene" id=24]
 
 [sub_resource type="StyleBoxTexture" id=1]
 content_margin_left = 8.0
@@ -81,10 +82,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 pause_game = true
-default_focus_path = NodePath("Buttons/NewGameButton")
+default_focus_path = NodePath("Content/Buttons/NewGameButton")
 backgrounds = [ NodePath("DungeonBackground"), NodePath("ForestBackground") ]
 
-[node name="Title" type="Label" parent="."]
+[node name="Credits" parent="." instance=ExtResource( 24 )]
+
+[node name="Content" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Content"]
 margin_left = 30.0
 margin_top = 26.0
 margin_right = 324.0
@@ -95,18 +105,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="VBoxContainer" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="Content"]
 margin_left = 345.0
 margin_top = 24.0
 margin_right = 455.0
-margin_bottom = 251.0
+margin_bottom = 256.0
 mouse_filter = 2
 custom_constants/separation = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ContinueButton" parent="Buttons" instance=ExtResource( 4 )]
+[node name="ContinueButton" parent="Content/Buttons" instance=ExtResource( 4 )]
 margin_right = 110.0
 margin_bottom = 32.0
 focus_neighbour_top = NodePath("../MusicSlider")
@@ -121,13 +131,13 @@ custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "Continue"
 
-[node name="NewGameButton" parent="Buttons" instance=ExtResource( 4 )]
+[node name="NewGameButton" parent="Content/Buttons" instance=ExtResource( 4 )]
 margin_top = 36.0
 margin_right = 110.0
 margin_bottom = 68.0
 focus_neighbour_top = NodePath("../ContinueButton")
-focus_neighbour_bottom = NodePath("../ExitButton")
-focus_next = NodePath("../ExitButton")
+focus_neighbour_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
 focus_previous = NodePath("../ContinueButton")
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 1 )
@@ -136,28 +146,30 @@ custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 
-[node name="CreditsButton" parent="Buttons" instance=ExtResource( 4 )]
+[node name="CreditsButton" parent="Content/Buttons" instance=ExtResource( 4 )]
 margin_top = 72.0
 margin_right = 110.0
 margin_bottom = 104.0
-focus_mode = 0
+focus_neighbour_top = NodePath("../NewGameButton")
+focus_neighbour_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../NewGameButton")
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
 custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
-disabled = true
 text = "Credits"
 
-[node name="ExitButton" parent="Buttons" instance=ExtResource( 4 )]
+[node name="ExitButton" parent="Content/Buttons" instance=ExtResource( 4 )]
 margin_top = 108.0
 margin_right = 110.0
 margin_bottom = 140.0
-focus_neighbour_top = NodePath("../NewGameButton")
+focus_neighbour_top = NodePath("../CreditsButton")
 focus_neighbour_bottom = NodePath("../SoundSlider")
 focus_next = NodePath("../SoundSlider")
-focus_previous = NodePath("../NewGameButton")
+focus_previous = NodePath("../CreditsButton")
 size_flags_horizontal = 3
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
@@ -166,13 +178,13 @@ custom_styles/disabled = SubResource( 4 )
 custom_styles/normal = SubResource( 5 )
 text = "Exit"
 
-[node name="Spacer1" type="MarginContainer" parent="Buttons"]
+[node name="Spacer1" type="MarginContainer" parent="Content/Buttons"]
 margin_top = 144.0
 margin_right = 110.0
 margin_bottom = 146.0
 custom_constants/margin_top = 2
 
-[node name="SoundLabel" type="Label" parent="Buttons"]
+[node name="SoundLabel" type="Label" parent="Content/Buttons"]
 margin_top = 150.0
 margin_right = 110.0
 margin_bottom = 166.0
@@ -181,7 +193,7 @@ text = "Sound"
 align = 1
 valign = 1
 
-[node name="SoundSlider" parent="Buttons" instance=ExtResource( 22 )]
+[node name="SoundSlider" parent="Content/Buttons" instance=ExtResource( 22 )]
 margin_top = 170.0
 margin_right = 110.0
 margin_bottom = 186.0
@@ -192,13 +204,13 @@ focus_previous = NodePath("../ExitButton")
 size_flags_horizontal = 3
 audio_bus_name = "Sound"
 
-[node name="Spacer2" type="MarginContainer" parent="Buttons"]
+[node name="Spacer2" type="MarginContainer" parent="Content/Buttons"]
 margin_top = 190.0
 margin_right = 110.0
 margin_bottom = 192.0
 custom_constants/margin_top = 2
 
-[node name="MusicLabel" type="Label" parent="Buttons"]
+[node name="MusicLabel" type="Label" parent="Content/Buttons"]
 margin_top = 196.0
 margin_right = 110.0
 margin_bottom = 212.0
@@ -207,7 +219,7 @@ text = "Music"
 align = 1
 valign = 1
 
-[node name="MusicSlider" parent="Buttons" instance=ExtResource( 22 )]
+[node name="MusicSlider" parent="Content/Buttons" instance=ExtResource( 22 )]
 margin_top = 216.0
 margin_right = 110.0
 margin_bottom = 232.0
@@ -346,6 +358,8 @@ motion_mirroring = Vector2( 1080, 0 )
 [node name="Mountains3" type="Sprite" parent="ForestBackground/ParallaxLayer"]
 texture = ExtResource( 21 )
 
-[connection signal="pressed" from="Buttons/ContinueButton" to="." method="on_continue_pressed"]
-[connection signal="pressed" from="Buttons/NewGameButton" to="." method="on_new_game_pressed"]
-[connection signal="pressed" from="Buttons/ExitButton" to="." method="on_exit_pressed"]
+[connection signal="scroll_finished" from="Credits" to="." method="on_credits_finished"]
+[connection signal="pressed" from="Content/Buttons/ContinueButton" to="." method="on_continue_pressed"]
+[connection signal="pressed" from="Content/Buttons/NewGameButton" to="." method="on_new_game_pressed"]
+[connection signal="pressed" from="Content/Buttons/CreditsButton" to="." method="on_credits_pressed"]
+[connection signal="pressed" from="Content/Buttons/ExitButton" to="." method="on_exit_pressed"]

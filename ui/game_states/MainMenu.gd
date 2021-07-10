@@ -4,8 +4,8 @@ class_name MainMenu
 onready var Transition := $".."/Transition
 onready var PlayState := $"../.."/PlayState
 
-onready var ContinueButton := $Buttons/ContinueButton
-onready var ExitButton := $Buttons/ExitButton
+onready var ContinueButton := $Content/Buttons/ContinueButton
+onready var ExitButton := $Content/Buttons/ExitButton
 
 export(Array, NodePath) var backgrounds: Array
 
@@ -51,3 +51,18 @@ func on_new_game_pressed() -> void:
 func on_exit_pressed() -> void:
 	if can_press():
 		get_tree().quit()
+
+func on_credits_pressed() -> void:
+	Transition.start("alpha")
+	yield(Transition, "transition_finished")
+	Transition.end()
+	$Content.visible = false
+	$Credits.start_scroll()
+	$Credits.visible = true
+
+func on_credits_finished() -> void:
+	Transition.start("alpha")
+	yield(Transition, "transition_finished")
+	Transition.end()
+	$Credits.visible = false
+	$Content.visible = true

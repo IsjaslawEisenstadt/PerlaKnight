@@ -1,0 +1,407 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://ui/keymap/KeyButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/general/fonts/bitmgothic.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/general/fonts/HeartbitXX.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://ui/keymap/textures/gamepad.png" type="Texture" id=4]
+[ext_resource path="res://ui/keymap/textures/keyboard.png" type="Texture" id=5]
+[ext_resource path="res://ui/game_states/Credits.gd" type="Script" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="Theme" id=6]
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = SubResource( 1 )
+VScrollBar/styles/grabber_highlight = SubResource( 2 )
+VScrollBar/styles/grabber_pressed = SubResource( 3 )
+VScrollBar/styles/scroll = SubResource( 4 )
+VScrollBar/styles/scroll_focus = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 48
+extra_spacing_space = -4
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 6.0
+margin_right = 5.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 4 )
+region = Rect2( 17, 49, 14, 14 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 16, 16 )
+margin_left = 6.0
+margin_right = 5.0
+margin_top = 8.0
+margin_bottom = 8.0
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 4 )
+region = Rect2( 18, 114, 12, 12 )
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 264.0, 244.0 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 6.0, 474.0 ]
+}
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 6 )
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Scroll"]
+margin_right = 480.0
+margin_bottom = 2498.0
+size_flags_horizontal = 3
+
+[node name="Spacer" type="MarginContainer" parent="Scroll/VBox"]
+margin_right = 480.0
+margin_bottom = 300.0
+custom_constants/margin_top = 300
+
+[node name="GameHeader" type="Label" parent="Scroll/VBox"]
+margin_top = 304.0
+margin_right = 480.0
+margin_bottom = 352.0
+custom_fonts/font = ExtResource( 2 )
+text = "Perla Knight"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer2" type="MarginContainer" parent="Scroll/VBox"]
+margin_top = 356.0
+margin_right = 480.0
+margin_bottom = 406.0
+custom_constants/margin_top = 50
+
+[node name="TeamHeader" type="Label" parent="Scroll/VBox"]
+margin_top = 410.0
+margin_right = 480.0
+margin_bottom = 449.0
+custom_fonts/font = SubResource( 7 )
+text = "Made by"
+align = 1
+
+[node name="Spacer3" type="MarginContainer" parent="Scroll/VBox"]
+margin_top = 453.0
+margin_right = 480.0
+margin_bottom = 473.0
+custom_constants/margin_top = 20
+
+[node name="Team" type="Label" parent="Scroll/VBox"]
+margin_top = 477.0
+margin_right = 480.0
+margin_bottom = 746.0
+custom_fonts/font = SubResource( 8 )
+text = "Isjaslaw Eisenstadt
+Art Implementation & Customization, Coding
+Level Design, Organization, Sound Design
+
+Monika Krebel
+Animation, Character & Environment Art
+Sound Effects for Perla, Story
+
+Tobias Lohmüller
+Art Implementation, Coding
+
+David Mohren
+Coding, Level Design, Sound Design
+
+Minh Truong
+Environment Art and Animation, Level Design, Tile Sets
+"
+align = 1
+
+[node name="Spacer4" type="MarginContainer" parent="Scroll/VBox"]
+margin_top = 750.0
+margin_right = 480.0
+margin_bottom = 770.0
+custom_constants/margin_top = 20
+
+[node name="AssetsHeader" type="Label" parent="Scroll/VBox"]
+margin_top = 774.0
+margin_right = 480.0
+margin_bottom = 813.0
+custom_fonts/font = SubResource( 7 )
+text = "Assets"
+align = 1
+
+[node name="Assets" type="Label" parent="Scroll/VBox"]
+margin_top = 817.0
+margin_right = 480.0
+margin_bottom = 1326.0
+custom_fonts/font = SubResource( 8 )
+text = "Links are in the description
+
+
+Perla
+Warrior-Free Animation set V1.3 by Clembod
+
+Health UI heart
+hp heart by gft123456er
+
+Runes
+Magical Items & Potions tileset by wilfryed
+
+Meat club
+Free Pixel Food! by Henry Software
+
+UI buttons and panels
+Pixel Art GUI Elements by Mounir Tohami
+
+Helpmenu keyboard icons
+Keyboard/Controller Keys by Hyohnoo
+
+Helpmenu gamepad icons
+Gamepad UI / Controller Prompts Pack by greatdocbrown
+
+Save icon
+Nice 16x16 Icon Pack White by Hugo4IT
+
+General font
+Heartbit by Void
+
+Title Font
+Bitmgothic Font by Nomi"
+align = 1
+
+[node name="Spacer5" type="MarginContainer" parent="Scroll/VBox"]
+margin_top = 1330.0
+margin_right = 480.0
+margin_bottom = 1380.0
+custom_constants/margin_top = 50
+
+[node name="CodeHeader" type="Label" parent="Scroll/VBox"]
+margin_top = 1384.0
+margin_right = 480.0
+margin_bottom = 1423.0
+custom_fonts/font = SubResource( 7 )
+text = "Code"
+align = 1
+
+[node name="Spacer8" type="MarginContainer" parent="Scroll/VBox"]
+margin_top = 1427.0
+margin_right = 480.0
+margin_bottom = 1447.0
+custom_constants/margin_top = 20
+
+[node name="Code" type="Label" parent="Scroll/VBox"]
+margin_top = 1451.0
+margin_right = 480.0
+margin_bottom = 1528.0
+custom_fonts/font = SubResource( 8 )
+text = "Godot LDtk import library
+godot-LDtk-import by lrgilbert
+
+Tree wind shader
+2D wind sway by godotshaders"
+align = 1
+
+[node name="Spacer6" type="MarginContainer" parent="Scroll/VBox"]
+margin_top = 1532.0
+margin_right = 480.0
+margin_bottom = 1582.0
+custom_constants/margin_top = 50
+
+[node name="SoundsHeader" type="Label" parent="Scroll/VBox"]
+margin_top = 1586.0
+margin_right = 480.0
+margin_bottom = 1625.0
+custom_fonts/font = SubResource( 7 )
+text = "Sounds"
+align = 1
+
+[node name="Spacer9" type="MarginContainer" parent="Scroll/VBox"]
+margin_top = 1629.0
+margin_right = 480.0
+margin_bottom = 1649.0
+custom_constants/margin_top = 20
+
+[node name="Sounds" type="Label" parent="Scroll/VBox"]
+margin_top = 1653.0
+margin_right = 480.0
+margin_bottom = 1826.0
+custom_fonts/font = SubResource( 8 )
+text = "Environment and Ambience
+GOSH by lazygecko
+
+Environment, attack and misc sounds
+Immersive Sounds - Compendium by lazygecko
+
+Ambience
+AURA by tewlwolow
+
+Dash swoosh
+swoosh.wav by vacuumfan7072"
+align = 1
+
+[node name="Spacer7" type="MarginContainer" parent="Scroll/VBox"]
+margin_top = 1830.0
+margin_right = 480.0
+margin_bottom = 1880.0
+custom_constants/margin_top = 50
+
+[node name="ToolsHeader" type="Label" parent="Scroll/VBox"]
+margin_top = 1884.0
+margin_right = 480.0
+margin_bottom = 1923.0
+custom_fonts/font = SubResource( 7 )
+text = "Tools"
+align = 1
+
+[node name="Spacer10" type="MarginContainer" parent="Scroll/VBox"]
+margin_top = 1927.0
+margin_right = 480.0
+margin_bottom = 1947.0
+custom_constants/margin_top = 20
+
+[node name="Tools" type="Label" parent="Scroll/VBox"]
+margin_top = 1951.0
+margin_right = 480.0
+margin_bottom = 2172.0
+custom_fonts/font = SubResource( 8 )
+text = "Game Engine
+Godot Engine
+
+Level Editor
+LDtk
+
+Pixel art
+Aseprite
+
+Crate Destruction animation
+Juice FX
+
+Custom gradients
+Easing Gradient Generator by yanorax"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spacer11" type="MarginContainer" parent="Scroll/VBox"]
+margin_top = 2176.0
+margin_right = 480.0
+margin_bottom = 2326.0
+custom_constants/margin_top = 150
+
+[node name="ThanksForPlaying" type="Label" parent="Scroll/VBox"]
+margin_top = 2330.0
+margin_right = 480.0
+margin_bottom = 2369.0
+custom_fonts/font = SubResource( 7 )
+text = "Thanks for playing!"
+align = 1
+
+[node name="Spacer12" type="MarginContainer" parent="Scroll/VBox"]
+margin_top = 2373.0
+margin_right = 480.0
+margin_bottom = 2498.0
+custom_constants/margin_top = 125
+
+[node name="ScrollTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Keys" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 148, 63 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyButton" parent="Keys" instance=ExtResource( 1 )]
+margin_left = 6.0
+margin_top = 248.0
+margin_right = 42.0
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 9 )
+text = "Space"
+
+[node name="Texture" type="TextureRect" parent="Keys"]
+margin_left = 46.0
+margin_top = 247.0
+margin_right = 60.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+texture = SubResource( 10 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Keys"]
+margin_left = 13.0
+margin_top = 233.0
+margin_right = 54.0
+margin_bottom = 247.0
+custom_fonts/font = SubResource( 8 )
+text = "Speed up"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Keys"]
+margin_left = 446.0
+margin_top = 233.0
+margin_right = 464.0
+margin_bottom = 247.0
+custom_fonts/font = SubResource( 8 )
+text = "Skip"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyButton2" parent="Keys" instance=ExtResource( 1 )]
+margin_left = 433.0
+margin_top = 248.0
+margin_right = 458.0
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 11 )
+text = "Esc"
+
+[node name="Texture2" type="TextureRect" parent="Keys"]
+margin_left = 462.0
+margin_top = 247.0
+margin_right = 474.0
+margin_bottom = 266.0
+size_flags_horizontal = 3
+texture = SubResource( 12 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="ScrollTimer" to="." method="on_scroll_timeout"]
