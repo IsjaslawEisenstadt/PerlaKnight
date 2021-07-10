@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://maps/backgrounds/AutoScroll.gd" type="Script" id=1]
+[ext_resource path="res://maps/backgrounds/forest/textures/mountains3.png" type="Texture" id=2]
+[ext_resource path="res://maps/backgrounds/forest/textures/mountains1.png" type="Texture" id=3]
+[ext_resource path="res://maps/backgrounds/forest/textures/background.png" type="Texture" id=4]
+[ext_resource path="res://maps/backgrounds/forest/textures/stars_extra_small.png" type="Texture" id=5]
+[ext_resource path="res://maps/backgrounds/forest/textures/stars_large.png" type="Texture" id=6]
+[ext_resource path="res://maps/backgrounds/forest/textures/moon.png" type="Texture" id=7]
+[ext_resource path="res://maps/backgrounds/forest/textures/mountains2.png" type="Texture" id=8]
+[ext_resource path="res://maps/backgrounds/forest/textures/stars.png" type="Texture" id=9]
+[ext_resource path="res://maps/backgrounds/forest/textures/stars_small.png" type="Texture" id=10]
+
+[node name="ForestBackground" type="ParallaxBackground"]
+scale = Vector2( 0.7, 0.7 )
+transform = Transform2D( 0.7, 0, 0, 0.7, 0, 0 )
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+position = Vector2( 184.286, 192.064 )
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1080, 0 )
+
+[node name="Background" type="Sprite" parent="ParallaxLayer6"]
+texture = ExtResource( 4 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+position = Vector2( -211.429, 200.635 )
+motion_scale = Vector2( 0.003, 0 )
+motion_mirroring = Vector2( 1080, 0 )
+script = ExtResource( 1 )
+speed = 1.2
+
+[node name="StarsExtraSmall" type="Sprite" parent="ParallaxLayer5"]
+texture = ExtResource( 5 )
+
+[node name="StarsSmall" type="Sprite" parent="ParallaxLayer5"]
+texture = ExtResource( 10 )
+
+[node name="Stars" type="Sprite" parent="ParallaxLayer5"]
+texture = ExtResource( 9 )
+
+[node name="StarsLarge" type="Sprite" parent="ParallaxLayer5"]
+texture = ExtResource( 6 )
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+position = Vector2( 416.429, 192.064 )
+motion_scale = Vector2( 0.005, 0 )
+motion_mirroring = Vector2( 1080, 0 )
+script = ExtResource( 1 )
+speed = 1.8
+
+[node name="Moon" type="Sprite" parent="ParallaxLayer4"]
+position = Vector2( -540, -26.4286 )
+texture = ExtResource( 7 )
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+position = Vector2( 42.1429, 192.064 )
+motion_scale = Vector2( 0.01, 0 )
+motion_mirroring = Vector2( 1080, 0 )
+
+[node name="Mountains1" type="Sprite" parent="ParallaxLayer3"]
+texture = ExtResource( 3 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2( 270.714, 192.064 )
+motion_scale = Vector2( 0.02, 0 )
+motion_mirroring = Vector2( 1080, 0 )
+
+[node name="Mountains2" type="Sprite" parent="ParallaxLayer2"]
+texture = ExtResource( 8 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2( 184.286, 192.064 )
+motion_scale = Vector2( 0.05, 0 )
+motion_mirroring = Vector2( 1080, 0 )
+
+[node name="Mountains3" type="Sprite" parent="ParallaxLayer"]
+texture = ExtResource( 2 )

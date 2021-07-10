@@ -3,7 +3,7 @@
 [ext_resource path="res://environment/runes/resource/Rune.gd" type="Script" id=1]
 [ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=2]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 2 )
 region = Rect2( 16, 0, 16, 16 )
 
@@ -12,5 +12,5 @@ resource_name = "DoubleJumpRune"
 script = ExtResource( 1 )
 name = "Double Jump Rune"
 description = "This rune makes you jump even higher."
-texture = SubResource( 1 )
+texture = SubResource( 5 )
 level_name = "TutorialDoubleJump"

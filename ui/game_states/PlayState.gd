@@ -105,6 +105,7 @@ func activate_level(level_name: String) -> void:
 		previous_level.disconnect("transition_requested", self, "on_transition_requested")
 		previous_level.disconnect("preload_requested", self, "load_level")
 		previous_level.disconnect("restore_requested", self, "restore_previous_level")
+		previous_level.disconnect("end_requested", self, "end")
 		remove_child(previous_level)
 	current_level = levels[level_name]
 	add_child(current_level)
@@ -113,6 +114,7 @@ func activate_level(level_name: String) -> void:
 	current_level.connect("transition_requested", self, "on_transition_requested")
 	current_level.connect("preload_requested", self, "load_level")
 	current_level.connect("restore_requested", self, "restore_previous_level")
+	current_level.connect("end_requested", self, "end")
 	current_level.set_ui(PlayUI)
 	emit_signal("level_changed", current_level)
 
@@ -230,3 +232,9 @@ func on_transition_requested(level_name, target_name, reset_override: bool = fal
 		yield(get_tree().create_timer(0.4), "timeout")
 	
 	state_machine._pop_push(self, params)
+
+func end() -> void:
+	Transition.start("alpha")
+	yield(Transition, "transition_finished")
+	unload_levels()
+	state_machine._pop_state({"credits": true})

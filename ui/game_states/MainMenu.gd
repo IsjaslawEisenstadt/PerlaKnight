@@ -7,35 +7,42 @@ onready var PlayState := $"../.."/PlayState
 onready var ContinueButton := $Content/Buttons/ContinueButton
 onready var ExitButton := $Content/Buttons/ExitButton
 
-export(Array, NodePath) var backgrounds: Array
+export(Array, PackedScene) var backgrounds: Array
 
 var background
 
 func _ready() -> void:
 	if OS.has_feature("HTML5"):
 		ExitButton.visible = false
-	
-	if !backgrounds.empty():
-		background = get_node(backgrounds[randi() % backgrounds.size()])
-		background._visible = true
 
 func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	._state_enter(previous_state, params)
+	
+	if !backgrounds.empty():
+		background = backgrounds[randi() % backgrounds.size()].instance()
+		add_child(background)
 
 	if PlayState.has_save_data():
 		ContinueButton.grab_focus()
 	else:
 		ContinueButton.disabled = true
 		ContinueButton.focus_mode = Control.FOCUS_NONE
+	
+	if "credits" in params:
+		Transition.end()
+		$Content.visible = false
+		$Credits.start_scroll()
+		$Credits.visible = true
 
 func _state_exit(next_state: State, params: Dictionary = {}) -> void:
 	._state_exit(next_state, params)
-	background._visible = false
+	remove_child(background)
+	background.queue_free()
 
 func start_game(enter_play_mode: int = PlayState.EnterPlayMode.NEW_GAME) -> void:
 	Transition.start("fade")
 	yield(Transition, "transition_finished")
-	state_machine._pop_push(PlayState, {"enter_play_mode": enter_play_mode})
+	state_machine._push_state(PlayState, {"enter_play_mode": enter_play_mode})
 
 func can_press() -> bool:
 	return !Transition.is_playing()

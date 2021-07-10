@@ -1,26 +1,11 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://maps/backgrounds/dungeon/textures/background.png" type="Texture" id=1]
+[ext_resource path="res://ui/game_states/DungeonBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/game_states/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://ui/general/textures/gui.png" type="Texture" id=3]
 [ext_resource path="res://ui/general/Button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/general/fonts/bitmgothic.tres" type="DynamicFont" id=5]
-[ext_resource path="res://maps/backgrounds/dungeon/textures/castle.png" type="Texture" id=6]
-[ext_resource path="res://maps/backgrounds/dungeon/textures/mountain2.png" type="Texture" id=7]
-[ext_resource path="res://maps/backgrounds/dungeon/textures/background_mountains.png" type="Texture" id=8]
-[ext_resource path="res://maps/backgrounds/dungeon/textures/mountain1.png" type="Texture" id=9]
-[ext_resource path="res://maps/backgrounds/dungeon/textures/clouds.png" type="Texture" id=10]
-[ext_resource path="res://maps/backgrounds/AutoScroll.gd" type="Script" id=11]
-[ext_resource path="res://ui/game_states/BackgroundEnable.gd" type="Script" id=12]
-[ext_resource path="res://maps/backgrounds/forest/textures/background.png" type="Texture" id=13]
-[ext_resource path="res://maps/backgrounds/forest/textures/mountains2.png" type="Texture" id=14]
-[ext_resource path="res://maps/backgrounds/forest/textures/stars_extra_small.png" type="Texture" id=15]
-[ext_resource path="res://maps/backgrounds/forest/textures/stars_large.png" type="Texture" id=16]
-[ext_resource path="res://maps/backgrounds/forest/textures/mountains1.png" type="Texture" id=17]
-[ext_resource path="res://maps/backgrounds/forest/textures/moon.png" type="Texture" id=18]
-[ext_resource path="res://maps/backgrounds/forest/textures/stars.png" type="Texture" id=19]
-[ext_resource path="res://maps/backgrounds/forest/textures/stars_small.png" type="Texture" id=20]
-[ext_resource path="res://maps/backgrounds/forest/textures/mountains3.png" type="Texture" id=21]
+[ext_resource path="res://ui/game_states/ForestBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/general/VolumeSlider.tscn" type="PackedScene" id=22]
 [ext_resource path="res://ui/general/fonts/HeartbitXX.ttf" type="DynamicFontData" id=23]
 [ext_resource path="res://ui/game_states/Credits.tscn" type="PackedScene" id=24]
@@ -83,7 +68,7 @@ __meta__ = {
 }
 pause_game = true
 default_focus_path = NodePath("Content/Buttons/NewGameButton")
-backgrounds = [ NodePath("DungeonBackground"), NodePath("ForestBackground") ]
+backgrounds = [ ExtResource( 1 ), ExtResource( 6 ) ]
 
 [node name="Credits" parent="." instance=ExtResource( 24 )]
 visible = false
@@ -230,134 +215,6 @@ focus_next = NodePath("../ContinueButton")
 focus_previous = NodePath("../SoundSlider")
 size_flags_horizontal = 3
 audio_bus_name = "Music"
-
-[node name="DungeonBackground" type="ParallaxBackground" parent="."]
-script = ExtResource( 12 )
-_visible = false
-
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="DungeonBackground"]
-visible = false
-position = Vector2( 86.4296, 134.974 )
-motion_scale = Vector2( 0, 0 )
-motion_mirroring = Vector2( 1080, 0 )
-
-[node name="Background" type="Sprite" parent="DungeonBackground/ParallaxLayer5"]
-texture = ExtResource( 1 )
-
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="DungeonBackground"]
-visible = false
-position = Vector2( 86.4296, 134.974 )
-motion_scale = Vector2( 0.005, 0 )
-motion_mirroring = Vector2( 1080, 0 )
-
-[node name="BackgroundMountains" type="Sprite" parent="DungeonBackground/ParallaxLayer4"]
-texture = ExtResource( 8 )
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="DungeonBackground"]
-visible = false
-position = Vector2( 86.4296, 134.974 )
-motion_scale = Vector2( 0.01, 0 )
-motion_mirroring = Vector2( 1080, 0 )
-script = ExtResource( 11 )
-
-[node name="Clouds" type="Sprite" parent="DungeonBackground/ParallaxLayer3"]
-texture = ExtResource( 10 )
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="DungeonBackground"]
-visible = false
-position = Vector2( 86.4296, 134.974 )
-motion_scale = Vector2( 0.02, 0 )
-motion_mirroring = Vector2( 1080, 0 )
-
-[node name="Mountains2" type="Sprite" parent="DungeonBackground/ParallaxLayer2"]
-texture = ExtResource( 7 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="DungeonBackground"]
-visible = false
-position = Vector2( 86.4296, 134.974 )
-motion_scale = Vector2( 0.05, 0 )
-motion_mirroring = Vector2( 1080, 0 )
-
-[node name="Castle" type="Sprite" parent="DungeonBackground/ParallaxLayer"]
-texture = ExtResource( 6 )
-
-[node name="Mountains1" type="Sprite" parent="DungeonBackground/ParallaxLayer"]
-texture = ExtResource( 9 )
-
-[node name="ForestBackground" type="ParallaxBackground" parent="."]
-scale = Vector2( 0.7, 0.7 )
-transform = Transform2D( 0.7, 0, 0, 0.7, 0, 0 )
-script = ExtResource( 12 )
-_visible = false
-
-[node name="ParallaxLayer6" type="ParallaxLayer" parent="ForestBackground"]
-visible = false
-position = Vector2( 184.286, 192.064 )
-motion_scale = Vector2( 0, 0 )
-motion_mirroring = Vector2( 1080, 0 )
-
-[node name="Background" type="Sprite" parent="ForestBackground/ParallaxLayer6"]
-texture = ExtResource( 13 )
-
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="ForestBackground"]
-visible = false
-position = Vector2( -211.429, 200.635 )
-motion_scale = Vector2( 0.003, 0 )
-motion_mirroring = Vector2( 1080, 0 )
-script = ExtResource( 11 )
-speed = 1.2
-
-[node name="StarsExtraSmall" type="Sprite" parent="ForestBackground/ParallaxLayer5"]
-texture = ExtResource( 15 )
-
-[node name="StarsSmall" type="Sprite" parent="ForestBackground/ParallaxLayer5"]
-texture = ExtResource( 20 )
-
-[node name="Stars" type="Sprite" parent="ForestBackground/ParallaxLayer5"]
-texture = ExtResource( 19 )
-
-[node name="StarsLarge" type="Sprite" parent="ForestBackground/ParallaxLayer5"]
-visible = false
-texture = ExtResource( 16 )
-
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ForestBackground"]
-visible = false
-position = Vector2( 416.429, 192.064 )
-motion_scale = Vector2( 0.005, 0 )
-motion_mirroring = Vector2( 1080, 0 )
-script = ExtResource( 11 )
-speed = 1.8
-
-[node name="Moon" type="Sprite" parent="ForestBackground/ParallaxLayer4"]
-position = Vector2( -540, -26.4286 )
-texture = ExtResource( 18 )
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ForestBackground"]
-visible = false
-position = Vector2( 42.1429, 192.064 )
-motion_scale = Vector2( 0.01, 0 )
-motion_mirroring = Vector2( 1080, 0 )
-
-[node name="Mountains1" type="Sprite" parent="ForestBackground/ParallaxLayer3"]
-texture = ExtResource( 17 )
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ForestBackground"]
-visible = false
-position = Vector2( 270.714, 192.064 )
-motion_scale = Vector2( 0.02, 0 )
-motion_mirroring = Vector2( 1080, 0 )
-
-[node name="Mountains2" type="Sprite" parent="ForestBackground/ParallaxLayer2"]
-texture = ExtResource( 14 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ForestBackground"]
-visible = false
-position = Vector2( 184.286, 192.064 )
-motion_scale = Vector2( 0.05, 0 )
-motion_mirroring = Vector2( 1080, 0 )
-
-[node name="Mountains3" type="Sprite" parent="ForestBackground/ParallaxLayer"]
-texture = ExtResource( 21 )
 
 [connection signal="scroll_finished" from="Credits" to="." method="on_credits_finished"]
 [connection signal="pressed" from="Content/Buttons/ContinueButton" to="." method="on_continue_pressed"]
