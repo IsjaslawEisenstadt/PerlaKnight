@@ -30,7 +30,7 @@ shader_param/ColorAdd = Color( 0, 0, 0, 1 )
 resource_local_to_scene = true
 extents = Vector2( 10.5, 9.5 )
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=3]
 resource_name = "hurt"
 length = 0.4
 tracks/0/type = "value"
@@ -46,19 +46,19 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0.498039, 0.498039, 0.498039, 1 ), Color( 0, 0, 0, 1 ), Color( 0.498039, 0.498039, 0.498039, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="RayShape2D" id=3]
+[sub_resource type="RayShape2D" id=4]
 resource_local_to_scene = true
 length = 8.0
 
-[sub_resource type="RayShape2D" id=4]
+[sub_resource type="RayShape2D" id=5]
 resource_local_to_scene = true
 length = 1.0
 
-[sub_resource type="RayShape2D" id=5]
+[sub_resource type="RayShape2D" id=6]
 resource_local_to_scene = true
 length = 16.0
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=7]
 resource_local_to_scene = true
 radius = 120.0
 
@@ -67,31 +67,29 @@ radius = 120.0
 [node name="Sprite" parent="." index="0"]
 light_mask = 0
 material = SubResource( 1 )
-offset = Vector2( 0, -8 )
-frame = 37
 
 [node name="CollisionShape2D" parent="." index="1"]
 visible = false
 shape = SubResource( 2 )
 
 [node name="HurtPlayer" parent="." index="3"]
-anims/hurt = SubResource( 7 )
+anims/hurt = SubResource( 3 )
 kickback_strength = 550.0
 
 [node name="DeathState" parent="StateMachine" index="1"]
 force_animation = true
 
 [node name="CollisionShape2D" parent="Colliders/Perception/Edge" index="0"]
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D" parent="Colliders/Perception/Ground" index="0"]
 shape = SubResource( 4 )
 
-[node name="CollisionShape2D" parent="Colliders/Perception/Wall" index="0"]
+[node name="CollisionShape2D" parent="Colliders/Perception/Ground" index="0"]
 shape = SubResource( 5 )
 
-[node name="CollisionShape2D" parent="Colliders/Perception/Sight" index="0"]
+[node name="CollisionShape2D" parent="Colliders/Perception/Wall" index="0"]
 shape = SubResource( 6 )
+
+[node name="CollisionShape2D" parent="Colliders/Perception/Sight" index="0"]
+shape = SubResource( 7 )
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" index="0"]
 position = Vector2( 0, 1 )
@@ -125,6 +123,7 @@ sounds = [ ExtResource( 16 ), ExtResource( 14 ), ExtResource( 17 ), ExtResource(
 [node name="Hurt" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
 stream = ExtResource( 20 )
 volume_db = -8.0
+bus = "Sound"
 script = ExtResource( 5 )
 sounds = [ ExtResource( 19 ), ExtResource( 20 ) ]
 
