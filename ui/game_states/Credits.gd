@@ -13,7 +13,7 @@ func _ready() -> void:
 	visible = false
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("pause"):
+	if visible && Input.is_action_just_pressed("pause"):
 		emit_signal("scroll_finished")
 
 func start_scroll() -> void:

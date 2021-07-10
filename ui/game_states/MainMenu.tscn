@@ -86,6 +86,7 @@ default_focus_path = NodePath("Content/Buttons/NewGameButton")
 backgrounds = [ NodePath("DungeonBackground"), NodePath("ForestBackground") ]
 
 [node name="Credits" parent="." instance=ExtResource( 24 )]
+visible = false
 
 [node name="Content" type="Control" parent="."]
 anchor_right = 1.0
