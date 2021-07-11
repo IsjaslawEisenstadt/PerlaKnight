@@ -1,4 +1,4 @@
-extends Node2D
+extends Interaction
 class_name Portal
 
 onready var StartWaypoint := $StartWaypoint
@@ -13,6 +13,10 @@ func _ready() -> void:
 	$Runes.visible = false
 	$PlayerMask.visible = false
 
-func on_interacted(interaction: Interaction, with: Player) -> void:
-	if with:
-		with.start_sequence(self)
+func _interact(character: Player) -> void:
+	if character:
+		character.start_sequence(self)
+	._interact(character)
+
+func _can_interact(_character) -> bool:
+	return !$Runes.visible

@@ -6,6 +6,7 @@ signal save_requested()
 signal transition_requested(level_name, target_name)
 # warning-ignore:unused_signal
 signal restore_requested()
+# warning-ignore:unused_signal
 signal end_requested()
 
 # this is pretty hacky, but it saves us from storing filepaths in our savefiles

@@ -9,6 +9,7 @@ enum SequenceState {
 }
 
 export var waypoint_distance_epsilon: float = 5.0
+export var wait_time: float = 1.5
 
 var portal: Portal
 var current_state: int
@@ -46,6 +47,7 @@ func start_waiting() -> void:
 	portal.AnimationPlayer.play("open")
 	yield(portal.AnimationPlayer, "animation_finished")
 	portal.AnimationPlayer.play("idle")
+	yield(get_tree().create_timer(wait_time, false), "timeout")
 	current_state = SequenceState.WALKING_INTO_PORTAL
 	input_controller.activate_action("move_right")
 
