@@ -19,11 +19,11 @@
 [ext_resource path="res://utility/audio_player/AudioPlayer.gd" type="Script" id=17]
 [ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_004.wav" type="AudioStream" id=18]
 [ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_002.wav" type="AudioStream" id=19]
-[ext_resource path="res://characters/player/sounds/voice/jump1.wav" type="AudioStream" id=20]
+[ext_resource path="res://characters/player/sounds/voice/attack_monika_01.wav" type="AudioStream" id=20]
 [ext_resource path="res://characters/player/PlayerDialogueSequence.gd" type="Script" id=21]
 [ext_resource path="res://characters/player/sounds/swoosh.wav" type="AudioStream" id=22]
 [ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_011.wav" type="AudioStream" id=23]
-[ext_resource path="res://characters/player/sounds/voice/hurt4.wav" type="AudioStream" id=24]
+[ext_resource path="res://characters/player/sounds/voice/hurt_monika_04.wav" type="AudioStream" id=24]
 [ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_006.wav" type="AudioStream" id=25]
 [ext_resource path="res://characters/player/sounds/footsteps_stone/fst_stone_015.wav" type="AudioStream" id=26]
 [ext_resource path="res://utility/audio_player/ChangeAudioPlayer.gd" type="Script" id=27]
@@ -57,22 +57,22 @@
 [ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_004.wav" type="AudioStream" id=55]
 [ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_010.wav" type="AudioStream" id=56]
 [ext_resource path="res://characters/player/sounds/footsteps_grass/fst_grass_015.wav" type="AudioStream" id=57]
-[ext_resource path="res://characters/player/sounds/voice/hurt1.wav" type="AudioStream" id=58]
-[ext_resource path="res://characters/player/sounds/voice/hurt2.wav" type="AudioStream" id=59]
-[ext_resource path="res://characters/player/sounds/voice/hurt3.wav" type="AudioStream" id=60]
-[ext_resource path="res://characters/player/sounds/voice/jump4.wav" type="AudioStream" id=61]
-[ext_resource path="res://characters/player/sounds/voice/jump2.wav" type="AudioStream" id=62]
-[ext_resource path="res://characters/player/sounds/voice/jump3.wav" type="AudioStream" id=63]
-[ext_resource path="res://characters/player/sounds/voice/jump5.wav" type="AudioStream" id=64]
-[ext_resource path="res://characters/player/sounds/voice/death3.wav" type="AudioStream" id=65]
-[ext_resource path="res://characters/player/sounds/voice/jump6.wav" type="AudioStream" id=66]
-[ext_resource path="res://characters/player/sounds/voice/death5.wav" type="AudioStream" id=67]
-[ext_resource path="res://characters/player/sounds/voice/attack2.wav" type="AudioStream" id=68]
-[ext_resource path="res://characters/player/sounds/voice/attack1.wav" type="AudioStream" id=69]
-[ext_resource path="res://characters/player/sounds/voice/death2.wav" type="AudioStream" id=70]
-[ext_resource path="res://characters/player/sounds/voice/attack3.wav" type="AudioStream" id=71]
-[ext_resource path="res://characters/player/sounds/voice/death4.wav" type="AudioStream" id=72]
+[ext_resource path="res://characters/player/sounds/voice/death_monika_05.wav" type="AudioStream" id=58]
+[ext_resource path="res://characters/player/sounds/voice/dash_monika_02.wav" type="AudioStream" id=59]
+[ext_resource path="res://characters/player/sounds/voice/attack_monika_03.wav" type="AudioStream" id=60]
+[ext_resource path="res://characters/player/sounds/voice/jump_monika_03.wav" type="AudioStream" id=61]
+[ext_resource path="res://characters/player/sounds/voice/death_monika_02.wav" type="AudioStream" id=62]
+[ext_resource path="res://characters/player/sounds/voice/death_monika_04.wav" type="AudioStream" id=63]
+[ext_resource path="res://characters/player/sounds/voice/hurt_monika_02.wav" type="AudioStream" id=64]
+[ext_resource path="res://characters/player/sounds/voice/hurt_monika_03.wav" type="AudioStream" id=65]
+[ext_resource path="res://characters/player/sounds/voice/jump_monika_01.wav" type="AudioStream" id=67]
+[ext_resource path="res://characters/player/sounds/voice/attack_monika_02.wav" type="AudioStream" id=68]
+[ext_resource path="res://characters/player/sounds/voice/death_monika_03.wav" type="AudioStream" id=69]
+[ext_resource path="res://characters/player/sounds/voice/dash_monika_01.wav" type="AudioStream" id=70]
+[ext_resource path="res://characters/player/sounds/voice/dash_monika_03.wav" type="AudioStream" id=71]
+[ext_resource path="res://characters/player/sounds/voice/jump_monika_02.wav" type="AudioStream" id=72]
 [ext_resource path="res://characters/player/PortalSequence.gd" type="Script" id=73]
+[ext_resource path="res://characters/player/sounds/voice/hurt_monika_01.wav" type="AudioStream" id=74]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -873,32 +873,32 @@ sound_dir = "res://characters/player/sounds/footsteps_stone"
 sounds = [ ExtResource( 36 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 18 ), ExtResource( 33 ), ExtResource( 25 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 34 ), ExtResource( 43 ), ExtResource( 23 ), ExtResource( 41 ), ExtResource( 35 ), ExtResource( 37 ), ExtResource( 26 ), ExtResource( 32 ) ]
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="Sounds" index="2"]
-stream = ExtResource( 63 )
+stream = ExtResource( 61 )
 bus = "Sound"
 script = ExtResource( 16 )
-sounds = [ ExtResource( 20 ), ExtResource( 63 ), ExtResource( 61 ) ]
+sounds = [ ExtResource( 67 ), ExtResource( 72 ), ExtResource( 61 ) ]
 
 [node name="Attack" type="AudioStreamPlayer2D" parent="Sounds" index="3"]
-stream = ExtResource( 30 )
-volume_db = -5.0
+stream = ExtResource( 31 )
+volume_db = -3.0
 bus = "Sound"
 script = ExtResource( 16 )
 next_sound_path = NodePath("../AttackVoice")
 sounds = [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 31 ) ]
 
 [node name="AttackVoice" type="AudioStreamPlayer2D" parent="Sounds" index="4"]
-stream = ExtResource( 30 )
+stream = ExtResource( 60 )
 volume_db = -5.0
 bus = "Sound"
 script = ExtResource( 16 )
-sounds = [ ExtResource( 69 ), ExtResource( 68 ), ExtResource( 71 ) ]
+sounds = [ ExtResource( 20 ), ExtResource( 68 ), ExtResource( 60 ) ]
 
 [node name="Death" type="AudioStreamPlayer2D" parent="Sounds" index="5"]
-stream = ExtResource( 30 )
+stream = ExtResource( 62 )
 volume_db = -5.0
 bus = "Sound"
 script = ExtResource( 16 )
-sounds = [ ExtResource( 70 ), ExtResource( 65 ), ExtResource( 72 ), ExtResource( 67 ) ]
+sounds = [ ExtResource( 62 ), ExtResource( 69 ), ExtResource( 63 ), ExtResource( 58 ) ]
 
 [node name="Swoosh" type="AudioStreamPlayer2D" parent="Sounds" index="6"]
 stream = ExtResource( 22 )
@@ -907,19 +907,19 @@ bus = "Sound"
 script = ExtResource( 17 )
 
 [node name="Dash" type="AudioStreamPlayer2D" parent="Sounds" index="7"]
-stream = ExtResource( 62 )
+stream = ExtResource( 59 )
 volume_db = -6.067
 bus = "Sound"
 script = ExtResource( 27 )
 next_sound_path = NodePath("../Swoosh")
-sounds = [ ExtResource( 62 ), ExtResource( 64 ), ExtResource( 66 ) ]
+sounds = [ ExtResource( 70 ), ExtResource( 59 ), ExtResource( 71 ) ]
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="Sounds" index="8"]
-stream = ExtResource( 24 )
+stream = ExtResource( 64 )
 volume_db = -7.0
 bus = "Sound"
 script = ExtResource( 16 )
-sounds = [ ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ), ExtResource( 24 ) ]
+sounds = [ ExtResource( 74 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 24 ) ]
 
 [node name="DialogueBoxPosition" parent="." index="9"]
 position = Vector2( 0, -44 )

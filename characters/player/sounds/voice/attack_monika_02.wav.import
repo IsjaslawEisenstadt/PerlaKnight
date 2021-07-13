@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/attack_monika_02.wav-97188a95d4efb48c0bb4364894c72fb7.sample"
+
+[deps]
+
+source_file="res://characters/player/sounds/voice/attack_monika_02.wav"
+dest_files=[ "res://.import/attack_monika_02.wav-97188a95d4efb48c0bb4364894c72fb7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

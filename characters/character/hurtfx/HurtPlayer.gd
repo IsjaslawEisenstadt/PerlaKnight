@@ -31,7 +31,8 @@ func hurt(attacker: Node2D) -> void:
 	
 	Host.play_animation(hurt_animation_name)
 	
-	Host.play_sound(hurt_sound)
+	if Host.current_health > 0:
+		Host.play_sound(hurt_sound)
 	
 	if has_animation(hurt_animation_name):
 		play(hurt_animation_name)

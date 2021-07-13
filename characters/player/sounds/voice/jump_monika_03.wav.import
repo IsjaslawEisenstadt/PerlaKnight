@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jump_monika_03.wav-a6710937813fd1764910bab0fbd788df.sample"
+
+[deps]
+
+source_file="res://characters/player/sounds/voice/jump_monika_03.wav"
+dest_files=[ "res://.import/jump_monika_03.wav-a6710937813fd1764910bab0fbd788df.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

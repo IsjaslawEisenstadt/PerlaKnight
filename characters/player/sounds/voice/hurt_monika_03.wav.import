@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hurt_monika_03.wav-8110eee6b4ce7cced1d731e11f26a92d.sample"
+
+[deps]
+
+source_file="res://characters/player/sounds/voice/hurt_monika_03.wav"
+dest_files=[ "res://.import/hurt_monika_03.wav-8110eee6b4ce7cced1d731e11f26a92d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
