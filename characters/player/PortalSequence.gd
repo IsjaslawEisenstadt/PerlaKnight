@@ -11,7 +11,7 @@ enum SequenceState {
 export var waypoint_distance_epsilon: float = 5.0
 export var wait_time: float = 1.5
 
-var portal: Portal
+var portal: CustomPortal
 var current_state: int
 
 func _state_enter(_previous_state: State, params: Dictionary = {}) -> void:
@@ -58,4 +58,4 @@ func end() -> void:
 	host.emit_signal("end_requested")
 
 func _does_handle(object) -> bool:
-	return object is Portal
+	return object is CustomPortal

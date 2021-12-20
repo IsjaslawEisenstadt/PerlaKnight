@@ -1,5 +1,5 @@
 extends Interaction
-class_name Portal
+class_name CustomPortal
 
 onready var StartWaypoint := $StartWaypoint
 onready var EndWaypoint := $EndWaypoint

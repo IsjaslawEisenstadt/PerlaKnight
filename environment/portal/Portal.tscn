@@ -7,7 +7,7 @@
 [ext_resource path="res://utility/interaction/Interaction.tscn" type="PackedScene" id=5]
 [ext_resource path="res://environment/portal/textures/portal_gate_foreground.png" type="Texture" id=7]
 [ext_resource path="res://environment/portal/textures/rect_mask.png" type="Texture" id=8]
-[ext_resource path="res://environment/portal/Portal.gd" type="Script" id=11]
+[ext_resource path="res://environment/portal/CustomPortal.gd" type="Script" id=11]
 [ext_resource path="res://environment/runes/textures/runes.png" type="Texture" id=12]
 [ext_resource path="res://environment/portal/textures/portal_activation.png" type="Texture" id=13]
 

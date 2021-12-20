@@ -6,6 +6,8 @@ Various utility functions
 
 func _ready():
 	randomize()
+	
+	Engine.iterations_per_second = 144
 
 # returns a random integer in the given range, since godot lacks a built-in function for this
 func randi_range(from: int, to: int) -> int:

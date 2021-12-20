@@ -45,11 +45,11 @@ func _state_enter(previous_state: State, params: Dictionary = {}) -> void:
 	current_move_damping = move_damping
 	current_move_direction = host.InputController._get_move_direction()
 
-func move(delta: float):
+func move(_delta: float):
 	host.velocity.x += current_move_speed * current_move_direction
-	host.velocity.x *= pow(1.0 - current_move_damping, delta * 10.0)
+	host.velocity.x *= pow(1.0 - current_move_damping, 1.0 / 6.0)
 	
-	host.kickback_velocity *= pow(1.0 - 0.5, delta * 10.0)
+	host.kickback_velocity *= pow(1.0 - 0.5, 1.0 / 6.0)
 
 # adds gravity to the host velocity
 # can optionally gravitate towards the floor angle instead of straight down
